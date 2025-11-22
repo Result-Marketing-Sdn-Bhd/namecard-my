@@ -1,0 +1,52 @@
+{
+  "name": "namecard-my",
+  "version": "1.0.0",
+  "description": "Smart networking app for digital business card management",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build": "expo build",
+    "migrate": "node database/migrate.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "networking",
+    "business-cards",
+    "mobile-app",
+    "react-native",
+    "expo",
+    "supabase"
+  ],
+  "author": "NAMECARD.MY Team",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "expo": "~49.0.0",
+    "react": "18.2.0",
+    "react-native": "0.72.0",
+    "@supabase/supabase-js": "^2.38.0",
+    "react-navigation": "^6.0.0",
+    "expo-qr-code": "~12.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "~18.2.0",
+    "@types/react-native": "~0.72.0",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jacobngai/namecard-my.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jacobngai/namecard-my/issues"
+  },
+  "homepage": "https://github.com/Jacobngai/namecard-my#readme"
+}
