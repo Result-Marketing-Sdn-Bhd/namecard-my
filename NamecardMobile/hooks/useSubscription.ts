@@ -119,7 +119,6 @@ export const useSubscription = (): UseSubscriptionReturn => {
 
   /**
    * Purchase a subscription
-   * Note: Promo codes are handled by App Store/Play Store checkout (store-only approach)
    */
   const purchaseSubscription = useCallback(
     async (plan: SubscriptionPlan): Promise<boolean> => {

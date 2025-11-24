@@ -2,11 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 🚨 CRITICAL: IMMUTABLE SUBSCRIPTION PRODUCT IDs
+## 🚨 CRITICAL: Immutable App Identifiers
 
-**⚠️ THESE PRODUCT IDs ARE PERMANENTLY LOCKED - NEVER CHANGE THEM! ⚠️**
+**⚠️ THESE IDENTIFIERS ARE PERMANENTLY LOCKED - NEVER CHANGE THEM! ⚠️**
 
-### **Google Play (Android) - Package: com.resultmarketing.whatscard**
+### **1. Subscription Product IDs**
+
+#### **Google Play (Android) - Package: com.whatscard.app**
 ```typescript
 // ❌ IMMUTABLE - Cannot be changed without new app submission
 PRODUCTS: {
@@ -17,7 +19,7 @@ PRODUCTS: {
 }
 ```
 
-### **App Store (iOS) - Bundle: com.alittlebetter.better**
+#### **App Store (iOS) - Bundle: com.whatscard.app**
 ```typescript
 // ❌ IMMUTABLE - Cannot be changed without new app submission
 PRODUCTS: {
@@ -28,25 +30,25 @@ PRODUCTS: {
 }
 ```
 
-### **Why These IDs Are IMMUTABLE:**
+**Why These Product IDs Are IMMUTABLE:**
 1. **Google Play/App Store**: Once created, Product IDs CANNOT be deleted or renamed
 2. **User Purchases**: Existing subscribers are linked to these IDs forever
 3. **Code References**: Changing IDs requires updating code + new AAB/IPA upload
 4. **Revenue Tracking**: Historical revenue data is tied to these IDs
 
-### **What You CAN Change (Without Code Changes):**
+**What You CAN Change (Without Code Changes):**
 - ✅ Subscription prices (RM 199 → RM 149)
 - ✅ Free trial duration (3 days → 7 days)
 - ✅ Offer terms and conditions
 - ✅ Localized names and descriptions
 - ✅ Availability (countries/territories)
 
-### **What REQUIRES Code Changes + Re-upload:**
+**What REQUIRES Code Changes + Re-upload:**
 - ❌ Product IDs (monthly_premium_subscription → monthly_v2)
 - ❌ Adding new tiers (adding 'lifetime' subscription)
 - ❌ Package/Bundle ID changes
 
-### **File Locations Using These IDs:**
+**File Locations Using These IDs:**
 ```
 NamecardMobile/
 ├── config/iap-config.ts         ← Product IDs defined here
@@ -56,7 +58,64 @@ NamecardMobile/
 └── hooks/useSubscription.ts      ← Subscription hook
 ```
 
-**🔒 IF YOU CHANGE THESE IDs, THE APP WILL BREAK FOR ALL EXISTING USERS! 🔒**
+---
+
+### **2. Package Names & Bundle Identifiers**
+
+#### **Android Package Name (IMMUTABLE)**
+```
+Package: com.whatscard.app
+```
+**This CANNOT be changed after first Google Play upload!**
+
+#### **iOS Bundle Identifier (IMMUTABLE)**
+```
+Bundle ID: com.whatscard.app
+App ID: 6754809694
+```
+**This CANNOT be changed after first App Store upload!**
+
+---
+
+### **3. Android Keystore (IMMUTABLE)**
+
+```
+SHA-1: BD:10:12:2C:87:05:7A:45:3F:6E:F1:2F:51:EB:FB:84:28:0B:77:5F
+Key Alias: c90c9e3fc4759b4ccac8f5f02db96e87
+Package: com.whatscard.app
+Location: Expo Dashboard → com.whatscard.app package
+Backup: C:\Users\walte\Documents\WhatsCard\Keystores\whatscard-production.jks
+```
+
+**This keystore MUST be used for ALL Android builds forever!**
+
+**Keystore Location:**
+```
+Expo Dashboard: https://expo.dev/accounts/jacobai/projects/namecard-my/credentials
+Application: com.whatscard.app ✅ CORRECT PACKAGE
+Backup: C:\Users\walte\Documents\WhatsCard\Keystores\whatscard-production.jks
+```
+
+---
+
+### **Why These Identifiers Are IMMUTABLE:**
+
+1. **Google Play Lock**: First upload locks package name AND keystore fingerprint forever
+2. **App Store Lock**: First upload locks bundle identifier forever
+3. **Cannot Change**: Changing any requires publishing a COMPLETELY NEW APP
+4. **User Impact**: Existing users cannot update if identifiers change
+5. **Revenue Loss**: Lose all reviews, downloads, subscriptions, revenue history
+
+### **How to Ensure Consistency:**
+
+1. ✅ **ALWAYS verify** package name in app.json = `com.whatscard.app`
+2. ✅ **ALWAYS check** Expo dashboard uses keystore SHA-1: `BD:10:12...`
+3. ✅ **BACKUP keystore** to: `C:\Users\walte\Documents\WhatsCard\Keystores\`
+4. ✅ **NEVER delete** keystore from Expo dashboard
+5. ✅ **NEVER change** package/bundle IDs in app.json
+
+**🔒 CHANGING ANY OF THESE IDENTIFIERS = APP BREAKS FOR ALL EXISTING USERS! 🔒**
+**🔒 LOSING THE KEYSTORE = LOSING ACCESS TO GOOGLE PLAY APP FOREVER! 🔒**
 
 ---
 
@@ -192,60 +251,6 @@ WhatsCard uses a **Store-Only** promo code approach, meaning:
 
 ---
 
-## 🚨 CRITICAL: ANDROID KEYSTORE & PACKAGE NAME
-
-**⚠️ THESE ARE PERMANENTLY LOCKED - NEVER CHANGE! ⚠️**
-
-### **Android Package Name (IMMUTABLE)**
-```
-Package: com.whatscard.app
-```
-
-**This CANNOT be changed after first Google Play upload!**
-
-### **iOS Bundle Identifier (IMMUTABLE)**
-```
-Bundle ID: com.whatscard.app
-App ID: 6754809694
-```
-
-**This CANNOT be changed after first App Store upload!**
-
-### **Android Keystore (IMMUTABLE)**
-```
-SHA-1: BD:10:12:2C:87:05:7A:45:3F:6E:F1:2F:51:EB:FB:84:28:0B:77:5F
-Key Alias: c90c9e3fc4759b4ccac8f5f02db96e87
-Package: com.whatscard.app
-Location: Expo Dashboard → com.whatscard.app package
-Backup: C:\Users\walte\Documents\WhatsCard\Keystores\whatscard-production.jks
-```
-
-**This keystore MUST be used for ALL Android builds forever!**
-
-### **Why These Are IMMUTABLE:**
-1. **Google Play Lock:** First upload locks both package name AND keystore fingerprint
-2. **Cannot Change:** Changing either requires publishing a COMPLETELY NEW APP
-3. **User Impact:** Existing users cannot update if keystore changes
-4. **Revenue Loss:** Lose all reviews, downloads, subscriptions
-
-### **How to Ensure Consistency:**
-1. ✅ **ALWAYS verify** package name in app.json = `com.whatscard.app`
-2. ✅ **ALWAYS check** Expo dashboard uses keystore SHA-1: `BD:10:12...`
-3. ✅ **BACKUP keystore** to: `C:\Users\walte\Documents\WhatsCard\Keystores\`
-4. ✅ **NEVER delete** keystore from Expo dashboard
-5. ✅ **NEVER change** package name in app.json
-
-### **Keystore Location:**
-```
-Expo Dashboard: https://expo.dev/accounts/jacobai/projects/namecard-my/credentials
-Application: com.whatscard.app ✅ CORRECT PACKAGE
-Backup: C:\Users\walte\Documents\WhatsCard\Keystores\whatscard-production.jks
-```
-
-**🔒 LOSING THIS KEYSTORE = LOSING ACCESS TO GOOGLE PLAY APP FOREVER! 🔒**
-
----
-
 ## 🚨 CRITICAL: GOOGLE PLAY PHOTO/VIDEO PERMISSIONS POLICY (2024-2025)
 
 **⚠️ REQUIRED: Declare Photo/Video Permission Usage**
@@ -273,26 +278,6 @@ This permission is required by the expo-camera library for full camera functiona
 4. Cannot use Android Photo Picker (requires real-time camera)
 
 **Google Play will approve this because scanning is your PRIMARY feature!**
-
----
-
-## 🚨 CRITICAL: Supabase MCP Server Usage
-
-**MANDATORY RULE FOR ALL CLAUDE CODE SESSIONS:**
-
-**ALWAYS use the Supabase MCP server (configured in `.mcp.json`) for ALL database operations.**
-
-- ✅ **DO**: Use MCP tools to run SQL queries, inspect schemas, create tables, fix RLS policies
-- ❌ **DO NOT**: Create SQL files and ask the user to run them manually in Supabase Dashboard
-- ❌ **DO NOT**: Generate SQL scripts without executing them via MCP
-
-**When you see database errors (foreign key constraints, RLS policies, missing tables, etc.):**
-1. Use MCP to diagnose the issue
-2. Use MCP to run the fix directly on the database
-3. Use MCP to verify the fix worked
-4. Report success to the user
-
-**The user should NEVER need to open Supabase Dashboard to run SQL manually.**
 
 ---
 
@@ -571,47 +556,56 @@ Uses Supabase PostgreSQL with 5 main tables:
 - Database operations are simulated - needs Supabase implementation
 - Payment processing is conceptual - needs Stripe/RevenueCat integration
 
-## ⚡ MANDATORY POST-DEVELOPMENT VALIDATION
+## 🎯 Quality Assurance & Testing
 
-**CRITICAL RULE**: After EVERY code change, fix, or development task, Claude Code MUST:
+**CRITICAL RULE**: After EVERY code change, fix, or development task, Claude Code MUST validate code quality and functionality using multiple testing layers.
 
-### 1. Run Type Check
+---
+
+### **1. Mandatory Post-Development Validation**
+
+After every code change, run these checks in order:
+
+#### **Step 1: TypeScript Type Check**
 ```bash
 cd NamecardMobile && npm run type:check
 ```
 - If errors found → Fix them immediately
 - Re-run until no errors
 
-### 2. Run Tests
+#### **Step 2: Unit Tests**
 ```bash
 cd NamecardMobile && npm test
 ```
 - If tests fail → Fix them immediately
 - Re-run until all tests pass
 
-### 3. Manual Testing (Optional)
-- If needed, manually test in emulator by pressing 'a' (Android) or 'i' (iOS) in the Expo dev server
+#### **Step 3: End-to-End Testing (When Applicable)**
+- Use Playwright MCP for runtime validation
+- Test user interactions and workflows
+- Verify visual correctness with screenshots
+- Confirm no console errors
+
+#### **Step 4: Manual Testing (Optional)**
+- Test in emulator by pressing 'a' (Android) or 'i' (iOS)
 - Check for runtime errors
 - Verify the specific feature/fix works
-
-### 4. Auto-Fix Workflow
-
-If ANY errors are detected:
-
-```
-1. Capture the full error message
-2. Identify the root cause by reading relevant files
-3. Fix the code
-4. Re-run the failed step
-5. Repeat until no errors remain
-```
 
 **DO NOT** consider a task complete until:
 - ✅ TypeScript compiles without errors
 - ✅ All tests pass
+- ✅ Playwright E2E verification (when applicable)
 
-### Example Validation Session
+**Validation Checklist Template:**
 
+After every change, Claude Code should report:
+```
+✅ TypeScript: No errors
+✅ Tests: X/X passing
+✅ Playwright E2E: All interactions verified (if applicable)
+```
+
+**Example Validation Session:**
 ```
 User: "Add a new contact button to the header"
 
@@ -619,27 +613,17 @@ Claude Code should:
 1. Add the button component
 2. Run: npm run type:check → Fix any type errors
 3. Run: npm test → Fix any test failures
-4. Report: "✅ Button added, all checks pass"
+4. (If applicable) Use Playwright to verify button works
+5. Report: "✅ Button added, all checks pass"
 ```
-
-### Validation Checklist Template
-
-After every change, Claude Code should report:
-
-```
-✅ TypeScript: No errors
-✅ Tests: X/X passing
-```
-
-**This validation is NOT optional - it is mandatory for every code change.**
 
 ---
 
-## 🐛 Debugging & Error Fixing with Claude Code
+### **2. Debugging & Error Fixing Workflow**
 
-**IMPORTANT**: When errors occur during development, testing, or runtime, ALWAYS use Claude Code to debug and fix them immediately. Follow this workflow:
+**IMPORTANT**: When errors occur during development, testing, or runtime, ALWAYS use Claude Code to debug and fix them immediately.
 
-### Standard Debugging Workflow
+#### **Standard Debugging Workflow**
 
 1. **Capture the Error**
    - Copy the full error message from terminal/console
@@ -850,6 +834,187 @@ adb logcat | grep -i "error"
 
 **Remember**: Claude Code is your pair programmer. Don't struggle with errors alone - ask immediately and get instant fixes!
 
+---
+
+### **3. Automated QA with Playwright MCP**
+
+**CRITICAL INSTRUCTION**: When ANY error occurs (user reports error OR system detects error), Claude Code MUST automatically act as a QA agent using Playwright MCP to diagnose and fix the error.
+
+#### **Playwright MCP Server Configuration**
+
+The Playwright MCP server is configured in your project settings at `C:\Users\walte\.claude.json`.
+
+**Configuration:**
+```json
+{
+  "playwright": {
+    "command": "cmd",
+    "args": [
+      "/c",
+      "npx",
+      "-y",
+      "@playwright/mcp@latest",
+      "--browser",
+      "chrome",
+      "--viewport-size",
+      "1280x720"
+    ]
+  }
+}
+```
+
+#### **When to Use Playwright MCP (AUTOMATICALLY)**
+
+Claude Code MUST use Playwright MCP for:
+
+1. **Runtime Errors in Browser/App**
+   - UI components not rendering
+   - JavaScript errors in console
+   - API request failures
+   - Navigation issues
+   - Form submission errors
+
+2. **Visual/Layout Issues**
+   - Broken layouts
+   - Missing styles
+   - Responsive design problems
+   - Component alignment issues
+
+3. **User Interaction Errors**
+   - Buttons not working
+   - Forms not submitting
+   - Navigation broken
+   - Click handlers failing
+
+4. **Integration Testing**
+   - End-to-end workflow testing
+   - Multi-step user flows
+   - Cross-component interactions
+
+#### **Automated QA Error Handling Workflow**
+
+When user says: "I'm getting an error" or "This isn't working" or you detect an error:
+
+```
+STEP 1: ACKNOWLEDGE & PREPARE
+├─ "I'll use Playwright MCP to diagnose and fix this error"
+├─ Create todo list for systematic QA testing
+└─ Identify the error type and affected component
+
+STEP 2: AUTOMATED TESTING WITH PLAYWRIGHT
+├─ Use browser_goto to navigate to the affected page
+├─ Use browser_snapshot to get accessibility tree
+├─ Use browser_console_messages to check for errors
+├─ Use browser_screenshot to capture visual state
+└─ Use browser_click/browser_fill to reproduce the issue
+
+STEP 3: DIAGNOSE THE ROOT CAUSE
+├─ Analyze console errors
+├─ Check network requests
+├─ Inspect DOM structure
+├─ Identify broken code/logic
+└─ Document findings
+
+STEP 4: FIX THE ERROR
+├─ Read the relevant source files
+├─ Apply the fix using Edit tool
+├─ Update tests if needed
+└─ Run type:check and npm test
+
+STEP 5: VERIFY THE FIX WITH PLAYWRIGHT
+├─ Use browser_goto to navigate again
+├─ Use browser_click/browser_fill to test the fix
+├─ Use browser_console_messages to verify no errors
+├─ Use browser_screenshot to confirm visual correctness
+└─ Mark todo as completed
+
+STEP 6: REPORT SUCCESS
+└─ "✅ Error fixed and verified with Playwright testing!"
+```
+
+#### **Available Playwright MCP Tools**
+
+**Navigation & Inspection:**
+- `browser_goto(url)` - Navigate to a URL
+- `browser_snapshot()` - Get structured accessibility tree
+- `browser_console_messages()` - Retrieve console logs/errors
+- `browser_screenshot()` - Capture visual state
+
+**User Interaction:**
+- `browser_click(selector)` - Click elements
+- `browser_fill(selector, text)` - Fill form fields
+- `browser_scroll(direction)` - Scroll page content
+- `browser_drag(from, to)` - Drag and drop
+
+**Management:**
+- `browser_close()` - Close current page
+
+#### **Error Detection Triggers**
+
+Claude Code should AUTOMATICALLY activate Playwright QA mode when:
+
+1. **User explicitly reports an error**
+   - "This isn't working"
+   - "I'm getting an error"
+   - "The button is broken"
+   - "Nothing happens when I click"
+
+2. **User asks to debug/check something**
+   - "Check if the form works"
+   - "Test the login flow"
+   - "Verify the UI loads correctly"
+
+3. **After implementing new features**
+   - "I just added authentication, make sure it works"
+   - "Test the new contact form"
+
+4. **When TypeScript or tests fail**
+   - After fixing code errors, verify with Playwright that the UI works
+
+#### **Playwright Testing Best Practices**
+
+1. **Always start with browser_goto** - Navigate to the specific page/route
+2. **Use browser_snapshot for structure** - Get accessibility tree to understand UI
+3. **Check console messages** - Always run browser_console_messages() to catch errors
+4. **Take screenshots for visual verification** - Capture state before and after actions
+5. **Test complete user flows** - Test entire workflows (login → navigate → action → result)
+6. **Clean up after testing** - Use browser_close() when done
+
+#### **Mandatory QA Checklist**
+
+After EVERY fix, Claude Code MUST verify:
+```
+✅ Code fixed in source files
+✅ TypeScript type:check passes
+✅ Unit tests pass
+✅ Playwright navigation successful
+✅ No console errors
+✅ User interactions work
+✅ Visual state correct
+✅ Screenshot confirms fix
+```
+
+**DO NOT** consider an error "fixed" until ALL checklist items pass, including Playwright verification.
+
+#### **The Golden Rule of Error Handling**
+
+```
+WHEN ERROR OCCURS:
+  1. Don't just fix the code
+  2. USE PLAYWRIGHT MCP to:
+     - Reproduce the error
+     - Diagnose the root cause
+     - Verify the fix works
+     - Confirm no new errors introduced
+  3. Report success with evidence
+
+NEVER say "I've fixed it" without Playwright verification!
+```
+
+**Remember**: Playwright MCP is your QA automation tool. Use it religiously for every error, every fix, every new feature.
+
+---
+
 ## 🔧 Supabase MCP Server - MANDATORY USAGE
 
 **CRITICAL INSTRUCTION FOR CLAUDE CODE**:
@@ -1036,362 +1201,11 @@ When you ask Claude Code to perform Supabase operations, it will automatically u
 3. Uses MCP to verify the bucket was created
 4. Reports: "✅ Storage bucket 'contact-images' created successfully!"
 
-### Real-World Workflow
-
-```
-❌ OLD WAY (Manual):
-User: "Fix the database error"
-Claude: "Please run this SQL in Supabase Dashboard..."
-User: *Opens browser, logs into Supabase, copies SQL, runs it*
-
-✅ NEW WAY (Automatic with MCP):
-User: "Fix the database error"
-Claude: *Uses MCP to inspect, fix, and verify*
-Claude: "✅ Fixed! The error has been resolved."
-User: *Nothing to do - continues working*
-```
-
 ### Security Notes
 
 - **Service Role Key**: Has full admin access to your Supabase project
 - **Secure Storage**: Configuration file is stored in `.mcp.json` in the root directory
 - **Never commit**: Add `.mcp.json` to `.gitignore`
 - **Local only**: This configuration is for local development only
-
----
-
-## 🤖 AUTOMATED QA WITH PLAYWRIGHT MCP - MANDATORY ERROR HANDLING
-
-**CRITICAL INSTRUCTION FOR CLAUDE CODE**:
-
-**When ANY error occurs (user reports error OR system detects error), Claude Code MUST automatically act as a QA agent using Playwright MCP to diagnose and fix the error.**
-
-### Playwright MCP Server Configuration
-
-The Playwright MCP server is configured in your project settings at `C:\Users\walte\.claude.json` for the current project.
-
-**Configuration:**
-```json
-{
-  "playwright": {
-    "command": "cmd",
-    "args": [
-      "/c",
-      "npx",
-      "-y",
-      "@playwright/mcp@latest",
-      "--browser",
-      "chrome",
-      "--viewport-size",
-      "1280x720"
-    ]
-  }
-}
-```
-
-### When to Use Playwright MCP (AUTOMATICALLY)
-
-Claude Code MUST use Playwright MCP for:
-
-1. **Runtime Errors in Browser/App**
-   - UI components not rendering
-   - JavaScript errors in console
-   - API request failures
-   - Navigation issues
-   - Form submission errors
-
-2. **Visual/Layout Issues**
-   - Broken layouts
-   - Missing styles
-   - Responsive design problems
-   - Component alignment issues
-
-3. **User Interaction Errors**
-   - Buttons not working
-   - Forms not submitting
-   - Navigation broken
-   - Click handlers failing
-
-4. **Integration Testing**
-   - End-to-end workflow testing
-   - Multi-step user flows
-   - Cross-component interactions
-
-### Automated QA Error Handling Workflow
-
-**When user says: "I'm getting an error" or "This isn't working" or you detect an error:**
-
-```
-STEP 1: ACKNOWLEDGE & PREPARE
-├─ "I'll use Playwright MCP to diagnose and fix this error"
-├─ Create todo list for systematic QA testing
-└─ Identify the error type and affected component
-
-STEP 2: AUTOMATED TESTING WITH PLAYWRIGHT
-├─ Use browser_goto to navigate to the affected page
-├─ Use browser_snapshot to get accessibility tree
-├─ Use browser_console_messages to check for errors
-├─ Use browser_screenshot to capture visual state
-└─ Use browser_click/browser_fill to reproduce the issue
-
-STEP 3: DIAGNOSE THE ROOT CAUSE
-├─ Analyze console errors
-├─ Check network requests
-├─ Inspect DOM structure
-├─ Identify broken code/logic
-└─ Document findings
-
-STEP 4: FIX THE ERROR
-├─ Read the relevant source files
-├─ Apply the fix using Edit tool
-├─ Update tests if needed
-└─ Run type:check and npm test
-
-STEP 5: VERIFY THE FIX WITH PLAYWRIGHT
-├─ Use browser_goto to navigate again
-├─ Use browser_click/browser_fill to test the fix
-├─ Use browser_console_messages to verify no errors
-├─ Use browser_screenshot to confirm visual correctness
-└─ Mark todo as completed
-
-STEP 6: REPORT SUCCESS
-└─ "✅ Error fixed and verified with Playwright testing!"
-```
-
-### Available Playwright MCP Tools
-
-**Navigation & Inspection:**
-- `browser_goto(url)` - Navigate to a URL
-- `browser_snapshot()` - Get structured accessibility tree
-- `browser_console_messages()` - Retrieve console logs/errors
-- `browser_screenshot()` - Capture visual state
-
-**User Interaction:**
-- `browser_click(selector)` - Click elements
-- `browser_fill(selector, text)` - Fill form fields
-- `browser_scroll(direction)` - Scroll page content
-- `browser_drag(from, to)` - Drag and drop
-
-**Management:**
-- `browser_close()` - Close current page
-
-### Real-World QA Examples
-
-#### Example 1: User Reports Button Not Working
-
-```
-User: "The login button isn't working"
-
-Claude Code MUST automatically:
-
-1. Create todo list:
-   ☐ Navigate to login page with Playwright
-   ☐ Inspect button with browser_snapshot
-   ☐ Check console for errors
-   ☐ Test button click interaction
-   ☐ Diagnose the issue
-   ☐ Fix the code
-   ☐ Re-test with Playwright
-   ☐ Verify fix works
-
-2. Execute:
-   - browser_goto("http://localhost:8081/login")
-   - browser_snapshot() → See button structure
-   - browser_console_messages() → Check for errors
-   - browser_click("button[type='submit']") → Reproduce issue
-   - Found error: "onClick handler not defined"
-
-3. Fix:
-   - Read LoginScreen.tsx
-   - Add missing onClick handler
-   - Run type:check and tests
-
-4. Verify:
-   - browser_goto("http://localhost:8081/login")
-   - browser_click("button[type='submit']")
-   - browser_console_messages() → No errors!
-   - browser_screenshot() → Verify success state
-
-5. Report:
-   "✅ Fixed! Login button now has proper onClick handler. Verified with Playwright testing."
-```
-
-#### Example 2: User Reports UI Not Loading
-
-```
-User: "The contact list screen is blank"
-
-Claude Code MUST automatically:
-
-1. browser_goto("http://localhost:8081/contacts")
-2. browser_console_messages() → Find error: "Cannot read property 'map' of undefined"
-3. browser_snapshot() → Confirm empty state
-4. Read ContactList.tsx → Find the bug (missing null check)
-5. Fix the code → Add optional chaining
-6. browser_goto("http://localhost:8081/contacts") → Re-test
-7. browser_console_messages() → No errors!
-8. browser_screenshot() → Verify contacts display correctly
-9. Report: "✅ Fixed null reference error. Contacts now loading correctly."
-```
-
-#### Example 3: User Reports Form Validation Error
-
-```
-User: "Form validation isn't showing error messages"
-
-Claude Code MUST automatically:
-
-1. browser_goto("http://localhost:8081/add-contact")
-2. browser_fill("input[name='email']", "invalid-email")
-3. browser_click("button[type='submit']")
-4. browser_snapshot() → Check for error message elements
-5. browser_console_messages() → Check validation logic
-6. Diagnose: Validation function exists but error state not updating
-7. Fix: Update form validation state management
-8. Re-test with same steps
-9. browser_screenshot() → Verify error messages now appear
-10. Report: "✅ Form validation now displays error messages correctly."
-```
-
-### Integration with Existing Validation Workflow
-
-**Enhanced Post-Development Validation:**
-
-```bash
-# After EVERY code change:
-
-1. TypeScript Type Check
-   cd NamecardMobile && npm run type:check
-
-2. Unit Tests
-   npm test
-
-3. ✨ NEW: Playwright E2E Testing (Automated)
-   Claude Code automatically uses Playwright MCP to:
-   - Navigate to affected pages
-   - Test user interactions
-   - Verify no console errors
-   - Confirm visual correctness
-   - Screenshot before/after states
-
-4. Report Results
-   ✅ TypeScript: No errors
-   ✅ Tests: X/X passing
-   ✅ Playwright E2E: All interactions verified
-```
-
-### Error Detection Triggers
-
-Claude Code should AUTOMATICALLY activate Playwright QA mode when:
-
-1. **User explicitly reports an error**
-   - "This isn't working"
-   - "I'm getting an error"
-   - "The button is broken"
-   - "Nothing happens when I click"
-
-2. **User asks to debug/check something**
-   - "Check if the form works"
-   - "Test the login flow"
-   - "Verify the UI loads correctly"
-
-3. **After implementing new features**
-   - "I just added authentication, make sure it works"
-   - "Test the new contact form"
-
-4. **When TypeScript or tests fail**
-   - After fixing code errors, verify with Playwright that the UI works
-
-### Playwright Testing Best Practices
-
-1. **Always start with browser_goto**
-   - Navigate to the specific page/route you're testing
-
-2. **Use browser_snapshot for structure**
-   - Get accessibility tree to understand UI structure
-   - More reliable than pixel-based testing
-
-3. **Check console messages**
-   - Always run browser_console_messages() to catch errors
-   - Filter for errors with appropriate flags
-
-4. **Take screenshots for visual verification**
-   - Capture state before and after actions
-   - Helps confirm visual correctness
-
-5. **Test complete user flows**
-   - Don't just test one click
-   - Test entire workflows (login → navigate → action → result)
-
-6. **Clean up after testing**
-   - Use browser_close() when done
-   - Keep browser sessions fresh
-
-### Dev Server Integration
-
-**Before using Playwright MCP, ensure dev server is running:**
-
-```bash
-# Check if dev server is running
-cd NamecardMobile && npm run start:clear
-
-# In background terminal, Expo dev server should be at:
-# - Web: http://localhost:8081
-# - Android: Use 'a' to open Android emulator
-# - iOS: Use 'i' to open iOS simulator
-```
-
-### Mandatory QA Checklist
-
-After EVERY fix, Claude Code MUST verify:
-
-```
-✅ Code fixed in source files
-✅ TypeScript type:check passes
-✅ Unit tests pass
-✅ Playwright navigation successful
-✅ No console errors
-✅ User interactions work
-✅ Visual state correct
-✅ Screenshot confirms fix
-```
-
-**DO NOT** consider an error "fixed" until ALL checklist items pass, including Playwright verification.
-
-### Example Todo List for QA Testing
-
-When user reports an error, create this todo structure:
-
-```
-1. ☐ Reproduce error with Playwright MCP
-2. ☐ Capture console errors and screenshots
-3. ☐ Diagnose root cause from error logs
-4. ☐ Read relevant source files
-5. ☐ Fix the code
-6. ☐ Run type:check and tests
-7. ☐ Verify fix with Playwright re-test
-8. ☐ Confirm no console errors
-9. ☐ Take success screenshot
-10. ☐ Report completion to user
-```
-
-### Summary
-
-**The Golden Rule of Error Handling:**
-
-```
-WHEN ERROR OCCURS:
-  1. Don't just fix the code
-  2. USE PLAYWRIGHT MCP to:
-     - Reproduce the error
-     - Diagnose the root cause
-     - Verify the fix works
-     - Confirm no new errors introduced
-  3. Report success with evidence
-
-NEVER say "I've fixed it" without Playwright verification!
-```
-
-**Remember**: Playwright MCP is your QA automation tool. Use it religiously for every error, every fix, every new feature. The user should see systematic, professional testing, not guesswork.
 
 ---

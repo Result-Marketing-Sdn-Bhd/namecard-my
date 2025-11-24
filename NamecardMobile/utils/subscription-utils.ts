@@ -318,7 +318,6 @@ export const getBestValueBadge = (plan: SubscriptionPlan): string | null => {
  * Mock purchase simulation
  *
  * Simulates a successful purchase for testing
- * Note: Promo codes are handled by App Store/Play Store checkout (store-only approach)
  *
  * @param plan - Subscription plan
  * @returns Simulated subscription info

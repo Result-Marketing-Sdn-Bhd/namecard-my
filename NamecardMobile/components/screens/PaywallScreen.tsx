@@ -6,8 +6,6 @@
  * - Restore purchases
  * - Feature highlights
  * - Professional, modern UI
- *
- * Note: Promo codes are handled by App Store/Play Store checkout (store-only approach)
  */
 
 import React, { useState, useEffect } from 'react';
@@ -198,13 +196,7 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
             )}
           </View>
 
-          {/* Promo Code Instructions */}
-          <View style={styles.promoInfoSection}>
-            <Ionicons name="pricetag" size={20} color="#FFD700" />
-            <Text style={styles.promoInfoText}>
-              Have a promo code? Enter it at checkout in the App Store or Play Store to get your discount!
-            </Text>
-          </View>
+          {/* Promo Code Instructions - Removed to comply with App Store/Play Store policies */}
 
           {/* No Payment Due Now - Cal AI Style */}
           {/* ✅ Show trial messaging ONLY if trial is not expired */}
