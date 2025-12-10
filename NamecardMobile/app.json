@@ -37,7 +37,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/splash-icon.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#4A7A5C"
       },
       "package": "com.resultmarketing.whatscard",
