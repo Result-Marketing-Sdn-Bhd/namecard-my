@@ -3,7 +3,7 @@
     "name": "WhatsCard",
     "slug": "namecard-my",
     "owner": "jacobai",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "sdkVersion": "53.0.0",
     "scheme": "whatscard",
     "orientation": "portrait",
@@ -36,7 +36,7 @@
       ]
     },
     "android": {
-      "versionCode": 14,
+      "versionCode": 15,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#4A7A5C"
