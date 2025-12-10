@@ -1,6 +1,6 @@
 {
   "name": "whatscard",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
@@ -58,7 +58,8 @@
     "react-native": "0.79.6",
     "react-native-gesture-handler": "~2.24.0",
     "react-native-get-random-values": "^1.11.0",
-    "react-native-iap": "^12.15.3",
+    "react-native-iap": "^14.4.38",
+    "react-native-nitro-modules": "^0.31.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "uuid": "^9.0.1",
