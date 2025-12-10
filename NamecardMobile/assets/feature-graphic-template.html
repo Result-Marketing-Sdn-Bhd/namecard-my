@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsCard Feature Graphic - 1024x500</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 0;
+    margin: 0;
+}
+
+/* Exact dimensions for Google Play Store Feature Graphic */
+.feature-graphic {
+    width: 1024px;
+    height: 500px;
+    background: linear-gradient(135deg, #4A7A5C 0%, #5B8F6E 50%, #4A7A5C 100%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+/* Background pattern */
+.pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+}
+
+/* Content container */
+.content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* reduced padding so phone fits */
+    padding: 0 40px;
+}
+
+/* Left side - Text */
+.text-section {
+    flex: 1;
+    color: white;
+    max-width: 500px;
+}
+
+.logo-text {
+    font-size: 72px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: -2px;
+}
+
+.tagline {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.feature-icon {
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A7A5C;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Right side */
+.visual-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    /* scale everything slightly */
+    transform: scale(0.90);
+    transform-origin: center;
+}
+
+/* Phone mockup */
+.phone-mockup {
+    width: 230px;   /* reduced from 260px */
+    height: 390px;  /* reduced from 440px */
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    position: relative;
+    padding: 10px;
+    transform: rotate(-5deg);
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Notch */
+.phone-notch {
+    width: 120px;
+    height: 24px;
+    background: white;
+    border-radius: 0 0 16px 16px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Screen content */
+.screen-content {
+    padding: 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4A7A5C, #5B8F6E);
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.contact-role {
+    font-size: 11px;
+    color: #7f8c8d;
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.whatsapp-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+}
+
+/* Floating cards — repositioned inward to avoid cut-off */
+.card-float {
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    animation: float 3s ease-in-out infinite;
+}
+
+.card-1 {
+    top: 30px;     /* moved inward */
+    right: 20px;
+    width: 120px;
+    height: 70px;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    animation-delay: 0s;
+}
+
+.card-2 {
+    bottom: 40px;  /* moved inward */
+    right: 50px;
+    width: 100px;
+    height: 60px;
+    background: linear-gradient(135deg, #fff, #f0f0f0);
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Instructions (unchanged) */
+.instructions {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    max-width: 1024px;
+}
+
+.instructions h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.instructions ol {
+    margin-left: 20px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.instructions code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.hint {
+    margin-top: 15px;
+    padding: 12px;
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="feature-graphic">
+            <div class="pattern"></div>
+
+            <div class="content">
+                <!-- Left: Text Content -->
+                <div class="text-section">
+                    <div class="logo-text">WhatsCard</div>
+                    <div class="tagline">Smart Business Card Scanner</div>
+                    <div class="features">
+                        <div class="feature-item">
+                            <div class="feature-icon">📸</div>
+                            <span>AI-Powered Card Scanning</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💬</div>
+                            <span>Instant WhatsApp Connect</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">☁️</div>
+                            <span>Cloud Sync & Offline Ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Phone Mockup -->
+                <div class="visual-section">
+                    <!-- Floating cards -->
+                    <div class="card-float card-1"></div>
+                    <div class="card-float card-2"></div>
+
+                    <!-- Phone -->
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="screen-content">
+                                <div class="contact-card">
+                                    <div class="avatar"></div>
+                                    <div class="contact-info">
+                                        <div class="contact-name">John Smith</div>
+                                        <div class="contact-role">Marketing Director</div>
+                                    </div>
+                                    <div class="whatsapp-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="contact-card">
+                                    <div class="avatar"></div>
+                                    <div class="contact-info">
+                                        <div class="contact-name">Sarah Lee</div>
+                                        <div class="contact-role">Sales Manager</div>
+                                    </div>
+                                    <div class="whatsapp-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="contact-card">
+                                    <div class="avatar"></div>
+                                    <div class="contact-info">
+                                        <div class="contact-name">Mike Chen</div>
+                                        <div class="contact-role">CEO</div>
+                                    </div>
+                                    <div class="whatsapp-icon">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px; max-width: 1024px;">
+            <h3 style="margin-bottom: 15px; color: #2c3e50;">📱 How to Create Your Feature Graphic (EXACT 1024x500):</h3>
+
+            <h4 style="margin: 20px 0 10px 0; color: #e74c3c;">🎯 METHOD 1: Chrome DevTools (RECOMMENDED - Pixel Perfect)</h4>
+            <ol style="margin-left: 20px; line-height: 1.8; color: #555;">
+                <li>Open this HTML file in <strong>Google Chrome</strong></li>
+                <li>Make sure zoom is at <strong>100%</strong> (press <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px; font-family: monospace;">Ctrl+0</code>)</li>
+                <li>Press <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px; font-family: monospace;">F12</code> to open DevTools</li>
+                <li>In DevTools, press <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px; font-family: monospace;">Ctrl+Shift+C</code> to enable element selector</li>
+                <li>Click on the green graphic area (it will highlight in DevTools)</li>
+                <li>In DevTools, right-click the <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;div class="feature-graphic"&gt;</code> element</li>
+                <li>Select <strong>"Capture node screenshot"</strong></li>
+                <li>The PNG will download automatically as <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px; font-family: monospace;">feature-graphic.png</code></li>
+                <li>Verify it's <strong>1024 x 500 pixels</strong> (right-click file → Properties → Details)</li>
+            </ol>
+
+            <h4 style="margin: 20px 0 10px 0; color: #3498db;">⚡ METHOD 2: Firefox (Alternative)</h4>
+            <ol style="margin-left: 20px; line-height: 1.8; color: #555;">
+                <li>Open this HTML file in <strong>Firefox</strong></li>
+                <li>Right-click on the green graphic → <strong>Inspect Element</strong></li>
+                <li>In the Inspector, find <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px; font-family: monospace;">&lt;div class="feature-graphic"&gt;</code></li>
+                <li>Right-click the element → <strong>Screenshot Node</strong></li>
+                <li>Save the image</li>
+            </ol>
+
+            <div class="hint" style="margin-top: 15px; padding: 12px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px; font-size: 14px;">
+                <strong>💡 Pro Tip:</strong> You can customize the colors, text, and features before taking the screenshot.
+                The current design uses your app's brand color (#4A7A5C) and matches your WhatsCard branding.
+            </div>
+
+            <div class="hint" style="margin-top: 10px; padding: 12px; background: #d1ecf1; border-left: 4px solid #0c5460; border-radius: 4px; font-size: 14px;">
+                <strong>✅ Verification:</strong> The exported PNG MUST be exactly <strong>1024 x 500 pixels</strong>.
+                Google Play Console will reject any other size. Verify in Windows: Right-click file → Properties → Details.
+            </div>
+
+            <div class="hint" style="margin-top: 10px; padding: 12px; background: #f8d7da; border-left: 4px solid #dc3545; border-radius: 4px; font-size: 14px;">
+                <strong>⚠️ Common Issue:</strong> If you get 1280x625 or wrong size, you're using regular screenshot tool instead of DevTools "Capture node screenshot". Use METHOD 1 above!
+            </div>
+        </div>
+    </div>
+</body>
+</html>

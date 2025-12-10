@@ -17,8 +17,8 @@ export default {
     },
     // Plugins configuration
     plugins: [
-      ...(appJson.expo.plugins || []),
-      "react-native-iap"
+      ...(appJson.expo.plugins || [])
+      // react-native-iap v12.x works without explicit plugin configuration
     ],
     // Android-specific configuration
     android: {

@@ -96,21 +96,58 @@ export class LocalStorage {
 
   /**
    * Update a contact locally
+   *
+   * RACE CONDITION FIX: If a local ID is not found (because it was replaced
+   * by server ID during sync), try to find the contact by matching imageUrl
+   * or create a new contact with the updates
    */
   static async updateContact(id: string, updates: Partial<Contact>): Promise<Contact> {
     try {
       const contacts = await this.getContacts();
-      const index = contacts.findIndex(c => c.id === id);
+      let index = contacts.findIndex(c => c.id === id);
+
+      // RACE CONDITION FIX: If local ID not found, try to match by imageUrl
+      if (index === -1 && id.startsWith('local_')) {
+        console.log(`⚠️ Local ID ${id} not found (may have been replaced by server ID during sync)`);
+
+        // Strategy 1: Match by imageUrl (most reliable since it doesn't change during edits)
+        if (updates.imageUrl) {
+          const matchingContact = contacts.find(c => c.imageUrl === updates.imageUrl);
+          if (matchingContact) {
+            index = contacts.findIndex(c => c.id === matchingContact.id);
+            console.log(`✅ Found contact by imageUrl, using server ID: ${matchingContact.id}`);
+          }
+        }
+
+        // Strategy 2: If still not found, find the most recently created contact
+        // (likely the one that just got synced and had its ID replaced)
+        if (index === -1 && contacts.length > 0) {
+          // Sort by created_at or addedDate and get the most recent
+          const sortedContacts = [...contacts].sort((a, b) => {
+            const dateA = new Date(a.addedDate || '').getTime();
+            const dateB = new Date(b.addedDate || '').getTime();
+            return dateB - dateA;
+          });
+
+          const mostRecent = sortedContacts[0];
+          index = contacts.findIndex(c => c.id === mostRecent.id);
+          console.log(`✅ Using most recent contact (likely just synced): ${mostRecent.id}`);
+        }
+      }
 
       if (index === -1) {
-        throw new Error('Contact not found');
+        console.error(`❌ Contact not found: ${id}`);
+        console.log(`💡 Creating new contact instead of updating missing one`);
+
+        // Fallback: Create as new contact (this preserves user's work)
+        return await this.saveContact(updates);
       }
 
       const updatedContact = { ...contacts[index], ...updates };
       contacts[index] = updatedContact;
 
       await AsyncStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
-      console.log('✅ Contact updated locally:', id);
+      console.log('✅ Contact updated locally:', updatedContact.id);
 
       return updatedContact;
     } catch (error) {

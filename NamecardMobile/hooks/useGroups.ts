@@ -87,12 +87,9 @@ export function useGroups(contacts: Contact[]) {
     try {
       await ContactService.addContactsToGroup(contactIds, groupId);
 
-      // Update contact count for the group
-      const group = groups.find(g => g.id === groupId);
-      if (group) {
-        const newCount = group.contactCount + contactIds.length;
-        await updateGroup(groupId, { contactCount: newCount });
-      }
+      // Don't manually update count - let recalculateContactCounts handle it
+      // The parent component will call recalculateContactCounts after loadContacts
+      console.log('✅ Contacts added to group, waiting for parent to recalculate counts');
     } catch (err) {
       console.error('Failed to add contacts to group:', err);
       throw err;
@@ -103,12 +100,9 @@ export function useGroups(contacts: Contact[]) {
     try {
       await ContactService.removeContactsFromGroup(contactIds, groupId);
 
-      // Update contact count for the group
-      const group = groups.find(g => g.id === groupId);
-      if (group) {
-        const newCount = Math.max(0, group.contactCount - contactIds.length);
-        await updateGroup(groupId, { contactCount: newCount });
-      }
+      // Don't manually update count - let recalculateContactCounts handle it
+      // The parent component will call recalculateContactCounts after loadContacts
+      console.log('✅ Contacts removed from group, waiting for parent to recalculate counts');
     } catch (err) {
       console.error('Failed to remove contacts from group:', err);
       throw err;

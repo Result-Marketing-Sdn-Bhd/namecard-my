@@ -46,12 +46,12 @@ export const IAP_CONFIG = {
    */
   PRODUCTS: {
     ios: {
-      monthly: 'monthly_premium_subscription',  // Apple ID: 6754809579
-      yearly: 'yearly_premium_subscription',    // Apple ID: 6754809873
+      monthly: 'whatscard_premium_monthly',  // NEW: Unique monthly subscription
+      yearly: 'whatscard_premium_yearly',    // NEW: Unique yearly subscription
     },
     android: {
-      monthly: 'monthly_premium_subscription',  // Product ID from Google Play
-      yearly: 'yearly_premium_subscription',    // Product ID from Google Play
+      monthly: 'whatscard_premium_monthly',  // Product ID from Google Play
+      yearly: 'whatscard_premium_yearly',    // Product ID from Google Play
     },
   },
 
@@ -75,7 +75,7 @@ export const IAP_CONFIG = {
    * PRICING STRUCTURE
    *
    * Unified Pricing (Both iOS & Android):
-   * - Monthly: $9.95 USD per month
+   * - Monthly: $9.99 USD per month
    * - Yearly: $117.99 USD per year
    * - Yearly with WHATSBNI promo: $35.40 USD per year (70% off)
    *
@@ -84,8 +84,8 @@ export const IAP_CONFIG = {
    */
   PRICING: {
     monthly: {
-      usd: 9.95,
-      displayPrice: '$9.95',
+      usd: 9.99,
+      displayPrice: '$9.99',
       period: 'month',
       description: 'Perfect for trying out',
     },
@@ -93,8 +93,8 @@ export const IAP_CONFIG = {
       usd: 117.99,
       displayPrice: '$117.99',
       period: 'year',
-      description: 'Best value - Save 20%',
-      savings: 20, // percentage
+      description: 'Best value - Save 18%',
+      savings: 18, // percentage ($9.99/month x 12 = $119.88, yearly = $117.99)
       badge: 'BEST VALUE',
     },
     yearlyWithPromo: {

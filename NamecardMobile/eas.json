@@ -9,34 +9,45 @@
       "distribution": "internal",
       "android": {
         "buildType": "app-bundle",
-        "gradleCommand": ":app:bundlePlayDebug",
+        "gradleCommand": ":app:bundleDebug",
         "credentialsSource": "remote"
       },
       "ios": {
         "simulator": true,
         "credentialsSource": "remote"
-      }
+      },
+      "channel": "development"
     },
     "preview": {
       "distribution": "internal",
+      "env": {
+        "APP_ENV": "production",
+        "SUPABASE_URL": "https://wvahortlayplumgrcmvi.supabase.co",
+        "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2YWhvcnRsYXlwbHVtZ3JjbXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc3MzAxNjIsImV4cCI6MjA3MzMwNjE2Mn0.8PSz3NErD03kFmjm9uxNI4Z4bn52sjecsf6qANEawEg",
+        "DEBUG_MODE": "false"
+      },
       "android": {
         "buildType": "app-bundle",
-        "gradleCommand": ":app:bundlePlayRelease",
+        "gradleCommand": ":app:bundleRelease",
         "credentialsSource": "remote"
       },
       "ios": {
         "simulator": false,
         "credentialsSource": "remote"
-      }
+      },
+      "channel": "preview"
     },
     "production": {
       "channel": "production",
       "env": {
-        "APP_ENV": "production"
+        "APP_ENV": "production",
+        "SUPABASE_URL": "https://wvahortlayplumgrcmvi.supabase.co",
+        "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2YWhvcnRsYXlwbHVtZ3JjbXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc3MzAxNjIsImV4cCI6MjA3MzMwNjE2Mn0.8PSz3NErD03kFmjm9uxNI4Z4bn52sjecsf6qANEawEg",
+        "DEBUG_MODE": "false"
       },
       "android": {
         "buildType": "app-bundle",
-        "gradleCommand": ":app:bundlePlayRelease",
+        "gradleCommand": ":app:bundleRelease",
         "credentialsSource": "remote"
       },
       "ios": {

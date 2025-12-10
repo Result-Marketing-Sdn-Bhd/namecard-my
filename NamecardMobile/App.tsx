@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import { Alert, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
+import { Alert, ActivityIndicator, View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { CameraScreen } from './components/screens/CameraScreen';
 import { ContactForm } from './components/business/ContactForm';
 import { ContactList } from './components/screens/ContactList';
@@ -27,7 +27,42 @@ import { scanLimitService } from './services/scanLimitService';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+// Styles defined before component
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    paddingTop: 0, // SafeAreaView handles this automatically
+  },
+});
+
+const loadingStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  content: {
+    alignItems: 'center',
+    paddingHorizontal: 32,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#2563EB',
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#6B7280',
+    textAlign: 'center',
+  },
+});
+
 export default function App() {
+  const navigationRef = useRef<any>(null);
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [scannedCardData, setScannedCardData] = useState<Partial<Contact> | null>(null);
   const [pendingImageUri, setPendingImageUri] = useState<string | undefined>(undefined);
@@ -74,12 +109,17 @@ export default function App() {
     initializeApp();
 
     // SECURITY FIX: Setup auth listener with proper cleanup to prevent memory leak
-    const unsubscribe = AuthManager.setupAuthListener((user) => {
+    const unsubscribe = AuthManager.setupAuthListener(async (user) => {
       if (user) {
+        // User signed in (not token refresh, which is handled silently)
         setIsAuthenticated(true);
         setCurrentUser(user);
         console.log('✅ Auth state changed: User logged in');
+
+        // Reload contacts after explicit login
+        await loadContacts();
       } else {
+        // User signed out
         setIsAuthenticated(false);
         setCurrentUser(null);
         setContacts([]);
@@ -225,13 +265,23 @@ export default function App() {
     try {
       console.log('💾 Saving contact:', contactData);
 
-      // Save using ContactService (offline-first)
-      const newContact = await ContactService.createContact(contactData);
+      let savedContact: Contact;
 
-      console.log('✅ Contact saved successfully:', newContact);
+      // Check if we're editing an existing contact or creating a new one
+      if (contactData.id) {
+        // Update existing contact
+        console.log('📝 Updating existing contact:', contactData.id);
+        savedContact = await ContactService.updateContact(contactData.id, contactData);
+        console.log('✅ Contact updated successfully:', savedContact);
+      } else {
+        // Create new contact
+        console.log('➕ Creating new contact');
+        savedContact = await ContactService.createContact(contactData);
+        console.log('✅ Contact created successfully:', savedContact);
+      }
 
-      // Update local state
-      setContacts(prev => [newContact, ...prev]);
+      // Reload contacts from LocalStorage to ensure UI is in sync
+      await loadContacts();
 
       // Clear scanned data and pending images
       setScannedCardData(null);
@@ -241,7 +291,8 @@ export default function App() {
 
       // Show non-blocking success message
       setTimeout(() => {
-        Alert.alert('Success', `Contact "${newContact.name}" saved!`,
+        const action = contactData.id ? 'updated' : 'created';
+        Alert.alert('Success', `Contact "${savedContact.name}" ${action}!`,
           [{ text: 'OK', style: 'default' }],
           { cancelable: true }
         );
@@ -295,12 +346,25 @@ export default function App() {
   };
 
   const handleContactEdit = (contact: Contact) => {
-    // Close modal and navigate to edit form
+    // Close modal
     setShowContactDetail(false);
+    setSelectedContact(null);
+
+    // Set the contact data for editing
     setScannedCardData(contact);
     setPendingImageUri(contact.imageUrl);
+    setPendingBackImageUri(contact.backImageUrl);
     setShouldProcessOCR(false);
-    // The navigation will happen automatically when scannedCardData is set
+
+    // Use setTimeout to ensure state is updated before navigation
+    setTimeout(() => {
+      // Navigate to Camera tab, then to ContactForm screen
+      if (navigationRef.current) {
+        navigationRef.current.navigate('Camera', {
+          screen: 'ContactForm'
+        });
+      }
+    }, 100);
   };
 
   const handleAddContactsToGroups = async (contactIds: string[], groupIds: string[]) => {
@@ -550,9 +614,10 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <Tab.Navigator
+    <SafeAreaView style={styles.safeArea}>
+      <NavigationContainer ref={navigationRef}>
+        <StatusBar style="auto" />
+        <Tab.Navigator
         screenOptions={({ route, navigation }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName: keyof typeof Ionicons.glyphMap;
@@ -575,9 +640,9 @@ export default function App() {
             backgroundColor: '#FFFFFF',
             borderTopWidth: 1,
             borderTopColor: '#E5E7EB',
-            paddingBottom: 4,
-            paddingTop: 4,
-            height: 60,
+            paddingBottom: 20,
+            paddingTop: 8,
+            height: 80,
           },
           tabBarLabelStyle: {
             fontSize: 12,
@@ -656,31 +721,7 @@ export default function App() {
           />
         </View>
       )}
-    </NavigationContainer>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
-
-const loadingStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  content: {
-    alignItems: 'center',
-    paddingHorizontal: 32,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#2563EB',
-    marginTop: 16,
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#6B7280',
-    textAlign: 'center',
-  },
-});

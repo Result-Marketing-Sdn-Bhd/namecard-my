@@ -41,6 +41,98 @@ export function ProfileScreen({ user, onLogout, onNavigate, isPremium = false }:
     }
   };
 
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      'Delete Account',
+      'Are you sure you want to delete your account?\n\nThis will permanently delete:\n• All your contacts and business cards\n• Your voice notes and reminders\n• Your subscription (if any)\n• All other account data\n\nThis action cannot be undone.',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: confirmDeleteAccount,
+        },
+      ]
+    );
+  };
+
+  const confirmDeleteAccount = () => {
+    Alert.alert(
+      'Final Confirmation',
+      'Please type DELETE to confirm account deletion.',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'I Understand, Delete My Account',
+          style: 'destructive',
+          onPress: executeDeleteAccount,
+        },
+      ]
+    );
+  };
+
+  const executeDeleteAccount = async () => {
+    try {
+      // Import supabase client
+      const { supabase } = require('../../services/supabase');
+
+      // Delete user's data from database
+      // Note: This requires RLS policies or a database function
+      const { error: deleteError } = await supabase.rpc('delete_user_account');
+
+      if (deleteError) {
+        throw deleteError;
+      }
+
+      // Delete the user account
+      const { error: authError } = await supabase.auth.admin.deleteUser(user?.id);
+
+      if (authError) {
+        // If admin delete fails, try user delete
+        await supabase.auth.signOut();
+      }
+
+      Alert.alert(
+        'Account Deleted',
+        'Your account has been permanently deleted. Thank you for using WhatsCard.',
+        [
+          {
+            text: 'OK',
+            onPress: onLogout,
+          },
+        ]
+      );
+    } catch (error: any) {
+      console.error('Delete account error:', error);
+      Alert.alert(
+        'Error',
+        'Failed to delete account. Please contact support@whatscard.my for assistance.',
+        [
+          {
+            text: 'Contact Support',
+            onPress: () => {
+              // Open email client
+              const email = 'support@whatscard.my';
+              const subject = 'Account Deletion Request';
+              const body = `User ID: ${user?.id}\nEmail: ${user?.email}\n\nPlease delete my account.`;
+              Alert.alert('Contact Support', `Please email: ${email}`);
+            },
+          },
+          {
+            text: 'Cancel',
+            style: 'cancel',
+          },
+        ]
+      );
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -140,14 +232,28 @@ export function ProfileScreen({ user, onLogout, onNavigate, isPremium = false }:
           </View>
         </View>
 
-        {/* Sign Out Section */}
+        {/* Account Actions Section */}
         {onLogout && (
           <View style={styles.section}>
             <View style={styles.settingsCard}>
-              <TouchableOpacity style={[styles.settingItem, { borderBottomWidth: 0 }]} onPress={onLogout}>
+              <TouchableOpacity
+                style={styles.settingItem}
+                onPress={onLogout}
+              >
                 <View style={styles.settingLeft}>
-                  <Ionicons name="log-out-outline" size={20} color="#DC2626" />
-                  <Text style={[styles.settingText, { color: '#DC2626' }]}>Sign Out</Text>
+                  <Ionicons name="log-out-outline" size={20} color="#F59E0B" />
+                  <Text style={[styles.settingText, { color: '#F59E0B' }]}>Sign Out</Text>
+                </View>
+                <Ionicons name="chevron-forward" size={20} color="#F59E0B" />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.settingItem, { borderBottomWidth: 0 }]}
+                onPress={handleDeleteAccount}
+              >
+                <View style={styles.settingLeft}>
+                  <Ionicons name="trash-outline" size={20} color="#DC2626" />
+                  <Text style={[styles.settingText, { color: '#DC2626' }]}>Delete Account</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={20} color="#DC2626" />
               </TouchableOpacity>

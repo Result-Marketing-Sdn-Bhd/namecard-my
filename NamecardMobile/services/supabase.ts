@@ -45,9 +45,9 @@ export class SupabaseService {
       // Check if bucket exists first
       const { data: buckets, error: bucketError } = await client.storage.listBuckets();
 
-      if (bucketError || !buckets?.some(b => b.name === 'contact-images')) {
+      if (bucketError || !buckets?.some(b => b.id === 'contact-images')) {
         console.warn('⚠️ Storage bucket not found. Using local image URI.');
-        console.warn('📝 Please run URGENT_FIX_ALL_ISSUES.sql in Supabase SQL Editor');
+        console.warn('📝 Please run database/fix-rls-and-storage.sql in Supabase SQL Editor');
         return imageUri; // Return local URI if bucket doesn't exist
       }
 
@@ -168,24 +168,32 @@ export class SupabaseService {
 
   /**
    * Update a contact
+   *
+   * Supports updating both owned contacts and claiming orphaned offline contacts
    */
   static async updateContact(id: string, updates: Partial<Contact>): Promise<Contact> {
     return AuthManager.withVerifiedSession(async (userId) => {
       const client = this.getClient();
 
-      const updateData: Record<string, any> = {};
+      const updateData: Record<string, any> = {
+        user_id: userId, // Always assign to current user (claim orphaned contacts)
+      };
       if (updates.name !== undefined) updateData.name = updates.name;
       if (updates.company !== undefined) updateData.company = updates.company;
       if (updates.phone !== undefined) updateData.phone = updates.phone;
+      if (updates.phones !== undefined) updateData.phones = updates.phones;
+      if (updates.jobTitle !== undefined) updateData.job_title = updates.jobTitle;
       if (updates.email !== undefined) updateData.email = updates.email;
       if (updates.address !== undefined) updateData.address = updates.address;
+      if (updates.imageUrl !== undefined) updateData.image_url = updates.imageUrl;
       if (updates.lastContact !== undefined) updateData.last_contact = updates.lastContact;
 
       const { data, error } = await (client as any)
         .from('contacts')
         .update(updateData)
         .eq('id', id)
-        .eq('user_id', userId)  // Ensure user owns this contact
+        // Don't filter by user_id - let RLS policy handle ownership check
+        // This allows claiming orphaned contacts (user_id = NULL)
         .select()
         .single();
 

@@ -32,15 +32,16 @@ interface ExtractedCardData {
 }
 
 export class GeminiOCRService {
-  private static readonly API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
+  private static readonly API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent';
 
   /**
-   * Process business card image using Gemini 2.0 Flash
+   * Process business card image using Gemini 2.5 Flash
    * Combines OCR and intelligent parsing in a single API call
+   * Using 2.5 Flash for best performance and accuracy
    */
   static async processBusinessCard(imageUri: string): Promise<Partial<Contact>> {
     try {
-      console.log('🚀 Starting Gemini 2.0 Flash OCR processing...');
+      console.log('🚀 Starting Gemini 2.5 Flash OCR processing...');
 
       // Convert image to base64
       const base64Image = await FileSystem.readAsStringAsync(imageUri, {
@@ -202,7 +203,7 @@ ADDITIONAL RULES:
           temperature: 0.1, // Low temperature for more consistent extraction
           topK: 1,
           topP: 0.95,
-          maxOutputTokens: 1024,
+          maxOutputTokens: 2048, // Increased to prevent truncation of JSON response
         },
         safetySettings: [
           {
@@ -235,15 +236,19 @@ ADDITIONAL RULES:
 
       if (!response.ok) {
         const errorData = await response.text();
-        console.error('❌ Gemini API error:', errorData);
+        // Silent logging - don't show scary errors to users
+        console.log('[Gemini] API unavailable, user can manually enter data');
         throw new Error(`Gemini API failed: ${response.status}`);
       }
 
       const data: GeminiResponse = await response.json();
 
+      // Debug: Log full response structure
+      console.log('🔍 Full Gemini response structure:', JSON.stringify(data, null, 2));
+
       // Extract the text response from Gemini
       const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-      console.log('📝 Gemini raw response:', responseText);
+      console.log('📝 Gemini raw response text:', responseText);
 
       // Parse the JSON response
       let extractedData: ExtractedCardData;
@@ -252,7 +257,7 @@ ADDITIONAL RULES:
         const cleanJson = responseText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
         extractedData = JSON.parse(cleanJson);
       } catch (parseError) {
-        console.error('❌ Failed to parse Gemini response:', parseError);
+        console.log('[Gemini] Response parsing issue, using fallback extraction');
         console.log('Raw response:', responseText);
 
         // Fallback: Try to extract data manually if JSON parsing fails
@@ -283,7 +288,7 @@ ADDITIONAL RULES:
       };
 
     } catch (error) {
-      console.error('❌ Gemini OCR processing failed:', error);
+      console.log('[Gemini] OCR processing unavailable, user can manually enter contact details');
 
       // Return empty contact on failure (offline-first approach)
       return {

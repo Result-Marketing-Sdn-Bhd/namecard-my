@@ -245,8 +245,10 @@ export function ContactForm({ scannedData, imageUri, backImageUri, processOCR, o
     setIsSaving(true);
     try {
       // Use front image as primary, but could store both in future
+      // Include the id if we're editing an existing contact
       await onSave({
         ...formData,
+        id: scannedData?.id, // Preserve the id for updates
         imageUrl: frontImageUri,
         backImageUrl: backImageState || undefined,
         phones: formData.phones

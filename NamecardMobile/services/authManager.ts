@@ -63,11 +63,27 @@ export class AuthManager {
       const needsRefresh = expiresAt - now < 60000; // Less than 1 minute
 
       if (needsRefresh) {
-        console.log('Session expiring soon, refreshing...');
-        const { data, error } = await client.auth.refreshSession();
-        if (!error && data.session) {
-          await this.storeSession(data.session);
-          return { user: data.user, error: null };
+        console.log('⏳ Session expiring soon, refreshing...');
+        try {
+          const { data, error } = await client.auth.refreshSession();
+          if (!error && data.session) {
+            await this.storeSession(data.session);
+            console.log('✅ Session refreshed successfully');
+            return { user: data.user, error: null };
+          } else {
+            // Refresh failed - log the error but don't crash
+            // The session will continue to work until it fully expires
+            console.warn('⚠️ Session refresh failed (will use existing session):', error?.message || 'Unknown error');
+            // Return the existing session instead of erroring out
+            await this.storeSession(session);
+            return { user: session.user, error: null };
+          }
+        } catch (refreshError: any) {
+          // Catch any exceptions during refresh
+          console.warn('⚠️ Session refresh exception (will use existing session):', refreshError?.message || 'Unknown error');
+          // Return the existing session
+          await this.storeSession(session);
+          return { user: session.user, error: null };
         }
       }
 
@@ -227,14 +243,14 @@ export class AuthManager {
 
       } catch (error: any) {
         lastError = error;
-        console.error(`Attempt ${attempt} failed:`, error.message);
 
         // If it's an auth error and we have retries left, refresh session
         if (attempt < retries &&
             (error.message?.includes('JWT') ||
              error.message?.includes('token') ||
-             error.message?.includes('expired'))) {
-          console.log('Refreshing session and retrying...');
+             error.message?.includes('expired') ||
+             error.message?.includes('row-level security'))) {
+          console.log(`🔄 Attempt ${attempt}/${retries} - Session expired, refreshing...`);
 
           // Wait with exponential backoff
           await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
@@ -251,12 +267,28 @@ export class AuthManager {
 
         // If it's not an auth error or we're out of retries, throw
         if (attempt === retries) {
+          console.error(`❌ Operation failed after ${retries} attempts:`, error.message);
           throw lastError;
         }
       }
     }
 
     throw lastError;
+  }
+
+  private static ignoreAuthEvents = false; // Flag to ignore auth events during operations
+  private static lastEventTime = 0; // Track last event time
+
+  /**
+   * Temporarily ignore auth events (used during session refresh operations)
+   */
+  static ignoreAuthEventsTemporarily(durationMs: number = 5000): void {
+    this.ignoreAuthEvents = true;
+    console.log('🔇 Ignoring auth events for', durationMs, 'ms');
+    setTimeout(() => {
+      this.ignoreAuthEvents = false;
+      console.log('🔊 Auth events listening resumed');
+    }, durationMs);
   }
 
   /**
@@ -266,16 +298,40 @@ export class AuthManager {
     const client = getSupabaseClient();
 
     const { data: subscription } = client.auth.onAuthStateChange(async (event: string, session: any) => {
-      console.log('Auth state changed:', event);
+      // Ignore events if flag is set (during background sync operations)
+      if (this.ignoreAuthEvents) {
+        console.log('🔇 Ignoring auth event:', event, '(operations in progress)');
+        return;
+      }
 
-      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+      // Debounce rapid-fire events (ignore events within 500ms of each other)
+      const now = Date.now();
+      if (now - this.lastEventTime < 500 && event === 'SIGNED_OUT') {
+        console.log('⏭️ Debouncing rapid SIGNED_OUT event');
+        return;
+      }
+      this.lastEventTime = now;
+
+      console.log('🔔 Auth event:', event, 'Session:', session ? 'present' : 'null');
+
+      if (event === 'SIGNED_IN') {
         if (session) {
           await this.storeSession(session);
           onAuthChange(session.user);
+          console.log('✅ User signed in');
+        }
+      } else if (event === 'TOKEN_REFRESHED') {
+        // Silent token refresh - don't trigger UI changes
+        if (session) {
+          await this.storeSession(session);
+          console.log('🔄 Token refreshed silently');
+          // Don't call onAuthChange to avoid logout/login flash
         }
       } else if (event === 'SIGNED_OUT') {
+        // User explicitly signed out
         await this.clearSession();
         onAuthChange(null);
+        console.log('📤 User signed out');
       }
     });
 

@@ -41,12 +41,13 @@ class ScanLimitService {
       });
 
       if (error || !data || data.length === 0) {
-        console.error('[ScanLimit] Error checking scan limit:', error);
+        // Silent fallback - allow scanning if API fails (offline-first)
+        console.log('[ScanLimit] API unavailable, allowing scan (offline mode)');
         return {
-          canScan: false,
-          scansRemaining: 0,
-          dailyLimit: 0,
-          limitReached: true,
+          canScan: true,
+          scansRemaining: 10,
+          dailyLimit: 10,
+          limitReached: false,
         };
       }
 
@@ -85,9 +86,13 @@ class ScanLimitService {
         user_id_param: userId,
       });
 
-      if (error || !data || data.length === 0) {
-        console.error('[ScanLimit] Error incrementing scan count:', error);
-        throw new Error('Failed to increment scan count');
+      if (error) {
+        // Silent fallback - don't block user experience
+        console.log('[ScanLimit] Count increment skipped (offline mode)');
+        return {
+          dailyCount: 0,
+          limitReached: false,
+        };
       }
 
       const result = data[0];
@@ -98,8 +103,12 @@ class ScanLimitService {
         limitReached: result.limit_reached,
       };
     } catch (err) {
-      console.error('[ScanLimit] Error incrementing:', err);
-      throw err;
+      // Silent catch - don't block user experience
+      console.log('[ScanLimit] Count increment failed silently');
+      return {
+        dailyCount: 0,
+        limitReached: false,
+      };
     }
   }
 

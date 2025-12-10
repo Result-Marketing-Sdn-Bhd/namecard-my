@@ -221,8 +221,14 @@ export class ContactService {
         timestamp: Date.now()
       });
 
-      // Try to sync immediately if online
-      this.processSyncQueue();
+      // Ignore auth events for 5 seconds to prevent logout/login flash during sync
+      AuthManager.ignoreAuthEventsTemporarily(5000);
+
+      // Delay sync by 3 seconds to avoid triggering session refresh during UI operations
+      // This provides true offline-first behavior - save instantly, sync later
+      setTimeout(() => {
+        this.processSyncQueue();
+      }, 3000);
     } catch (error) {
       console.log('Failed to queue sync operation:', error);
       // Non-fatal - local operation already succeeded

@@ -77,8 +77,14 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onAuthSuccess }) => {
         if (error.message?.includes('Email not confirmed') ||
             error.message?.includes('email_not_confirmed')) {
           Alert.alert(
-            'Email Not Verified',
-            'Please verify your email before logging in. Would you like to resend the verification email?',
+            '⚠️ Email Not Verified',
+            'Please verify your email before logging in.\n\n' +
+            '📧 CHECK THESE LOCATIONS:\n' +
+            '• Inbox folder\n' +
+            '• Spam/Junk folder\n' +
+            '• Promotions tab (Gmail)\n\n' +
+            'Email from: noreply@mail.app.supabase.io\n\n' +
+            'Still can\'t find it? Tap "Resend Email" below.',
             [
               { text: 'Cancel', style: 'cancel' },
               {
@@ -172,8 +178,15 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onAuthSuccess }) => {
         } else {
           // New user, needs email confirmation
           Alert.alert(
-            'Check Your Email',
-            'We\'ve sent a verification email to ' + email + '. Please check your inbox and spam folder to confirm your account.',
+            '📧 Check Your Email',
+            'We\'ve sent a verification email to:\n' + email + '\n\n' +
+            '⚠️ IMPORTANT:\n' +
+            '• Check your Inbox\n' +
+            '• Check your Spam/Junk folder\n' +
+            '• Check Promotions tab (Gmail users)\n\n' +
+            'Email from: noreply@mail.app.supabase.io\n\n' +
+            '⏱️ It may take 5-10 minutes to arrive.\n\n' +
+            'Didn\'t receive it? Click "Resend" on the login screen.',
             [{
               text: 'OK',
               onPress: () => setMode('login')
@@ -203,8 +216,14 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onAuthSuccess }) => {
         Alert.alert('Error', error.message);
       } else {
         Alert.alert(
-          'Email Sent',
-          'Verification email has been resent. Please check your inbox and spam folder.',
+          '✅ Email Sent',
+          'Verification email has been resent to:\n' + targetEmail + '\n\n' +
+          '📧 CHECK THESE LOCATIONS:\n' +
+          '• Inbox folder\n' +
+          '• Spam/Junk folder\n' +
+          '• Promotions tab (Gmail)\n\n' +
+          'Email from: noreply@mail.app.supabase.io\n\n' +
+          '⏱️ Please wait 5-10 minutes for delivery.',
           [{ text: 'OK' }]
         );
       }

@@ -749,6 +749,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 12,
     marginTop: 20,
+    marginBottom: 100, // Add bottom margin to prevent FAB overlap
     width: '100%',
     paddingHorizontal: 16,
   },
