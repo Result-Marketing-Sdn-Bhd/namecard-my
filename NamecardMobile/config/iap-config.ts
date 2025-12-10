@@ -50,8 +50,8 @@ export const IAP_CONFIG = {
       yearly: 'whatscard_premium_yearly',    // NEW: Unique yearly subscription
     },
     android: {
-      monthly: 'whatscard_premium_monthly',  // Product ID from Google Play
-      yearly: 'whatscard_premium_yearly',    // Product ID from Google Play
+      monthly: 'monthly_premium_subscription',  // OLD Product ID (Active in Play Console)
+      yearly: 'yearly_premium_subscription',    // OLD Product ID (Active in Play Console)
     },
   },
 
