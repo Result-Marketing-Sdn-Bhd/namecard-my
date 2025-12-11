@@ -229,14 +229,20 @@ class IAPService {
       console.log('[IAP Service] 🔍 Platform:', Platform.OS);
       console.log('[IAP Service] 🎟️ Promo code:', promoCode || 'none');
 
-      // react-native-iap v14 API: Use requestPurchase() instead of requestSubscription()
-      console.log('[IAP Service] 🔍 Calling requestPurchase with:', { sku: productId });
-      const purchase = await RNIap.requestPurchase({
-        skus: [productId],
-        ...(promoCode && Platform.OS === 'android' && {
-          offerToken: promoCode, // Android promo offers
-        }),
-      });
+      // react-native-iap v14 API: Use requestPurchase() with platform-specific request object
+      const purchaseRequest = {
+        request: {
+          ios: { sku: productId },
+          android: {
+            skus: [productId],
+            ...(promoCode && { offerToken: promoCode }),
+          },
+        },
+        type: 'in-app',
+      };
+
+      console.log('[IAP Service] 🔍 Calling requestPurchase with:', purchaseRequest);
+      const purchase = await RNIap.requestPurchase(purchaseRequest);
       console.log('[IAP Service] ✅ requestPurchase returned successfully');
 
       console.log('[IAP Service] ✅ Purchase response:', JSON.stringify(purchase, null, 2));
