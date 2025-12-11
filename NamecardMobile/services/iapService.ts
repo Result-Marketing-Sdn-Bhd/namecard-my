@@ -119,7 +119,8 @@ class IAPService {
       console.log('[IAP Service] 🔍 Attempting to fetch subscriptions from store...');
 
       // react-native-iap API: getSubscriptions() for subscription products
-      const results = await RNIap.getSubscriptions({ skus: productIdArray });
+      // v14 API takes array directly, not object with skus property
+      const results = await RNIap.getSubscriptions(productIdArray);
 
       console.log('[IAP Service] 📦 Raw results from store:', JSON.stringify(results, null, 2));
 
