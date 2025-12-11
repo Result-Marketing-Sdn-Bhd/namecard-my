@@ -230,6 +230,7 @@ class IAPService {
       console.log('[IAP Service] 🎟️ Promo code:', promoCode || 'none');
 
       // react-native-iap v14 API: Use requestPurchase() with platform-specific request object
+      // NOTE: type should be 'subs' for subscriptions, not 'in-app'
       const purchaseRequest = {
         request: {
           ios: { sku: productId },
@@ -238,7 +239,7 @@ class IAPService {
             ...(promoCode && { offerToken: promoCode }),
           },
         },
-        type: 'in-app',
+        type: 'subs', // Changed from 'in-app' to 'subs' for subscriptions
       };
 
       console.log('[IAP Service] 🔍 Calling requestPurchase with:', purchaseRequest);
