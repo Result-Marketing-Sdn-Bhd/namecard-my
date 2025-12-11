@@ -116,9 +116,12 @@ class IAPService {
 
       console.log('[IAP Service] 📱 Platform:', Platform.OS);
       console.log('[IAP Service] 🆔 Product IDs:', productIdArray);
+      console.log('[IAP Service] 🔍 Attempting to fetch subscriptions from store...');
 
       // react-native-iap API: getSubscriptions() for subscription products
       const results = await RNIap.getSubscriptions({ skus: productIdArray });
+
+      console.log('[IAP Service] 📦 Raw results from store:', JSON.stringify(results, null, 2));
 
       if (!results || results.length === 0) {
         console.warn('[IAP Service] ⚠️ No products found, falling back to mock');
@@ -218,6 +221,8 @@ class IAPService {
       }
 
       console.log('[IAP Service] 🛒 Purchasing product ID:', productId);
+      console.log('[IAP Service] 🔍 Platform:', Platform.OS);
+      console.log('[IAP Service] 🎟️ Promo code:', promoCode || 'none');
 
       // react-native-iap API: requestSubscription() for subscription purchase
       const purchase = await RNIap.requestSubscription({
@@ -227,7 +232,7 @@ class IAPService {
         }),
       });
 
-      console.log('[IAP Service] ✅ Purchase initiated:', purchase);
+      console.log('[IAP Service] ✅ Purchase response:', JSON.stringify(purchase, null, 2));
 
       // Create subscription record
       const subscription = this.createSubscriptionFromPurchase(plan, promoCode);
