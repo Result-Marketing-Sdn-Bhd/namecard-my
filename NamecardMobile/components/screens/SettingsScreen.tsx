@@ -1,19 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import * as Updates from 'expo-updates';
 
 interface SettingsScreenProps {
   onBack: () => void;
 }
 
 export function SettingsScreen({ onBack }: SettingsScreenProps) {
+  const [isCheckingUpdates, setIsCheckingUpdates] = useState(false);
+
+  // Check for OTA updates
+  const checkForUpdates = async () => {
+    try {
+      setIsCheckingUpdates(true);
+
+      // Check if updates are available
+      const update = await Updates.checkForUpdateAsync();
+
+      if (update.isAvailable) {
+        Alert.alert(
+          '🔄 Update Available',
+          'A new update is available. Would you like to download and install it now?',
+          [
+            { text: 'Later', style: 'cancel' },
+            {
+              text: 'Update Now',
+              onPress: async () => {
+                try {
+                  await Updates.fetchUpdateAsync();
+                  Alert.alert(
+                    '✅ Update Downloaded',
+                    'The update has been downloaded. The app will restart now to apply the update.',
+                    [
+                      {
+                        text: 'Restart',
+                        onPress: async () => {
+                          await Updates.reloadAsync();
+                        },
+                      },
+                    ]
+                  );
+                } catch (error) {
+                  Alert.alert('Error', 'Failed to download update. Please try again.');
+                  console.error('Update fetch error:', error);
+                }
+              },
+            },
+          ]
+        );
+      } else {
+        Alert.alert('✅ Up to Date', 'You are running the latest version of WhatsCard!');
+      }
+    } catch (error) {
+      Alert.alert('Error', 'Failed to check for updates. Please check your internet connection.');
+      console.error('Update check error:', error);
+    } finally {
+      setIsCheckingUpdates(false);
+    }
+  };
+
   // Settings removed - using standard manual workflow only
 
   return (
@@ -28,6 +83,27 @@ export function SettingsScreen({ onBack }: SettingsScreenProps) {
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        {/* Check for Updates Button */}
+        <View style={styles.section}>
+          <TouchableOpacity
+            style={styles.updateButton}
+            onPress={checkForUpdates}
+            disabled={isCheckingUpdates}
+          >
+            {isCheckingUpdates ? (
+              <ActivityIndicator size="small" color="#FFFFFF" />
+            ) : (
+              <Ionicons name="cloud-download-outline" size={24} color="#FFFFFF" />
+            )}
+            <Text style={styles.updateButtonText}>
+              {isCheckingUpdates ? 'Checking...' : 'Check for Updates'}
+            </Text>
+          </TouchableOpacity>
+          <Text style={styles.updateDescription}>
+            Tap to manually check for the latest app updates
+          </Text>
+        </View>
+
         {/* Workflow Info */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Scanning Workflow</Text>
@@ -154,5 +230,27 @@ const styles = StyleSheet.create({
     color: '#1E40AF',
     marginLeft: 8,
     lineHeight: 20,
+  },
+  updateButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2563EB',
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    gap: 8,
+  },
+  updateButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
+    marginLeft: 8,
+  },
+  updateDescription: {
+    fontSize: 12,
+    color: '#6B7280',
+    marginTop: 8,
+    textAlign: 'center',
   },
 });
