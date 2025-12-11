@@ -116,11 +116,15 @@ class IAPService {
 
       console.log('[IAP Service] 📱 Platform:', Platform.OS);
       console.log('[IAP Service] 🆔 Product IDs:', productIdArray);
+      console.log('[IAP Service] 🔍 RNIap object:', Object.keys(RNIap || {}).join(', '));
+      console.log('[IAP Service] 🔍 getSubscriptions type:', typeof RNIap?.getSubscriptions);
       console.log('[IAP Service] 🔍 Attempting to fetch subscriptions from store...');
 
       // react-native-iap API: getSubscriptions() for subscription products
       // v14 API takes array directly, not object with skus property
+      console.log('[IAP Service] 🔍 Calling getSubscriptions with:', productIdArray);
       const results = await RNIap.getSubscriptions(productIdArray);
+      console.log('[IAP Service] ✅ getSubscriptions returned successfully');
 
       console.log('[IAP Service] 📦 Raw results from store:', JSON.stringify(results, null, 2));
 
@@ -224,14 +228,17 @@ class IAPService {
       console.log('[IAP Service] 🛒 Purchasing product ID:', productId);
       console.log('[IAP Service] 🔍 Platform:', Platform.OS);
       console.log('[IAP Service] 🎟️ Promo code:', promoCode || 'none');
+      console.log('[IAP Service] 🔍 requestSubscription type:', typeof RNIap?.requestSubscription);
 
       // react-native-iap API: requestSubscription() for subscription purchase
+      console.log('[IAP Service] 🔍 Calling requestSubscription with:', { sku: productId });
       const purchase = await RNIap.requestSubscription({
         sku: productId,
         ...(promoCode && Platform.OS === 'android' && {
           offerToken: promoCode, // Android promo offers
         }),
       });
+      console.log('[IAP Service] ✅ requestSubscription returned successfully');
 
       console.log('[IAP Service] ✅ Purchase response:', JSON.stringify(purchase, null, 2));
 
