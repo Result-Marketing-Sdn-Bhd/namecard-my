@@ -139,11 +139,10 @@ class IAPService {
       console.log('[IAP Service] 🔍 About to call fetchProducts...');
       console.log('[IAP Service] 🔍 Billing client should be connected');
 
-      // CRITICAL FIX: Must specify 'subs' type for subscriptions (not 'inapp')
-      const products = await RNIap.fetchProducts({
-        skus: productIdArray,
-        type: 'subs' // Android subscriptions, not in-app purchases
-      });
+      // CRITICAL FIX: Use getSubscriptions() to get full subscription details with offer tokens
+      // fetchProducts() only returns minimal data (id, type) without subscriptionOfferDetails
+      console.log('[IAP Service] 🔍 Using getSubscriptions() for full subscription data...');
+      const products = await RNIap.getSubscriptions({ skus: productIdArray });
 
       console.log('[IAP Service] 📦 Full response from fetchProducts:', JSON.stringify(products, null, 2));
       console.log('[IAP Service] 📦 Response type:', typeof products);
@@ -290,17 +289,17 @@ class IAPService {
         throw new Error('Cannot purchase with mock product ID in production');
       }
 
-      // For Android, fetch product details to get offer tokens
+      // For Android, fetch subscription details to get offer tokens
       let subscriptionOffers: any[] | undefined;
       if (Platform.OS === 'android') {
         try {
-          // In react-native-iap v14, fetchProducts returns products directly
-          // CRITICAL FIX: Must specify 'subs' type for subscriptions
-          const products = await RNIap.fetchProducts({
-            skus: [productId],
-            type: 'subs' // Android subscriptions
-          });
-          const currentProduct = products.find((p: any) => p.productId === productId);
+          // CRITICAL FIX: Use getSubscriptions() instead of fetchProducts() to get full details
+          console.log('[IAP Service] 🔍 Fetching subscription details with getSubscriptions...');
+          const subscriptions = await RNIap.getSubscriptions({ skus: [productId] });
+          console.log('[IAP Service] 📦 getSubscriptions result:', JSON.stringify(subscriptions, null, 2));
+
+          const currentProduct = subscriptions.find((p: any) => p.productId === productId);
+          console.log('[IAP Service] 📦 Current product:', JSON.stringify(currentProduct, null, 2));
 
           if (currentProduct?.subscriptionOfferDetails) {
             subscriptionOffers = currentProduct.subscriptionOfferDetails.map((offer: any) => ({
@@ -308,6 +307,8 @@ class IAPService {
               offerToken: offer.offerToken,
             }));
             console.log('[IAP Service] 🎁 Subscription offers:', JSON.stringify(subscriptionOffers, null, 2));
+          } else {
+            console.warn('[IAP Service] ⚠️ No subscriptionOfferDetails in product:', currentProduct);
           }
         } catch (error) {
           console.warn('[IAP Service] ⚠️ Could not fetch offer tokens:', error);
