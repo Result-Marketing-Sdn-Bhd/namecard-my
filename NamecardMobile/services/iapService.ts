@@ -139,7 +139,11 @@ class IAPService {
       console.log('[IAP Service] 🔍 About to call fetchProducts...');
       console.log('[IAP Service] 🔍 Billing client should be connected');
 
-      const products = await RNIap.fetchProducts({ skus: productIdArray });
+      // CRITICAL FIX: Must specify 'subs' type for subscriptions (not 'inapp')
+      const products = await RNIap.fetchProducts({
+        skus: productIdArray,
+        type: 'subs' // Android subscriptions, not in-app purchases
+      });
 
       console.log('[IAP Service] 📦 Full response from fetchProducts:', JSON.stringify(products, null, 2));
       console.log('[IAP Service] 📦 Response type:', typeof products);
@@ -291,7 +295,11 @@ class IAPService {
       if (Platform.OS === 'android') {
         try {
           // In react-native-iap v14, fetchProducts returns products directly
-          const products = await RNIap.fetchProducts({ skus: [productId] });
+          // CRITICAL FIX: Must specify 'subs' type for subscriptions
+          const products = await RNIap.fetchProducts({
+            skus: [productId],
+            type: 'subs' // Android subscriptions
+          });
           const currentProduct = products.find((p: any) => p.productId === productId);
 
           if (currentProduct?.subscriptionOfferDetails) {
