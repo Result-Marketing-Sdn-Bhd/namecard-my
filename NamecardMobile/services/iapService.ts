@@ -139,10 +139,13 @@ class IAPService {
       console.log('[IAP Service] 🔍 About to call fetchProducts...');
       console.log('[IAP Service] 🔍 Billing client should be connected');
 
-      // CRITICAL FIX: Use getSubscriptions() to get full subscription details with offer tokens
-      // fetchProducts() only returns minimal data (id, type) without subscriptionOfferDetails
-      console.log('[IAP Service] 🔍 Using getSubscriptions() for full subscription data...');
-      const products = await RNIap.getSubscriptions({ skus: productIdArray });
+      // CRITICAL FIX: Use fetchProducts with type:'subs' for subscriptions
+      // This should return full subscription details including subscriptionOfferDetails
+      console.log('[IAP Service] 🔍 Fetching subscriptions with type:subs...');
+      const products = await RNIap.fetchProducts({
+        skus: productIdArray,
+        type: 'subs'
+      });
 
       console.log('[IAP Service] 📦 Full response from fetchProducts:', JSON.stringify(products, null, 2));
       console.log('[IAP Service] 📦 Response type:', typeof products);
@@ -293,25 +296,53 @@ class IAPService {
       let subscriptionOffers: any[] | undefined;
       if (Platform.OS === 'android') {
         try {
-          // CRITICAL FIX: Use getSubscriptions() instead of fetchProducts() to get full details
-          console.log('[IAP Service] 🔍 Fetching subscription details with getSubscriptions...');
-          const subscriptions = await RNIap.getSubscriptions({ skus: [productId] });
-          console.log('[IAP Service] 📦 getSubscriptions result:', JSON.stringify(subscriptions, null, 2));
+          // CRITICAL FIX: Use fetchProducts with type:'subs' to get full subscription details
+          // getSubscriptions() does NOT exist in react-native-iap v14
+          console.log('[IAP Service] 🔍 Fetching subscription details with fetchProducts({type:subs})...');
+          const subscriptions = await RNIap.fetchProducts({
+            skus: [productId],
+            type: 'subs'
+          });
+          console.log('[IAP Service] 📦 fetchProducts result:', JSON.stringify(subscriptions, null, 2));
 
           const currentProduct = subscriptions.find((p: any) => p.productId === productId);
           console.log('[IAP Service] 📦 Current product:', JSON.stringify(currentProduct, null, 2));
 
-          if (currentProduct?.subscriptionOfferDetails) {
-            subscriptionOffers = currentProduct.subscriptionOfferDetails.map((offer: any) => ({
+          // CRITICAL FIX: In react-native-iap v14.5.0, subscriptionOfferDetailsAndroid is a JSON STRING
+          // that needs to be parsed. The native Nitro bridge returns it as string, not object.
+          let offerDetails: any[] | null = null;
+
+          if (currentProduct?.subscriptionOfferDetailsAndroid) {
+            try {
+              console.log('[IAP Service] 🔍 Raw subscriptionOfferDetailsAndroid:', currentProduct.subscriptionOfferDetailsAndroid);
+              // Parse the JSON string to get the actual offer details array
+              offerDetails = JSON.parse(currentProduct.subscriptionOfferDetailsAndroid);
+              console.log('[IAP Service] 📦 Parsed offer details:', JSON.stringify(offerDetails, null, 2));
+            } catch (parseError) {
+              console.error('[IAP Service] ❌ Failed to parse subscriptionOfferDetailsAndroid:', parseError);
+            }
+          }
+
+          if (offerDetails && offerDetails.length > 0) {
+            subscriptionOffers = offerDetails.map((offer: any) => ({
               sku: productId,
               offerToken: offer.offerToken,
             }));
             console.log('[IAP Service] 🎁 Subscription offers:', JSON.stringify(subscriptionOffers, null, 2));
           } else {
-            console.warn('[IAP Service] ⚠️ No subscriptionOfferDetails in product:', currentProduct);
+            console.error('[IAP Service] ❌ CRITICAL: No subscriptionOfferDetails in product!');
+            console.error('[IAP Service] ❌ Product keys:', Object.keys(currentProduct || {}));
+            console.error('[IAP Service] ❌ Product data:', currentProduct);
+            // BLOCK purchase if no offer token available
+            if (!__DEV__) {
+              throw new Error('Android subscription requires offerToken - cannot proceed');
+            }
           }
         } catch (error) {
-          console.warn('[IAP Service] ⚠️ Could not fetch offer tokens:', error);
+          console.error('[IAP Service] ❌ Failed to fetch offer tokens:', error);
+          if (!__DEV__) {
+            throw error; // Re-throw in production to block purchase
+          }
         }
       }
 
