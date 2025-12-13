@@ -169,8 +169,16 @@ class IAPService {
       }
 
       if (!results || results.length === 0) {
-        console.warn('[IAP Service] ⚠️ No products found, falling back to mock');
-        return this.fetchMockProducts();
+        // CRITICAL FIX: In production, NEVER fallback to mock products
+        // This was causing mock SKUs to poison this.products and trigger purchase failures
+        if (__DEV__) {
+          console.warn('[IAP Service] ⚠️ [DEV ONLY] No products found, falling back to mock');
+          return this.fetchMockProducts();
+        } else {
+          console.error('[IAP Service] ❌ [PRODUCTION] Google Play returned 0 products - BLOCKING PURCHASE');
+          console.error('[IAP Service] ❌ Cannot proceed without valid product data from Play Store');
+          throw new Error('No products available from Google Play Store. Cannot purchase.');
+        }
       }
 
       this.products = results.map((product: any) => ({
@@ -187,8 +195,15 @@ class IAPService {
       return this.products;
     } catch (error) {
       console.error('[IAP Service] ❌ Error fetching products:', error);
-      console.log('[IAP Service] 🔄 Falling back to mock products');
-      return this.fetchMockProducts();
+
+      // CRITICAL FIX: In production, NEVER fallback to mock on error
+      if (__DEV__) {
+        console.log('[IAP Service] 🔄 [DEV ONLY] Falling back to mock products');
+        return this.fetchMockProducts();
+      } else {
+        console.error('[IAP Service] ❌ [PRODUCTION] Product fetch failed - BLOCKING PURCHASE');
+        throw error; // Re-throw to prevent poisoning this.products with mocks
+      }
     }
   }
 
@@ -264,6 +279,12 @@ class IAPService {
 
       console.log('[IAP Service] 🛒 Purchasing product ID:', productId);
       console.log('[IAP Service] 🔍 Platform:', Platform.OS);
+
+      // CRITICAL FIX: Final safety check - NEVER allow mock IDs in production
+      if (!__DEV__ && productId.includes('mock_')) {
+        console.error('[IAP Service] ❌ [PRODUCTION] Attempted to purchase with mock ID:', productId);
+        throw new Error('Cannot purchase with mock product ID in production');
+      }
 
       // For Android, fetch product details to get offer tokens
       let subscriptionOffers: any[] | undefined;
@@ -690,6 +711,12 @@ class IAPService {
     // Try to get from fetched products first
     const product = this.products.find((p) => p.type === plan);
     if (product) {
+      // CRITICAL FIX: In production, NEVER return mock product IDs
+      if (!__DEV__ && product.productId.includes('mock_')) {
+        console.error('[IAP Service] ❌ [PRODUCTION] Detected mock product ID in cache:', product.productId);
+        console.error('[IAP Service] ❌ This indicates fetchProducts() was poisoned with mock data');
+        throw new Error('Cannot use mock product IDs in production');
+      }
       return product.productId;
     }
 
@@ -697,7 +724,15 @@ class IAPService {
     console.warn('[IAP Service] ⚠️ Product not in fetched list, using config fallback');
     const platform = Platform.OS as 'ios' | 'android';
     const productIds = getProductIds(platform);
-    return plan === 'monthly' ? productIds.monthly : productIds.yearly;
+    const fallbackId = plan === 'monthly' ? productIds.monthly : productIds.yearly;
+
+    // CRITICAL FIX: In production, verify fallback ID is not a mock
+    if (!__DEV__ && fallbackId.includes('mock_')) {
+      console.error('[IAP Service] ❌ [PRODUCTION] Config fallback returned mock ID:', fallbackId);
+      throw new Error('Cannot use mock product IDs in production');
+    }
+
+    return fallbackId;
   }
 
   private createSubscriptionFromPurchase(
