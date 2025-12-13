@@ -36,13 +36,15 @@ export const IAP_CONFIG = {
    *
    * iOS App Store Connect:
    * - App ID: 6754809694
-   * - Bundle ID: com.alittlebetter.better
+   * - Bundle ID: com.alittlebetter.alittlebetter
    * - Subscription Group: Premium Access (21821977)
+   * - Product IDs: whatscard_premium_monthly, whatscard_premium_yearly
    *
    * Android Google Play Console:
    * - Package Name: com.resultmarketing.whatscard
    * - Developer Account: Drinking Monster (6055773806895794556)
    * - Service Fee: 15%
+   * - Product IDs: monthly_premium_subscription, yearly_premium_subscription
    */
   PRODUCTS: {
     ios: {
