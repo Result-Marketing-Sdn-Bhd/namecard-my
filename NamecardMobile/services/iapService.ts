@@ -247,15 +247,21 @@ class IAPService {
         }
       }
 
-      this.products = results.map((product: any) => ({
-        productId: product.productId,
-        type: product.productId.includes('monthly') ? 'monthly' : 'yearly',
-        price: product.localizedPrice || '$0.00',
-        priceAmount: parseFloat(product.price || '0'),
-        currency: product.currency || 'USD',
-        title: product.title || '',
-        description: product.description || '',
-      }));
+      this.products = results.map((product: any) => {
+        // CRITICAL FIX: Safe type detection using optional chaining
+        const productId = product?.productId || '';
+        const type: SubscriptionPlan = productId.includes('monthly') ? 'monthly' : 'yearly';
+
+        return {
+          productId: productId,
+          type: type,
+          price: product?.localizedPrice || '$0.00',
+          priceAmount: parseFloat(product?.price || '0'),
+          currency: product?.currency || 'USD',
+          title: product?.title || '',
+          description: product?.description || '',
+        };
+      });
 
       console.log('[IAP Service] ✅ Fetched', this.products.length, 'products');
       return this.products;
@@ -337,10 +343,16 @@ class IAPService {
     }
 
     try {
-      const productId = this.getProductIdForPlan(plan);
+      // CRITICAL FIX: Use explicit ID mapping first, then verify in fetched products
+      const productId = this.mapPlanToProductId(plan);
+      console.log('[IAP Service] 🔍 Mapped plan to product ID:', productId);
 
-      if (!productId) {
-        throw new Error(`Product not found for plan: ${plan}`);
+      // Verify the product was fetched successfully
+      const fetchedProduct = this.products.find((p) => p.productId === productId);
+      if (!fetchedProduct && !__DEV__) {
+        console.error('[IAP Service] ❌ Product not found in fetched products:', productId);
+        console.error('[IAP Service] ❌ Available products:', this.products.map(p => p.productId));
+        throw new Error(`Product ${productId} not available from Play Store`);
       }
 
       console.log('[IAP Service] 🛒 Purchasing product ID:', productId);
@@ -383,23 +395,41 @@ class IAPService {
             }
           }
 
-          if (offerDetails && offerDetails.length > 0) {
+          if (offerDetails && Array.isArray(offerDetails) && offerDetails.length > 0) {
             // CRITICAL FIX: Select offer based on billingPeriod to match subscription plan
             // Monthly = P1M, Yearly = P1Y
             const expectedPeriod = plan === 'monthly' ? 'P1M' : 'P1Y';
             console.log('[IAP Service] 🔍 Expected billing period for', plan, ':', expectedPeriod);
+            console.log('[IAP Service] 🔍 Total offers available:', offerDetails.length);
 
-            // Find matching offer by validating pricingPhases
+            // DEFENSIVE: Find matching offer by validating pricingPhases
+            // Never crash on undefined/null fields - use optional chaining
             const matchingOffer = offerDetails.find((offer: any) => {
-              if (!offer.pricingPhases?.pricingPhaseList?.length) return false;
+              // DEFENSIVE: Check offer exists and has required structure
+              if (!offer || typeof offer !== 'object') {
+                console.warn('[IAP Service] ⚠️ Invalid offer object:', offer);
+                return false;
+              }
 
-              // Check if any pricing phase matches expected period
-              return offer.pricingPhases.pricingPhaseList.some((phase: any) =>
-                phase.billingPeriod === expectedPeriod
-              );
+              // DEFENSIVE: Check pricingPhases structure
+              if (!offer.pricingPhases?.pricingPhaseList || !Array.isArray(offer.pricingPhases.pricingPhaseList)) {
+                console.warn('[IAP Service] ⚠️ Offer missing pricingPhaseList:', offer.basePlanId);
+                return false;
+              }
+
+              if (offer.pricingPhases.pricingPhaseList.length === 0) {
+                console.warn('[IAP Service] ⚠️ Empty pricingPhaseList:', offer.basePlanId);
+                return false;
+              }
+
+              // DEFENSIVE: Check if any pricing phase matches expected period (with null safety)
+              return offer.pricingPhases.pricingPhaseList.some((phase: any) => {
+                if (!phase || typeof phase !== 'object') return false;
+                return phase.billingPeriod === expectedPeriod;
+              });
             });
 
-            if (matchingOffer) {
+            if (matchingOffer && matchingOffer.offerToken) {
               const basePlanId = matchingOffer.basePlanId || 'unknown';
               const billingPeriod = matchingOffer.pricingPhases?.pricingPhaseList?.[0]?.billingPeriod || 'unknown';
 
@@ -415,21 +445,29 @@ class IAPService {
             } else {
               console.error('[IAP Service] ❌ CRITICAL: No offer with billingPeriod', expectedPeriod);
               console.error('[IAP Service] ❌ Available offers:', offerDetails.map((o: any) => ({
-                basePlanId: o.basePlanId,
-                billingPeriod: o.pricingPhases?.pricingPhaseList?.[0]?.billingPeriod
+                basePlanId: o?.basePlanId || 'unknown',
+                billingPeriod: o?.pricingPhases?.pricingPhaseList?.[0]?.billingPeriod || 'unknown',
+                hasOfferToken: !!o?.offerToken
               })));
 
               if (!__DEV__) {
                 throw new Error(`No ${plan} subscription offer found with billingPeriod ${expectedPeriod}`);
+              } else {
+                console.warn('[IAP Service] ⚠️ [DEV] Will attempt purchase without offer validation');
               }
             }
           } else {
             console.error('[IAP Service] ❌ CRITICAL: No subscriptionOfferDetails in product!');
             console.error('[IAP Service] ❌ Product keys:', Object.keys(currentProduct || {}));
-            console.error('[IAP Service] ❌ Product data:', currentProduct);
+            console.error('[IAP Service] ❌ Product data:', JSON.stringify(currentProduct, null, 2));
+            console.error('[IAP Service] ❌ offerDetails type:', typeof offerDetails);
+            console.error('[IAP Service] ❌ offerDetails:', offerDetails);
+
             // BLOCK purchase if no offer token available
             if (!__DEV__) {
               throw new Error('Android subscription requires offerToken - cannot proceed');
+            } else {
+              console.warn('[IAP Service] ⚠️ [DEV] Missing offer details - purchase may fail');
             }
           }
         } catch (error) {
@@ -856,6 +894,25 @@ class IAPService {
 
   private async delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  /**
+   * CRITICAL FIX: Map plan name to explicit product ID
+   * Prevents crashes when productId is undefined
+   */
+  private mapPlanToProductId(plan: SubscriptionPlan): string {
+    const platform = Platform.OS as 'ios' | 'android';
+    const productIds = getProductIds(platform);
+
+    if (plan === 'monthly') {
+      return productIds.monthly;
+    } else if (plan === 'yearly') {
+      return productIds.yearly;
+    }
+
+    // Fallback (should never happen)
+    console.error('[IAP Service] ❌ Invalid plan type:', plan);
+    return productIds.monthly;
   }
 
   private getProductIdForPlan(plan: SubscriptionPlan): string | null {
