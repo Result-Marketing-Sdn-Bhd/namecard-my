@@ -48,6 +48,10 @@ class IAPService {
   private isInitialized = false;
   private products: ProductInfo[] = [];
   private currentUserId: string | null = null;
+  private purchaseUpdateSubscription: any = null;
+  private purchaseErrorSubscription: any = null;
+  private pendingPurchaseResolve: ((value: any) => void) | null = null;
+  private pendingPurchaseReject: ((reason: any) => void) | null = null;
 
   /**
    * Set current user ID for receipt validation
@@ -94,9 +98,14 @@ class IAPService {
         }
       }
 
+      // CRITICAL FIX: Setup event listeners BEFORE making any purchases
+      // requestPurchase() is event-based, not promise-based
+      this.setupPurchaseListeners();
+
       this.isInitialized = true;
       console.log('[IAP Service] ✅ Real IAP connection established');
       console.log('[IAP Service] ✅ Android Billing Client ready');
+      console.log('[IAP Service] ✅ Purchase listeners registered');
     } catch (error) {
       console.error('[IAP Service] ❌ Initialization error:', error);
       console.error('[IAP Service] ❌ Error details:', JSON.stringify(error, null, 2));
@@ -105,11 +114,62 @@ class IAPService {
   }
 
   /**
+   * CRITICAL FIX: Setup purchase event listeners
+   * requestPurchase() is EVENT-BASED, not promise-based
+   */
+  private setupPurchaseListeners(): void {
+    console.log('[IAP Service] 🎧 Setting up purchase listeners...');
+
+    // Remove existing listeners if any
+    if (this.purchaseUpdateSubscription) {
+      this.purchaseUpdateSubscription.remove();
+    }
+    if (this.purchaseErrorSubscription) {
+      this.purchaseErrorSubscription.remove();
+    }
+
+    // Listen for successful purchases
+    this.purchaseUpdateSubscription = RNIap.purchaseUpdatedListener((purchase: any) => {
+      console.log('[IAP Service] ✅ Purchase updated event:', JSON.stringify(purchase, null, 2));
+
+      if (this.pendingPurchaseResolve) {
+        this.pendingPurchaseResolve(purchase);
+        this.pendingPurchaseResolve = null;
+        this.pendingPurchaseReject = null;
+      }
+    });
+
+    // Listen for purchase errors
+    this.purchaseErrorSubscription = RNIap.purchaseErrorListener((error: any) => {
+      console.error('[IAP Service] ❌ Purchase error event:', JSON.stringify(error, null, 2));
+
+      if (this.pendingPurchaseReject) {
+        this.pendingPurchaseReject(error);
+        this.pendingPurchaseResolve = null;
+        this.pendingPurchaseReject = null;
+      }
+    });
+
+    console.log('[IAP Service] ✅ Purchase listeners registered');
+  }
+
+  /**
    * Disconnect from IAP
    */
   async disconnect(): Promise<void> {
     if (!IAP_CONFIG.MOCK_MODE && this.isInitialized && RNIap) {
       console.log('[IAP Service] 🔌 Disconnecting from IAP...');
+
+      // Remove listeners
+      if (this.purchaseUpdateSubscription) {
+        this.purchaseUpdateSubscription.remove();
+        this.purchaseUpdateSubscription = null;
+      }
+      if (this.purchaseErrorSubscription) {
+        this.purchaseErrorSubscription.remove();
+        this.purchaseErrorSubscription = null;
+      }
+
       await RNIap.endConnection();
       this.isInitialized = false;
       console.log('[IAP Service] ✅ Disconnected');
@@ -347,42 +407,71 @@ class IAPService {
       }
 
       // Execute purchase
-      // CRITICAL FIX: In react-native-iap v14, use requestPurchase() for subscriptions
-      // NOT requestSubscription() - that's the old API
-      let purchase;
-      if (Platform.OS === 'ios') {
-        // iOS: Use requestPurchase with sku
-        console.log('[IAP Service] 🍎 iOS: Calling requestPurchase...');
-        purchase = await RNIap.requestPurchase({
-          sku: productId,
-        });
-      } else {
-        // Android: Use requestPurchase with offerToken if available
-        console.log('[IAP Service] 🤖 Android: Calling requestPurchase...');
+      // CRITICAL FIX: requestPurchase() is EVENT-BASED, not promise-based
+      // We must use a Promise wrapper to wait for the purchase event
+      console.log('[IAP Service] 🛒 Starting purchase flow...');
 
-        // If we have subscription offers, use the first one
-        if (subscriptionOffers && subscriptionOffers.length > 0) {
-          const offerToken = subscriptionOffers[0].offerToken;
-          console.log('[IAP Service] 🎁 Using offer token:', offerToken);
+      const purchase = await new Promise<any>((resolve, reject) => {
+        // Store the resolve/reject for the event listeners
+        this.pendingPurchaseResolve = resolve;
+        this.pendingPurchaseReject = reject;
 
-          purchase = await RNIap.requestPurchase({
+        // Set a timeout in case no event fires
+        const timeout = setTimeout(() => {
+          if (this.pendingPurchaseReject) {
+            this.pendingPurchaseReject(new Error('Purchase timeout - no response from Google Play'));
+            this.pendingPurchaseResolve = null;
+            this.pendingPurchaseReject = null;
+          }
+        }, 60000); // 60 second timeout
+
+        // Trigger the purchase
+        if (Platform.OS === 'ios') {
+          // iOS: Use requestPurchase with sku
+          console.log('[IAP Service] 🍎 iOS: Calling requestPurchase...');
+          RNIap.requestPurchase({
             sku: productId,
-            subscriptionOffers: [{
-              sku: productId,
-              offerToken: offerToken,
-            }],
           });
         } else {
-          // Fallback: Try without offer token (may fail on Google Play)
-          console.warn('[IAP Service] ⚠️ No offer token found, attempting purchase without it');
-          purchase = await RNIap.requestPurchase({
-            sku: productId,
-          });
-        }
-      }
+          // Android: Use requestPurchase with offerToken if available
+          console.log('[IAP Service] 🤖 Android: Calling requestPurchase...');
 
-      console.log('[IAP Service] ✅ requestPurchase returned successfully');
-      console.log('[IAP Service] ✅ Purchase response:', JSON.stringify(purchase, null, 2));
+          // If we have subscription offers, use the first one
+          if (subscriptionOffers && subscriptionOffers.length > 0) {
+            const offerToken = subscriptionOffers[0].offerToken;
+            console.log('[IAP Service] 🎁 Using offer token:', offerToken);
+
+            RNIap.requestPurchase({
+              sku: productId,
+              subscriptionOffers: [{
+                sku: productId,
+                offerToken: offerToken,
+              }],
+            });
+          } else {
+            // Fallback: Try without offer token (may fail on Google Play)
+            console.warn('[IAP Service] ⚠️ No offer token found, attempting purchase without it');
+            RNIap.requestPurchase({
+              sku: productId,
+            });
+          }
+        }
+
+        // Clear timeout if purchase completes
+        const originalResolve = resolve;
+        const originalReject = reject;
+        this.pendingPurchaseResolve = (value: any) => {
+          clearTimeout(timeout);
+          originalResolve(value);
+        };
+        this.pendingPurchaseReject = (reason: any) => {
+          clearTimeout(timeout);
+          originalReject(reason);
+        };
+      });
+
+      console.log('[IAP Service] ✅ Purchase event received');
+      console.log('[IAP Service] ✅ Purchase data:', JSON.stringify(purchase, null, 2));
 
       // FIX #4: Validate receipt on server BEFORE storing subscription
       console.log('[IAP Service] 🔐 Validating receipt on server...');
