@@ -384,11 +384,45 @@ class IAPService {
           }
 
           if (offerDetails && offerDetails.length > 0) {
-            subscriptionOffers = offerDetails.map((offer: any) => ({
-              sku: productId,
-              offerToken: offer.offerToken,
-            }));
-            console.log('[IAP Service] 🎁 Subscription offers:', JSON.stringify(subscriptionOffers, null, 2));
+            // CRITICAL FIX: Select offer based on billingPeriod to match subscription plan
+            // Monthly = P1M, Yearly = P1Y
+            const expectedPeriod = plan === 'monthly' ? 'P1M' : 'P1Y';
+            console.log('[IAP Service] 🔍 Expected billing period for', plan, ':', expectedPeriod);
+
+            // Find matching offer by validating pricingPhases
+            const matchingOffer = offerDetails.find((offer: any) => {
+              if (!offer.pricingPhases?.pricingPhaseList?.length) return false;
+
+              // Check if any pricing phase matches expected period
+              return offer.pricingPhases.pricingPhaseList.some((phase: any) =>
+                phase.billingPeriod === expectedPeriod
+              );
+            });
+
+            if (matchingOffer) {
+              const basePlanId = matchingOffer.basePlanId || 'unknown';
+              const billingPeriod = matchingOffer.pricingPhases?.pricingPhaseList?.[0]?.billingPeriod || 'unknown';
+
+              console.log('[IAP Service] ✅ Selected offer:');
+              console.log('[IAP Service]   - basePlanId:', basePlanId);
+              console.log('[IAP Service]   - billingPeriod:', billingPeriod);
+              console.log('[IAP Service]   - offerToken:', matchingOffer.offerToken);
+
+              subscriptionOffers = [{
+                sku: productId,
+                offerToken: matchingOffer.offerToken,
+              }];
+            } else {
+              console.error('[IAP Service] ❌ CRITICAL: No offer with billingPeriod', expectedPeriod);
+              console.error('[IAP Service] ❌ Available offers:', offerDetails.map((o: any) => ({
+                basePlanId: o.basePlanId,
+                billingPeriod: o.pricingPhases?.pricingPhaseList?.[0]?.billingPeriod
+              })));
+
+              if (!__DEV__) {
+                throw new Error(`No ${plan} subscription offer found with billingPeriod ${expectedPeriod}`);
+              }
+            }
           } else {
             console.error('[IAP Service] ❌ CRITICAL: No subscriptionOfferDetails in product!');
             console.error('[IAP Service] ❌ Product keys:', Object.keys(currentProduct || {}));
@@ -445,21 +479,15 @@ class IAPService {
           console.log('[IAP Service] 🤖 Android: Calling requestPurchase...');
 
           if (subscriptionOffers && subscriptionOffers.length > 0) {
-            const offerToken = subscriptionOffers[0].offerToken;
-            console.log('[IAP Service] 🎁 Using offer token:', offerToken);
+            console.log('[IAP Service] 🎁 Using validated subscription offer with correct billingPeriod');
 
             RNIap.requestPurchase({
               sku: productId,
-              subscriptionOffers: [{
-                sku: productId,
-                offerToken: offerToken,
-              }],
+              subscriptionOffers: subscriptionOffers,
             });
           } else {
-            console.warn('[IAP Service] ⚠️ No offer token found, attempting purchase without it');
-            RNIap.requestPurchase({
-              sku: productId,
-            });
+            console.error('[IAP Service] ❌ No valid subscription offer found');
+            throw new Error('Cannot purchase subscription without valid offer token');
           }
         }
       });
