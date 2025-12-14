@@ -412,31 +412,38 @@ class IAPService {
       console.log('[IAP Service] 🛒 Starting purchase flow...');
 
       const purchase = await new Promise<any>((resolve, reject) => {
-        // Store the resolve/reject for the event listeners
-        this.pendingPurchaseResolve = resolve;
-        this.pendingPurchaseReject = reject;
-
         // Set a timeout in case no event fires
         const timeout = setTimeout(() => {
           if (this.pendingPurchaseReject) {
-            this.pendingPurchaseReject(new Error('Purchase timeout - no response from Google Play'));
-            this.pendingPurchaseResolve = null;
-            this.pendingPurchaseReject = null;
+            const error = new Error('Purchase timeout - no response from Google Play');
+            this.pendingPurchaseReject(error);
           }
         }, 60000); // 60 second timeout
 
-        // Trigger the purchase
+        // Store wrapped resolve/reject that clear timeout and self-null
+        this.pendingPurchaseResolve = (value: any) => {
+          clearTimeout(timeout);
+          this.pendingPurchaseResolve = null;
+          this.pendingPurchaseReject = null;
+          resolve(value);
+        };
+
+        this.pendingPurchaseReject = (reason: any) => {
+          clearTimeout(timeout);
+          this.pendingPurchaseResolve = null;
+          this.pendingPurchaseReject = null;
+          reject(reason);
+        };
+
+        // Trigger the purchase (NO await - returns void)
         if (Platform.OS === 'ios') {
-          // iOS: Use requestPurchase with sku
           console.log('[IAP Service] 🍎 iOS: Calling requestPurchase...');
           RNIap.requestPurchase({
             sku: productId,
           });
         } else {
-          // Android: Use requestPurchase with offerToken if available
           console.log('[IAP Service] 🤖 Android: Calling requestPurchase...');
 
-          // If we have subscription offers, use the first one
           if (subscriptionOffers && subscriptionOffers.length > 0) {
             const offerToken = subscriptionOffers[0].offerToken;
             console.log('[IAP Service] 🎁 Using offer token:', offerToken);
@@ -449,25 +456,12 @@ class IAPService {
               }],
             });
           } else {
-            // Fallback: Try without offer token (may fail on Google Play)
             console.warn('[IAP Service] ⚠️ No offer token found, attempting purchase without it');
             RNIap.requestPurchase({
               sku: productId,
             });
           }
         }
-
-        // Clear timeout if purchase completes
-        const originalResolve = resolve;
-        const originalReject = reject;
-        this.pendingPurchaseResolve = (value: any) => {
-          clearTimeout(timeout);
-          originalResolve(value);
-        };
-        this.pendingPurchaseReject = (reason: any) => {
-          clearTimeout(timeout);
-          originalReject(reason);
-        };
       });
 
       console.log('[IAP Service] ✅ Purchase event received');
