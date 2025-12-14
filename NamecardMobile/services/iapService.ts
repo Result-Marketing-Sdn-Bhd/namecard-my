@@ -248,12 +248,12 @@ class IAPService {
       }
 
       this.products = results.map((product: any) => {
-        // CRITICAL FIX: Safe type detection using optional chaining
-        const productId = product?.productId || '';
+        // CRITICAL FIX: react-native-iap v14 product objects use .id (NOT .productId)
+        const productId = product?.id || '';
         const type: SubscriptionPlan = productId.includes('monthly') ? 'monthly' : 'yearly';
 
         return {
-          productId: productId,
+          productId: product?.id || '',
           type: type,
           price: product?.localizedPrice || '$0.00',
           priceAmount: parseFloat(product?.price || '0'),
@@ -377,7 +377,8 @@ class IAPService {
           });
           console.log('[IAP Service] 📦 fetchProducts result:', JSON.stringify(subscriptions, null, 2));
 
-          const currentProduct = subscriptions.find((p: any) => p.productId === productId);
+          // CRITICAL FIX: react-native-iap v14 product objects use .id (NOT .productId)
+          const currentProduct = subscriptions.find((p: any) => p.id === productId);
           console.log('[IAP Service] 📦 Current product:', JSON.stringify(currentProduct, null, 2));
 
           // CRITICAL FIX: In react-native-iap v14.5.0, subscriptionOfferDetailsAndroid is a JSON STRING
