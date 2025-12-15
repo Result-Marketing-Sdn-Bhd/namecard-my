@@ -543,17 +543,20 @@ class IAPService {
 
           if (subscriptionOffers && subscriptionOffers.length > 0) {
             console.log('[IAP Service] 🎁 Using validated subscription offer with correct billingPeriod');
-            console.log('[IAP Service] 📦 Payload:', JSON.stringify({
-              sku: productId,
-              subscriptionOffers: subscriptionOffers,
-            }, null, 2));
 
-            // FINAL CORRECT VERSION: react-native-iap v14 uses requestPurchase for subscriptions
-            // The payload MUST include both outer sku AND inner sku in subscriptionOffers array
-            RNIap.requestPurchase({
-              sku: productId,  // Required at top level
-              subscriptionOffers: subscriptionOffers,  // Contains [{ sku, offerToken }]
-            });
+            // CRITICAL: Match documentation format exactly
+            // https://github.com/dooboolab-community/react-native-iap
+            const purchaseRequest = {
+              request: {
+                skus: [productId],  // Array format
+                subscriptionOffers: subscriptionOffers,  // Contains [{ sku, basePlanId, offerToken }]
+              },
+              type: 'subs',  // Explicit subscription type
+            };
+
+            console.log('[IAP Service] 📦 Purchase request:', JSON.stringify(purchaseRequest, null, 2));
+
+            RNIap.requestPurchase(purchaseRequest);
           } else {
             console.error('[IAP Service] ❌ No valid subscription offer found');
             throw new Error('Cannot purchase subscription without valid offer token');
