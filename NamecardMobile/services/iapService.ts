@@ -252,12 +252,16 @@ class IAPService {
         const productId = product?.id || '';
         const type: SubscriptionPlan = productId.includes('monthly') ? 'monthly' : 'yearly';
 
+        // Use hardcoded pricing from IAP_CONFIG instead of Google Play's localized price
+        // This prevents confusing currency symbols (e.g., $ instead of RM in Malaysia)
+        const configPrice = IAP_CONFIG.PRICING[type];
+
         return {
           productId: product?.id || '',
           type: type,
-          price: product?.localizedPrice || '$0.00',
-          priceAmount: parseFloat(product?.price || '0'),
-          currency: product?.currency || 'USD',
+          price: configPrice.displayPrice,  // Use hardcoded displayPrice from config
+          priceAmount: configPrice.usd,     // Use hardcoded USD amount from config
+          currency: 'USD',                  // Always USD to match our pricing config
           title: product?.title || '',
           description: product?.description || '',
         };
@@ -381,19 +385,37 @@ class IAPService {
           const currentProduct = subscriptions.find((p: any) => p.id === productId);
           console.log('[IAP Service] 📦 Current product:', JSON.stringify(currentProduct, null, 2));
 
-          // CRITICAL FIX: In react-native-iap v14.5.0, subscriptionOfferDetailsAndroid is a JSON STRING
-          // that needs to be parsed. The native Nitro bridge returns it as string, not object.
+          // CRITICAL FIX: In react-native-iap v14.5.0, subscriptionOfferDetailsAndroid can be:
+          // - An array (most common in v14)
+          // - A JSON string (some edge cases)
+          // Handle both cases defensively to prevent crashes
           let offerDetails: any[] | null = null;
 
           if (currentProduct?.subscriptionOfferDetailsAndroid) {
-            try {
-              console.log('[IAP Service] 🔍 Raw subscriptionOfferDetailsAndroid:', currentProduct.subscriptionOfferDetailsAndroid);
-              // Parse the JSON string to get the actual offer details array
-              offerDetails = JSON.parse(currentProduct.subscriptionOfferDetailsAndroid);
-              console.log('[IAP Service] 📦 Parsed offer details:', JSON.stringify(offerDetails, null, 2));
-            } catch (parseError) {
-              console.error('[IAP Service] ❌ Failed to parse subscriptionOfferDetailsAndroid:', parseError);
+            console.log('[IAP Service] 🔍 Raw subscriptionOfferDetailsAndroid:', currentProduct.subscriptionOfferDetailsAndroid);
+            console.log('[IAP Service] 🔍 Type:', typeof currentProduct.subscriptionOfferDetailsAndroid);
+
+            // DEFENSIVE: Handle both array and string cases
+            if (Array.isArray(currentProduct.subscriptionOfferDetailsAndroid)) {
+              // Already an array - use directly
+              offerDetails = currentProduct.subscriptionOfferDetailsAndroid;
+              console.log('[IAP Service] ✅ subscriptionOfferDetailsAndroid is already an array');
+            } else if (typeof currentProduct.subscriptionOfferDetailsAndroid === 'string') {
+              // String - needs parsing
+              try {
+                offerDetails = JSON.parse(currentProduct.subscriptionOfferDetailsAndroid);
+                console.log('[IAP Service] ✅ Parsed subscriptionOfferDetailsAndroid from JSON string');
+              } catch (parseError) {
+                console.error('[IAP Service] ❌ Failed to parse subscriptionOfferDetailsAndroid:', parseError);
+                offerDetails = [];
+              }
+            } else {
+              // Unknown type - use empty array
+              console.warn('[IAP Service] ⚠️ subscriptionOfferDetailsAndroid is unexpected type, using empty array');
+              offerDetails = [];
             }
+
+            console.log('[IAP Service] 📦 Final offer details:', JSON.stringify(offerDetails, null, 2));
           }
 
           if (offerDetails && Array.isArray(offerDetails) && offerDetails.length > 0) {
@@ -439,8 +461,10 @@ class IAPService {
               console.log('[IAP Service]   - billingPeriod:', billingPeriod);
               console.log('[IAP Service]   - offerToken:', matchingOffer.offerToken);
 
+              // CRITICAL FIX: react-native-iap v14.5.0 requires basePlanId + offerToken
               subscriptionOffers = [{
                 sku: productId,
+                basePlanId: matchingOffer.basePlanId,
                 offerToken: matchingOffer.offerToken,
               }];
             } else {
@@ -515,14 +539,20 @@ class IAPService {
             sku: productId,
           });
         } else {
-          console.log('[IAP Service] 🤖 Android: Calling requestPurchase...');
+          console.log('[IAP Service] 🤖 Android: Calling requestPurchase with subscription offers...');
 
           if (subscriptionOffers && subscriptionOffers.length > 0) {
             console.log('[IAP Service] 🎁 Using validated subscription offer with correct billingPeriod');
-
-            RNIap.requestPurchase({
+            console.log('[IAP Service] 📦 Payload:', JSON.stringify({
               sku: productId,
               subscriptionOffers: subscriptionOffers,
+            }, null, 2));
+
+            // FINAL CORRECT VERSION: react-native-iap v14 uses requestPurchase for subscriptions
+            // The payload MUST include both outer sku AND inner sku in subscriptionOffers array
+            RNIap.requestPurchase({
+              sku: productId,  // Required at top level
+              subscriptionOffers: subscriptionOffers,  // Contains [{ sku, offerToken }]
             });
           } else {
             console.error('[IAP Service] ❌ No valid subscription offer found');
