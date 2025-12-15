@@ -535,9 +535,21 @@ class IAPService {
         // Trigger the purchase (NO await - returns void)
         if (Platform.OS === 'ios') {
           console.log('[IAP Service] 🍎 iOS: Calling requestPurchase...');
-          RNIap.requestPurchase({
-            sku: productId,
-          });
+
+          // iOS uses simpler format (no offer tokens required)
+          // https://github.com/dooboolab-community/react-native-iap
+          const iosRequest = {
+            request: {
+              ios: {
+                skus: [productId],  // iOS also uses array format
+              },
+            },
+            type: 'subs',
+          };
+
+          console.log('[IAP Service] 📦 iOS Purchase request:', JSON.stringify(iosRequest, null, 2));
+
+          RNIap.requestPurchase(iosRequest);
         } else {
           console.log('[IAP Service] 🤖 Android: Calling requestPurchase with subscription offers...');
 
