@@ -1035,6 +1035,38 @@ class IAPService {
       return [];
     }
   }
+
+  /**
+   * Open subscription management page (Apple/Google)
+   *
+   * This is the ONLY allowed way to let users cancel subscriptions.
+   * Direct cancel buttons are PROHIBITED by App Store and Play Store guidelines.
+   */
+  async openSubscriptionManagement(): Promise<void> {
+    console.log('[IAP Service] 🔗 Opening subscription management...');
+
+    if (IAP_CONFIG.MOCK_MODE || !RNIap) {
+      console.log('[IAP Service] 🎭 Mock mode: Would open subscription management');
+      // In production, this would open the actual store
+      return;
+    }
+
+    try {
+      if (Platform.OS === 'ios') {
+        // iOS: Opens Settings → Apple ID → Subscriptions
+        await RNIap.deepLinkToSubscriptions();
+        console.log('[IAP Service] ✅ Opened iOS subscription management');
+      } else {
+        // Android: Opens Google Play Store → Subscriptions page
+        await RNIap.deepLinkToSubscriptions();
+        console.log('[IAP Service] ✅ Opened Google Play subscription management');
+      }
+    } catch (error) {
+      console.error('[IAP Service] ❌ Failed to open subscription management:', error);
+      // Fallback: Could show instructions to user
+      throw new Error('Could not open subscription management. Please manage via your device settings.');
+    }
+  }
 }
 
 // Export singleton instance
