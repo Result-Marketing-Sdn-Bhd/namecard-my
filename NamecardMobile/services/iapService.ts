@@ -670,7 +670,7 @@ class IAPService {
         const errorText = await response.text();
         console.error('[IAP Service] ❌ Receipt validation failed with status:', response.status);
         console.error('[IAP Service] ❌ Error response:', errorText);
-        return null;
+        throw new Error(`Server validation failed: ${response.status}`);
       }
 
       const result = await response.json();
@@ -678,7 +678,7 @@ class IAPService {
 
       if (!result.success) {
         console.error('[IAP Service] ❌ Receipt validation returned error:', result.error);
-        return null;
+        throw new Error(`Validation error: ${result.error}`);
       }
 
       console.log('[IAP Service] ✅ Receipt validated on server');
