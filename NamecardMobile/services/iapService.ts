@@ -544,11 +544,18 @@ class IAPService {
           if (subscriptionOffers && subscriptionOffers.length > 0) {
             console.log('[IAP Service] 🎁 Using validated subscription offer with correct billingPeriod');
 
-            // CRITICAL: For react-native-iap v14.5.0, skus must be at TOP LEVEL (not nested)
-            // Error message confirmed: "The `skus` property is required and must be a non-empty array"
-            const purchaseRequest = {
-              skus: [productId],  // TOP LEVEL - required by v14.5.0
+            // CRITICAL: GitHub issue #2963 solution - Use platform-specific request wrapper
+            // https://github.com/dooboolab-community/react-native-iap/discussions/2963
+            const androidRequest = {
+              skus: [productId],  // Must be array
               subscriptionOffers: subscriptionOffers,  // Contains [{ sku, basePlanId, offerToken }]
+            };
+
+            const purchaseRequest = {
+              request: {
+                android: androidRequest,  // Platform-specific wrapper
+              },
+              type: 'subs',  // Explicit type
             };
 
             console.log('[IAP Service] 📦 Purchase request:', JSON.stringify(purchaseRequest, null, 2));
