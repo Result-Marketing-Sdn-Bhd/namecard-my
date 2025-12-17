@@ -19,6 +19,7 @@ import { AuthManager } from './services/authManager';
 import { validateConfig } from './config/environment';
 import { AuthScreen } from './components/screens/AuthScreen';
 import { SplashScreen } from './components/screens/SplashScreen';
+import { DataConsentScreen, hasDataConsent } from './components/screens/DataConsentScreen';
 import { ContactDetailModal } from './components/business/ContactDetailModal';
 import { useGroups } from './hooks/useGroups';
 import { subscriptionCheckService } from './services/subscriptionCheckService';
@@ -72,6 +73,8 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [showSplash, setShowSplash] = useState(true);
+  const [showConsent, setShowConsent] = useState(false);
+  const [hasConsent, setHasConsent] = useState(false);
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
   const [showContactDetail, setShowContactDetail] = useState(false);
   const [showPaywall, setShowPaywall] = useState(false);
@@ -584,7 +587,37 @@ export default function App() {
     return (
       <>
         <StatusBar style="light" />
-        <SplashScreen onFinish={() => setShowSplash(false)} />
+        <SplashScreen onFinish={async () => {
+          setShowSplash(false);
+          // Check if user has given consent
+          const consent = await hasDataConsent();
+          if (!consent) {
+            setShowConsent(true);
+          } else {
+            setHasConsent(true);
+          }
+        }} />
+      </>
+    );
+  }
+
+  // Show consent screen (Apple Guideline 5.1.2 compliance)
+  if (showConsent) {
+    return (
+      <>
+        <StatusBar style="dark" />
+        <DataConsentScreen
+          onAccept={() => {
+            setShowConsent(false);
+            setHasConsent(true);
+            console.log('✅ User consented to data collection');
+          }}
+          onDecline={() => {
+            setShowConsent(false);
+            setHasConsent(false);
+            console.log('⚠️ User declined data consent - limited functionality');
+          }}
+        />
       </>
     );
   }

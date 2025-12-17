@@ -1,4 +1,4 @@
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { Contact } from '../types';
 import Config from '../config/environment';
 import { normalizePhoneNumber } from '../utils/phoneFormatter';
@@ -236,7 +236,14 @@ ADDITIONAL RULES:
 
       if (!response.ok) {
         const errorData = await response.text();
-        // Silent logging - don't show scary errors to users
+        // Debug logging to identify the issue
+        console.log('[Gemini] API Error Details:', {
+          status: response.status,
+          statusText: response.statusText,
+          errorData: errorData.substring(0, 500),
+          hasApiKey: !!Config.GEMINI_API_KEY,
+          apiKeyPrefix: Config.GEMINI_API_KEY?.substring(0, 10)
+        });
         console.log('[Gemini] API unavailable, user can manually enter data');
         throw new Error(`Gemini API failed: ${response.status}`);
       }

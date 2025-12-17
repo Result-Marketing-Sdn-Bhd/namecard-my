@@ -3,8 +3,8 @@
     "name": "WhatsCard",
     "slug": "namecard-my",
     "owner": "jacobai",
-    "version": "2.0.5",
-    "sdkVersion": "53.0.0",
+    "version": "2.0.9",
+    "sdkVersion": "54.0.0",
     "scheme": "whatscard",
     "orientation": "portrait",
     "icon": "./assets/splash-icon.png",
@@ -33,10 +33,11 @@
       },
       "associatedDomains": [
         "applinks:whatscard.my"
-      ]
+      ],
+      "usesAppleSignIn": false
     },
     "android": {
-      "versionCode": 15,
+      "versionCode": 34,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#4A7A5C"
@@ -46,7 +47,8 @@
         "CAMERA",
         "RECORD_AUDIO",
         "READ_CONTACTS",
-        "WRITE_CONTACTS"
+        "WRITE_CONTACTS",
+        "com.android.vending.BILLING"
       ],
       "blockedPermissions": [
         "READ_MEDIA_IMAGES",

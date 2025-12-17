@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
   Alert,
   ActivityIndicator,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Updates from 'expo-updates';
+import { iapService } from '../../services/iapService';
 
 interface SettingsScreenProps {
   onBack: () => void;
@@ -18,6 +20,26 @@ interface SettingsScreenProps {
 
 export function SettingsScreen({ onBack }: SettingsScreenProps) {
   const [isCheckingUpdates, setIsCheckingUpdates] = useState(false);
+  const [isRestoringPurchases, setIsRestoringPurchases] = useState(false);
+  const [subscription, setSubscription] = useState<any>(null);
+  const [isLoadingSubscription, setIsLoadingSubscription] = useState(true);
+
+  // Load subscription status on mount
+  useEffect(() => {
+    loadSubscriptionStatus();
+  }, []);
+
+  const loadSubscriptionStatus = async () => {
+    try {
+      setIsLoadingSubscription(true);
+      const sub = await iapService.getSubscriptionStatus();
+      setSubscription(sub);
+    } catch (error) {
+      console.error('Failed to load subscription:', error);
+    } finally {
+      setIsLoadingSubscription(false);
+    }
+  };
 
   // Check for OTA updates
   const checkForUpdates = async () => {
@@ -69,6 +91,56 @@ export function SettingsScreen({ onBack }: SettingsScreenProps) {
     }
   };
 
+  // Handle restore purchases
+  const handleRestorePurchases = async () => {
+    try {
+      setIsRestoringPurchases(true);
+      console.log('[Settings] 🔄 Restoring purchases...');
+
+      const result = await iapService.restorePurchases();
+
+      if (result.success) {
+        Alert.alert(
+          '✅ Purchases Restored',
+          'Your subscription has been restored successfully!',
+          [
+            {
+              text: 'OK',
+              onPress: () => loadSubscriptionStatus(),
+            },
+          ]
+        );
+      } else {
+        Alert.alert(
+          'No Purchases Found',
+          result.error || 'We could not find any active subscriptions for this account.'
+        );
+      }
+    } catch (error) {
+      console.error('[Settings] Error restoring purchases:', error);
+      Alert.alert('Error', 'Failed to restore purchases. Please try again.');
+    } finally {
+      setIsRestoringPurchases(false);
+    }
+  };
+
+  // Handle manage subscription
+  const handleManageSubscription = async () => {
+    try {
+      console.log('[Settings] 🔗 Opening subscription management...');
+      await iapService.openSubscriptionManagement();
+    } catch (error) {
+      console.error('[Settings] Error opening subscription management:', error);
+
+      // Fallback: Show manual instructions
+      const instructions = Platform.OS === 'ios'
+        ? 'Go to Settings → [Your Name] → Subscriptions → WhatsCard Premium to manage your subscription.'
+        : 'Go to Google Play Store → Menu → Subscriptions → WhatsCard Premium to manage your subscription.';
+
+      Alert.alert('Manage Subscription', instructions);
+    }
+  };
+
   // Settings removed - using standard manual workflow only
 
   return (
@@ -101,6 +173,70 @@ export function SettingsScreen({ onBack }: SettingsScreenProps) {
           </TouchableOpacity>
           <Text style={styles.updateDescription}>
             Tap to manually check for the latest app updates
+          </Text>
+        </View>
+
+        {/* Subscription Management */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Subscription</Text>
+
+          {isLoadingSubscription ? (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="small" color="#2563EB" />
+              <Text style={styles.loadingText}>Loading subscription status...</Text>
+            </View>
+          ) : subscription?.status === 'active' ? (
+            <View style={styles.subscriptionInfo}>
+              <View style={styles.subscriptionBadge}>
+                <Ionicons name="star" size={16} color="#10B981" />
+                <Text style={styles.subscriptionBadgeText}>Premium Active</Text>
+              </View>
+              <Text style={styles.subscriptionPlan}>
+                Plan: {subscription.plan === 'monthly' ? 'Monthly' : 'Yearly'}
+              </Text>
+              {subscription.expiryDate && (
+                <Text style={styles.subscriptionExpiry}>
+                  Renews: {new Date(subscription.expiryDate).toLocaleDateString()}
+                </Text>
+              )}
+            </View>
+          ) : (
+            <Text style={styles.description}>
+              No active subscription. Purchase a plan to unlock premium features.
+            </Text>
+          )}
+
+          {/* Restore Purchases Button */}
+          <TouchableOpacity
+            style={styles.subscriptionButton}
+            onPress={handleRestorePurchases}
+            disabled={isRestoringPurchases}
+          >
+            {isRestoringPurchases ? (
+              <ActivityIndicator size="small" color="#FFFFFF" />
+            ) : (
+              <Ionicons name="refresh-outline" size={20} color="#FFFFFF" />
+            )}
+            <Text style={styles.subscriptionButtonText}>
+              {isRestoringPurchases ? 'Restoring...' : 'Restore Purchases'}
+            </Text>
+          </TouchableOpacity>
+
+          {/* Manage Subscription Button - Only shown if user has active subscription */}
+          {subscription?.status === 'active' && (
+            <TouchableOpacity
+              style={styles.manageSubscriptionButton}
+              onPress={handleManageSubscription}
+            >
+              <Ionicons name="settings-outline" size={20} color="#2563EB" />
+              <Text style={styles.manageSubscriptionButtonText}>
+                Manage Subscription
+              </Text>
+            </TouchableOpacity>
+          )}
+
+          <Text style={styles.subscriptionHint}>
+            Restore your subscription after reinstalling the app or switching devices.
           </Text>
         </View>
 
@@ -154,7 +290,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingTop: Platform.OS === 'android' ? 16 : 12,
+    paddingBottom: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
   },
@@ -252,5 +389,88 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     marginTop: 8,
     textAlign: 'center',
+  },
+  loadingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    gap: 8,
+  },
+  loadingText: {
+    fontSize: 14,
+    color: '#6B7280',
+    marginLeft: 8,
+  },
+  subscriptionInfo: {
+    backgroundColor: '#F0FDF4',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#BBF7D0',
+    marginBottom: 16,
+  },
+  subscriptionBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+    gap: 6,
+  },
+  subscriptionBadgeText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#10B981',
+    marginLeft: 4,
+  },
+  subscriptionPlan: {
+    fontSize: 14,
+    color: '#374151',
+    marginBottom: 4,
+  },
+  subscriptionExpiry: {
+    fontSize: 13,
+    color: '#6B7280',
+  },
+  subscriptionButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2563EB',
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginBottom: 12,
+    gap: 8,
+  },
+  subscriptionButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#FFFFFF',
+    marginLeft: 8,
+  },
+  manageSubscriptionButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    borderWidth: 1.5,
+    borderColor: '#2563EB',
+    marginBottom: 12,
+    gap: 8,
+  },
+  manageSubscriptionButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#2563EB',
+    marginLeft: 8,
+  },
+  subscriptionHint: {
+    fontSize: 12,
+    color: '#9CA3AF',
+    textAlign: 'center',
+    marginTop: 4,
   },
 });

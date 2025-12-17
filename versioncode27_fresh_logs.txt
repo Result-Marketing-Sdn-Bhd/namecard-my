@@ -1,0 +1,1033 @@
+--------- beginning of main
+12-14 08:03:38.847   983 10275 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:38.850   983 10276 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+--------- beginning of system
+12-14 08:03:39.100  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 08:03:39.393  2510  6210 I WifiNetworkStatsMonitor: total/977/901,com.instagram.android/288/288,android.uid.system:1000/504/0,unknown:0/0/432,com.facebook.services/185/181,com.autocountsoft.payroll/0/0,unknown:-5/0/0,com.hihonor.mediamaterial/0/0,authenticator.two.factor.authentication.otp/0/0,com.hihonor.android.launcher/0/0,com.openai.chatgpt/0/0
+12-14 08:03:39.394  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register back home fence.
+12-14 08:03:39.394  2510  6210 I WifiEnhanceHomeFenceMonitor: processBackHomeFence, add back home fence , id : WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:39.395  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register leave home fence.
+12-14 08:03:39.395  2510  6210 I WifiEnhanceHomeFenceMonitor: processLeaveHomeFence, add leave home fence , id : WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:39.395  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=6ec41bd3-634c-4d01-a1da-4604d671fab9,key=WifiEnhanceHomeFenceMonitor_backHomeFence,isNeedCache=true,sysApp=true
+12-14 08:03:39.397 23707 23805 I AWARENESS_E_D_P: regByListener rId=6ec41bd3-634c-4d01-a1da-4604d671fab9,key=WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:39.397 23707 23925 I AWARENESS_MFenceFF: c:LocationFence
+12-14 08:03:39.397 23707 23925 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 08:03:39.397 23707 23925 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_backHomeFence', type='LocationFence}
+12-14 08:03:39.398  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=c5633312-50d4-4504-aa2b-473abcc8b171,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence,isNeedCache=true,sysApp=true
+12-14 08:03:39.398 23707 23805 I AWARENESS_E_D_P: regByListener rId=c5633312-50d4-4504-aa2b-473abcc8b171,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:39.398 23707 23928 I AWARENESS_MFenceFF: c:LocationFence
+12-14 08:03:39.399 23707 23928 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 08:03:39.399 23707 23928 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_leaveHomeFence', type='LocationFence}
+12-14 08:03:39.399  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_backHomeFence , code = 0
+12-14 08:03:39.399  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:39.399  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:39.399 23707 23925 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 08:03:39.400 23707 23925 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 08:03:39.400  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_leaveHomeFence , code = 0
+12-14 08:03:39.400  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:39.400  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:39.400 23707 23925 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 08:03:39.400 23707 23925 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 08:03:39.400 23707 23928 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 08:03:39.400 23707 23928 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 08:03:39.400 23707 23928 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 08:03:39.400 23707 23928 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 08:03:39.549  2510  2571 I system_server: Background young concurrent mark compact GC freed 23MB AllocSpace bytes, 32(592KB) LOS objects, 18% free, 102MB/125MB, paused 2.509ms,12.164ms total 157.317ms
+12-14 08:03:39.844  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:39.847  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:39.851   983 10277 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:39.853   983 10278 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:39.957  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:39.963  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:39.963  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:39.964  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:39.964  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:40.847  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:40.850  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:40.853   983 10279 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:40.860   983 10280 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:40.922  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:03:40.922  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:03:41.850  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:41.853  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:41.856   983 10281 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:41.857   983 10282 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:41.962  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:41.968  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:41.968  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:41.969  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:41.970  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:42.853  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:42.856  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:42.859   983 10283 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:42.861   983 10284 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:42.937  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-14 08:03:42.938  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-14 08:03:42.938  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-14 08:03:42.938  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-14 08:03:42.938  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-14 08:03:42.946  2510  2579 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4485,batteryTemperature=253,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 08:03:42.947  2510  2579 I BatteryService: check conditions changed
+12-14 08:03:42.951  2510  2579 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4485,batteryTemperature=253,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 08:03:42.952  2510  2579 I BatteryService: check conditions changed
+12-14 08:03:43.856  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:43.858  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:43.861   983 10285 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:43.862   983 10286 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:43.936  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:03:43.936  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:03:43.969  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:43.974  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:43.975  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:43.976  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:43.976  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:44.306  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2258084568324385 ns; value = [-1.573118, 0.070748, 9.481501], status=3
+12-14 08:03:44.859  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:44.861  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:44.865   983 10287 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:44.868   983 10289 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:45.102  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 08:03:45.862  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:45.864  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:45.873   983 10290 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:45.875   983 10291 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:45.938  2510  4794 D ActivityManager: freezing 589 com.hihonor.searchservice
+12-14 08:03:45.943  2510  4794 D ActivityManager: freezing 774 com.hihonor.systemmanager:security_scan
+12-14 08:03:45.946  2510  4794 D ActivityManager: freezing 946 com.hihonor.securitypluginbase:service
+12-14 08:03:45.949  2510  4794 D ActivityManager: freezing 697 com.hihonor.systemmanager
+12-14 08:03:45.951  2510  4794 D ActivityManager: freezing 489 com.android.keychain
+12-14 08:03:45.957  2510  6242 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+12-14 08:03:45.961  2510  6242 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+12-14 08:03:45.962  2510  6242 D InetDiagMessage: Destroyed live tcp sockets for uids={10123} in 8ms
+12-14 08:03:45.973  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:45.979  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:45.980  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:45.980  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:45.983  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:46.310  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:03:46.313  2278 17143 D AudioPolicyService: getUidState(10039) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:46.313  2278 17143 D AudioPolicyService: getUidState(10039) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:46.865  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:46.867  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:46.871   983 10292 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:46.873   983 10293 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:46.947  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:03:46.947  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:03:47.807  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:03:47.809  2278 17143 D AudioPolicyService: getUidState(10159) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:47.809  2278 17143 D AudioPolicyService: getUidState(10159) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:47.853  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:03:47.854  2278 17143 D AudioPolicyService: getUidState(10053) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:47.855  2278 17143 D AudioPolicyService: getUidState(10053) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:47.869  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:47.870  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:47.876   983 10294 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:47.876   983 10295 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:47.978  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:47.983  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:47.983  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:47.984  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:47.984  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:48.873  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:48.873  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:48.880   983 10297 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:48.880   983 10299 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:49.417  2510  2795 W Watchdog: waitState=[0] waitedHalf=[false]
+12-14 08:03:49.417  2510  2795 W Watchdog: watchdogKick kickCounter=[150]
+12-14 08:03:49.417  2510  2795 I AES     : hangdetect userpet kick to kernel
+12-14 08:03:49.419  2510  2782 I InputReader: monitor lock
+12-14 08:03:49.419  2510  2782 I EventHub: wake() called
+12-14 08:03:49.419  2510  2782 I EventHub: monitor lock
+12-14 08:03:49.449  2510  6210 I WifiNetworkStatsMonitor: total/508/432,android.uid.system:1000/508/0,unknown:0/0/432,com.autocountsoft.payroll/0/0,unknown:-5/0/0,com.hihonor.mediamaterial/0/0,authenticator.two.factor.authentication.otp/0/0,com.hihonor.android.launcher/0/0,com.openai.chatgpt/0/0,com.cimb.cimbocto/0/0,com.klikasia.klik.android/0/0
+12-14 08:03:49.449  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register back home fence.
+12-14 08:03:49.449  2510  6210 I WifiEnhanceHomeFenceMonitor: processBackHomeFence, add back home fence , id : WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:49.450  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register leave home fence.
+12-14 08:03:49.450  2510  6210 I WifiEnhanceHomeFenceMonitor: processLeaveHomeFence, add leave home fence , id : WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:49.451  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=14a31e05-091d-4d18-b048-eb9a08b825ce,key=WifiEnhanceHomeFenceMonitor_backHomeFence,isNeedCache=true,sysApp=true
+12-14 08:03:49.452 23707 23805 I AWARENESS_E_D_P: regByListener rId=14a31e05-091d-4d18-b048-eb9a08b825ce,key=WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:49.452  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=69776cef-924d-460a-9a1d-a67b4a76e0be,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence,isNeedCache=true,sysApp=true
+12-14 08:03:49.453 23707 23924 I AWARENESS_MFenceFF: c:LocationFence
+12-14 08:03:49.453 23707 23924 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 08:03:49.453 23707 23924 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_backHomeFence', type='LocationFence}
+12-14 08:03:49.453 23707 23805 I AWARENESS_E_D_P: regByListener rId=69776cef-924d-460a-9a1d-a67b4a76e0be,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:49.454 23707 24188 I AWARENESS_MFenceFF: c:LocationFence
+12-14 08:03:49.454 23707 24188 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 08:03:49.454 23707 24188 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_leaveHomeFence', type='LocationFence}
+12-14 08:03:49.454  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_backHomeFence , code = 0
+12-14 08:03:49.454  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:49.454  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:49.454  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_leaveHomeFence , code = 0
+12-14 08:03:49.454  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:49.455  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:49.455 23707 23924 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 08:03:49.455 23707 23924 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 08:03:49.455 23707 23924 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 08:03:49.455 23707 24188 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 08:03:49.455 23707 24188 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 08:03:49.455 23707 24188 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 08:03:49.455 23707 24188 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 08:03:49.456 23707 23924 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 08:03:49.876  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:49.878  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:49.882   983 10300 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:49.891   983 10301 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:49.958  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:03:49.959  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:03:49.982  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:49.988  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:49.988  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:49.989  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:49.990  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:50.294  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2258090556690322 ns; value = [-1.552792, 0.069000, 9.475734], status=3
+12-14 08:03:50.582  6822  6822 I HwCommBoosterService: AWARE_THREAD is work correctly.
+12-14 08:03:50.582  6822  6822 I HwCommBoosterService: NOTIFY_THREAD is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommBoosterService: SERVICE_THREAD is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommBoosterService: DATABASE_THREAD is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommBoosterService: TRANSPORT_LAYER_THREAD_ID is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommBoosterService: PHY_LAYER_THREAD_ID is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommBoosterService: COMM_CLOUD_THREAD is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommHnCollieService: AWARE_THREAD is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommHnCollieService: NOTIFY_THREAD is work correctly.
+12-14 08:03:50.583  6822  6822 I HwCommHnCollieService: SERVICE_THREAD is work correctly.
+12-14 08:03:50.880  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:50.881  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:50.887   983 10302 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:50.888   983 10303 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:51.102  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 08:03:51.121  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-14 08:03:51.121  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-14 08:03:51.121  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-14 08:03:51.121  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-14 08:03:51.121  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-14 08:03:51.130  2510  2579 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4485,batteryTemperature=253,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 08:03:51.131  2510  2579 I BatteryService: check conditions changed
+12-14 08:03:51.137  2510  2579 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4485,batteryTemperature=253,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 08:03:51.138  2510  2579 I BatteryService: check conditions changed
+12-14 08:03:51.885  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:51.886  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:51.891   983 10306 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:51.891   983 10307 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:51.937  6777  7976 D SleepClean: run sleepClean start
+12-14 08:03:51.987  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:51.994  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:51.995  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:51.995  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:51.995  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:52.071  2510  2879 W ProcessStats: Tracking association SourceState{501c3ba com.resultmarketing.whatscard/10366 Top #1986597} whose proc state 1 is better than process ProcessState{3b16654 com.android.vending/10154 pkg=com.android.vending} proc state 2 (0 skipped)
+12-14 08:03:52.888  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:52.889  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:52.895   983 10308 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:52.895   983 10309 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:52.974  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:03:52.974  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:03:53.891  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:53.892  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:53.898   983 10310 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:53.899   983 10311 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:53.993  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:53.999  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:53.999  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:54.000  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:54.001  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:54.261  6777  8093 I .hihonor.iaware: Explicit concurrent mark compact GC freed 4992KB AllocSpace bytes, 9(180KB) LOS objects, 49% free, 7817KB/15MB, paused 465us,4.206ms total 108.412ms
+12-14 08:03:54.895  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:54.896  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:54.912   983 10312 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:54.913   983 10313 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:55.899  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:55.901  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:55.906   983 10314 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:55.906   983 10315 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:55.986  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:03:55.987  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:03:55.997  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:56.003  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:56.003  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:56.004  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:56.005  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:56.283  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2258096545466416 ns; value = [-1.539026, 0.060736, 9.467538], status=3
+12-14 08:03:56.903  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:56.904  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:56.909   983 10316 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:56.910   983 10317 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:57.103  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 08:03:57.906  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:57.909  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:57.912   983 10318 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:57.913   983 10319 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:58.003  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:03:58.009  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:03:58.010  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:03:58.010  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:03:58.012  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:03:58.909  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:58.911  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:58.916   983 10320 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:58.920   983 10321 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:58.998  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:03:58.999  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:03:59.302  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-14 08:03:59.302  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-14 08:03:59.302  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-14 08:03:59.302  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-14 08:03:59.303  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-14 08:03:59.311  2510  2579 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4485,batteryTemperature=253,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 08:03:59.311  2510  2579 I BatteryService: check conditions changed
+12-14 08:03:59.316  2510  2579 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4485,batteryTemperature=253,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 08:03:59.317  2510  2579 I BatteryService: check conditions changed
+12-14 08:03:59.507  2510  6210 I WifiNetworkStatsMonitor: total/832/946,com.instagram.android/768/768,unknown:0/0/178,android.uid.system:1000/64/0,com.autocountsoft.payroll/0/0,unknown:-5/0/0,com.hihonor.mediamaterial/0/0,authenticator.two.factor.authentication.otp/0/0,com.hihonor.android.launcher/0/0,com.openai.chatgpt/0/0,com.cimb.cimbocto/0/0
+12-14 08:03:59.507  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register back home fence.
+12-14 08:03:59.508  2510  6210 I WifiEnhanceHomeFenceMonitor: processBackHomeFence, add back home fence , id : WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:59.508  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register leave home fence.
+12-14 08:03:59.508  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=1bee748c-9d6a-4368-9979-f86b5b458598,key=WifiEnhanceHomeFenceMonitor_backHomeFence,isNeedCache=true,sysApp=true
+12-14 08:03:59.509  2510  6210 I WifiEnhanceHomeFenceMonitor: processLeaveHomeFence, add leave home fence , id : WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:59.509 23707 23805 I AWARENESS_E_D_P: regByListener rId=1bee748c-9d6a-4368-9979-f86b5b458598,key=WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:59.510  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=1d8463d8-996c-4898-bfaf-3152e4d829fb,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence,isNeedCache=true,sysApp=true
+12-14 08:03:59.510 23707 23896 I AWARENESS_MFenceFF: c:LocationFence
+12-14 08:03:59.510 23707 23896 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 08:03:59.510 23707 23896 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_backHomeFence', type='LocationFence}
+12-14 08:03:59.511 23707 23805 I AWARENESS_E_D_P: regByListener rId=1d8463d8-996c-4898-bfaf-3152e4d829fb,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:59.511 23707 23910 I AWARENESS_MFenceFF: c:LocationFence
+12-14 08:03:59.511 23707 23910 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 08:03:59.511 23707 23910 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_leaveHomeFence', type='LocationFence}
+12-14 08:03:59.511  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_backHomeFence , code = 0
+12-14 08:03:59.511  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:59.511  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 08:03:59.511  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_leaveHomeFence , code = 0
+12-14 08:03:59.512 23707 23896 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 08:03:59.512  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:59.512 23707 23896 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 08:03:59.512  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 08:03:59.512 23707 23896 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 08:03:59.512 23707 23896 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 08:03:59.512 23707 23910 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 08:03:59.512 23707 23910 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 08:03:59.512 23707 23910 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 08:03:59.512 23707 23910 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 08:03:59.641  2510  4823 W AlarmManager: WAKEUP alarm 4b208f1 when: 2258100000 maxWhen: 2258100000 pkg: android proc: system tag: *walarm*:com.android.intent.action.HEARTBEAT_FIXER trigger action: com.android.intent.action.HEARTBEAT_FIXER
+12-14 08:03:59.642  2510  4823 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.646  2510  4823 I ActivityManager: sendIntentSender target:PendingIntentRecord{88f9c9e android broadcastIntent}, intent:flg=0x4 hwFlg=0x110
+12-14 08:03:59.648  2510  4823 W ActivityManager: Sending non-protected broadcast com.android.intent.action.HEARTBEAT_FIXER from system uid 1000 pkg android
+12-14 08:03:59.649  6777  7976 D APwMonitor: alarm start trigger run power monitor.
+12-14 08:03:59.650  2510  4823 I ActivityManager: sendIntentSender target:PendingIntentRecord{cd6dc9e com.google.android.gms/com.google.android.gms.scheduler broadcastIntent}, intent:flg=0x4 hwFlg=0x110
+12-14 08:03:59.653  6777  7976 D APwMonitor: alarm start trigger run power monitor.
+12-14 08:03:59.658  2510  2879 D ActivityManager: sync unfroze 589 com.hihonor.searchservice for 10
+12-14 08:03:59.661  2510  2879 D ActivityManager: sync unfroze 774 com.hihonor.systemmanager:security_scan for 10
+12-14 08:03:59.663  2510  2879 D ActivityManager: sync unfroze 946 com.hihonor.securitypluginbase:service for 10
+12-14 08:03:59.665  2510  2879 D ActivityManager: sync unfroze 697 com.hihonor.systemmanager for 10
+12-14 08:03:59.667  2510  2879 D ActivityManager: sync unfroze 489 com.android.keychain for 10
+12-14 08:03:59.670  2510  2510 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1380 com.android.server.GcmFixer.HeartbeatReceiver.onReceive:31 android.app.LoadedApk$ReceiverDispatcher$Args$ReceiverRunnable.run:2016 android.os.Handler.handleCallback:997 android.os.Handler.dispatchMessage:111 
+12-14 08:03:59.671  2510  4823 I ActivityManager: App 10045/com.google.android.gms on idle whitelist; not restricted in background
+12-14 08:03:59.673  2510  2879 I ActivityManager: App 10045/com.google.android.gms on idle whitelist; not restricted in background
+12-14 08:03:59.674  2510  4690 I JobScheduler.Time: realNextDelayExpiredElapsedMillis: 2258130002 mNextDelayExpiredElapsedMillis:2258130002
+12-14 08:03:59.674  6777  7976 D APwMonitor: alarm start trigger run power monitor.
+12-14 08:03:59.676  2510  4690 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-14 08:03:59.679  2510  4690 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-14 08:03:59.679  2510  4690 I JobScheduler: isReadyToBeExecutedLocked, job is prohibit by iaware: JobStatus{bb0d0da androidx.work.systemjobscheduler:u0a293/1083 @androidx.work.systemjobscheduler@com.instagram.barcelona/androidx.work.impl.background.systemjob.SystemJobService u=0 s=10293 TIME=-34s105ms:none NET READY}
+12-14 08:03:59.680  2510  4690 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-14 08:03:59.680  2510  2510 W ActivityManager: Sending non-protected broadcast com.google.android.intent.action.GTALK_HEARTBEAT from system 2510:system/1000 pkg android
+12-14 08:03:59.681  2510  2510 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1380 com.android.server.GcmFixer.HeartbeatReceiver.onReceive:32 android.app.LoadedApk$ReceiverDispatcher$Args$ReceiverRunnable.run:2016 android.os.Handler.handleCallback:997 android.os.Handler.dispatchMessage:111 
+12-14 08:03:59.681  2510  2510 W ActivityManager: Sending non-protected broadcast com.google.android.intent.action.MCS_HEARTBEAT from system 2510:system/1000 pkg android
+12-14 08:03:59.682  2510  2510 I HeartbeatReceiver: Sent heartbeat request...
+12-14 08:03:59.682  2510  2510 I GcmHeartBeatFixer: scheduleHeartbeatRequest, fromNetworkStateChange: false
+12-14 08:03:59.682  2510  2510 I GcmHeartBeatFixer: currentTime: 1765670639682 elapsedTime:2258100043 targetElapsedTime:2258400000 triggerAtMillis:1765670939639 diff:299957
+12-14 08:03:59.683  2510  4690 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.683  2510  2510 I GcmHeartBeatFixer: setNextHeartbeatRequest at: 2025-12-14 08:08:59
+12-14 08:03:59.685  2510  4690 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.686  2510  4690 W ProcBatteryStats: timer is running , not start, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.analytics2.logger.legacy.uploader.LollipopUploadService
+12-14 08:03:59.691  2510  4690 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-14 08:03:59.693  2510  4690 V ActivityManager: startProcess: name=com.facebook.appmanager app=null knownToBeDead=true thread=null pid=-1 preloadStatus=-1
+12-14 08:03:59.695  2510  4690 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@63210c2a does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+12-14 08:03:59.703  2510  4690 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.706  2510  7079 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.711  2510  4690 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.713  2510  4690 W ProcBatteryStats: timer is running , not start, name: com.google.android.as.oss, uid: 10151, tag: *job*/com.google.android.as.oss/com.google.android.gms.learning.internal.training.InAppJobService
+12-14 08:03:59.715  2510  7079 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.716  2510  4690 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-14 08:03:59.718  2510  4690 V ActivityManager: startProcess: name=com.google.android.as.oss app=null knownToBeDead=true thread=null pid=-1 preloadStatus=-1
+12-14 08:03:59.718  2510  2879 I NotificationService: pag com.google.android.as.oss dosen't have notification permission
+12-14 08:03:59.719  2510  4690 D CompatChangeReporter: Compat change id reported: 151861875; UID 10151; state: ENABLED
+12-14 08:03:59.719  2510  7094 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.723  2510  7079 I AlarmManager: remove alarm reason:1 alarms:[Alarm{ab8d93f type 2 origWhen 2258340585 whenElapsed 2258340585 PendingIntent{d842ffe: PendingIntentRecord{ed3c758 com.google.android.gms/com.google.android.gms.gcm broadcastIntent}} com.google.android.gms procName com.google.android.gms.persistent}]
+12-14 08:03:59.723 31494 10002 I AlarmManager: setExactAndAllowWhileIdle [name: GCM_HB_ALARM type: 2 triggerAtMillis: 2258160084]
+12-14 08:03:59.728  2510  7094 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.734  2055  2055 D Zygote  : Forked child process 10326
+12-14 08:03:59.735 31494 31494 D BoundBrokerSvc: onRebind: Intent { act=com.google.android.gms.findmydevice.spot.locationreporting.BatchScanningGmsTaskService.ACTION_TASK_READY dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+12-14 08:03:59.737 31494 10324 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+12-14 08:03:59.737 31494  9485 I BatchScanningManager: (REDACTED) Batch scanner started. Stopping in %d seconds or when the screen turns on.
+12-14 08:03:59.738 31494  8965 I fvnv    : (REDACTED) Added autobatch scan callback, count = %d
+12-14 08:03:59.738 31494  8965 I fvnv    : Starting autobatch scan. [CONTEXT service_id=284 ]
+12-14 08:03:59.738  2510  2880 I ActivityManager: Start proc 10326:com.facebook.appmanager/u0a206 for service {com.facebook.appmanager/com.facebook.analytics2.logger.legacy.uploader.LollipopUploadService}
+12-14 08:03:59.738 31494  8965 D BluetoothAdapter: isLeEnabled(): ON
+12-14 08:03:59.739  2510  2880 I SWAP_SCENE: Entering notifySceneData notifySceneData. EventType:PROCESS_CREATE para:com.facebook.appmanager
+12-14 08:03:59.739  2510  2880 I HwActivityManagerServiceEx: notifyProcessStatusChange::pkg:com.facebook.appmanager pid:10326 uid:10206
+12-14 08:03:59.739  2510  8271 I SWAP_SCENE: Entering appColdCheck cold! appName:com.facebook.appmanager
+12-14 08:03:59.740  2510  8271 I SWAP_GkiKernelInterface: addToProcs:com.facebook.appmanager pid:10326
+12-14 08:03:59.741 10326 10326 I Zygote  : MountEmulatedStorage
+12-14 08:03:59.741  2510  7079 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.742 10326 10326 I Zygote  : mount_data_dirs
+12-14 08:03:59.743 31494 31494 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.findmydevice.spot.locationreporting.BatchScanningGmsTaskService.ACTION_TASK_READY dat=chimera-action:/... cmp=com.google.android.gms/.chimera.PersistentInternalBoundBrokerService }
+12-14 08:03:59.742  6777  7976 I AppManager: com.facebook.appmanager startup completed, add dependence:[2510] -> 10326 now
+12-14 08:03:59.743 31494 10325 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+12-14 08:03:59.746 17942 25385 I bt_shim_scanner: RegisterScanner: in shim layer
+12-14 08:03:59.746 17942 18017 I bluetooth: register_scanner: register_scanner
+12-14 08:03:59.746 10326 10326 I Zygote  : mount_storage_dirs
+12-14 08:03:59.746 17942 18033 I gatt-ScanHelper: onScannerRegistered() - UUID=c509c020-6756-49c0-83e0-f46dc9d4a9c4, scannerId=1, status=0, pkgName=com.google.uid.shared:10045
+12-14 08:03:59.747 31494 21591 D BluetoothLeScanner: onScannerRegistered() - status=0 scannerId=1 mScannerId=0
+12-14 08:03:59.747 10326 10326 I Zygote  : PreInitializeNativeBridge
+12-14 08:03:59.749 17942 25385 I gatt-ScanHelper: start scan with filters
+12-14 08:03:59.750  6777  7481 I PGServer: report state:8 event type:1 pid:0 uid:10045 pkg:BLE_SCAN to pid: 2510
+12-14 08:03:59.750  6777  7481 I BluetoothState: new active bluetooth uid: 10045, pid:31353, connId:-1, reason:BLE_SCAN
+12-14 08:03:59.751  2510  7094 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.753  2510  7079 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.754  2510  2579 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.758  2510  2580 I AlarmManager: remove alarm reason:1 alarms:[Alarm{30d4910 type 3 origWhen 2258700747 whenElapsed 2258700747 PendingIntent{e6f12f8: PendingIntentRecord{cd6dc9e com.google.android.gms/com.google.android.gms.scheduler broadcastIntent}} com.google.android.gms procName com.google.android.gms.persistent}]
+12-14 08:03:59.759  2510  7094 I AlarmManager: remove alarm reason:1 alarms:[Alarm{b4b2c09 type 2 origWhen 2258160084 whenElapsed 2258160084 PendingIntent{89fe20c: PendingIntentRecord{ed3c758 com.google.android.gms/com.google.android.gms.gcm broadcastIntent}} com.google.android.gms procName com.google.android.gms.persistent}]
+12-14 08:03:59.759 31494 10325 I AlarmManager: setExactAndAllowWhileIdle [name: GCM_HB_ALARM type: 2 triggerAtMillis: 2258640119]
+12-14 08:03:59.759 10326 10326 I Zygote  : CallStaticVoidMethod
+12-14 08:03:59.760 10326 10326 I book.appmanager: Using CollectorTypeCMC GC.
+12-14 08:03:59.760  2055  2055 D Zygote  : Forked child process 10332
+12-14 08:03:59.761  2510  2579 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.762  2510  2880 I ActivityManager: Start proc 10332:com.google.android.as.oss/u0a151 for service {com.google.android.as.oss/com.google.android.gms.learning.internal.training.InAppJobService}
+12-14 08:03:59.762  2510  2880 I SWAP_SCENE: Entering notifySceneData notifySceneData. EventType:PROCESS_CREATE para:com.google.android.as.oss
+12-14 08:03:59.762  2510  2880 I HwActivityManagerServiceEx: notifyProcessStatusChange::pkg:com.google.android.as.oss pid:10332 uid:10151
+12-14 08:03:59.763 17942 18053 I bt_shim_scanner: ScanFilterEnable: in shim layer
+12-14 08:03:59.764  2141  2141 D vendor.qti.bluetooth@1.0-ibs_handler: SerialClockVote: vote for UART CLK ON
+12-14 08:03:59.764  2510  8271 I SWAP_SCENE: Entering appColdCheck cold! appName:com.google.android.as.oss
+12-14 08:03:59.765  6856  7132 D Nc_Chr_BT: NcBtDftManager: handleBtParam id = COMMON_E1002
+12-14 08:03:59.765  6856  7132 E Nc_Chr_BT: NcBtDftManager: unhandled id
+12-14 08:03:59.765  6856  7132 D BT_CHR: BtChrStatThirdApkEvent: updateApkAction action: 4
+12-14 08:03:59.765  6856  7132 D BT_CHR: BtChrStatThirdApkEvent: processBtBleScanFreqCnt ble unknown dura: 400612
+12-14 08:03:59.765  6856  7132 D BT_CHR: BtChrManager: isPermissionGrant: true
+12-14 08:03:59.765 17942 18053 I bt_shim_scanner: ScanFilterAdd: in shim layer
+12-14 08:03:59.765  2510  8271 I SWAP_GkiKernelInterface: mkdir for com.google.android.as.oss success
+12-14 08:03:59.766  2510  8271 I SWAP_SCENE: Entering appColdCheck cold! Mkdir. appName:com.google.android.as.oss
+12-14 08:03:59.766  2510  8271 I SWAP_GkiKernelInterface: addToProcs:com.google.android.as.oss pid:10332
+12-14 08:03:59.766 17942 18053 I bt_shim_scanner: ScanFilterParamSetup: in shim layer, clientIf=1
+12-14 08:03:59.767 17942 18053 I bt_shim_scanner: BatchscanConfigStorage: in shim layer
+12-14 08:03:59.767 17942 18053 I bt_shim_scanner: BatchscanEnable: in shim layer
+12-14 08:03:59.768  2141  2141 D vendor.qti.bluetooth@1.0-wake_lock: Acquire wakelock is acquired 
+12-14 08:03:59.768  2141  2141 I vendor.qti.bluetooth@1.0-ibs_handler: DeviceWakeUp: Writing IBS_WAKE_IND
+12-14 08:03:59.769 10332 10332 I Zygote  : MountEmulatedStorage
+12-14 08:03:59.770 10332 10332 I Zygote  : mount_data_dirs
+12-14 08:03:59.771 10326 10326 E book.appmanager: Not starting debugger since process cannot load the jdwp agent.
+12-14 08:03:59.771  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Received IBS_WAKE_ACK: 0xFC
+12-14 08:03:59.771  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Signal wack_cond_
+12-14 08:03:59.771  2141  2141 D vendor.qti.bluetooth@1.0-ibs_handler: DeviceWakeUp: Unblocked from waiting for FC, pthread_cond_timedwait ret = 0
+12-14 08:03:59.772  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Received IBS_WAKE_IND: 0xFD
+12-14 08:03:59.772  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Writing IBS_WAKE_ACK
+12-14 08:03:59.773 10332 10332 I Zygote  : mount_storage_dirs
+12-14 08:03:59.771  6777  7976 I AppManager: com.google.android.as.oss startup completed, add dependence:[2510] -> 10332 now
+12-14 08:03:59.774 10326 10326 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+12-14 08:03:59.774 10332 10332 I Zygote  : PreInitializeNativeBridge
+12-14 08:03:59.774 31494  9485 I NetworkScheduler.Stats: (REDACTED) Task %s/%s started execution. cause:%s exec_start_elapsed_seconds: %s
+12-14 08:03:59.775 10326 10326 W libc    : Access denied finding property "ro.debuggable"
+12-14 08:03:59.769 10326 10326 W book.appmanager: type=1400 audit(0.0:2343552): avc:  denied  { read } for  name="u:object_r:userdebug_or_eng_prop:s0" dev="tmpfs" ino=651 scontext=u:r:untrusted_app:s0:c206,c256,c512,c768 tcontext=u:object_r:userdebug_or_eng_prop:s0 tclass=file permissive=0
+12-14 08:03:59.777 10326 10326 E [VipSchedProxy:]: Vip Success open /proc/vip/ioctl
+12-14 08:03:59.779 10326 10326 D ActivityThread: Attach thread to application
+12-14 08:03:59.781  2510  7094 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.782 31494  9485 I NetworkScheduler.Stats: (REDACTED) Task %s/%s finished executing. cause:%s result: %s elapsed_millis: %s uptime_millis: %s exec_start_elapsed_seconds: %s
+12-14 08:03:59.783 10332 10332 I Zygote  : CallStaticVoidMethod
+12-14 08:03:59.783 10332 10332 I .android.as.oss: Using CollectorTypeCMC GC.
+12-14 08:03:59.784  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:03:59.785  2278 17143 D AudioPolicyService: getUidState(10206) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:59.786  2278 17143 D AudioPolicyService: getUidState(10206) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:59.787 10332 10332 E .android.as.oss: Not starting debugger since process cannot load the jdwp agent.
+12-14 08:03:59.788 10326 10326 I Typeface: setSystemFontMap SharedMemory
+12-14 08:03:59.789 10326 10326 I Typeface: setSystemFontMap Typaface
+12-14 08:03:59.789  2510  2579 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:03:59.790 10326 10347 I ActivityThread: Init compatible state: true
+12-14 08:03:59.790 10326 10326 I ResourcesManager: applyConfigurationToResources: smallestScreenWidthDp = 360mMaxBounds = Rect(0, 0 - 720, 1610)
+12-14 08:03:59.791 10332 10332 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+12-14 08:03:59.793  2510  2580 I AlarmManager: remove alarm reason:1 alarms:[Alarm{91ce27d type 3 origWhen 2258701100 whenElapsed 2258701100 PendingIntent{e3c5627: PendingIntentRecord{cd6dc9e com.google.android.gms/com.google.android.gms.scheduler broadcastIntent}} com.google.android.gms procName com.google.android.gms.persistent}]
+12-14 08:03:59.793 10332 10332 E [VipSchedProxy:]: Vip Success open /proc/vip/ioctl
+12-14 08:03:59.795 10332 10332 D ActivityThread: Attach thread to application
+12-14 08:03:59.799  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:03:59.800  2278 17143 D AudioPolicyService: getUidState(10151) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:59.800  2278 17143 D AudioPolicyService: getUidState(10151) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:59.803 10332 10332 I Typeface: setSystemFontMap SharedMemory
+12-14 08:03:59.804 10332 10332 I Typeface: setSystemFontMap Typaface
+12-14 08:03:59.805 10332 10332 I ResourcesManager: applyConfigurationToResources: smallestScreenWidthDp = 360mMaxBounds = Rect(0, 0 - 720, 1610)
+12-14 08:03:59.807 10326 10326 D nativeloader: Configuring clns-7 for other apk /data/app/~~WpeHDwxyB98M7M0Sdm8aEg==/com.facebook.appmanager-IkNbeqUTq9OWG_3hmyYAig==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~WpeHDwxyB98M7M0Sdm8aEg==/com.facebook.appmanager-IkNbeqUTq9OWG_3hmyYAig==/lib/arm64:/data/app/~~WpeHDwxyB98M7M0Sdm8aEg==/com.facebook.appmanager-IkNbeqUTq9OWG_3hmyYAig==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.facebook.appmanager
+12-14 08:03:59.807 10332 10357 I ActivityThread: Init compatible state: true
+12-14 08:03:59.812 10332 10332 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+12-14 08:03:59.812 10332 10332 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+12-14 08:03:59.816 10326 10347 W HwCust  : CUST VERSION = false, use class = class android.app.HwCustApplicationPackageManagerImpl
+12-14 08:03:59.818 10326 10326 V GraphicsEnvironment: Currently set values for:
+12-14 08:03:59.818 10326 10326 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+12-14 08:03:59.818 10326 10326 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+12-14 08:03:59.818 10326 10326 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+12-14 08:03:59.819 10326 10326 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+12-14 08:03:59.820  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Received IBS_SLEEP_IND: 0xFE
+12-14 08:03:59.827 10332 10332 W .android.as.oss: Failed to find entry 'classes.dex': Entry not found
+12-14 08:03:59.828 10332 10332 W .android.as.oss: Failed to find entry 'classes.dex': Entry not found
+12-14 08:03:59.829 10332 10332 W .android.as.oss: Failed to find entry 'classes.dex': Entry not found
+12-14 08:03:59.831 10332 10332 D nativeloader: Configuring clns-7 for other apk /data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/base.apk:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.arm64_v8a.apk:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.en.apk:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.xhdpi.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/lib/arm64:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/base.apk!/lib/arm64-v8a:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.arm64_v8a.apk!/lib/arm64-v8a:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.en.apk!/lib/arm64-v8a:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.g
+12-14 08:03:59.837 10332 10332 D CompatChangeReporter: Compat change id reported: 202956589; UID 10151; state: ENABLED
+12-14 08:03:59.845 10332 10357 W HwCust  : CUST VERSION = false, use class = class android.app.HwCustApplicationPackageManagerImpl
+12-14 08:03:59.848 10326 10326 D d       : ExceptionHandlerManager not explicitly initialized, using default mode
+12-14 08:03:59.848 10326 10326 D d       : initializing exception handler manager, prioritized=true
+12-14 08:03:59.848 10332 10332 V GraphicsEnvironment: Currently set values for:
+12-14 08:03:59.848 10332 10332 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+12-14 08:03:59.848 10332 10332 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+12-14 08:03:59.848 10332 10332 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+12-14 08:03:59.848 10332 10332 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+12-14 08:03:59.853 10326 10326 W SoLoader: Initializing SoLoader: 0
+12-14 08:03:59.853 10326 10326 W SoLoader: context.getApplicationContext returned null, holding reference to original context.ApplicationSoSource fallbacks to: /data/app/~~WpeHDwxyB98M7M0Sdm8aEg==/com.facebook.appmanager-IkNbeqUTq9OWG_3hmyYAig==/lib/arm64
+12-14 08:03:59.853 10326 10326 W SoLoader: Recording new base apk path: /data/app/~~WpeHDwxyB98M7M0Sdm8aEg==/com.facebook.appmanager-IkNbeqUTq9OWG_3hmyYAig==/base.apk
+12-14 08:03:59.853 10326 10326 W SoLoader: Previously recorded 0 base apk paths.
+12-14 08:03:59.854 10326 10326 I SoLoader: Preparing SO source: DirectorySoSource[root = /vendor/lib64 flags = 2]
+12-14 08:03:59.854 10326 10326 I SoLoader: Preparing SO source: DirectorySoSource[root = /system/lib64 flags = 2]
+12-14 08:03:59.854 10326 10326 I SoLoader: Preparing SO source: DirectApkSoSource[root = [/data/app/~~WpeHDwxyB98M7M0Sdm8aEg==/com.facebook.appmanager-IkNbeqUTq9OWG_3hmyYAig==/base.apk!/lib/arm64-v8a]]
+12-14 08:03:59.856 10326 10326 I SoLoader: Preparing SO source: ApplicationSoSource[DirectorySoSource[root = /data/app/~~WpeHDwxyB98M7M0Sdm8aEg==/com.facebook.appmanager-IkNbeqUTq9OWG_3hmyYAig==/lib/arm64 flags = 1]]
+12-14 08:03:59.856 10326 10326 I SoLoader: init finish: 4 SO sources prepared
+12-14 08:03:59.856 10326 10326 W SoLoader: SoLoader initialized: 8
+12-14 08:03:59.859 10326 10326 W FlutterAnimationAdvance: FlutterAnimationAdvance getInstance()
+12-14 08:03:59.861 10326 10347 I AwareBitmapCacher: init processName:com.facebook.appmanager pid=10326 uid=10206
+12-14 08:03:59.875 10326 10366 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.common.jobqueue.JobQueueService#5100' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:03:59.877 10326 10326 E SQLiteLog: (14) cannot open file at line 44409 of [d68fb8b5db]
+12-14 08:03:59.877 10326 10326 E SQLiteLog: (14) os_unix.c:44409: (2) open(/data/data/com.facebook.appmanager/databases/androidx.work.workdb) - 
+12-14 08:03:59.878  2510  7094 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.common.jobqueue.JobQueueService#5100' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: Failed to open database '/data/user/0/com.facebook.appmanager/databases/androidx.work.workdb'.
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: android.database.sqlite.SQLiteCantOpenDatabaseException: Cannot open database '/data/user/0/com.facebook.appmanager/databases/androidx.work.workdb' with flags 0x0: File /data/user/0/com.facebook.appmanager/databases/androidx.work.workdb doesn't exist
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.open(SQLiteConnection.java:276)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.open(SQLiteConnection.java:219)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnectionPool.openConnectionLocked(SQLiteConnectionPool.java:537)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnectionPool.open(SQLiteConnectionPool.java:224)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnectionPool.open(SQLiteConnectionPool.java:216)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.openInner(SQLiteDatabase.java:1196)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.open(SQLiteDatabase.java:1169)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java:1054)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java:1001)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at com.facebook.oxygen.common.androidx.workmanager.initializer.b.a(WorkManagerDatabase.java:22)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at com.facebook.oxygen.appmanager.app.c.a(AppManagerApplicationImpl.java:21)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at com.facebook.oxygen.common.component.b.d.onCreate(OxpDelegatingApplication.java:84)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at com.facebook.oxygen.appmanager.app.AppManagerApplication.onCreate(AppManagerApplication.java:24)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1399)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:9003)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:3120)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.os.Handler.dispatchMessage(Handler.java:118)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.os.Looper.loopOnce(Looper.java:237)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.os.Looper.loop(Looper.java:325)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.app.ActivityThread.main(ActivityThread.java:10404)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at java.lang.reflect.Method.invoke(Native Method)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:635)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:970)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: Caused by: android.database.sqlite.SQLiteCantOpenDatabaseException: unknown error (Sqlite code 14 SQLITE_CANTOPEN): Could not open database, (OS error - 2:No such file or directory)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.nativeOpen(Native Method)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	at android.database.sqlite.SQLiteConnection.open(SQLiteConnection.java:238)
+12-14 08:03:59.879 10326 10326 E SQLiteDatabase: 	... 23 more
+12-14 08:03:59.879 10326 10326 I SystemFonts: loadHwSystemFonts, isNightMode true, fontWeightScale is 100
+12-14 08:03:59.879  2510  7094 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-14 08:03:59.879 10326 10326 I HwTypeface: update default font
+12-14 08:03:59.879 10326 10347 W libc    : Access denied finding property "ro.debuggable"
+12-14 08:03:59.880  2510  7094 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.873 10326 10326 W queued-work-loo: type=1400 audit(0.0:2343553): avc:  denied  { read } for  name="u:object_r:userdebug_or_eng_prop:s0" dev="tmpfs" ino=651 scontext=u:r:untrusted_app:s0:c206,c256,c512,c768 tcontext=u:object_r:userdebug_or_eng_prop:s0 tclass=file permissive=0
+12-14 08:03:59.881  2510  2580 D HwActivityManagerServiceEx: finishPreloaded callingPid 10326
+12-14 08:03:59.881  2510  2580 D HwActivityManagerServiceEx: finishPreloaded preloadStatus: 0 app: ProcessRecord{c9f06b 10326:com.facebook.appmanager/u0a206} uidRec.isPreload: false
+12-14 08:03:59.884  2510  7094 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.885  2510  7094 W ProcBatteryStats: timer is running , not start, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.common.jobqueue.JobQueueService
+12-14 08:03:59.887  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:03:59.887 10332 10356 W FlutterAnimationAdvance: FlutterAnimationAdvance getInstance()
+12-14 08:03:59.888  2278 17143 D AudioPolicyService: getUidState(10206) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:59.889  2510  7094 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-14 08:03:59.890 10326 10326 I ActivityThread: finishPreloaded preloadStatus 0
+12-14 08:03:59.892 10332 10357 I AwareBitmapCacher: init processName:com.google.android.as.oss pid=10332 uid=10151
+12-14 08:03:59.896  6777  7481 I AppManager: dependence has been existed:2510 -> 10326
+12-14 08:03:59.898 10326 10369 I AnimationPromotionUtils: com.facebook.appmanager ensureViewAnimationPromotionEnabled: 0
+12-14 08:03:59.912  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:03:59.914  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:03:59.915   983 10375 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:59.916   983 10376 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:03:59.919  2510  2580 I AlarmManager: remove alarm reason:0 alarms:[Alarm{5cf3934 type 1 origWhen 1765898003089 whenElapsed 2485463450 PendingIntent{67d2573: PendingIntentRecord{984d45 com.facebook.appmanager broadcastIntent}} com.facebook.appmanager procName com.facebook.appmanager}]
+12-14 08:03:59.934 10332 10332 I PrivateInferenceConfigReader: computeConfig: isEvt: false, isUserDebug: false
+12-14 08:03:59.934 10332 10332 I PrivateComputeServicesApplication: PrivateComputeServicesApplication#onCreate
+12-14 08:03:59.935 10332 10332 I PcsFcInit: Calling BrellaInit for PCS.
+12-14 08:03:59.936 10332 10332 I NetworkUsageLogTtlService: NetworkUsageLogTtlService already scheduled.
+12-14 08:03:59.937 10332 10332 I SystemFonts: loadHwSystemFonts, isNightMode true, fontWeightScale is 100
+12-14 08:03:59.937 10332 10332 I HwTypeface: update default font
+12-14 08:03:59.939  2510  7094 D HwActivityManagerServiceEx: finishPreloaded callingPid 10332
+12-14 08:03:59.939  2510  7094 D HwActivityManagerServiceEx: finishPreloaded preloadStatus: 0 app: ProcessRecord{3e76a99 10332:com.google.android.as.oss/u0a151} uidRec.isPreload: false
+12-14 08:03:59.940  2510  2580 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.helium.trampoline.HeliumSandboxedService, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:03:59.940  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:03:59.941  2278 17143 D AudioPolicyService: getUidState(10151) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:03:59.942 10332 10332 I ActivityThread: finishPreloaded preloadStatus 0
+12-14 08:03:59.942  2510  2580 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.helium.trampoline.HeliumSandboxedService0, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:03:59.943  2510  2580 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.helium.trampoline.HeliumSandboxedService1, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:03:59.946  2510  4690 W JobServiceContext: Sending onNetworkChanged for a job that isn't started. JobStatus{4db5ebc #u0a151/-1459396391 com.google.android.as.oss/com.google.android.gms.learning.internal.training.InAppJobService u=0 s=10151 TIME=-28s923ms:none NET CHARGING PERSISTED READY}
+12-14 08:03:59.954 10332 10377 I FederatedTrainingScheduler: Cancelling training for population:pcs/prod/platform_logging session_name:pcs/prod/platform_logging
+12-14 08:03:59.958 10332 10386 I FcClientStatsdLogManager: Sending FL diagnosis log. [CONTEXT ratelimit_period="60 MINUTES" ]
+12-14 08:03:59.963  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:03:59.965  2054  2103 W HnConnectEventReportControl: ConnEventReport, clear forbiden list
+12-14 08:03:59.968 10332 10393 D CompatChangeReporter: Compat change id reported: 312399441; UID 10151; state: ENABLED
+12-14 08:03:59.973 10326 10389 I NotificationManager: com.facebook.appmanager: cancel(99991337)
+12-14 08:03:59.975  2510  2579 D StubTelephonyRegistry: uid:10206 pid:10326 PhoneStateListener.LISTEN_CELL_LOCATION:16 events:[1]
+12-14 08:03:59.975 10326 10389 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService#5500' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:03:59.976  2510  7079 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService#5500' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:03:59.977  2510  7079 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-14 08:03:59.978  2510  7079 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.980  2510  7079 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:03:59.980  2510  7079 W ProcBatteryStats: timer is running , not start, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService
+12-14 08:03:59.981  2510  7079 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-14 08:03:59.977  1247  1247 W binder:1247_2: type=1400 audit(0.0:2343554): avc:  denied  { getattr } for  path="/proc/10332/cmdline" dev="proc" ino=47289157 scontext=u:r:keystore:s0 tcontext=u:r:priv_app:s0:c512,c768 tclass=file permissive=0
+12-14 08:03:59.982  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/service.rs".name="com.google.android.as.oss" in "getKeyEntry()." pid=10332
+12-14 08:03:59.981  1247  1247 W binder:1247_2: type=1400 audit(0.0:2343555): avc:  denied  { getattr } for  path="/proc/10332/cmdline" dev="proc" ino=47289157 scontext=u:r:keystore:s0 tcontext=u:r:priv_app:s0:c512,c768 tclass=file permissive=0
+12-14 08:03:59.986  6777  7481 I AppManager: dependence has been existed:2510 -> 10326
+12-14 08:03:59.986  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/service.rs".name="com.google.android.as.oss" in "getKeyEntry()." pid=10332
+12-14 08:03:59.987  2510  7079 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkActivityV2, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:03:59.989  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/security_level.rs".name="com.google.android.as.oss" in "createOperation()." pid=10332
+12-14 08:03:59.985  1247  1247 W binder:1247_2: type=1400 audit(0.0:2343556): avc:  denied  { getattr } for  path="/proc/10332/cmdline" dev="proc" ino=47289157 scontext=u:r:keystore:s0 tcontext=u:r:priv_app:s0:c512,c768 tclass=file permissive=0
+12-14 08:03:59.996  2510  2580 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkActivityV2, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.001  2510  2879 I NotificationService: pag com.google.android.as.oss dosen't have notification permission
+12-14 08:04:00.001  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkIgliteActivity, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.001  2510  2580 V ActivityManager: startProcess: name=com.google.android.as.oss:learning_bg app=null knownToBeDead=true thread=null pid=-1 preloadStatus=-1
+12-14 08:04:00.005  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss" in "updateAad()." pid=10332
+12-14 08:04:00.007  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkIgliteActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.007  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:04:00.008  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:04:00.008  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:04:00.009  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:04:00.009  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:04:00.011  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkWhatsAppActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.011  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss" in "update()." pid=10332
+12-14 08:04:00.015  1247 30777 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss" in "finish()." pid=10332
+12-14 08:04:00.016  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkFbliteActivity, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.020  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss" in "abort()." pid=10332
+12-14 08:04:00.022 10332 10378 I TinkBsaTokenCipher: Initialized successfully
+12-14 08:04:00.023  1058  1058 E KeymasterUtils: rsp_header->status: -28
+12-14 08:04:00.023  1058  1058 E KeyMasterHalDevice: abort_operation
+12-14 08:04:00.023  1058  1058 E KeyMasterHalDevice: ret: -28
+12-14 08:04:00.024  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkFB4AActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.027  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMetaAIActivity, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.028  2055  2055 D Zygote  : Forked child process 10404
+12-14 08:04:00.030  2510  2880 I ActivityManager: Start proc 10404:com.google.android.as.oss:learning_bg/u0a151 for service {com.google.android.as.oss/com.google.android.gms.learning.internal.training.InAppTrainingService}
+12-14 08:04:00.031  2510  2880 I SWAP_SCENE: Entering notifySceneData notifySceneData. EventType:PROCESS_CREATE para:com.google.android.as.oss
+12-14 08:04:00.031  2510  2880 I HwActivityManagerServiceEx: notifyProcessStatusChange::pkg:com.google.android.as.oss pid:10404 uid:10151
+12-14 08:04:00.031  2510  8271 I SWAP_GkiKernelInterface: addToProcs:subProcess pid:10404
+12-14 08:04:00.034 10404 10404 I Zygote  : MountEmulatedStorage
+12-14 08:04:00.034 10404 10404 I Zygote  : mount_data_dirs
+12-14 08:04:00.035 10404 10404 I Zygote  : mount_storage_dirs
+12-14 08:04:00.036 10404 10404 I Zygote  : PreInitializeNativeBridge
+12-14 08:04:00.038  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMetaAIActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.039  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkInstagramActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.041  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkThreadsActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.042  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMessengerActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.044 10404 10404 I Zygote  : CallStaticVoidMethod
+12-14 08:04:00.045 10404 10404 I oss:learning_bg: Using CollectorTypeCMC GC.
+12-14 08:04:00.045  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkIgliteLoggedOutActivity, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.048  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkIgliteLoggedOutActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.048 10404 10404 E oss:learning_bg: Not starting debugger since process cannot load the jdwp agent.
+12-14 08:04:00.049  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkWhatsAppLoggedOutActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.051 10404 10404 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+12-14 08:04:00.053  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkFbliteLoggedOutActivity, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.054 10404 10404 E [VipSchedProxy:]: Vip Success open /proc/vip/ioctl
+12-14 08:04:00.055  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkFB4ALoggedOutActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.056 10404 10404 D ActivityThread: Attach thread to application
+12-14 08:04:00.060  2510  7079 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMetaAILoggedOutActivity, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.063 10404 10404 I Typeface: setSystemFontMap SharedMemory
+12-14 08:04:00.064 10404 10404 I Typeface: setSystemFontMap Typaface
+12-14 08:04:00.065 10404 10421 I ActivityThread: Init compatible state: true
+12-14 08:04:00.065 10404 10404 I ResourcesManager: applyConfigurationToResources: smallestScreenWidthDp = 360mMaxBounds = Rect(0, 0 - 720, 1610)
+12-14 08:04:00.070  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMetaAILoggedOutActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.071 10404 10404 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+12-14 08:04:00.071 10404 10404 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+12-14 08:04:00.072  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkInstagramLoggedOutActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.074  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkThreadsLoggedOutActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.075  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMessengerLoggedOutActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.076  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkIgliteRestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.077  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkWhatsAppRestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.079  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkFbliteRestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.080  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkFB4ARestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.081 10404 10404 W oss:learning_bg: Failed to find entry 'classes.dex': Entry not found
+12-14 08:04:00.081 10404 10404 W oss:learning_bg: Failed to find entry 'classes.dex': Entry not found
+12-14 08:04:00.082  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMetaAIRestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.082 10404 10404 W oss:learning_bg: Failed to find entry 'classes.dex': Entry not found
+12-14 08:04:00.083 10404 10404 D nativeloader: Configuring clns-7 for other apk /data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/base.apk:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.arm64_v8a.apk:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.en.apk:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.xhdpi.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/lib/arm64:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/base.apk!/lib/arm64-v8a:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.arm64_v8a.apk!/lib/arm64-v8a:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.en.apk!/lib/arm64-v8a:/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.g
+12-14 08:04:00.083  2510  7079 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkInstagramRestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.084 10404 10404 D CompatChangeReporter: Compat change id reported: 202956589; UID 10151; state: ENABLED
+12-14 08:04:00.086  2510  7079 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkThreadsRestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.088 10404 10421 W HwCust  : CUST VERSION = false, use class = class android.app.HwCustApplicationPackageManagerImpl
+12-14 08:04:00.088  2510  7079 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.webinstall.WebInstallAppLinkMessengerRestrictedActivity, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.090 10404 10404 V GraphicsEnvironment: Currently set values for:
+12-14 08:04:00.090 10404 10404 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+12-14 08:04:00.090 10404 10404 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+12-14 08:04:00.090 10404 10404 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+12-14 08:04:00.090 10404 10404 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+12-14 08:04:00.090  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.modules.api.ModulesApiProvider, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.091  2510  2580 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.firstparty.tos.ShouldAcceptTos, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.092  2510  2580 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.firstparty.tos.ShouldShowTos, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.093  2510  2580 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.firstparty.tos.ShouldShowExplicitTos, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.099 10404 10421 I AwareBitmapCacher: init processName:com.google.android.as.oss:learning_bg pid=10404 uid=10151
+12-14 08:04:00.101  2510  2580 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.common.jobqueue.JobQueueService#5100' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:04:00.105  2510  2580 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.common.jobqueue.JobQueueService#5100' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:04:00.111 10404 10404 I PrivateInferenceConfigReader: computeConfig: isEvt: false, isUserDebug: false
+12-14 08:04:00.111 10404 10404 I PrivateComputeServicesApplication: PrivateComputeServicesApplication#onCreate
+12-14 08:04:00.111 10404 10404 I PcsFcInit: Calling BrellaInit for PCS.
+12-14 08:04:00.112 10404 10404 I NetworkUsageLogTtlService: NetworkUsageLogTtlService already scheduled.
+12-14 08:04:00.113  2510  2579 I ContentProviderHelper: Need to start process com.facebook.system for provider ContentProviderInfo{name=com.facebook.system.api.appmanager className=com.facebook.oxygen.installer.api.AppManagerApiProvider}, callerApp: ProcessRecord{c9f06b 10326:com.facebook.appmanager/u0a206}
+12-14 08:04:00.113  2510  2579 V ActivityManager: startProcess: name=com.facebook.system app=null knownToBeDead=false thread=null pid=-1 preloadStatus=-1
+12-14 08:04:00.114  2510  2579 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@6f12f883 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+12-14 08:04:00.114 10404 10404 I SystemFonts: loadHwSystemFonts, isNightMode true, fontWeightScale is 100
+12-14 08:04:00.114 10404 10404 I HwTypeface: update default font
+12-14 08:04:00.116  2510  2580 D HwActivityManagerServiceEx: finishPreloaded callingPid 10404
+12-14 08:04:00.116  2510  2580 D HwActivityManagerServiceEx: finishPreloaded preloadStatus: 0 app: ProcessRecord{d06517e 10404:com.google.android.as.oss:learning_bg/u0a151} uidRec.isPreload: false
+12-14 08:04:00.120 10404 10404 I ActivityThread: finishPreloaded preloadStatus 0
+12-14 08:04:00.130 10404 10425 I FederatedTrainingScheduler: Cancelling training for population:pcs/prod/platform_logging session_name:pcs/prod/platform_logging
+12-14 08:04:00.131 10404 10404 I FcClientStatsdLogManager: Sending FL diagnosis log. [CONTEXT ratelimit_period="60 MINUTES" ]
+12-14 08:04:00.141  2055  2055 D Zygote  : Forked child process 10431
+12-14 08:04:00.143  2510  2880 I ActivityManager: Start proc 10431:com.facebook.system/u0a213 for content provider {com.facebook.system/com.facebook.oxygen.installer.api.AppManagerApiProvider}
+12-14 08:04:00.143  2510  2880 I SWAP_SCENE: Entering notifySceneData notifySceneData. EventType:PROCESS_CREATE para:com.facebook.system
+12-14 08:04:00.143  2510  2880 I HwActivityManagerServiceEx: notifyProcessStatusChange::pkg:com.facebook.system pid:10431 uid:10213
+12-14 08:04:00.144  2510  8271 I SWAP_SCENE: Entering appColdCheck cold! appName:com.facebook.system
+12-14 08:04:00.146 10431 10431 I Zygote  : MountEmulatedStorage
+12-14 08:04:00.146  2510  8271 I SWAP_GkiKernelInterface: mkdir for com.facebook.system success
+12-14 08:04:00.146  2510  8271 I SWAP_SCENE: Entering appColdCheck cold! Mkdir. appName:com.facebook.system
+12-14 08:04:00.146 10431 10431 I Zygote  : mount_data_dirs
+12-14 08:04:00.146  2510  8271 I SWAP_GkiKernelInterface: addToProcs:com.facebook.system pid:10431
+12-14 08:04:00.153 10431 10431 I Zygote  : mount_storage_dirs
+12-14 08:04:00.154 10431 10431 I Zygote  : PreInitializeNativeBridge
+12-14 08:04:00.161  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/service.rs".name="com.google.android.as.oss:learning_bg" in "getKeyEntry()." pid=10404
+12-14 08:04:00.163 10431 10431 I Zygote  : CallStaticVoidMethod
+12-14 08:04:00.164 10431 10431 I facebook.system: Using CollectorTypeCMC GC.
+12-14 08:04:00.165  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/service.rs".name="com.google.android.as.oss:learning_bg" in "getKeyEntry()." pid=10404
+12-14 08:04:00.167 10431 10431 E facebook.system: Not starting debugger since process cannot load the jdwp agent.
+12-14 08:04:00.168  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/security_level.rs".name="com.google.android.as.oss:learning_bg" in "createOperation()." pid=10404
+12-14 08:04:00.170 10431 10431 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+12-14 08:04:00.173 10431 10431 E [VipSchedProxy:]: Vip Success open /proc/vip/ioctl
+12-14 08:04:00.175 10431 10431 D ActivityThread: Attach thread to application
+12-14 08:04:00.179  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.181  2278 17143 D AudioPolicyService: getUidState(10213) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.181  2278 17143 D AudioPolicyService: getUidState(10213) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.183 10431 10431 I Typeface: setSystemFontMap SharedMemory
+12-14 08:04:00.183  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss:learning_bg" in "updateAad()." pid=10404
+12-14 08:04:00.184 10431 10431 I Typeface: setSystemFontMap Typaface
+12-14 08:04:00.184 10431 10453 I ActivityThread: Init compatible state: true
+12-14 08:04:00.185 10431 10431 I ResourcesManager: applyConfigurationToResources: smallestScreenWidthDp = 360mMaxBounds = Rect(0, 0 - 720, 1610)
+12-14 08:04:00.187  1247 30777 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss:learning_bg" in "update()." pid=10404
+12-14 08:04:00.191  1247  1247 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss:learning_bg" in "finish()." pid=10404
+12-14 08:04:00.195  1247 30777 I keystore2: vendor/honor/system/base/system/security/keystore2/keystore_debug/honor_keystore_database_log.rs:36 - "keystore2/src/operation.rs".name="com.google.android.as.oss:learning_bg" in "abort()." pid=10404
+12-14 08:04:00.196 10431 10431 D nativeloader: Configuring clns-7 for other apk /data/app/~~j-jaDR-LSy91RUeMuIZReA==/com.facebook.system-fewl5hdGbPks_yBDHJhr_Q==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~j-jaDR-LSy91RUeMuIZReA==/com.facebook.system-fewl5hdGbPks_yBDHJhr_Q==/lib/arm64, permitted_path=/data:/mnt/expand:/data/user/0/com.facebook.system
+12-14 08:04:00.198 10404 10426 I TinkBsaTokenCipher: Initialized successfully
+12-14 08:04:00.198  1058  1058 E KeymasterUtils: rsp_header->status: -28
+12-14 08:04:00.198  1058  1058 E KeyMasterHalDevice: abort_operation
+12-14 08:04:00.198  1058  1058 E KeyMasterHalDevice: ret: -28
+12-14 08:04:00.199 10431 10453 W HwCust  : CUST VERSION = false, use class = class android.app.HwCustApplicationPackageManagerImpl
+12-14 08:04:00.202 10431 10431 V GraphicsEnvironment: Currently set values for:
+12-14 08:04:00.202 10431 10431 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+12-14 08:04:00.202 10431 10431 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+12-14 08:04:00.202 10431 10431 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+12-14 08:04:00.202 10431 10431 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+12-14 08:04:00.213 10431 10452 W FlutterAnimationAdvance: FlutterAnimationAdvance getInstance()
+12-14 08:04:00.213 10404 10439 D nativeloader: Load /data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/split_config.arm64_v8a.apk!/lib/arm64-v8a/libpcs_tensorflow_jni.so using class loader ns clns-7 (caller=/data/app/~~1C47OoztyTOpm7t0rKk_tA==/com.google.android.as.oss-OL2a1sV4cxY0GqHw90fdFw==/base.apk): ok
+12-14 08:04:00.213 10431 10431 I SystemFonts: loadHwSystemFonts, isNightMode true, fontWeightScale is 100
+12-14 08:04:00.213 10431 10453 I AwareBitmapCacher: init processName:com.facebook.system pid=10431 uid=10213
+12-14 08:04:00.213 10431 10431 I HwTypeface: update default font
+12-14 08:04:00.214 10431 10451 V HnExtFrameworkFactory: successes to get AllImpl object and return....
+12-14 08:04:00.215  2510  2580 D HwActivityManagerServiceEx: finishPreloaded callingPid 10431
+12-14 08:04:00.215  2510  2580 D HwActivityManagerServiceEx: finishPreloaded preloadStatus: 0 app: ProcessRecord{749a789 10431:com.facebook.system/u0a213} uidRec.isPreload: false
+12-14 08:04:00.216  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.216 10431 10431 I ActivityThread: finishPreloaded preloadStatus 0
+12-14 08:04:00.216  2278 17143 D AudioPolicyService: getUidState(10213) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.217 10431 10451 I GtaWordsUtil: open config file fail
+12-14 08:04:00.217 10431 10451 I GtaWordsUtil: warning not define gta name in transform list
+12-14 08:04:00.226  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.nekodirect.NekoDirectProvider, newState:2, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.227 10326 10389 E ActivityThread: Failed to find provider info for com.facebook.appmanager.nekodirect
+12-14 08:04:00.228  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.installapi.OxInstallApiProvider, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.229  2510  2579 I PackageManager: setEnabledSetting pkg:com.facebook.appmanager, className:com.facebook.oxygen.appmanager.experimentation.AppManagerExperimentProvider, newState:1, flags:1, userId:0, CallingPid:10326, CallingUid:10206
+12-14 08:04:00.232 10404 10439 E oss:learning_bg: Can't open /proc/smaps_group_types: No such file or directory
+12-14 08:04:00.238  2510  2580 W ProcBatteryStats: timer is not running , not stop, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService
+12-14 08:04:00.239  2510  2579 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService#5500' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:04:00.242  2510  2579 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-14 08:04:00.243  2510  2579 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:04:00.244  2510  2579 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:04:00.244  2510  2579 W ProcBatteryStats: timer is running , not start, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService
+12-14 08:04:00.246  2510  2579 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-14 08:04:00.249  6777  7481 I AppManager: dependence has been existed:2510 -> 10326
+12-14 08:04:00.253  2510  2580 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.common.jobqueue.JobQueueService#5100' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:04:00.255  2510  2579 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService#5500' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:04:00.256  2510  2580 W ProcBatteryStats: timer is not running , not stop, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService
+12-14 08:04:00.260  2510  2579 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-14 08:04:00.261  2510  2579 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:04:00.262  2510  2579 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-14 08:04:00.262  2510  2579 W ProcBatteryStats: timer is running , not start, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService
+12-14 08:04:00.263  2510  2579 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-14 08:04:00.266  6777  7481 I AppManager: dependence has been existed:2510 -> 10326
+12-14 08:04:00.269  2510  2579 W JobInfo : Job 'com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService#5500' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+12-14 08:04:00.274  2510  2580 W ProcBatteryStats: timer is not running , not stop, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.appmanager.update.core.UpdateService
+12-14 08:04:00.277 10326 10372 I ApplicationPackageManager: checkGetInstalledAppsPermissionStatus,packageName:com.facebook.appmanager,ret:-2
+12-14 08:04:00.296  2510  2579 W ParceledListSlice: Element #146 is 17880 bytes.
+12-14 08:04:00.299  2510  2579 W ParceledListSlice: Element #175 is 17548 bytes.
+12-14 08:04:00.305  2510  7094 D FileUtils: Rounded bytes from 7898361856 to 8000000000
+12-14 08:04:00.311 10404 10439 I FcClientStatsdLogManager: Sending FL Training log. [CONTEXT ratelimit_period="60 MINUTES" ]
+12-14 08:04:00.327  5795  5925 E msys    : E[N mns]_CacheRefreshTimerCallback(454)=>Start active cache refresh DNS resolution
+12-14 08:04:00.327  5795  5925 E msys    : E[N mns]_CacheRefreshTimerCallback(454)=>Start active cache refresh DNS resolution
+12-14 08:04:00.327  5795  5925 E msys    : E[N mns]_CacheRefreshTimerCallback(454)=>Start active cache refresh DNS resolution
+12-14 08:04:00.327  5795  5925 E msys    : E[N mns]_CacheRefreshTimerCallback(454)=>Start active cache refresh DNS resolution
+12-14 08:04:00.327  5795  5925 E msys    : E[N mns]_CacheRefreshTimerCallback(454)=>Start active cache refresh DNS resolution
+12-14 08:04:00.327  5795  5925 E msys    : E[N mns]_CacheRefreshTimerCallback(454)=>Start active cache refresh DNS resolution
+12-14 08:04:00.332  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:04:00.333  5795  5925 E msys    : E[N mns]_OnSystemDNSSuccessCallback(340)=>Cache refresh succeeded with system DNS resolver. IP count: 2
+12-14 08:04:00.341  2510  2580 W ProcBatteryStats: timer is not running , not stop, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.analytics2.logger.legacy.uploader.LollipopUploadService
+12-14 08:04:00.341  5795  5925 E msys    : E[N mns]_OnSystemDNSSuccessCallback(340)=>Cache refresh succeeded with system DNS resolver. IP count: 2
+12-14 08:04:00.342  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:04:00.346  5795  5925 E msys    : E[N mns]_OnSystemDNSSuccessCallback(340)=>Cache refresh succeeded with system DNS resolver. IP count: 2
+12-14 08:04:00.346  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:04:00.349  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:04:00.351  5795  5925 E msys    : E[N mns]_OnSystemDNSSuccessCallback(340)=>Cache refresh succeeded with system DNS resolver. IP count: 2
+12-14 08:04:00.351  5795  5925 E msys    : E[N mns]_OnSystemDNSSuccessCallback(340)=>Cache refresh succeeded with system DNS resolver. IP count: 2
+12-14 08:04:00.352  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:04:00.352  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:04:00.358  5795  5925 E msys    : E[N mns]_OnSystemDNSSuccessCallback(340)=>Cache refresh succeeded with system DNS resolver. IP count: 2
+12-14 08:04:00.359  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 08:04:00.517  2510  2580 D FileUtils: Rounded bytes from 7898361856 to 8000000000
+12-14 08:04:00.536  2510  7094 W ProcBatteryStats: timer is not running , not stop, name: com.facebook.appmanager, uid: 10206, tag: *job*/com.facebook.appmanager/com.facebook.oxygen.common.jobqueue.JobQueueService
+12-14 08:04:00.539  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.540  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.541  2278 17143 D AudioPolicyService: getUidState(10213) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.541  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.541  2278 17143 D AudioPolicyService: getUidState(10206) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.542  2278 22475 D AudioPolicyService: getUidState(10213) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.543  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.543 10332 10355 W brella.TrainingJob: Training ended with error (hasRetryWindow=true). 
+12-14 08:04:00.543  2278 22475 D AudioPolicyService: getUidState(10206) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.544  2510  7094 D CompatChangeReporter: Compat change id reported: 311208629; UID 10151; state: ENABLED
+12-14 08:04:00.549 10332 10401 D CompatChangeReporter: Compat change id reported: 311402873; UID 10151; state: ENABLED
+12-14 08:04:00.549 10332 10401 D CompatChangeReporter: Compat change id reported: 323349338; UID 10151; state: ENABLED
+12-14 08:04:00.552  2510  2580 D CompatChangeReporter: Compat change id reported: 311402873; UID 10151; state: ENABLED
+12-14 08:04:00.552  2510  2580 D CompatChangeReporter: Compat change id reported: 323349338; UID 10151; state: ENABLED
+12-14 08:04:00.555  2510  7094 W ProcBatteryStats: timer is not running , not stop, name: com.google.android.as.oss, uid: 10151, tag: *job*/com.google.android.as.oss/com.google.android.gms.learning.internal.training.InAppJobService
+12-14 08:04:00.558  2510  7094 W JobScheduler: Job didn't exist in JobStore: 4db5ebc #u0a151/-1459396391 com.google.android.as.oss/com.google.android.gms.learning.internal.training.InAppJobService
+12-14 08:04:00.559  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.559  2278 22475 D AudioPolicyService: getUidState(10151) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.560  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:00.561  2278 22475 D AudioPolicyService: getUidState(10151) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:00.780  2141 18029 I vendor.qti.bluetooth@1.0-ibs_handler: DeviceSleep: TX Awake, Sending SLEEP_IND
+12-14 08:04:00.780  2141 18029 D vendor.qti.bluetooth@1.0-ibs_handler: SerialClockVote: vote for UART CLK OFF
+12-14 08:04:00.914  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:04:00.915  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:04:00.923   983 10493 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:00.923   983 10494 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:00.931  2141 18020 D vendor.qti.bluetooth@1.0-wake_lock: Release wakelock is released 
+12-14 08:04:00.991  2510  3232 I AppsFilter: interaction: PackageSetting{8992303 com.android.microdroid.empty_payload/10202} -> PackageSetting{15e8cbe com.facebook.appmanager/10206} BLOCKED
+12-14 08:04:01.004  2510  2853 I SearchManagerService: onPackageModified com.facebook.appmanager
+12-14 08:04:01.005  2510  4991 D InputMethodManagerService: Checking com.google.android.tts/com.google.android.apps.speech.tts.googletts.settings.asr.voiceime.VoiceInputMethodService
+12-14 08:04:01.005  2510  4637 I OverlayManager: reconcileSettingsForPackage : pkgName = com.facebook.appmanager, userId = 0, flags = 0
+12-14 08:04:01.006  2510  4637 E OverlayManager: updateTargetPackagesLocked updatedTargets is empty
+12-14 08:04:01.009  2510  4991 E HwResourcesImpl: processName is null
+12-14 08:04:01.011  2510  4991 I HwInputMethodManagerService: isFlagExists  value = true, userId = 0
+12-14 08:04:01.011  2510  4991 D InputMethodManagerService: Found an input method InputMethodInfo{com.google.android.tts/com.google.android.apps.speech.tts.googletts.settings.asr.voiceime.VoiceInputMethodService, settings: com.google.android.apps.speech.tts.googletts.settings.asr.voiceime.ui.VoiceImeSettingsActivity, languageSettings: null}
+12-14 08:04:01.011  2510  4991 D InputMethodManagerService: Checking com.preff.kb.hr/com.preff.kb.LatinIME
+12-14 08:04:01.015  2510  4991 E HwResourcesImpl: processName is null
+12-14 08:04:01.015  2510  6349 D ShortcutService: received package broadcast intent: Intent { act=android.intent.action.PACKAGE_CHANGED dat=package: flg=0x45000010 (has extras) }
+12-14 08:04:01.015  2510  6349 D ShortcutService: changing package: com.facebook.appmanager userId0
+12-14 08:04:01.015  2510  6349 I ShortcutService: handlePackageChanged: com.facebook.appmanager user=0
+12-14 08:04:01.015  2510  6349 D ShortcutService: rescanPackageIfNeeded 0@com.facebook.appmanager, forceRescan=true , isNewApp=true
+12-14 08:04:01.017  2510  6349 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.021  2510  2510 D TrustManagerService: refreshAgentList(userIdOrAll=-1)
+12-14 08:04:01.021  2510  4991 I HwInputMethodManagerService: isFlagExists  value = true, userId = 0
+12-14 08:04:01.021  2510  6463 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.021  2510  4991 D InputMethodManagerService: Found an input method InputMethodInfo{com.preff.kb.hr/com.preff.kb.LatinIME, settings: com.preff.kb.settings.SettingsNoneActivity, languageSettings: null}
+12-14 08:04:01.021  2510  4991 D InputMethodManagerService: Checking com.touchtype.swiftkey/com.touchtype.KeyboardService
+12-14 08:04:01.022  6874  6874 D CarrierSvcBindHelper: onPackageModified: com.facebook.appmanager
+12-14 08:04:01.022  2510  2853 E HwResourcesImpl: processName is null
+12-14 08:04:01.022  2510  6463 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.022  2510  6349 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.023  2510  6349 I ShortcutService: Package com.facebook.appmanager has 0 manifest shortcut(s), and 0 share target(s)
+12-14 08:04:01.023  2510  2510 D TrustManagerService: refreshAgentList: skipping com.hihonor.systemserver/.trustagent.HnTrustAgent u0: not enabled by user
+12-14 08:04:01.024  2510  2510 D TrustManagerService: refreshAgentList: userInfos=[UserInfo{0:Owner:4c13}], obsoleteAgents={}, trustMayHaveChanged=false
+12-14 08:04:01.024  6822  7606 I Hicom_Monitor: notifyPackageChanged: pkgName:com.facebook.appmanager, uid: 10206, actionId: 2
+12-14 08:04:01.025  2510  2787 E HwResourcesImpl: processName is null
+12-14 08:04:01.027  6822 23779 I AppClipManagerService: ACTION_PACKAGE_CHANGED :com.facebook.appmanager, userId: 0, uid: 10206
+12-14 08:04:01.027  2510  4991 E HwResourcesImpl: processName is null
+12-14 08:04:01.029  2510  4991 I HwInputMethodManagerService: isFlagExists  value = true, userId = 0
+12-14 08:04:01.029  2510  4991 D InputMethodManagerService: Found an input method InputMethodInfo{com.touchtype.swiftkey/com.touchtype.KeyboardService, settings: com.touchtype.LauncherActivityFromSystemSettings, languageSettings: null}
+12-14 08:04:01.029  2510  4991 D InputMethodManagerService: Checking com.marsvard.stickermakerforwhatsapp/.StickerKeyboardService
+12-14 08:04:01.030  6963  6963 I HSM_BG  : BroadcastController:BroadcastController handleBroadcast: Intent { act=android.intent.action.PACKAGE_CHANGED dat=package: flg=0x45000010 (has extras) }
+12-14 08:04:01.030  2510  2787 W KeyboardLayoutManager: Missing required 'name', 'label' or 'keyboardLayout' attributes in keyboard layout resource from receiver com.android.inputdevices/com.android.inputdevices.InputDeviceReceiver
+12-14 08:04:01.030  6874  6874 D CarrierSvcBindHelper: No carrier app for: 0
+12-14 08:04:01.031  6874  6874 D CarrierSvcBindHelper: No carrier app for: 1
+12-14 08:04:01.032  2510  4991 E HwResourcesImpl: processName is null
+12-14 08:04:01.033  6822 23779 I AppClipManagerService: filterResolveInfo APPCLIP_FROM_SERVICE , resolveds before:0,after :0
+12-14 08:04:01.033  2510  6445 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-14 08:04:01.033  2510  4991 I HwInputMethodManagerService: isFlagExists  value = true, userId = 0
+12-14 08:04:01.033  2510  4991 D InputMethodManagerService: Found an input method InputMethodInfo{com.marsvard.stickermakerforwhatsapp/.StickerKeyboardService, settings: null, languageSettings: null}
+12-14 08:04:01.034  2510  4991 D InputMethodManagerService: --- re-buildInputMethodList reset = false 
+12-14 08:04:01.034  2510  4991 D InputMethodManagerService:  ------ caller=com.android.server.inputmethod.InputMethodManagerService$MyPackageMonitor.onFinishPackageChangesInternal:1231 com.android.server.inputmethod.InputMethodManagerService$MyPackageMonitor.onFinishPackageChanges:1146 com.android.internal.content.PackageMonitor.doHandlePackageEvent:594 com.android.internal.content.PackageMonitor.lambda$postHandlePackageEvent$0:433 com.android.internal.content.PackageMonitor.$r8$lambda$bSKEInwdT6Kd7GAyzMZPsXTTqeQ:0 com.android.internal.content.PackageMonitor$$ExternalSyntheticLambda0.run:0 android.os.Handler.handleCallback:997 android.os.Handler.dispatchMessage:111 android.os.Looper.loopOnce:237 android.os.Looper.loop:325 
+12-14 08:04:01.034 23198 23198 E NfcNci  : NfcUtils error: APP do not have nfc permission
+12-14 08:04:01.036  2510  6445 D ActivityManager: sync unfroze 523 com.google.android.permissioncontroller for 6
+12-14 08:04:01.037  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:01.038  2510  2853 E HwResourcesImpl: processName is null
+12-14 08:04:01.039  2278 22475 D AudioPolicyService: getUidState(10195) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:01.039  2278 22475 D AudioPolicyService: getUidState(10195) cacheIter->second.first, return cacheIter->second.second(-1)
+12-14 08:04:01.040  6822 23779 I AppClipManagerService: filterResolveInfo APPCLIP_FROM_RECEIVER , resolveds before:0,after :0
+12-14 08:04:01.041   697   697 I HSM_UI  : BroadcastController:BroadcastController handleBroadcast: Intent { act=android.intent.action.PACKAGE_CHANGED dat=package: flg=0x45000010 (has extras) }
+12-14 08:04:01.045  2510  2853 E HwResourcesImpl: processName is null
+12-14 08:04:01.045   523 10495 I PermissionControllerServiceImpl: Updating user sensitive for uid 10206
+12-14 08:04:01.047  2510  2579 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.048  2510  2579 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.052  2510  2853 E HwResourcesImpl: processName is null
+12-14 08:04:01.054  2510  7094 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.054  2510  7094 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.055  6874  6874 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+12-14 08:04:01.055  2510  7094 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.055  2510  7094 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.055  2510  2580 W AppOpService: Ignored setUidMode call for runtime permission app op: uid = 10153, code = READ_CELL_BROADCASTS, mode = allow, callingUid = 1001, oldMode = allow
+12-14 08:04:01.057  2510  2853 E HwResourcesImpl: processName is null
+12-14 08:04:01.061  2510  4802 I RoleService: Granting default roles...
+12-14 08:04:01.062  2510  2853 E HwResourcesImpl: processName is null
+12-14 08:04:01.063  2510  6761 E HwResourcesImpl: processName is null
+12-14 08:04:01.065  2510  2853 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.065  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.stk set mode android:receive_wap_push
+12-14 08:04:01.065  2510  2853 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.065  2510  7094 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.065  2510  2853 I AccessibilityManagerService: readHighTextContrastEnabledSettingLocked highTextContrastEnabled = false
+12-14 08:04:01.066  2510  2853 I HnAccessibilityManagerService: readHighTextBorderContrastEnabledSettingLocked, highTextBorderContrastEnabled = false
+12-14 08:04:01.066  2510  2853 I HnAccessibilityManagerService: readEnhanceContrastEnabledSettingLocked, enhanceContrastEnabled = false
+12-14 08:04:01.066  2510  2853 I [SPMN]  : insert SECURE -- name = accessibility_enabled, package = android, user = 0
+12-14 08:04:01.066  2510  2853 W MagnificationConnectionManager: requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+12-14 08:04:01.067  2510  6761 W SignedPackage: Cannot get ApplicationInfo for package: com.android.settings.intelligence
+12-14 08:04:01.067  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.stk set mode android:read_cell_broadcasts
+12-14 08:04:01.068  2510  2853 D PackageManager: shouldGenerateServicesMap intent Intent { act=android.intent.action.PACKAGE_CHANGED dat=package: flg=0x45000010 (has extras) }, ret false, userId 0
+12-14 08:04:01.068  2510  6761 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION, user: 0
+12-14 08:04:01.068  2510  7094 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.068 23445 23445 I Model   : onPackageChanged:Package:com.facebook.appmanager,User:UserHandle{0},IsClone:false
+12-14 08:04:01.068  2510  2853 D PackageManager: shouldGenerateServicesMap intent Intent { act=android.intent.action.PACKAGE_CHANGED dat=package: flg=0x45000010 (has extras) }, ret false, userId 0
+12-14 08:04:01.070 23445 23799 I HwResourcesImpl: remove icon, packageName = com.facebook.appmanager
+12-14 08:04:01.070  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.ons set mode android:receive_wap_push
+12-14 08:04:01.071  2510  7079 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.071 23445 23799 W AllIdleAppsList : updatePackage. no match activity, remove all data for this package. Package:com.facebook.appmanager,User:UserHandle{0},IsClone:false
+12-14 08:04:01.072  2510  6761 W SignedPackage: Package doesn't have required signing certificate: com.google.android.apps.work.clouddpc
+12-14 08:04:01.073  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.ons set mode android:read_cell_broadcasts
+12-14 08:04:01.073  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.073 23445 23445 I PowerSaveLauncherModel : onPackageChanged:Package:com.facebook.appmanager,User:UserHandle{0},IsClone:false
+12-14 08:04:01.073 23445 23445 E PowerSaveLauncherModel : onPackageChanged: not inPowerSaveLauncher 
+12-14 08:04:01.073 23445 23445 I StreetModeLauncherModel : onPackageChanged:Package:com.facebook.appmanager,User:UserHandle{0},IsClone:false
+12-14 08:04:01.073 23445 23445 E StreetModeLauncherModel : onPackageChanged: not inStreetModeLauncher 
+12-14 08:04:01.075  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.mms.service set mode android:receive_wap_push
+12-14 08:04:01.075  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.076  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.077  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.077  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.mms.service set mode android:read_cell_broadcasts
+12-14 08:04:01.077  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.077  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.077  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.078  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.078  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.079  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.providers.telephony set mode android:receive_wap_push
+12-14 08:04:01.079  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.081  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.providers.telephony set mode android:read_cell_broadcasts
+12-14 08:04:01.081  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.083  6874  6874 W HwBaseInnerSmsManagerImpl: com.qti.dpmserviceapp set mode android:receive_wap_push
+12-14 08:04:01.084  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.086  6874  6874 W HwBaseInnerSmsManagerImpl: com.qti.dpmserviceapp set mode android:read_cell_broadcasts
+12-14 08:04:01.086  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.089  6874  6874 W HwBaseInnerSmsManagerImpl: vendor.qti.imsdatachannel set mode android:receive_wap_push
+12-14 08:04:01.089  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.090  2510  6761 W AppOpService: Ignored setUidMode call for runtime permission app op: uid = 10149, code = FINE_LOCATION, mode = allow, callingUid = 1000, oldMode = allow
+12-14 08:04:01.091  6874  6874 W HwBaseInnerSmsManagerImpl: vendor.qti.imsdatachannel set mode android:read_cell_broadcasts
+12-14 08:04:01.091  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.093  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.phone set mode android:receive_wap_push
+12-14 08:04:01.093  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.095  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.phone set mode android:read_cell_broadcasts
+12-14 08:04:01.096  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.098  6874  6874 W HwBaseInnerSmsManagerImpl: com.hihonor.phone.recorder set mode android:receive_wap_push
+12-14 08:04:01.098  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.098  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.098  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.100  6874  6874 W HwBaseInnerSmsManagerImpl: com.hihonor.phone.recorder set mode android:read_cell_broadcasts
+12-14 08:04:01.101  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.101  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.101  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.101  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.101  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.101  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.101  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.102  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.102  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.102  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.102  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.104  6874  6874 W HwBaseInnerSmsManagerImpl: org.codeaurora.ims set mode android:receive_wap_push
+12-14 08:04:01.104  2510  6761 W AppOpService: Ignored setUidMode call for runtime permission app op: uid = 10149, code = FINE_LOCATION, mode = allow, callingUid = 1000, oldMode = allow
+12-14 08:04:01.105  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.106  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.106  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.106  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.106  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.106  6874  6874 W HwBaseInnerSmsManagerImpl: org.codeaurora.ims set mode android:read_cell_broadcasts
+12-14 08:04:01.107  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.109  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.incallui set mode android:receive_wap_push
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.109  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.110  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.110  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.110  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.111  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.111  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.111  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.111  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.112  2510  6761 I PackageManager: currentPackageName: com.hihonor.android.launcher, packageName: com.hihonor.android.launcher
+12-14 08:04:01.112  2510  6761 I PackageManager: packageName: com.hihonor.android.launcher is already default home
+12-14 08:04:01.112  6874  6874 W HwBaseInnerSmsManagerImpl: com.android.incallui set mode android:read_cell_broadcasts
+12-14 08:04:01.112  2510  2580 I HnCacheUtils: invalidateGetVolumeListCache
+12-14 08:04:01.116  6874  6874 E SmsApplication: Package not found: com.hihonor.mms
+12-14 08:04:01.117  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.117  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.118  2510  6761 E HwResourcesImpl: processName is null
+12-14 08:04:01.119  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.119  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.120  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.120  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.121  2510  6761 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER, user: 0
+12-14 08:04:01.121  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.121  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.122  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.123  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.124  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.124  2510  6761 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.125  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.125  2510  2580 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-14 08:04:01.127  6874  7601 I ImsResolver: maybeAddedImsService, packageName: xxx
+12-14 08:04:01.510 23445 23445 E HnBaseDownloadModel : NameNotFoundException exception.
+12-14 08:04:01.527  2510  7085 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:5
+12-14 08:04:01.689  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 08:04:01.691  2278 17143 D AudioPolicyService: getUidState(10030) cacheIter->second.first, return cacheIter->second.second(19)
+12-14 08:04:01.692  2278 17143 D AudioPolicyService: getUidState(10030) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 08:04:01.919  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:04:01.921  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:04:01.925   983 10498 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:01.926   983 10499 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:02.013  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:04:02.015  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 08:04:02.015  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 08:04:02.017  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:04:02.017  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:04:02.017  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:04:02.020  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:04:02.286  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2258102548190895 ns; value = [-1.467001, 0.062311, 9.474485], status=3
+12-14 08:04:02.923  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:04:02.924  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:04:02.930   983 10500 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:02.930   983 10501 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:03.103  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 08:04:03.926  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 08:04:03.928  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 08:04:03.937   983 10502 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:03.938   983 10503 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 08:04:04.018  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 08:04:04.023  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 08:04:04.024  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 08:04:04.024  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 08:04:04.025  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 08:04:04.418  2510  2795 W Watchdog: waitState=[0] waitedHalf=[false]
+12-14 08:04:04.418  2510  2795 W Watchdog: watchdogKick kickCounter=[150]
+12-14 08:04:04.419  2510  2795 I AES     : hangdetect userpet kick to kernel
+12-14 08:04:04.421  2510  2782 I InputReader: monitor lock
+12-14 08:04:04.421  2510  2782 I EventHub: wake() called
+12-14 08:04:04.424  2510  2782 I EventHub: monitor lock

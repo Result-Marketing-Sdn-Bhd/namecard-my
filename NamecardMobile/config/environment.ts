@@ -141,7 +141,9 @@ if (isDebugMode()) {
     DEBUG_MODE: Config.DEBUG_MODE,
     API_BASE_URL: Config.API_BASE_URL,
     SUPABASE_URL: Config.SUPABASE_URL ? '✓ Configured' : '✗ Missing',
+    GEMINI_API_KEY: Config.GEMINI_API_KEY ? `✓ Configured (${Config.GEMINI_API_KEY.substring(0, 10)}...)` : '✗ Missing',
     GOOGLE_VISION_API_KEY: Config.GOOGLE_VISION_API_KEY ? '✓ Configured' : '✗ Missing',
+    OPENAI_API_KEY: Config.OPENAI_API_KEY ? '✓ Configured' : '✗ Missing',
     ANALYTICS_ENABLED: Config.ANALYTICS_ENABLED,
   });
 }

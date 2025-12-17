@@ -1,12 +1,13 @@
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
+import { Paths } from 'expo-file-system';
 import { Contact } from '../types';
 
 const CONTACTS_KEY = '@namecard/contacts';
 const SYNC_QUEUE_KEY = '@namecard/sync_queue';
-const IMAGES_DIR = `${FileSystem.documentDirectory}business_cards/`;
+const IMAGES_DIR = `${Paths.document.uri}business_cards/`;
 
 export interface SyncQueueItem {
   id: string;

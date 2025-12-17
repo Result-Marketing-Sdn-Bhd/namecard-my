@@ -140,8 +140,15 @@ export const useSubscription = (): UseSubscriptionReturn => {
         }
       } catch (err: any) {
         console.error('[useSubscription] ❌ Purchase error:', err);
-        setError(err.message || 'Purchase failed');
-        return false;
+        console.error('[useSubscription] ❌ Error type:', typeof err);
+        console.error('[useSubscription] ❌ Error keys:', Object.keys(err || {}));
+        console.error('[useSubscription] ❌ Error stringified:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
+
+        const errorMessage = err.message || err.toString() || 'Purchase failed';
+        setError(errorMessage);
+
+        // Re-throw to let PaywallScreen catch and display full details
+        throw err;
       } finally {
         setIsPurchasing(false);
       }

@@ -1,10 +1,35 @@
 {
-  "enabledMcpjsonServers": [
-    "supabase"
-  ],
   "permissions": {
     "allow": [
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npx expo start:*)",
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(ping:*)",
+      "Bash(nul)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run lint)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npx eas-cli:*)",
+      "Bash(git push)",
+      "Bash(eas build:*)",
+      "Bash(taskkill:*)",
+      "Bash(eas submit:*)",
+      "Bash(xcrun simctl:*)",
+      "Bash(findstr:*)",
+      "Bash(npx expo install:*)",
+      "Bash(npm run type:check:*)",
+      "Bash(netstat:*)",
+      "Bash(cmd /c \"taskkill /PID 34312 /F\")",
+      "Bash(powershell -Command \"Stop-Process -Id 34312 -Force\")",
+      "Bash(dir:*)",
+      "Bash(powershell -Command \"Get-Process -Name node -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(npm run start:clear:*)",
+      "Bash(eas update:*)",
+      "Bash(eas build:list:*)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "supabase"
+  ]
 }

@@ -1,0 +1,1011 @@
+--------- beginning of main
+12-13 16:33:07.773  1250  2601 E SmcInvoke_MinkDescriptor: mem obj with id :19 not found in list
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[0]=3
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[1]=0
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[2]=0
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[3]=f
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:605 __convertParamsOut] SizeIn/SizeOut = 76/76
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:621 __convertParamsOut] Copy back from qsmem->ion_sbuf @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:470 __RevertRegisteredMemToTempMem] Saved op buffer @ 0x722147a790, Temp op @ 0x722147a790
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:382 TEEC_QTEE_ReleaseSharedMemory] Releasing qsmem buffer @ 0x74d2564000
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:131 __SharedMem_Free] munmap(0x74d2564000, 76)
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:479 __RevertRegisteredMemToTempMem] Returned op->params[i].tmpref.size 76
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:481 __RevertRegisteredMemToTempMem] Restored op buffer @ 0x722147a790
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation OUT (112 bytes @ 0x0x722147a850)
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 00 00 00 00 06 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 90 A7 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 A0 DD B4 67 73 00 00 B4 
+12-13 16:33:07.773  2774  6472 D fpc_tac : HAL Invokecommand = 10 out, result = 0, retry_times = 1
+12-13 16:33:07.773  2774  6472 I fpc_fingerprint_hal: fpc FP_IOC_CMD_DISABLE_IRQ is already disabled
+12-13 16:33:07.773  2774  6472 D fpc_tac : HAL Invokecommand = 20
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation IN (112 bytes @ 0x0x722147a5d0)
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 04 00 00 00 09 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 10 A5 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.773  2774  6472 D GPQTEEC : [QTEEC.cpp:425 __ConvertTempMemToRegisteredMem] Saved op tmpref.buffer = 0x722147a510, Op memref.parent->buffer = 0x722147a510 (76 bytes)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:111 __SharedMem_Alloc] mmap(0x74d2564000, 76)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:230 TEEC_QTEE_RegisterSharedMemory] qsmem buffer allocated @ 0x74d2564000 76 bytes, registered buffer @ 0x722147a510
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:444 __ConvertTempMemToRegisteredMem] Temp op buffer set @ 0x722147a510
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:1182 TEEC_QTEE_InvokeCommand] Operation is not NULL
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a44c)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 04 00 00 00 09 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a45c)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a46c)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:514 __convertParamsIn] param[3] size=76, offset=0
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:524 __convertParamsIn] Real backed buffer (76 bytes)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:529 __convertParamsIn] Copy into qsmem->ashmem_buffer @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a47c)
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] FF FF FF FF 00 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.774  2774  6472 D GPQTEEC : [QTEEC.cpp:1193 TEEC_QTEE_InvokeCommand] operation->paramTypes = 0x0000F003, req->param_types = 0x00007003
+12-13 16:33:07.774  1250  1250 I DMABUFHEAPS: Using DMA-BUF heap named: qcom,qseecom-ta
+12-13 16:33:07.774  1250  1250 D vendor.qti.hardware.qteeconnector@1.0-gp: prepareMemoryObjs param[3].memref.size=76, .memref.offset=0, memSize=76
+12-13 16:33:07.788  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202248146987985, lux = 149, raw_adc=314, raw_2=262
+12-13 16:33:07.800  2286  2426 I Scheduler: idleTimerCallback timer change to TimerState: Expired
+12-13 16:33:07.800  2286  2426 I Scheduler: idleTimerCallback call boostTimerCallback Expired
+12-13 16:33:07.800  2286  2426 I Scheduler: boostTimerCallback timer change to TimerState: Expiring
+12-13 16:33:07.810  1250  2601 E SmcInvoke_MinkDescriptor: mem obj with id :19 not found in list
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[0]=3
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[1]=0
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[2]=0
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[3]=f
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:605 __convertParamsOut] SizeIn/SizeOut = 76/76
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:621 __convertParamsOut] Copy back from qsmem->ion_sbuf @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:470 __RevertRegisteredMemToTempMem] Saved op buffer @ 0x722147a510, Temp op @ 0x722147a510
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:382 TEEC_QTEE_ReleaseSharedMemory] Releasing qsmem buffer @ 0x74d2564000
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:131 __SharedMem_Free] munmap(0x74d2564000, 76)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:479 __RevertRegisteredMemToTempMem] Returned op->params[i].tmpref.size 76
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:481 __RevertRegisteredMemToTempMem] Restored op buffer @ 0x722147a510
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation OUT (112 bytes @ 0x0x722147a5d0)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 10 A5 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 A0 DD B4 67 73 00 00 B4 
+12-13 16:33:07.810  2774  6472 D fpc_tac : HAL Invokecommand = 20 out, result = 0, retry_times = 1
+12-13 16:33:07.810  2774  6472 E fpc_fingerprint_hal: save_image dump function is not enable
+12-13 16:33:07.810  2774  6472 I fpc_fingerprint_hal: wait_finger_down: operation canceled
+12-13 16:33:07.810  2774  6472 I fpc_fingerprint_hal: wait_finger_down, took 36 ms
+12-13 16:33:07.810  2774  6472 E fpc_fingerprint_hal: fpc_tac_begin_identify wait_finger_up_common, status=-4
+12-13 16:33:07.810  2774  6472 D fpc_tac : HAL Invokecommand = 8
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation IN (112 bytes @ 0x0x722147a830)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 00 00 00 00 09 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 70 A7 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:425 __ConvertTempMemToRegisteredMem] Saved op tmpref.buffer = 0x722147a770, Op memref.parent->buffer = 0x722147a770 (76 bytes)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:111 __SharedMem_Alloc] mmap(0x74d2564000, 76)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:230 TEEC_QTEE_RegisterSharedMemory] qsmem buffer allocated @ 0x74d2564000 76 bytes, registered buffer @ 0x722147a770
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:444 __ConvertTempMemToRegisteredMem] Temp op buffer set @ 0x722147a770
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:1182 TEEC_QTEE_InvokeCommand] Operation is not NULL
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a6ac)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 09 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a6bc)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a6cc)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:514 __convertParamsIn] param[3] size=76, offset=0
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:524 __convertParamsIn] Real backed buffer (76 bytes)
+12-13 16:33:07.810  2774  6472 D GPQTEEC : [QTEEC.cpp:529 __convertParamsIn] Copy into qsmem->ashmem_buffer @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.811  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a6dc)
+12-13 16:33:07.811  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] FF FF FF FF 00 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.811  2774  6472 D GPQTEEC : [QTEEC.cpp:1193 TEEC_QTEE_InvokeCommand] operation->paramTypes = 0x0000F003, req->param_types = 0x00007003
+12-13 16:33:07.811  1250  1265 I DMABUFHEAPS: Using DMA-BUF heap named: qcom,qseecom-ta
+12-13 16:33:07.814  1250  1265 D vendor.qti.hardware.qteeconnector@1.0-gp: prepareMemoryObjs param[3].memref.size=76, .memref.offset=0, memSize=76
+12-13 16:33:07.815  2286  2286 I VariableRefreshRateHandler: calculateSoftwareFreqCurrentSkipCount: rate: 60, boost: 0, reportFps: 60, instantSkipCount: 0, nonboostSkipCount: 0, currentSkipCount: 0
+12-13 16:33:07.829  1250  2598 E SmcInvoke_MinkDescriptor: mem obj with id :19 not found in list
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[0]=3
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[1]=0
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[2]=0
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[3]=f
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:605 __convertParamsOut] SizeIn/SizeOut = 76/76
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:621 __convertParamsOut] Copy back from qsmem->ion_sbuf @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:470 __RevertRegisteredMemToTempMem] Saved op buffer @ 0x722147a770, Temp op @ 0x722147a770
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:382 TEEC_QTEE_ReleaseSharedMemory] Releasing qsmem buffer @ 0x74d2564000
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:131 __SharedMem_Free] munmap(0x74d2564000, 76)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:479 __RevertRegisteredMemToTempMem] Returned op->params[i].tmpref.size 76
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:481 __RevertRegisteredMemToTempMem] Restored op buffer @ 0x722147a770
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation OUT (112 bytes @ 0x0x722147a830)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 00 00 00 00 02 60 FF FF 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 70 A7 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 A0 DD B4 67 73 00 00 B4 
+12-13 16:33:07.830  2774  6472 D fpc_tac : HAL Invokecommand = 8 out, result = 0, retry_times = 1
+12-13 16:33:07.830  2774  6472 E fpc_tac : fpc_tac_end_identify fpc_tac_send_cmd failed with ret_val: -40958
+12-13 16:33:07.830  2774  6472 E fpc_fingerprint_hal: fp_end_identify failed -4
+12-13 16:33:07.830  2774  6472 I fpc_fingerprint_hal: fp_end_identify operation CANCELED
+12-13 16:33:07.830  2774  6472 I fpc_fingerprint_hal: do_identify took 1788 ms, total:4177 wait:2389
+12-13 16:33:07.830  2774  6472 D fpc_tac : HAL Invokecommand = 65
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation IN (112 bytes @ 0x0x722147aa50)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 01 00 00 00 09 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 90 A9 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:425 __ConvertTempMemToRegisteredMem] Saved op tmpref.buffer = 0x722147a990, Op memref.parent->buffer = 0x722147a990 (76 bytes)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:111 __SharedMem_Alloc] mmap(0x74d2564000, 76)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:230 TEEC_QTEE_RegisterSharedMemory] qsmem buffer allocated @ 0x74d2564000 76 bytes, registered buffer @ 0x722147a990
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:444 __ConvertTempMemToRegisteredMem] Temp op buffer set @ 0x722147a990
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:1182 TEEC_QTEE_InvokeCommand] Operation is not NULL
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8cc)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 09 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8dc)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8ec)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:514 __convertParamsIn] param[3] size=76, offset=0
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:524 __convertParamsIn] Real backed buffer (76 bytes)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:529 __convertParamsIn] Copy into qsmem->ashmem_buffer @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8fc)
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] FF FF FF FF 00 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.830  2774  6472 D GPQTEEC : [QTEEC.cpp:1193 TEEC_QTEE_InvokeCommand] operation->paramTypes = 0x0000F003, req->param_types = 0x00007003
+12-13 16:33:07.830  1250  1250 I DMABUFHEAPS: Using DMA-BUF heap named: qcom,qseecom-ta
+12-13 16:33:07.831  1250  1250 D vendor.qti.hardware.qteeconnector@1.0-gp: prepareMemoryObjs param[3].memref.size=76, .memref.offset=0, memSize=76
+12-13 16:33:07.835   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:07.836   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:07.836   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:07.854  1250  2601 E SmcInvoke_MinkDescriptor: mem obj with id :19 not found in list
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[0]=3
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[1]=0
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[2]=0
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[3]=f
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:605 __convertParamsOut] SizeIn/SizeOut = 76/76
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:621 __convertParamsOut] Copy back from qsmem->ion_sbuf @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:470 __RevertRegisteredMemToTempMem] Saved op buffer @ 0x722147a990, Temp op @ 0x722147a990
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:382 TEEC_QTEE_ReleaseSharedMemory] Releasing qsmem buffer @ 0x74d2564000
+12-13 16:33:07.854  2774  6472 D GPQTEEC : [QTEEC.cpp:131 __SharedMem_Free] munmap(0x74d2564000, 76)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:479 __RevertRegisteredMemToTempMem] Returned op->params[i].tmpref.size 76
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:481 __RevertRegisteredMemToTempMem] Restored op buffer @ 0x722147a990
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation OUT (112 bytes @ 0x0x722147aa50)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 01 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 90 A9 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 A0 DD B4 67 73 00 00 B4 
+12-13 16:33:07.855  2774  6472 D fpc_tac : HAL Invokecommand = 65 out, result = 0, retry_times = 1
+12-13 16:33:07.855  2774  6472 D fpc_tac : HAL Invokecommand = 50
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation IN (112 bytes @ 0x0x722147aa30)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 00 00 00 00 09 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 70 A9 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:425 __ConvertTempMemToRegisteredMem] Saved op tmpref.buffer = 0x722147a970, Op memref.parent->buffer = 0x722147a970 (76 bytes)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:111 __SharedMem_Alloc] mmap(0x74d2564000, 76)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:230 TEEC_QTEE_RegisterSharedMemory] qsmem buffer allocated @ 0x74d2564000 76 bytes, registered buffer @ 0x722147a970
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:444 __ConvertTempMemToRegisteredMem] Temp op buffer set @ 0x722147a970
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:1182 TEEC_QTEE_InvokeCommand] Operation is not NULL
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8ac)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 09 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8bc)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8cc)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:514 __convertParamsIn] param[3] size=76, offset=0
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:524 __convertParamsIn] Real backed buffer (76 bytes)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:529 __convertParamsIn] Copy into qsmem->ashmem_buffer @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8dc)
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] FF FF FF FF 00 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.855  2774  6472 D GPQTEEC : [QTEEC.cpp:1193 TEEC_QTEE_InvokeCommand] operation->paramTypes = 0x0000F003, req->param_types = 0x00007003
+12-13 16:33:07.855  1250  1250 I DMABUFHEAPS: Using DMA-BUF heap named: qcom,qseecom-ta
+12-13 16:33:07.857  6856  8117 I Nc_NfcDftManager: enter handleNfcParam, id = 39
+12-13 16:33:07.857  6856  8117 I Nc_NfcDftManager: statistic event:39
+12-13 16:33:07.858  6856  7132 I Nc_NfcDftManager: upload statistic to preference:39
+12-13 16:33:07.858  6856  7132 E Nc_NfcDftManager: reportToDftCnt: unknown id:39
+12-13 16:33:07.861  1250  1250 D vendor.qti.hardware.qteeconnector@1.0-gp: prepareMemoryObjs param[3].memref.size=76, .memref.offset=0, memSize=76
+12-13 16:33:07.874  1250  2598 E SmcInvoke_MinkDescriptor: mem obj with id :19 not found in list
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[0]=3
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[1]=0
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[2]=0
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[3]=f
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:605 __convertParamsOut] SizeIn/SizeOut = 76/76
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:621 __convertParamsOut] Copy back from qsmem->ion_sbuf @ 0x74d2564000 (76 bytes)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:470 __RevertRegisteredMemToTempMem] Saved op buffer @ 0x722147a970, Temp op @ 0x722147a970
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:382 TEEC_QTEE_ReleaseSharedMemory] Releasing qsmem buffer @ 0x74d2564000
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:131 __SharedMem_Free] munmap(0x74d2564000, 76)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:479 __RevertRegisteredMemToTempMem] Returned op->params[i].tmpref.size 76
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:481 __RevertRegisteredMemToTempMem] Restored op buffer @ 0x722147a970
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation OUT (112 bytes @ 0x0x722147aa30)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 03 70 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 70 A9 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 A0 DD B4 67 73 00 00 B4 
+12-13 16:33:07.875  2774  6472 D fpc_tac : HAL Invokecommand = 50 out, result = 0, retry_times = 1
+12-13 16:33:07.875  2774  6472 D fpc_tac : HAL Invokecommand = 72
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation IN (112 bytes @ 0x0x722147aa20)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 73 70 00 00 00 00 00 00 09 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 08 AB 47 21 72 00 00 00 10 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 60 A9 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:425 __ConvertTempMemToRegisteredMem] Saved op tmpref.buffer = 0x722147ab08, Op memref.parent->buffer = 0x722147ab08 (16 bytes)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:111 __SharedMem_Alloc] mmap(0x74d2564000, 16)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:230 TEEC_QTEE_RegisterSharedMemory] qsmem buffer allocated @ 0x74d2564000 16 bytes, registered buffer @ 0x722147ab08
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:444 __ConvertTempMemToRegisteredMem] Temp op buffer set @ 0x722147ab08
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:425 __ConvertTempMemToRegisteredMem] Saved op tmpref.buffer = 0x722147a960, Op memref.parent->buffer = 0x722147a960 (76 bytes)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:111 __SharedMem_Alloc] mmap(0x74d2563000, 76)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:230 TEEC_QTEE_RegisterSharedMemory] qsmem buffer allocated @ 0x74d2563000 76 bytes, registered buffer @ 0x722147a960
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:444 __ConvertTempMemToRegisteredMem] Temp op buffer set @ 0x722147a960
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:1182 TEEC_QTEE_InvokeCommand] Operation is not NULL
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a89c)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 09 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:514 __convertParamsIn] param[1] size=16, offset=0
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:524 __convertParamsIn] Real backed buffer (16 bytes)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:529 __convertParamsIn] Copy into qsmem->ashmem_buffer @ 0x74d2564000 (16 bytes)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8ac)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] FF FF FF FF 00 00 00 00 10 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8bc)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:514 __convertParamsIn] param[3] size=76, offset=0
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:524 __convertParamsIn] Real backed buffer (76 bytes)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:529 __convertParamsIn] Copy into qsmem->ashmem_buffer @ 0x74d2563000 (76 bytes)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] param[] (16 bytes @ 0x0x722147a8cc)
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] FF FF FF FF 00 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.875  2774  6472 D GPQTEEC : [QTEEC.cpp:1193 TEEC_QTEE_InvokeCommand] operation->paramTypes = 0x0000F0F3, req->param_types = 0x00007073
+12-13 16:33:07.875  1250  1250 I DMABUFHEAPS: Using DMA-BUF heap named: qcom,qseecom-ta
+12-13 16:33:07.876  1250  1250 D vendor.qti.hardware.qteeconnector@1.0-gp: prepareMemoryObjs param[1].memref.size=16, .memref.offset=0, memSize=16
+12-13 16:33:07.876  1250  1250 I DMABUFHEAPS: Using DMA-BUF heap named: qcom,qseecom-ta
+12-13 16:33:07.876  1250  1250 D vendor.qti.hardware.qteeconnector@1.0-gp: prepareMemoryObjs param[3].memref.size=76, .memref.offset=0, memSize=76
+12-13 16:33:07.882  6493  6493 I HWUI    : RenderProxy::trimMemory!
+12-13 16:33:07.883  6493  6685 D skia    : purge small: dur=0.1ms, request=285249, total=0, limit=8388608, totalcnt=0, limitcnt=2048, tryfree=285249, tryfreecnt=0, freed=285249, freedcnt=32
+12-13 16:33:07.892  1250  2598 E SmcInvoke_MinkDescriptor: mem obj with id :22 not found in list
+12-13 16:33:07.892  1250  2598 E SmcInvoke_MinkDescriptor: mem obj with id :24 not found in list
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[0]=3
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[1]=f
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:605 __convertParamsOut] SizeIn/SizeOut = 16/16
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:621 __convertParamsOut] Copy back from qsmem->ion_sbuf @ 0x74d2564000 (16 bytes)
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[2]=0
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:592 __convertParamsOut] paramTypes[3]=f
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:594 __convertParamsOut] Type is output
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:605 __convertParamsOut] SizeIn/SizeOut = 76/76
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:621 __convertParamsOut] Copy back from qsmem->ion_sbuf @ 0x74d2563000 (76 bytes)
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:470 __RevertRegisteredMemToTempMem] Saved op buffer @ 0x722147ab08, Temp op @ 0x722147ab08
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:382 TEEC_QTEE_ReleaseSharedMemory] Releasing qsmem buffer @ 0x74d2564000
+12-13 16:33:07.892  2774  6472 D GPQTEEC : [QTEEC.cpp:131 __SharedMem_Free] munmap(0x74d2564000, 16)
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:479 __RevertRegisteredMemToTempMem] Returned op->params[i].tmpref.size 16
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:481 __RevertRegisteredMemToTempMem] Restored op buffer @ 0x722147ab08
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:470 __RevertRegisteredMemToTempMem] Saved op buffer @ 0x722147a960, Temp op @ 0x722147a960
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:382 TEEC_QTEE_ReleaseSharedMemory] Releasing qsmem buffer @ 0x74d2563000
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:131 __SharedMem_Free] munmap(0x74d2563000, 76)
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:479 __RevertRegisteredMemToTempMem] Returned op->params[i].tmpref.size 76
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:481 __RevertRegisteredMemToTempMem] Restored op buffer @ 0x722147a960
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:47 dumpHex] Operation OUT (112 bytes @ 0x0x722147aa20)
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 01 00 00 00 73 70 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 08 AB 47 21 72 00 00 00 10 00 00 00 00 00 00 00 
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 60 A9 47 21 72 00 00 00 4C 00 00 00 00 00 00 00 
+12-13 16:33:07.893  2774  6472 D GPQTEEC : [QTEEC.cpp:54 dumpHex] 00 00 00 00 00 00 00 00 A0 DD B4 67 73 00 00 B4 
+12-13 16:33:07.893  2774  6472 D fpc_tac : HAL Invokecommand = 72 out, result = 0, retry_times = 1
+12-13 16:33:07.893  2774  6472 I fpc_fingerprint_hal: worker idle
+12-13 16:33:07.902  2253  2375 E ANDR-PERF-OPTSHANDLER: ANDR-PERF-OPTSHANDLER: modify_sysfsnode() 1164: Perflock resource /sys/devices/system/cpu/bus_dcvs/L3/soc:qcom,memlat:l3:prime/min_freq not supported
+12-13 16:33:07.902  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [13, 22]
+12-13 16:33:07.906  6822  7313 I HwPacketFilterBypass: message.what=1
+12-13 16:33:07.906  6822  7313 I HwPacketFilterBypass: getNetworkPolicyFlag flagStr null
+12-13 16:33:07.906  6822  7313 I HwPacketFilterBypass: kernelAddTrackUid uid:10366 allowed:true
+12-13 16:33:07.939   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:07.940   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:07.940   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:07.946  6493  6493 I LivelyCapsuleStatusBH: addDelayed :[]
+12-13 16:33:07.954  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202248312988975, lux = 158, raw_adc=292, raw_2=262
+12-13 16:33:07.971  2510  6347 I FingerprintServiceEx: powerfp mBlackAuthenticateEventResetRunable
+12-13 16:33:07.974  6856  8117 I Nc_NfcDftManager: enter handleNfcParam, id = 39
+12-13 16:33:07.974  6856  8117 I Nc_NfcDftManager: statistic event:39
+12-13 16:33:07.974  6856  7132 I Nc_NfcDftManager: upload statistic to preference:39
+12-13 16:33:07.974  6856  7132 E Nc_NfcDftManager: reportToDftCnt: unknown id:39
+12-13 16:33:07.981  2510  7024 W JobInfo : Job 'com.whatsapp/.infra.push.RegistrationIntentService#4' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+--------- beginning of system
+12-13 16:33:07.981  2510  7024 E ProcessInfoCollector: getProcessInfo: proc should not less than zero.
+12-13 16:33:07.982  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-13 16:33:07.982  2510  7024 I PowerManagerService: need acquire WakeLockSuspendBlocker
+12-13 16:33:07.982  2510  7024 I PowerManagerService: Acquiring suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:07.983  1242 17087 I android.system.suspend-service: incSuspendCounter++ success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:2: Success
+12-13 16:33:07.983  2510  7024 I power   : acquire wakelock: PowerManagerService.WakeLocks
+12-13 16:33:07.984  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-13 16:33:07.984  2510  7024 W ProcBatteryStats: timer is running , not start, name: com.whatsapp, uid: 10301, tag: *job*/com.whatsapp/.infra.push.RegistrationIntentService
+12-13 16:33:07.984  2510  7024 E ProcessInfoCollector: getProcessInfo: failed to find this proc: 2510
+12-13 16:33:07.987  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-13 16:33:07.987  2278 14985 D AudioPolicyService: getUidState(10301) cacheIter->second.first, return cacheIter->second.second(10)
+12-13 16:33:07.993 20821 20821 W fbservices-stub:InitStatus: Not blocking Service (80809085)
+12-13 16:33:07.993 20821 20821 W fbservices-stub:InitStatus: Not blocking Service (80809085)
+12-13 16:33:07.994  6777  7481 I AppManager: dependence has been existed:2510 -> 9086
+12-13 16:33:08.001  2510  7083 W ProcBatteryStats: timer is not running , not stop, name: com.whatsapp, uid: 10301, tag: *job*/com.whatsapp/.infra.push.RegistrationIntentService
+12-13 16:33:08.001  2510  7083 I PowerManagerService: need release WakeLockSuspendBlocker
+12-13 16:33:08.001  2510  7083 I PowerManagerService: Releasing suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:08.001  2510  7083 I power   : release wakelock: PowerManagerService.WakeLocks
+12-13 16:33:08.001  1242 17087 I android.system.suspend-service: decSuspendCounter-- success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:3: Success
+12-13 16:33:08.002  2152 22653 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2202248252784913 ns; value = [-4.487585, 0.916877, 8.801574], status=3
+12-13 16:33:08.004  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-13 16:33:08.004  2278 14985 D AudioPolicyService: getUidState(10301) cacheIter->second.first, return cacheIter->second.second(8)
+12-13 16:33:08.010  2510  7093 I ActivityManager: App 10301/com.whatsapp on idle whitelist; not restricted in background
+12-13 16:33:08.010  2510  2879 I ActivityManager: App 10301/com.whatsapp on idle whitelist; not restricted in background
+12-13 16:33:08.010  2510  7093 I PackageManager: setEnabledSetting pkg:com.facebook.services, className:com.facebook.oxygen.services.fbns.RegisteredMqttSystemBroadcastReceiver, newState:1, flags:1, userId:0, CallingPid:20821, CallingUid:10212
+12-13 16:33:08.012  2510  7093 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:08.012  2510  7093 I PowerManagerService: need acquire WakeLockSuspendBlocker
+12-13 16:33:08.012  2510  7093 I PowerManagerService: Acquiring suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:08.012  1242 17087 I android.system.suspend-service: incSuspendCounter++ success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:2: Success
+12-13 16:33:08.013  2510  7093 I power   : acquire wakelock: PowerManagerService.WakeLocks
+12-13 16:33:08.016  2510  7024 I PowerManagerService: need release WakeLockSuspendBlocker
+12-13 16:33:08.016  2510  7024 I PowerManagerService: Releasing suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:08.016  2510  7024 I power   : release wakelock: PowerManagerService.WakeLocks
+12-13 16:33:08.016  1242 17087 I android.system.suspend-service: decSuspendCounter-- success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:3: Success
+12-13 16:33:08.029  6856  6889 W .hihonor.hiview: Reducing the number of considered missed Gc histogram windows from 123 to 100
+12-13 16:33:08.031  2652  2702 I AwareLog: iawared: SetCancelHighLoadPolicyV2
+12-13 16:33:08.042   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.043   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.043   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.080  2510  7024 I AlarmManager: remove alarm reason:0 alarms:[Alarm{85d1be4 type 2 origWhen 2202847993 whenElapsed 2202847993 PendingIntent{68498fa: PendingIntentRecord{86d7eab com.whatsapp broadcastIntent}} com.whatsapp procName com.whatsapp}]
+12-13 16:33:08.119  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202248478987933, lux = 139, raw_adc=236, raw_2=262
+12-13 16:33:08.121  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 1
+12-13 16:33:08.121  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: AddAndApply() 167: Failed to apply optimization [10, 13]
+12-13 16:33:08.145   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.145   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.146   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.148  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 0
+12-13 16:33:08.148  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [10, 13]
+12-13 16:33:08.228  6822  7307 D Booster_TelephonyState: updateLteSignalStrengthFromProp[1], lteRsrp:-94 lteRsrq:-15 lteSinr:3
+12-13 16:33:08.243   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.244   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.244   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.286  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202248644985642, lux = 76, raw_adc=130, raw_2=262
+12-13 16:33:08.288  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 1
+12-13 16:33:08.288  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: AddAndApply() 167: Failed to apply optimization [10, 13]
+12-13 16:33:08.315  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 0
+12-13 16:33:08.315  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [10, 13]
+12-13 16:33:08.325  2510  6210 I WifiNetworkStatsMonitor: total/4358/3901,com.whatsapp/3443/2467,com.tencent.mm/555/1074,unknown:0/0/360,android.uid.system:1000/360/0,com.autocountsoft.payroll/0/0,unknown:-5/0/0,com.hihonor.mediamaterial/0/0,authenticator.two.factor.authentication.otp/0/0,com.hihonor.android.launcher/0/0,com.openai.chatgpt/0/0
+12-13 16:33:08.325  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register back home fence.
+12-13 16:33:08.325  2510  6210 I WifiEnhanceHomeFenceMonitor: processBackHomeFence, add back home fence , id : WifiEnhanceHomeFenceMonitor_backHomeFence
+12-13 16:33:08.325  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register leave home fence.
+12-13 16:33:08.325  2510  6210 I WifiEnhanceHomeFenceMonitor: processLeaveHomeFence, add leave home fence , id : WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-13 16:33:08.325  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=bbbe7bd0-5e18-47b9-9109-386bbb86f0d6,key=WifiEnhanceHomeFenceMonitor_backHomeFence,isNeedCache=true,sysApp=true
+12-13 16:33:08.326 23707  2954 I AWARENESS_E_D_P: regByListener rId=bbbe7bd0-5e18-47b9-9109-386bbb86f0d6,key=WifiEnhanceHomeFenceMonitor_backHomeFence
+12-13 16:33:08.326 23707 23896 I AWARENESS_MFenceFF: c:LocationFence
+12-13 16:33:08.326 23707 23896 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-13 16:33:08.326 23707 23896 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_backHomeFence', type='LocationFence}
+12-13 16:33:08.326  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=913c06f5-bad0-4de1-8837-476774a047af,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence,isNeedCache=true,sysApp=true
+12-13 16:33:08.327 23707  2954 I AWARENESS_E_D_P: regByListener rId=913c06f5-bad0-4de1-8837-476774a047af,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-13 16:33:08.327 23707 23910 I AWARENESS_MFenceFF: c:LocationFence
+12-13 16:33:08.327  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_backHomeFence , code = 0
+12-13 16:33:08.327 23707 23910 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-13 16:33:08.327  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-13 16:33:08.327 23707 23910 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_leaveHomeFence', type='LocationFence}
+12-13 16:33:08.327  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-13 16:33:08.327 23707 23896 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-13 16:33:08.327 23707 23896 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-13 16:33:08.327 23707 23896 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-13 16:33:08.327 23707 23896 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-13 16:33:08.328  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_leaveHomeFence , code = 0
+12-13 16:33:08.328  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-13 16:33:08.328  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-13 16:33:08.328 23707 23910 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-13 16:33:08.328 23707 23910 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-13 16:33:08.328 23707 23910 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-13 16:33:08.328 23707 23910 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-13 16:33:08.343   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.344   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.344   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.354  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:08.357   983 29956 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:08.403 23707 23928 I AWARENESS_TM: began the time check task
+12-13 16:33:08.444   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.445   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.445   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.453  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202248810987673, lux = 75, raw_adc=137, raw_2=262
+12-13 16:33:08.524  2141 18029 I vendor.qti.bluetooth@1.0-ibs_handler: DeviceSleep: TX Awake, Sending SLEEP_IND
+12-13 16:33:08.524  2141 18029 D vendor.qti.bluetooth@1.0-ibs_handler: SerialClockVote: vote for UART CLK OFF
+12-13 16:33:08.545   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.546   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.546   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.553  6822  7313 I Linkturbo_XEngineProc: handleScreenStatusChanged. type: 6
+12-13 16:33:08.555  6822  7313 I SmartDualCardSM: IdleState:got msg.what=EVENT_SEARCH_NETWORK_TIMEOUT
+12-13 16:33:08.556  6822  7313 I SmartDualCardSM: isNeedMonitorAppQoe return false
+12-13 16:33:08.556  6822  7313 I SmartDualCardSM: resetAppQoeState
+12-13 16:33:08.618  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202248976988194, lux = 81, raw_adc=168, raw_2=262
+12-13 16:33:08.645   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.646   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.663   968   968 D lowmemorykiller: critical pressure event triggered
+12-13 16:33:08.664   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.664   968   968 D lowmemorykiller: Not killing for critical pressure event trigger
+12-13 16:33:08.675  2141 18020 D vendor.qti.bluetooth@1.0-wake_lock: Release wakelock is released 
+12-13 16:33:08.703 23707 23858 I AWARENESS_FenceManager: unbind BrainService
+12-13 16:33:08.705 21135 21135 I Brain_AwMsgService: onDestroy
+12-13 16:33:08.706 21135 21198 I Brain_Sched: [ts]start tsk applyForResourceUse
+12-13 16:33:08.709  6777 24385 W PowerKit_Impl: Permission Denial: can't CALL powerkit service from pid=21135, uid=10046, pkg=com.hihonor.brain, permission = com.hihonor.android.powerkit.permission.BIND
+12-13 16:33:08.709  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-13 16:33:08.709  2278 14985 D AudioPolicyService: getUidState(10046) cacheIter->second.first, return cacheIter->second.second(6)
+12-13 16:33:08.710 21135 21198 I Brain_PowerKitUtil: com.hihonor.brain applyForResourceUse result: false
+12-13 16:33:08.711 21135 21198 I Brain_Sched: [ts]end tsk
+12-13 16:33:08.712  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-13 16:33:08.713  2278 14985 D AudioPolicyService: getUidState(10046) cacheIter->second.first, return cacheIter->second.second(10)
+12-13 16:33:08.714  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:08.716   983 29957 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:08.737  2253  2375 E ANDR-PERF-OPTSHANDLER: ANDR-PERF-OPTSHANDLER: modify_sysfsnode() 1164: Perflock resource /sys/devices/system/cpu/bus_dcvs/L3/soc:qcom,memlat:l3:prime/min_freq not supported
+12-13 16:33:08.737  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [13, 22]
+12-13 16:33:08.744   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.744   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.745   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.843   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.843   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.844   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.897  6822  7308 I ConnCureController: handleMessage: msg[4]
+12-13 16:33:08.899  6822  7308 I ConnCureController: canPerformConnCure: wifi link normally
+12-13 16:33:08.899  6822  7308 D ConnCureConfigManager: isCaredApp: input = com.resultmarketing.whatscard
+12-13 16:33:08.899  6822  7308 I ConnCureController: checkDataWhenCallPending isCaredApp:false,isAllowed:true,isDataEnabled:true
+12-13 16:33:08.899  6822  7308 E ConnCureController: checkDataWhileSlaveCall oversea version, return.
+12-13 16:33:08.910  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-13 16:33:08.934 24809 25238 I AMLog[5de6ebc8b1]: FastUpdateManager downloadOrCancel() called with: eventName = USER_PRESENT
+12-13 16:33:08.934 24809 25238 I AMLog[5de6ebc8b1]: FastUpdateManager cancelDownload() called with: eventName = USER_PRESENT
+12-13 16:33:08.934 24809 25238 I AMLog[5de6ebc8b1]: FastUpdateManager cancelDownload: updateList = []
+12-13 16:33:08.934 24809 25238 I AMLog[5de6ebc8b1]: FastUpdateManager launchPendingDownload() called with: eventName = USER_PRESENT
+12-13 16:33:08.943   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:08.943   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:08.944   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:08.950  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202249308987933, lux = 133, raw_adc=224, raw_2=262
+12-13 16:33:08.952  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 1
+12-13 16:33:08.952  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: AddAndApply() 167: Failed to apply optimization [10, 13]
+12-13 16:33:08.979  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 0
+12-13 16:33:08.979  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [10, 13]
+12-13 16:33:09.044   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:09.044   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:09.045   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:09.116  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202249474988454, lux = 111, raw_adc=233, raw_2=262
+12-13 16:33:09.118  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 1
+12-13 16:33:09.118  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: AddAndApply() 167: Failed to apply optimization [10, 13]
+12-13 16:33:09.144   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:09.145   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:09.145  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 0
+12-13 16:33:09.145  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [10, 13]
+12-13 16:33:09.145   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:09.216  6493  6493 I KgBaseUtils: path=<private>,vlu=<private>
+12-13 16:33:09.217  6493  6493 I KgBaseUtils: path=<private>,vlu=<private>
+12-13 16:33:09.243   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:09.243   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:09.244   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:09.282  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202249640987621, lux = 141, raw_adc=235, raw_2=262
+12-13 16:33:09.284  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 1
+12-13 16:33:09.284  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: AddAndApply() 167: Failed to apply optimization [10, 13]
+12-13 16:33:09.309 18358 18877 V AudioManager: getMode...
+12-13 16:33:09.310  2510  7024 I AS.AudioService: getMode mode = 0
+12-13 16:33:09.311  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 0
+12-13 16:33:09.311  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [10, 13]
+12-13 16:33:09.313 18358 18877 V AudioManager: getMode...
+12-13 16:33:09.313  2510  7024 I AS.AudioService: getMode mode = 0
+12-13 16:33:09.315 18358 18877 V AudioManager: getMode...
+12-13 16:33:09.315  2510  7024 I AS.AudioService: getMode mode = 0
+12-13 16:33:09.321  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.322  2510  7024 I PowerManagerService: need acquire WakeLockSuspendBlocker
+12-13 16:33:09.322  2510  7024 I PowerManagerService: Acquiring suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:09.322  1242 17087 I android.system.suspend-service: incSuspendCounter++ success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:2: Success
+12-13 16:33:09.323  2510  7024 I power   : acquire wakelock: PowerManagerService.WakeLocks
+12-13 16:33:09.330  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.343  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.344   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:09.344   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:09.345   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:09.348  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.355  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.355  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:09.359   983 29965 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:09.385  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.385  2510  7024 W ProcBatteryStats: timer is running , not start, name: com.tencent.mm, uid: 10280, tag: PlatformComm
+12-13 16:33:09.394  6493  6493 I HnWifiViewBinder: wifiInOutState:3
+12-13 16:33:09.395  6493  6493 I HnWifiViewBinder: wifiInOutState:3
+12-13 16:33:09.400  2510  7024 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.401  2510  7083 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.402  2510  7083 W ProcBatteryStats: timer is running , not start, name: com.tencent.mm, uid: 10280, tag: MicroMsg:ReentrantGuard
+12-13 16:33:09.411  2510  7024 W ProcBatteryStats: timer is not running , not stop, name: com.tencent.mm, uid: 10280, tag: PlatformComm
+12-13 16:33:09.413  2286  2426 I Scheduler: idleTimerCallback timer change to TimerState: Reset
+12-13 16:33:09.414  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 1
+12-13 16:33:09.414  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: AddAndApply() 167: Failed to apply optimization [10, 13]
+12-13 16:33:09.417  9086 14437 I com.whatsapp: Background concurrent mark compact GC freed 15MB AllocSpace bytes, 14(488KB) LOS objects, 49% free, 22MB/45MB, paused 17.319ms,4.339ms total 323.187ms
+12-13 16:33:09.417  2510  7083 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.420  2286  2286 I Scheduler: applyPolicy: scored layer size: 0
+12-13 16:33:09.421  2510  7084 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.425  2510  7083 W ProcBatteryStats: timer is not running , not stop, name: com.tencent.mm, uid: 10280, tag: MicroMsg:ReentrantGuard
+12-13 16:33:09.441  2253  2375 E ANDR-PERF-UTIL: ANDR-PERF-UTIL: change_node_val() 319: Failed to update node /sys/class/kgsl/kgsl-3d0/touch_wake with value 0
+12-13 16:33:09.441  2253  2375 E ANDR-PERF-RESOURCEQS: ANDR-PERF-RESOURCEQS: RemoveAndApply() 292: Failed to reset optimization here [10, 13]
+12-13 16:33:09.443   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:09.443   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:09.444   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:09.445  2510  7083 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.446  2510  7083 W ProcBatteryStats: timer is running , not start, name: com.tencent.mm, uid: 10280, tag: PlatformComm
+12-13 16:33:09.449  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202249806989235, lux = 128, raw_adc=213, raw_2=262
+12-13 16:33:09.454  2510  7083 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.458  2510  7083 W ProcBatteryStats: timer is not running , not stop, name: com.tencent.mm, uid: 10280, tag: PlatformComm
+12-13 16:33:09.460  2510  7083 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:09.528  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-13 16:33:09.529  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-13 16:33:09.529  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-13 16:33:09.529  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-13 16:33:09.530  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-13 16:33:09.543   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:09.544   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:09.544   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:09.614  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202249972988975, lux = 127, raw_adc=209, raw_2=262
+12-13 16:33:09.614  2286  2426 I Scheduler: idleTimerCallback timer change to TimerState: Expired
+12-13 16:33:09.644   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:09.644   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:09.645   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:09.715  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:09.718   983 29968 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:09.780  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202250138988454, lux = 135, raw_adc=221, raw_2=262
+12-13 16:33:09.946  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202250304989496, lux = 131, raw_adc=214, raw_2=262
+12-13 16:33:09.987  2510  7083 D ShortcutService: rescanPackageIfNeeded 0@com.whatsapp, forceRescan=false , isNewApp=false
+12-13 16:33:09.987  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:09.987  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.022  2510  7083 D ShortcutService: rescanPackageIfNeeded 0@com.whatsapp, forceRescan=false , isNewApp=false
+12-13 16:33:10.022  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.023  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.023  2510  7083 I ShortcutService: packageShortcutsChanged package:com.whatsapp, userId:0, 7 shortcuts changed, 3 shortcuts removed
+12-13 16:33:10.024  2510  2853 W NotificationHistory: Attempted to remove conversation for locked/gone/disabled user 0
+12-13 16:33:10.031  2510  7083 D ShortcutService: rescanPackageIfNeeded 0@com.whatsapp, forceRescan=false , isNewApp=false
+12-13 16:33:10.031  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.031  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.032  2510  7083 E ShortcutService: Invalid icon type in shortcut 120363420758448875@g.us. Bitmaps are not allowed in long-lived shortcuts. Use Resource icons, or Uri-based icons instead.
+12-13 16:33:10.032  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.032  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.033  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.033  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.039  2510  7083 E HwResourcesImpl: processName is null
+12-13 16:33:10.041  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.041  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.044  2286  2425 I Scheduler: boostTimerCallback timer change to TimerState: Expired
+12-13 16:33:10.047  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.047  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.055  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.055  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.060  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.060  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.064  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.064  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.068  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.068  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.073  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.073  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.077  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.077  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.079  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.079  2510  7083 E HwResolverManager: Could not found app: com.hihonor.pcassistant
+12-13 16:33:10.080  2510  7083 I ShortcutService: packageShortcutsChanged package:com.whatsapp, userId:0, 10 shortcuts changed, null shortcuts removed
+12-13 16:33:10.112  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202250470985850, lux = 132, raw_adc=220, raw_2=262
+12-13 16:33:10.182  2510  6349 D ShortcutService: Saving package item com.whatsapp to /data/system_ce/0/shortcut_service/packages/com.whatsapp.xml
+12-13 16:33:10.182  2510  2853 D ShortcutService: Getting shortcuts for launcher= com.android.systemuiuser=0 pkg=com.whatsapp
+12-13 16:33:10.192  2510  2853 D ShortcutService: Getting shortcuts for launcher= com.hihonor.systemserveruser=0 pkg=com.whatsapp
+12-13 16:33:10.192  2510  2853 D ShortcutService: Getting shortcuts for launcher= com.hihonor.android.launcheruser=0 pkg=com.whatsapp
+12-13 16:33:10.193  2510  2853 D ShortcutService: Getting shortcuts for launcher= com.google.android.asuser=0 pkg=com.whatsapp
+12-13 16:33:10.196  2510  7084 D ShortcutService: Getting shortcuts for launcher= com.hihonor.android.launcheruser=0 pkg=com.whatsapp
+12-13 16:33:10.230  6822  7307 D Booster_TelephonyState: updateLteSignalStrengthFromProp[1], lteRsrp:-94 lteRsrq:-15 lteSinr:3
+12-13 16:33:10.279  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202250636982933, lux = 132, raw_adc=220, raw_2=262
+12-13 16:33:10.347  2510  7084 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:10.353  2510  7084 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:10
+12-13 16:33:10.357  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:10.361   983 29972 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:10.407  2510  7084 I PowerManagerService: need release WakeLockSuspendBlocker
+12-13 16:33:10.407  2510  7084 I PowerManagerService: Releasing suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:10.407  2510  7084 I power   : release wakelock: PowerManagerService.WakeLocks
+12-13 16:33:10.408  1242 17087 I android.system.suspend-service: decSuspendCounter-- success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:3: Success
+12-13 16:33:10.517  2510  6210 I WifiEnhanceMonitor: getPrimaryWifiInfo: primaryWifiInfo from WifiManager
+12-13 16:33:10.539  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-13 16:33:10.539  2510  6210 E TcpInfoMonitor: error, current tcpInfo result is null!
+12-13 16:33:10.564  2359  2359 E afehal  : to enter IDLE mode , Interval=120/2800/0/1
+12-13 16:33:10.564  2359  2359 I aptouch_daemon: change_to_idlemode, enter idle, ret=0x0000
+12-13 16:33:10.576  2359  2359 I aptouch_daemon: check_idle_status, idle in. 300
+12-13 16:33:10.610  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202250968990277, lux = 130, raw_adc=214, raw_2=262
+12-13 16:33:10.679  2634  2634 E Thermal-daemon:hn_thermal: [minor_pa] tempNew :37  tempOld :36
+12-13 16:33:10.679  2634  2634 E Thermal-daemon:hn_thermal: [charger_ic] tempNew :35  tempOld :34
+12-13 16:33:10.679  2634  2634 E Thermal-daemon:hn_thermal: [pa_0] tempNew :36  tempOld :35
+12-13 16:33:10.679  2634  2634 E Thermal-daemon:hn_thermal: [ap] tempNew :35  tempOld :34
+12-13 16:33:10.717  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:10.719   983 29973 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:10.776  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202251134986996, lux = 128, raw_adc=210, raw_2=262
+12-13 16:33:10.875  6963  7274 I SmartChgBase/ArbExecExtStep: Init:[targetValue:0]
+12-13 16:33:10.876  6963  7274 I SmartChgBase/Arb_HidlParam: Apply Skipped: IsApplyExcept return true. [moduleName:BASP, param:dc_vterm_dec, detailsWithValue:source=trigger;event=heartbeat;chargestatus=start;value=0;]
+12-13 16:33:10.876  6963  7274 I SmartChgBase/Arb_HidlParam: Apply Skipped: IsApplyExcept return true. [moduleName:BASP, param:ichg_ratio, detailsWithValue:source=trigger;event=heartbeat;chargestatus=start;value=100;]
+12-13 16:33:10.876  6963  7274 I SmartChgBase/ArbExecExtStep: Init:[targetValue:0]
+12-13 16:33:10.876  6963  7274 I SmartChgBase/Arb_HidlParam: Apply Skipped: IsApplyExcept return true. [moduleName:BASP, param:nondc_vterm_dec, detailsWithValue:source=trigger;event=heartbeat;chargestatus=start;value=0;]
+12-13 16:33:10.876  6963  7274 I SmartChgBase/Arb_HidlParam: Apply Skipped: IsApplyExcept return true. [moduleName:ASW, param:soc_control, detailsWithValue:source=trigger;event=heartbeat;chargestatus=start;value=1 95 100 1 1;]
+12-13 16:33:10.942  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202251300989235, lux = 134, raw_adc=219, raw_2=262
+12-13 16:33:11.043  2510  2793 I AppEyeFwkBlock: do monitor
+12-13 16:33:11.108  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202251466988975, lux = 128, raw_adc=210, raw_2=262
+12-13 16:33:11.253  2510  8205 I SWAP_SCENE: resetZswapdCpuSet to 0-5, get pid of zswapd:8208
+12-13 16:33:11.253  2510  8205 I system_server: SWAP_CPU: get cpu number = 8
+12-13 16:33:11.254  2510  8205 I system_server: SWAP_CPU: set affinity to 0-5 success
+12-13 16:33:11.274  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202251632986267, lux = 133, raw_adc=220, raw_2=262
+12-13 16:33:11.358 23707 23831 I AWARENESS_FenceManager: sendMsg a:BIND,package:brain,fence: AppRecoAssembler_PredictSolutionTrigger_DeviceStatusFence_SCREEN_ON_NONE
+12-13 16:33:11.359 23707 23858 E AWARENESS_FenceManager: connected: false
+12-13 16:33:11.359  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:11.359 23707 23858 E AWARENESS_FenceManager: triggerByMessager bindService action : com.hihonor.brain.action.BIND_AWARENESS_START, packageName : com.hihonor.brain
+12-13 16:33:11.361  2510  2879 I NotificationService: pag com.hihonor.brain dosen't have notification permission
+12-13 16:33:11.366   983 29974 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:11.367  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-13 16:33:11.370  2278 14985 D AudioPolicyService: getUidState(10046) cacheIter->second.first, return cacheIter->second.second(19)
+12-13 16:33:11.372 21135 21135 I Brain_AwMsgService: onCreate
+12-13 16:33:11.372 21135 21135 I Brain_AwMsgService: onBind.
+12-13 16:33:11.375 23707 23707 I AWARENESS_FenceManager: Brain Con
+12-13 16:33:11.376 23707 23858 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-13 16:33:11.376  6777  7481 I AppManager: dependence has been existed:23707 -> 21135
+12-13 16:33:11.377 23707 23858 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-13 16:33:11.377 23707 23858 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-13 16:33:11.377 23707 23858 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-13 16:33:11.377 21135 21204 I Brain_AppRecoAssembler: Aw feed DeviceStatusFence#AppRecoAssembler_PredictSolutionTrigger_DeviceStatusFence_SCREEN_ON_NONE
+12-13 16:33:11.377 21135 21199 I Brain_AppRecoAssembler: dispatch DeviceStatusFence#AppRecoAssembler_PredictSolutionTrigger_DeviceStatusFence_SCREEN_ON_NONE
+12-13 16:33:11.378 21135 21199 I Brain_EventBus: AppRecoAssembler loaded
+12-13 16:33:11.378 21135 21199 I Brain_AppRecoAssembler: business has 1 listener execute success true
+12-13 16:33:11.378 21135 21264 I Brain_AppRecoAssembler: [ts]start tsk AppRecoAssembler_PredictSolutionTrigger_DeviceStatusFence_SCREEN_ON_NONE
+12-13 16:33:11.379 21135 21264 E Brain_PredictSolutionTrigger: HyperHold is not valid
+12-13 16:33:11.379 21135 21264 I Brain_AppRecoAssembler: PredictSolutionTrigger result:KEEP:PAUSE, sink:0
+12-13 16:33:11.380 21135 21264 I Brain_AppRecoAssembler: [ts]end tsk
+12-13 16:33:11.380 21135 21264 I Brain_AppRecoAssembler: join end.
+12-13 16:33:11.440  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202251798996267, lux = 129, raw_adc=219, raw_2=262
+12-13 16:33:11.475   968   968 D lowmemorykiller: critical pressure event triggered
+12-13 16:33:11.476   968   968 D lowmemorykiller: Not killing for critical pressure event trigger
+12-13 16:33:11.531  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-13 16:33:11.536  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-13 16:33:11.536  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-13 16:33:11.536  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-13 16:33:11.537  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-13 16:33:11.571   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:11.572   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:11.572   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:11.605  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202251964988975, lux = 128, raw_adc=210, raw_2=262
+12-13 16:33:11.672   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:11.673   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:11.673   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:11.718  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:11.719 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger/direct_charge_succ is invalid
+12-13 16:33:11.719 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger_hsc/direct_charge_succ is invalid
+12-13 16:33:11.720   983 29975 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:11.721 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger/direct_charge_succ is invalid
+12-13 16:33:11.721 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger_hsc/direct_charge_succ is invalid
+12-13 16:33:11.722 24711 24741 E bms_file: file sys/class/hw_power/adsp_dts is invalid
+12-13 16:33:11.722 24711 24741 E bms_file: file /sys/class/backlight/panel1-backlight/brightness is invalid
+12-13 16:33:11.723 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger/direct_charge_succ is invalid
+12-13 16:33:11.723 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger_hsc/direct_charge_succ is invalid
+12-13 16:33:11.724 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger/direct_charge_succ is invalid
+12-13 16:33:11.724 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger_hsc/direct_charge_succ is invalid
+12-13 16:33:11.725 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger/direct_charge_succ is invalid
+12-13 16:33:11.725 24711 24741 E bms_file: file /sys/class/hw_power/charger/direct_charger_hsc/direct_charge_succ is invalid
+12-13 16:33:11.725 24711 24741 E bms_file: file /sys/class/hw_power/charger/charge_data/iin_thermal is invalid
+12-13 16:33:11.725 24711 24741 I bms_behavior: monitor interval count 71
+12-13 16:33:11.771   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:11.772  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202252130985746, lux = 134, raw_adc=222, raw_2=262
+12-13 16:33:11.772   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:11.772   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:11.871   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:11.872   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:11.872   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:11.918  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-13 16:33:11.938  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202252296993142, lux = 129, raw_adc=214, raw_2=262
+12-13 16:33:11.971   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:11.972   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:11.972   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:11.989  2510  2853 D ZrHung.AppEyeTransparentWindow: handleMessage CHECK_TRANS_WINDOW_ERROR_MSG
+12-13 16:33:12.072   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:12.073   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:12.073   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:12.171   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:12.172   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:12.172   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:12.200 16371 23742 D Camera2CameraImpl: {Camera@6fa9cce[id=0]} Transitioning camera internal state: OPENED --> OPENED
+12-13 16:33:12.201 16371 23742 D CameraStateMachine: New public camera state CameraState{type=OPEN, error=StateError{code=4, cause=java.util.concurrent.TimeoutException: Future[androidx.camera.core.impl.utils.futures.ListFuture@ecadb7b] is not done within 5000 ms.}} from OPEN and StateError{code=4, cause=java.util.concurrent.TimeoutException: Future[androidx.camera.core.impl.utils.futures.ListFuture@ecadb7b] is not done within 5000 ms.}
+12-13 16:33:12.201 16371 23742 D CameraStateMachine: Publishing new public camera state CameraState{type=OPEN, error=StateError{code=4, cause=java.util.concurrent.TimeoutException: Future[androidx.camera.core.impl.utils.futures.ListFuture@ecadb7b] is not done within 5000 ms.}}
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: Unable to configure camera Camera@6fa9cce[id=0]
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: java.util.concurrent.TimeoutException: Future[androidx.camera.core.impl.utils.futures.ListFuture@ecadb7b] is not done within 5000 ms.
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at androidx.camera.core.impl.utils.futures.Futures.lambda$makeTimeoutFuture$1(Futures.java:437)
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at androidx.camera.core.impl.utils.futures.Futures$$ExternalSyntheticLambda7.call(D8$$SyntheticClass:0)
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at androidx.camera.core.impl.utils.executor.HandlerScheduledExecutorService$HandlerScheduledFuture.run(HandlerScheduledExecutorService.java:243)
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at android.os.Handler.handleCallback(Handler.java:997)
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at android.os.Handler.dispatchMessage(Handler.java:111)
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at android.os.Looper.loopOnce(Looper.java:237)
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at android.os.Looper.loop(Looper.java:325)
+12-13 16:33:12.201 16371 23742 E Camera2CameraImpl: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+12-13 16:33:12.201 16371 23742 D Camera2CameraImpl: {Camera@6fa9cce[id=0]} Resetting Capture Session
+12-13 16:33:12.202 16371 23742 D Camera2CameraImpl: {Camera@6fa9cce[id=0]} Releasing session in state OPENED
+12-13 16:33:12.203 16371 23742 D Camera2CameraImpl: {Camera@6fa9cce[id=0]} Issue capture request
+12-13 16:33:12.204 16371 23742 D UseCaseAttachState: Active and attached use case: [androidx.camera.core.ImageCapture-4d3e1768-c23f-4bb5-96af-f8b1539a7845237041430, androidx.camera.core.Preview-c4356d4b-79f7-4cc3-997c-18376e2133c487053361] for camera: 0
+12-13 16:33:12.206 16371 23742 D Camera2CameraImpl: {Camera@6fa9cce[id=0]} Issue capture request
+12-13 16:33:12.207 16371 23742 D UseCaseAttachState: Active and attached use case: [androidx.camera.core.ImageCapture-4d3e1768-c23f-4bb5-96af-f8b1539a7845237041430, androidx.camera.core.Preview-c4356d4b-79f7-4cc3-997c-18376e2133c487053361] for camera: 0
+12-13 16:33:12.209 16371 23742 D Camera2CameraImpl: {Camera@6fa9cce[id=0]} Issue capture request
+12-13 16:33:12.210 16371 23742 D UseCaseAttachState: Active and attached use case: [androidx.camera.core.ImageCapture-4d3e1768-c23f-4bb5-96af-f8b1539a7845237041430, androidx.camera.core.Preview-c4356d4b-79f7-4cc3-997c-18376e2133c487053361] for camera: 0
+12-13 16:33:12.212 16371 23742 D Camera2CameraImpl: {Camera@6fa9cce[id=0]} Issue capture request
+12-13 16:33:12.213 16371 23742 D UseCaseAttachState: Active and attached use case: [androidx.camera.core.ImageCapture-4d3e1768-c23f-4bb5-96af-f8b1539a7845237041430, androidx.camera.core.Preview-c4356d4b-79f7-4cc3-997c-18376e2133c487053361] for camera: 0
+12-13 16:33:12.231  6822  7307 D Booster_TelephonyState: updateLteSignalStrengthFromProp[1], lteRsrp:-94 lteRsrq:-15 lteSinr:3
+12-13 16:33:12.270  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202252628988142, lux = 126, raw_adc=209, raw_2=262
+12-13 16:33:12.275   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:12.275   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:12.276   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:12.362  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:12.364   983 29976 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:12.375   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:12.376   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:12.376   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:12.420  9898  9898 W HiPush10.0.12.304: [PGManager ] Current is not within controlled state
+12-13 16:33:12.430  2510  4823 W AlarmManager: WAKEUP alarm c0d4555 when: 2202252790 maxWhen: 2202252790 pkg: com.hihonor.awareness proc: com.hihonor.awareness tag: *walarm*:com.hihonor.awareness.action.alarm.notice trigger action: com.hihonor.awareness.action.alarm.notice
+12-13 16:33:12.430  2510  4823 I ActivityManager: sendIntentSender target:PendingIntentRecord{f851d19 com.hihonor.awareness broadcastIntent}, intent:flg=0x4 hwFlg=0x110
+12-13 16:33:12.432  2510  4823 I PowerManagerService: wakeLock.mDisabled:false, mDeviceIdleMode:false, mProcState:0
+12-13 16:33:12.432  2510  4823 I PowerManagerService: need acquire WakeLockSuspendBlocker
+12-13 16:33:12.432  2510  4823 I PowerManagerService: Acquiring suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:12.432  1242 17087 I android.system.suspend-service: incSuspendCounter++ success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:2: Success
+12-13 16:33:12.433  2510  4823 I power   : acquire wakelock: PowerManagerService.WakeLocks
+12-13 16:33:12.436 23707 23923 W AWARENESS_TM:  received:1765614792427(16:33:12:427)
+12-13 16:33:12.436 23707 23923 I AWARENESS_TM: trigger at:1765614792436,firstTime:1765614792427
+12-13 16:33:12.437 23707 23923 I AWARENESS_TM: time list is cleared
+12-13 16:33:12.437 23707 23923 W AWARENESS_TM: ftt:-9223372036854775808,ts:[]
+12-13 16:33:12.437 23707 23923 W AWARENESS_TM: publish to:{1765614792427=[AppRecoAssembler_PredictSolutionTrigger_TimedAppFence_APP_STARTUP_NONE]}
+12-13 16:33:12.437 23707 23906 I AWARENESS_TaskScheduler: unsub 8005 from TimedAppFence,key=AppRecoAssembler_PredictSolutionTrigger_TimedAppFence_APP_STARTUP_NONE
+12-13 16:33:12.438 23707 23906 I AWARENESS_TimeAbility: AppRecoAssembler_PredictSolutionTrigger_TimedAppFe un for 1765614792427
+12-13 16:33:12.438 23707 23906 E AWARENESS_TM: trigger not reg
+12-13 16:33:12.438 23707 23906 W AWARENESS_TM: is empty, ignore
+12-13 16:33:12.438 23707 23906 I AWARENESS_TaskScheduler: count is not 0 : 505,ability id=time_ability
+12-13 16:33:12.438 23707 23906 I AWARENESS_TimedAppFence: reach interval : 5000 for com.resultmarketing.whatscard to trigger
+12-13 16:33:12.438 23707 23906 I AWARENESS_FenceManager: sendMsg a:BIND,package:brain,fence: AppRecoAssembler_PredictSolutionTrigger_TimedAppFence_APP_STARTUP_NONE
+12-13 16:33:12.439 23707 23858 E AWARENESS_FenceManager: connected: true
+12-13 16:33:12.440  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202252794989756, lux = 130, raw_adc=214, raw_2=262
+12-13 16:33:12.441  2510  2510 I PowerManagerService: need release WakeLockSuspendBlocker
+12-13 16:33:12.441  2510  2510 I PowerManagerService: Releasing suspend blocker "PowerManagerService.WakeLocks".
+12-13 16:33:12.441 23707 23858 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-13 16:33:12.441 23707 23858 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-13 16:33:12.441 23707 23858 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-13 16:33:12.441 23707 23858 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-13 16:33:12.441  2510  2510 I power   : release wakelock: PowerManagerService.WakeLocks
+12-13 16:33:12.441  1242 17087 I android.system.suspend-service: decSuspendCounter-- success,name:PowerManagerService.WakeLocks mUseSuspendCounter:1 mSuspendCounter:3: Success
+12-13 16:33:12.441 21135 21204 I Brain_AppRecoAssembler: Aw feed TimedAppFence#AppRecoAssembler_PredictSolutionTrigger_TimedAppFence_APP_STARTUP_NONE
+12-13 16:33:12.442 21135 21199 I Brain_AppRecoAssembler: dispatch TimedAppFence#AppRecoAssembler_PredictSolutionTrigger_TimedAppFence_APP_STARTUP_NONE
+12-13 16:33:12.442 21135 21199 I Brain_EventBus: AppRecoAssembler loaded
+12-13 16:33:12.442 21135 21199 I Brain_AppRecoAssembler: business has 1 listener execute success true
+12-13 16:33:12.442 21135 21265 I Brain_AppRecoAssembler: [ts]start tsk AppRecoAssembler_PredictSolutionTrigger_TimedAppFence_APP_STARTUP_NONE
+12-13 16:33:12.442 21135 21265 E Brain_PredictSolutionTrigger: HyperHold is not valid
+12-13 16:33:12.442 21135 21265 I Brain_AppRecoAssembler: PredictSolutionTrigger result:KEEP:PAUSE, sink:0
+12-13 16:33:12.443 21135 21265 I Brain_AppRecoAssembler: [ts]end tsk
+12-13 16:33:12.443 21135 21265 I Brain_AppRecoAssembler: join end.
+12-13 16:33:12.475   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:12.476   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:12.476   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:12.513 26180  3818 I NearbyDiscovery: (REDACTED) PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, isScanningAllowed=%s
+12-13 16:33:12.514 26180  3818 I NearbyDiscovery: (REDACTED) ApFastPairScanner: isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+12-13 16:33:12.514 26180  3818 D BluetoothAdapter: isLeEnabled(): ON
+12-13 16:33:12.514 26180  3818 I NearbyDiscovery: (REDACTED) ApFastPairScanner: eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, lockScanRate=%s, startScanningByLowPowerMode=%s
+12-13 16:33:12.515 26180  3818 I NearbyDiscovery: (REDACTED) ApFastPairScanner: Stopping scan, %s
+12-13 16:33:12.515 26180  3818 D BluetoothAdapter: isLeEnabled(): ON
+12-13 16:33:12.518 17942 18087 I gatt-ScanHelper: stopScan() - queue size =5
+12-13 16:33:12.519  6777  7481 I PGServer: report state:8 event type:2 pid:0 uid:10045 pkg:BLE_SCAN to pid: 2510
+12-13 16:33:12.520  6777  7481 I BluetoothState: inactive bluetooth uid: 10045, pid:26029, connId:-1, reason:BLE_SCAN
+12-13 16:33:12.520  6777  7481 D BluetoothState: stop bt uid:10045 state:BLE_SCAN total(ms):29304472
+12-13 16:33:12.520 17942 18053 I bt_shim_scanner: ScanFilterParamSetup: in shim layer, clientIf=4
+12-13 16:33:12.521  2141  2141 D vendor.qti.bluetooth@1.0-ibs_handler: SerialClockVote: vote for UART CLK ON
+12-13 16:33:12.521 17942 18053 I bt_shim_scanner: ScanFilterParamSetup: in shim layer, clientIf=4
+12-13 16:33:12.521 17942 18087 I bt_shim_scanner: Unregister: in shim layer, scannerId=4
+12-13 16:33:12.522 17942 18053 I bt_shim_scanner: ScanFilterParamSetup: in shim layer, clientIf=4
+12-13 16:33:12.522 26180  3818 I NearbyDiscovery: (REDACTED) ApFastPairScanner: isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+12-13 16:33:12.522 26180  3818 I NearbyDiscovery: (REDACTED) ApFastPairScanner: Start scanning internally, %s
+12-13 16:33:12.523 26180  3818 D BluetoothAdapter: isLeEnabled(): ON
+12-13 16:33:12.524 17942 18053 I bt_shim_scanner: Scan: in shim layer stopped
+12-13 16:33:12.524 17942 18053 I bt_shim_scanner: SetScanParameters: in shim layer, scannerId=5
+12-13 16:33:12.524 17942 18053 I bt_shim_scanner: Scan: in shim layer started
+12-13 16:33:12.525 17942 17981 I HnChrReportConnImpl: HnChrReportConnImpl getInstance.
+12-13 16:33:12.525 17942 17981 I HnChrReportConnImpl: handleChrLogItemFlow, cause = 25000
+12-13 16:33:12.525 17942 17981 I HnChrReportConnImpl: handleChrLogItemFlow, str = 25000,1765614792525,0,15,57061,com.google.android.gms,4
+12-13 16:33:12.526  2141  2141 D vendor.qti.bluetooth@1.0-wake_lock: Acquire wakelock is acquired 
+12-13 16:33:12.526  2141  2141 I vendor.qti.bluetooth@1.0-ibs_handler: DeviceWakeUp: Writing IBS_WAKE_IND
+12-13 16:33:12.526 17942 18087 I bt_shim_scanner: RegisterScanner: in shim layer
+12-13 16:33:12.526 17942 17981 I HnChrReportConnImpl: HnChrReportConnImpl notifyDataToChr.
+12-13 16:33:12.527  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Received IBS_WAKE_ACK: 0xFC
+12-13 16:33:12.527  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Signal wack_cond_
+12-13 16:33:12.527  2141  2141 D vendor.qti.bluetooth@1.0-ibs_handler: DeviceWakeUp: Unblocked from waiting for FC, pthread_cond_timedwait ret = 0
+12-13 16:33:12.528  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Received IBS_WAKE_IND: 0xFD
+12-13 16:33:12.528  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Writing IBS_WAKE_ACK
+12-13 16:33:12.528 17942 18017 I bluetooth: unregister_client: Client unregistered
+12-13 16:33:12.528 17942 18017 I bluetooth: stop_scan: Scanning already stopped, return!
+12-13 16:33:12.528 17942 18017 I bluetooth: register_scanner: register_scanner
+12-13 16:33:12.528 17942 18033 I gatt-ScanHelper: onScanParamSetupCompleted() - scannerId=5, status=0, pkgName=com.google.uid.shared:10045
+12-13 16:33:12.528 17942 18017 I bluetooth: register_client: Client registered
+12-13 16:33:12.528 17942 18033 I gatt-ScanHelper: onScannerRegistered() - UUID=04e6fc38-c7c9-4991-9085-a0700362d576, scannerId=4, status=0, pkgName=com.google.uid.shared:10045
+12-13 16:33:12.528  6856  8878 E CHR_ChrProtocolTxtManager: [hasReachTxtLimitLineForMap]:the txt has reached limit, tableName = bt_flow_record
+12-13 16:33:12.529 26180 26333 D BluetoothLeScanner: onScannerRegistered() - status=0 scannerId=4 mScannerId=0
+12-13 16:33:12.531 17942 18087 I gatt-ScanHelper: start scan with filters
+12-13 16:33:12.532  6777  7481 I PGServer: report state:8 event type:1 pid:0 uid:10045 pkg:BLE_SCAN to pid: 2510
+12-13 16:33:12.532  6777  7481 I BluetoothState: new active bluetooth uid: 10045, pid:26029, connId:-1, reason:BLE_SCAN
+12-13 16:33:12.538  6856  7132 D Nc_Chr_BT: NcBtDftManager: handleBtParam id = COMMON_E1002
+12-13 16:33:12.538  6856  7132 E Nc_Chr_BT: NcBtDftManager: unhandled id
+12-13 16:33:12.538  6856  7132 D BT_CHR: BtChrStatThirdApkEvent: updateApkAction action: 4
+12-13 16:33:12.538  6856  7132 D BT_CHR: BtChrManager: isPermissionGrant: true
+12-13 16:33:12.538 26180  3818 I NearbyDiscovery: (REDACTED) ApFastPairScanner: Starting %s scanning
+12-13 16:33:12.538 17942 18053 I bt_shim_scanner: ScanFilterEnable: in shim layer
+12-13 16:33:12.538 17942 18053 I bt_shim_scanner: ScanFilterAdd: in shim layer
+12-13 16:33:12.539 17942 18053 I bt_shim_scanner: ScanFilterParamSetup: in shim layer, clientIf=4
+12-13 16:33:12.539 17942 18053 I bt_shim_scanner: ScanFilterAdd: in shim layer
+12-13 16:33:12.539 17942 18053 I bt_shim_scanner: ScanFilterParamSetup: in shim layer, clientIf=4
+12-13 16:33:12.539 17942 18053 I bt_shim_scanner: ScanFilterAdd: in shim layer
+12-13 16:33:12.540 17942 18053 I bt_shim_scanner: ScanFilterParamSetup: in shim layer, clientIf=4
+12-13 16:33:12.540 17942 18053 I bt_shim_scanner: Scan: in shim layer stopped
+12-13 16:33:12.540 17942 18017 I bluetooth: unregister_client: Client unregistered
+12-13 16:33:12.540 17942 18053 I bt_shim_scanner: SetScanParameters: in shim layer, scannerId=4
+12-13 16:33:12.540 17942 18053 I bt_shim_scanner: Scan: in shim layer started
+12-13 16:33:12.540 17942 18017 I bluetooth: stop_scan: Scanning already stopped, return!
+12-13 16:33:12.540 17942 18033 I gatt-ScanHelper: onScanParamSetupCompleted() - scannerId=4, status=0, pkgName=com.google.uid.shared:10045
+12-13 16:33:12.540 17942 18017 I bluetooth: register_client: Client registered
+12-13 16:33:12.576   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:12.577   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:12.601  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202252960987673, lux = 131, raw_adc=217, raw_2=262
+12-13 16:33:12.609  2141 18025 I vendor.qti.bluetooth@1.0-ibs_handler: ProcessIbsCmd: Received IBS_SLEEP_IND: 0xFE
+12-13 16:33:12.720  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:12.722   983 29977 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:12.768  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202253126986527, lux = 127, raw_adc=210, raw_2=262
+12-13 16:33:12.934  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202253292988975, lux = 135, raw_adc=221, raw_2=262
+12-13 16:33:13.100  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202253458987413, lux = 129, raw_adc=214, raw_2=262
+12-13 16:33:13.267  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202253624989079, lux = 129, raw_adc=212, raw_2=262
+12-13 16:33:13.363  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:13.369   983 29978 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:13.433  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202253790994183, lux = 135, raw_adc=220, raw_2=262
+12-13 16:33:13.451   968   968 D lowmemorykiller: critical pressure event triggered
+12-13 16:33:13.452   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:13.452   968   968 D lowmemorykiller: Not killing for critical pressure event trigger
+12-13 16:33:13.499   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:13.500   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:13.500   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:13.518  2510  6210 I WifiEnhanceMonitor: getPrimaryWifiInfo: primaryWifiInfo from WifiManager
+12-13 16:33:13.535  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-13 16:33:13.536  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-13 16:33:13.536  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-13 16:33:13.536  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-13 16:33:13.537  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-13 16:33:13.569  2141 18029 I vendor.qti.bluetooth@1.0-ibs_handler: DeviceSleep: TX Awake, Sending SLEEP_IND
+12-13 16:33:13.569  2141 18029 D vendor.qti.bluetooth@1.0-ibs_handler: SerialClockVote: vote for UART CLK OFF
+12-13 16:33:13.598  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202253956987152, lux = 124, raw_adc=208, raw_2=262
+12-13 16:33:13.600   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:13.601   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:13.699   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:13.700   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:13.701   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:13.719  2141 18020 D vendor.qti.bluetooth@1.0-wake_lock: Release wakelock is released 
+12-13 16:33:13.721  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:13.724   983 29982 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:13.799   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:13.800   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:13.800   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:13.900   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:13.901   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:13.902   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:13.930  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202254288989235, lux = 128, raw_adc=212, raw_2=262
+12-13 16:33:14.002   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.003   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.004   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.009  2152 22653 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2202254254345173 ns; value = [0.235864, 0.211834, 9.571302], status=3
+12-13 16:33:14.096  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202254454987152, lux = 131, raw_adc=219, raw_2=262
+12-13 16:33:14.105   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.105   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.105   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.203   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.204   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.204   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.234  6822  7307 D Booster_TelephonyState: updateLteSignalStrengthFromProp[1], lteRsrp:-94 lteRsrq:-15 lteSinr:3
+12-13 16:33:14.262  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202254620986006, lux = 126, raw_adc=210, raw_2=262
+12-13 16:33:14.304   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.305   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.305   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.367  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:14.370   983 29983 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:14.403   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.404   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.404   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.429  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202254786989235, lux = 129, raw_adc=214, raw_2=262
+12-13 16:33:14.495   968   968 D lowmemorykiller: critical pressure event triggered
+12-13 16:33:14.495   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.496   968   968 D lowmemorykiller: Not killing for critical pressure event trigger
+12-13 16:33:14.509  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-13 16:33:14.510  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-13 16:33:14.510  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-13 16:33:14.510  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-13 16:33:14.510  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-13 16:33:14.514  2510  7084 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=2=CHARGING,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=59,batteryVoltage=4010,batteryTemperature=341,batteryFullCharge=6590000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=3=NORMAL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-13 16:33:14.514  2510  7084 I BatteryService: check conditions changed
+12-13 16:33:14.515  2510  7084 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=2=CHARGING,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=59,batteryVoltage=4010,batteryTemperature=341,batteryFullCharge=6590000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=3=NORMAL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-13 16:33:14.516  2510  7084 I BatteryService: check conditions changed
+12-13 16:33:14.517  2510  7024 I AlarmManager: remove alarm reason:1 alarms:[Alarm{1a36f37 type 3 origWhen 317562247799 whenElapsed 317562247799 PendingIntent{3f7e8db: PendingIntentRecord{de30f78 com.google.android.gms/com.google.android.gms.container startService}} com.google.android.gms procName com.google.android.gms.persistent}]
+12-13 16:33:14.539  2510  7024 I AlarmManager: remove alarm reason:1 alarms:[Alarm{a034ca4 type 3 origWhen 317562247813 whenElapsed 317562247813 PendingIntent{4745590: PendingIntentRecord{4fa7e89 com.google.android.gms/com.google.android.gms.container startService}} com.google.android.gms procName com.google.android.gms}]
+12-13 16:33:14.546  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-13 16:33:14.546  2510  6210 E TcpInfoMonitor: error, current tcpInfo result is null!
+12-13 16:33:14.594  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202254952990277, lux = 131, raw_adc=219, raw_2=262
+12-13 16:33:14.595   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.596   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.596   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.696   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.697   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.723  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:14.727   983 29984 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:14.760  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202255118994444, lux = 128, raw_adc=211, raw_2=262
+12-13 16:33:14.795   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.796   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.796   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.848  2510  7024 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=2=CHARGING,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=59,batteryVoltage=4011,batteryTemperature=341,batteryFullCharge=6590000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=3=NORMAL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-13 16:33:14.849  2510  7024 I BatteryService: check conditions changed
+12-13 16:33:14.850  2510  7024 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=2=CHARGING,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=59,batteryVoltage=4011,batteryTemperature=341,batteryFullCharge=6590000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=3=NORMAL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-13 16:33:14.850  2510  7024 I BatteryService: check conditions changed
+12-13 16:33:14.899   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:14.899   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:14.900   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:14.926  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202255284990277, lux = 130, raw_adc=215, raw_2=262
+12-13 16:33:14.927  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-13 16:33:15.000   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:15.001   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:15.001   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:15.088  6963 24758 I HSC_SEC_AI_PLUGIN_FreeVirusUtils: isChargingBattery status2
+12-13 16:33:15.090  6963 24758 I HSC_SEC_AI_PLUGIN_FreeTimeScanUtils: free time scan event report: {"WIFI_CONNECTED_STATUS":"1","SCREEN_STATUS":"0","TEMPERATURE_STATUS":"0","START_TIME":"1765614435082","LASTING_TIME":"6"}
+12-13 16:33:15.092  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202255450988715, lux = 130, raw_adc=214, raw_2=262
+12-13 16:33:15.099   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:15.100   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:15.100   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:15.144  2510  7084 I AlarmManager: remove alarm reason:1 alarms:[Alarm{f99ca0d type 2 origWhen 2202848439 whenElapsed 2202848439 PendingIntent{191f377: PendingIntentRecord{86d7eab com.whatsapp broadcastIntent}} com.whatsapp procName com.whatsapp}]
+12-13 16:33:15.199   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:15.200   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:15.200   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:15.258  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202255616985798, lux = 129, raw_adc=214, raw_2=262
+12-13 16:33:15.300   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:15.301   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:15.301   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:15.368  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-13 16:33:15.371   983 29989 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:15.399   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:15.400   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:15.400   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:15.499   968   968 D lowmemorykiller: critical pressure event polling check
+12-13 16:33:15.500   968   968 D lowmemorykiller: thrashing: 0% thrashing_limit: 60%
+12-13 16:33:15.500   968   968 D lowmemorykiller: Not killing for critical pressure event polling check
+12-13 16:33:15.539  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-13 16:33:15.550  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-13 16:33:15.550  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-13 16:33:15.550  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-13 16:33:15.551  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-13 16:33:15.558  9086 14492 W msys    : W[I wam]_WAMTransportPrivateLogUploadMessageWithDefaultLevel(52)=>privatestats/wameta/transport/connection_unavailable - stopping timer
+12-13 16:33:15.561  2510  7084 I AlarmManager: remove alarm reason:1 alarms:[Alarm{3192dc2 type 3 origWhen 2202262997 whenElapsed 2202262997 PendingIntent{6793908: PendingIntentRecord{52de8a1 com.whatsapp broadcastIntent}} com.whatsapp procName com.whatsapp}]
+12-13 16:33:15.565  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-13 16:33:15.566  2278 14985 D AudioPolicyService: getUidState(10301) cacheIter->second.first, return cacheIter->second.second(10)
+12-13 16:33:15.592  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202255948988975, lux = 130, raw_adc=217, raw_2=262
+12-13 16:33:15.679  2634  2634 E Thermal-daemon:hn_thermal: [ap] tempNew :36  tempOld :35
+12-13 16:33:15.724  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-13 16:33:15.727   983 29990 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-13 16:33:15.759  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202256114988715, lux = 135, raw_adc=221, raw_2=262
+12-13 16:33:15.927  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202256280987413, lux = 127, raw_adc=213, raw_2=262
+12-13 16:33:15.995 18358 18367 I tencent.mm:push: Background young concurrent mark compact GC freed 7639KB AllocSpace bytes, 4(80KB) LOS objects, 49% free, 7164KB/13MB, paused 1.270ms,5.247ms total 81.780ms
+12-13 16:33:16.088  2152 29800 I sensors-hal: handle_sns_std_sensor_event:150, ambient_light_event: ts=2202256446986631, lux = 131, raw_adc=217, raw_2=262

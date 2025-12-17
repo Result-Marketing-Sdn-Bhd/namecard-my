@@ -17,8 +17,17 @@ export default {
     },
     // Plugins configuration
     plugins: [
-      ...(appJson.expo.plugins || [])
-      // react-native-iap v12.x works without explicit plugin configuration
+      ...(appJson.expo.plugins || []),
+      // expo-secure-store plugin for SDK 54
+      "expo-secure-store",
+      // react-native-iap v14.x plugin for proper native module setup
+      [
+        "react-native-iap",
+        {
+          // Enable StoreKit2 for iOS (recommended for iOS 15+)
+          useStoreKit2IfAvailable: true
+        }
+      ]
     ],
     // Android-specific configuration
     android: {

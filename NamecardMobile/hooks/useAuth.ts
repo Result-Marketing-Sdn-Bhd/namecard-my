@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getSupabaseClient } from '../services/supabaseClient';
 import { User, Session } from '@supabase/supabase-js';
+import { iapService } from '../services/iapService';
 
 const supabase = getSupabaseClient();
 
@@ -16,6 +17,9 @@ export const useAuth = () => {
         const { data: { session } } = await supabase.auth.getSession();
         setSession(session);
         setUser(session?.user ?? null);
+
+        // CRITICAL: Set userId in IAP service for receipt validation
+        iapService.setUserId(session?.user?.id ?? null);
       } catch (error) {
         console.error('Error getting session:', error);
       } finally {
@@ -30,6 +34,10 @@ export const useAuth = () => {
       async (_event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
+
+        // CRITICAL: Set userId in IAP service for receipt validation
+        iapService.setUserId(session?.user?.id ?? null);
+
         setLoading(false);
       }
     );

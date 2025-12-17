@@ -22,8 +22,10 @@ import { FloatingActionButton } from '../business/FloatingActionButton';
 import { GroupSelectionModal } from '../business/GroupSelectionModal';
 import { useIntroMessage } from '../../hooks/useIntroMessage';
 import { formatPhoneForDisplay } from '../../utils/phoneFormatter';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
+import { Paths } from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
+import { Platform, Share } from 'react-native';
 
 interface ContactListProps {
   contacts: Contact[];
@@ -156,6 +158,11 @@ export function ContactList({
     try {
       const selectedContactsData = contacts.filter(c => selectedContacts.includes(c.id));
 
+      if (selectedContactsData.length === 0) {
+        Alert.alert('No Contacts', 'Please select at least one contact to export');
+        return;
+      }
+
       // Create CSV content
       const csvHeader = 'Name,Job Title,Company,Email,Phone,Mobile 2,Office,Address\n';
       const csvRows = selectedContactsData.map(contact => {
@@ -174,29 +181,87 @@ export function ContactList({
 
       const csvContent = csvHeader + csvRows;
 
-      // Save to file
+      // Save to file with platform-specific path handling
       const filename = `contacts_export_${new Date().getTime()}.csv`;
-      const fileUri = FileSystem.documentDirectory + filename;
+      // Use cache directory for iOS to avoid permission issues
+      const baseDir = Platform.OS === 'ios' ? FileSystem.cacheDirectory : Paths.document.uri;
+      const fileUri = `${baseDir}${filename}`;
 
+      console.log('[Export] Writing file to:', fileUri);
       await FileSystem.writeAsStringAsync(fileUri, csvContent, {
-        encoding: FileSystem.EncodingType.UTF8,
+        encoding: 'utf8',
       });
 
-      // Share the file
-      if (await Sharing.isAvailableAsync()) {
-        await Sharing.shareAsync(fileUri, {
-          mimeType: 'text/csv',
-          dialogTitle: 'Export Contacts',
-        });
-      } else {
-        Alert.alert('Success', `Exported ${selectedContacts.length} contacts to ${filename}`);
+      console.log('[Export] File written successfully');
+
+      // Try sharing the file
+      try {
+        // iOS: expo-sharing doesn't work reliably in Expo Go, use React Native Share API
+        if (Platform.OS === 'ios') {
+          console.log('[Export] iOS detected - using React Native Share API');
+          console.log('[Export] Reading CSV content from:', fileUri);
+
+          const csvText = await FileSystem.readAsStringAsync(fileUri);
+          console.log('[Export] CSV content length:', csvText.length);
+
+          console.log('[Export] Attempting to share CSV content...');
+          const shareResult = await Share.share({
+            message: csvText,
+            title: 'Export Contacts',
+          });
+
+          console.log('[Export] Share result:', shareResult);
+
+          if (shareResult.action === Share.sharedAction) {
+            console.log('[Export] ✅ Content shared successfully');
+            Alert.alert('Success', `Exported ${selectedContactsData.length} contacts`);
+          } else if (shareResult.action === Share.dismissedAction) {
+            console.log('[Export] ℹ️ Share sheet dismissed');
+          }
+        } else {
+          // Android: Use expo-sharing which works well
+          console.log('[Export] Android detected - using expo-sharing');
+          const sharingAvailable = await Sharing.isAvailableAsync();
+          console.log('[Export] Sharing available:', sharingAvailable);
+
+          if (sharingAvailable) {
+            console.log('[Export] Attempting to share file:', fileUri);
+
+            await Sharing.shareAsync(fileUri, {
+              mimeType: 'text/csv',
+              dialogTitle: 'Export Contacts',
+            });
+
+            console.log('[Export] ✅ Share completed');
+            Alert.alert('Success', `Exported ${selectedContactsData.length} contacts`);
+          } else {
+            throw new Error('Sharing not available on this device');
+          }
+        }
+      } catch (shareError) {
+        console.error('[Export] Share failed:', shareError);
+        console.error('[Export] Error details:', JSON.stringify(shareError, null, 2));
+
+        // Show user where file was saved
+        Alert.alert(
+          'Export Complete',
+          `Exported ${selectedContactsData.length} contacts.\n\nFile saved to:\n${filename}\n\nThe file is in your app's cache directory.`,
+          [
+            {
+              text: 'OK',
+              onPress: () => {
+                console.log('[Export] User acknowledged export');
+              }
+            }
+          ]
+        );
       }
 
       setIsSelectMode(false);
       setSelectedContacts([]);
     } catch (error) {
-      console.error('Export failed:', error);
-      Alert.alert('Error', 'Failed to export contacts');
+      console.error('[Export] Failed:', error);
+      Alert.alert('Export Error', `Failed to export contacts: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 

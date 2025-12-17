@@ -1,0 +1,502 @@
+--------- beginning of main
+12-14 07:54:50.063   983  6261 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:50.380  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+--------- beginning of system
+12-14 07:54:50.381  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:50.381  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:50.500  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:54:50.501  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:54:50.620  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:54:50.626  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:54:50.626  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:54:50.627  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:54:50.627  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:54:51.036  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 07:54:51.058  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:51.060  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:51.064   983  6264 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:51.065   983  6265 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:51.087  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-14 07:54:51.088  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-14 07:54:51.088  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-14 07:54:51.088  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-14 07:54:51.089  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-14 07:54:51.090  2510  7086 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=259,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:54:51.091  2510  7086 I BatteryService: check conditions changed
+12-14 07:54:51.095  2510  7086 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=259,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:54:51.096  2510  7086 I BatteryService: check conditions changed
+12-14 07:54:51.390  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:51.392  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:51.393  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:52.062  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:52.063  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:52.075   983  6271 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:52.075   983  6272 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:52.404  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:52.406  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:52.407  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:52.626  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:54:52.633  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:54:52.633  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:54:52.634  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:54:52.641  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:54:53.066  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:53.067  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:53.074   983  6277 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:53.074   983  6279 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:53.419  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:53.421  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:53.422  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:53.514  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:54:53.515  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:54:53.524  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2257553787130425 ns; value = [-1.043951, 0.316031, 9.558873], status=3
+12-14 07:54:54.070  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:54.071  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:54.076   983  6282 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:54.077   983  6285 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:54.434  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:54.435  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:54.436  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:54.549  2634  2634 E Thermal-daemon:hn_thermal: [shell_back] tempNew :25  tempOld :24
+12-14 07:54:54.549  2634  2634 E Thermal-daemon:hn_thermal: [shell_frame] tempNew :26  tempOld :25
+12-14 07:54:54.630  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:54:54.636  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:54:54.636  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:54:54.636  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:54:54.638  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:54:55.073  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:55.074  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:55.080   983  6287 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:55.082   983  6288 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:55.447  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:55.449  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:55.450  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:56.077  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:56.079  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:56.083   983  6297 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:56.086   983  6298 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:56.459  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:56.461  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:56.463  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:56.530  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:54:56.530  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:54:56.634  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:54:56.639  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:54:56.639  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:54:56.640  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:54:56.642  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:54:56.708  2510  6210 I WifiNetworkStatsMonitor: total/672/672,com.instagram.android/672/672,unknown:0/0/0,com.autocountsoft.payroll/0/0,unknown:-5/0/0,com.hihonor.mediamaterial/0/0,authenticator.two.factor.authentication.otp/0/0,com.hihonor.android.launcher/0/0,com.openai.chatgpt/0/0,com.cimb.cimbocto/0/0,com.klikasia.klik.android/0/0
+12-14 07:54:56.709  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register back home fence.
+12-14 07:54:56.709  2510  6210 I WifiEnhanceHomeFenceMonitor: processBackHomeFence, add back home fence , id : WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:54:56.710  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register leave home fence.
+12-14 07:54:56.710  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=4668f04f-08d3-4dd5-a98a-579e43d897d8,key=WifiEnhanceHomeFenceMonitor_backHomeFence,isNeedCache=true,sysApp=true
+12-14 07:54:56.710  2510  6210 I WifiEnhanceHomeFenceMonitor: processLeaveHomeFence, add leave home fence , id : WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:54:56.711 23707  2954 I AWARENESS_E_D_P: regByListener rId=4668f04f-08d3-4dd5-a98a-579e43d897d8,key=WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:54:56.712 23707 23925 I AWARENESS_MFenceFF: c:LocationFence
+12-14 07:54:56.712 23707 23925 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 07:54:56.712 23707 23925 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_backHomeFence', type='LocationFence}
+12-14 07:54:56.712  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=015252dc-b25d-4a94-b7d0-88536d541ef7,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence,isNeedCache=true,sysApp=true
+12-14 07:54:56.713 23707  2954 I AWARENESS_E_D_P: regByListener rId=015252dc-b25d-4a94-b7d0-88536d541ef7,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:54:56.713 23707 23926 I AWARENESS_MFenceFF: c:LocationFence
+12-14 07:54:56.713 23707 23926 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 07:54:56.713  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_backHomeFence , code = 0
+12-14 07:54:56.713 23707 23926 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_leaveHomeFence', type='LocationFence}
+12-14 07:54:56.713  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:54:56.713  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:54:56.713 23707 23925 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 07:54:56.714 23707 23925 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 07:54:56.714 23707 23925 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 07:54:56.714 23707 23925 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 07:54:56.714  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_leaveHomeFence , code = 0
+12-14 07:54:56.714  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:54:56.715  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:54:56.715 23707 23926 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 07:54:56.715 23707 23926 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 07:54:56.715 23707 23926 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 07:54:56.715 23707 23926 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 07:54:57.037  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 07:54:57.081  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:57.083  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:57.087  2510  8205 I SWAP_SCENE: setZswapdCpuSetToSmall 0-3, get pid of zswapd:8208
+12-14 07:54:57.087  2510  8205 I system_server: SWAP_CPU: get cpu number = 8
+12-14 07:54:57.088  2510  8205 I system_server: SWAP_CPU: set affinity to 0-3 success
+12-14 07:54:57.092   983  6308 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:57.094   983  6312 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:57.385 31494 10304 I NearbyDiscovery: FastPair: isDestroyable: Scanner is alive. [CONTEXT service_id=265 ]
+12-14 07:54:57.385 31494 10304 I NearbyDiscovery: DiscoveryService: Skip stopSelf(), fast pair controller is not destroyable. [CONTEXT service_id=265 ]
+12-14 07:54:57.474  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:57.475  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:57.476  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:58.084  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:58.089   983  6315 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:58.093  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:58.097   983  6316 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:58.487  2510  7025 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:58.489  2510  7025 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:58.490  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:58.638  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:54:58.644  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:54:58.644  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:54:58.644  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:54:58.646  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:54:59.087  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:54:59.093   983  6323 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:59.095  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:54:59.100   983  6324 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:54:59.269  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-14 07:54:59.269  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-14 07:54:59.270  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-14 07:54:59.270  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-14 07:54:59.270  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-14 07:54:59.279  2510  7025 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=258,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:54:59.281  2510  7025 I BatteryService: check conditions changed
+12-14 07:54:59.283  2510  7025 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=258,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:54:59.284  2510  7025 I BatteryService: check conditions changed
+12-14 07:54:59.502  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:54:59.504  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:59.505  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:54:59.513  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2257559775239331 ns; value = [-1.046941, 0.304741, 9.555376], status=3
+12-14 07:54:59.543  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:54:59.543  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:54:59.781  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 07:54:59.783  2278 22475 D AudioPolicyService: getUidState(10263) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 07:54:59.783  2278 22475 D AudioPolicyService: getUidState(10263) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 07:55:00.091  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:00.098   983  6333 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:00.098  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:00.103   983  6337 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:00.516  2510  7025 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:00.517  2510  7025 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:00.518  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:00.643  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:00.651  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:00.652  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:00.653  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:00.654  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:00.707  5795  5795 W soft_error.cpp: [pando::graphql::PandoGraphQLRequestHybrid::assertValid] : Using a PandoGraphQLRequest after it has been consumed. Query name is IGSharedAccountsQuery
+12-14 07:55:00.993  6777  6789 I .hihonor.iaware: Background young concurrent mark compact GC freed 7392KB AllocSpace bytes, 13(260KB) LOS objects, 48% free, 8025KB/15MB, paused 959us,9.297ms total 46.002ms
+12-14 07:55:01.094  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:01.098   983  6339 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:01.101  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:01.108   983  6340 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:01.530  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:01.532  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:01.532  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:02.096  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:02.102   983  6350 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:02.103  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:02.107   983  6351 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:02.302  5795  5925 E msys    : E[N mns]_OnDiskCacheGetData(632)=>Start post callback cache refresh DNS resolution
+12-14 07:55:02.303  5795  5925 W LibevQuicAsyncUDPSocket.h: setTosOrTrafficClass not implemented in LibevQuicAsyncUDPSocket
+12-14 07:55:02.328  2510  6321 D HwConnectivityManagerImpl: getNetworkPolicyFlag flagStr null
+12-14 07:55:02.344  5795  5925 E msys    : E[N mns]_OnSystemDNSSuccessCallback(340)=>Cache refresh succeeded with system DNS resolver. IP count: 2
+12-14 07:55:02.544  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:02.545  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:02.546  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:02.557  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:55:02.557  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:55:02.648  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:02.650  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:02.650  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:02.650  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:02.650  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:03.037  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 07:55:03.099  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:03.105  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:03.105   983  6367 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:03.111   983  6368 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:03.560  2510  7025 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:03.561  2510  7025 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:03.562  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:04.103  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:04.109   983  6370 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:04.109  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:04.113   983  6373 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:04.354  2510  2795 W Watchdog: waitState=[0] waitedHalf=[false]
+12-14 07:55:04.354  2510  2795 W Watchdog: watchdogKick kickCounter=[150]
+12-14 07:55:04.354  2510  2795 I AES     : hangdetect userpet kick to kernel
+12-14 07:55:04.355  2510  2782 I InputReader: monitor lock
+12-14 07:55:04.356  2510  2782 I EventHub: wake() called
+12-14 07:55:04.356  2510  2782 I EventHub: monitor lock
+12-14 07:55:04.550  2634  2634 E Thermal-daemon:hn_thermal: [shell_frame] tempNew :25  tempOld :26
+12-14 07:55:04.574  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:04.575  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:04.576  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:04.653  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:04.659  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:04.660  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:04.660  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:04.662  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:05.106  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:05.112   983  6376 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:05.112  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:05.117   983  6377 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:05.501  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2257565764120477 ns; value = [-1.035855, 0.305033, 9.541162], status=3
+12-14 07:55:05.578  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:55:05.579  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:55:05.587  2510  7025 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:05.589  2510  7025 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:05.589  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:06.110  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:06.114  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:06.120   983  6379 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:06.123   983  6386 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:06.599  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:06.601  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:06.602  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:06.657  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:06.663  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:06.663  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:06.664  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:06.665  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:06.758  2510  6210 I WifiNetworkStatsMonitor: total/10195/10023,com.instagram.android/9627/9519,android.uid.system:1000/568/0,unknown:0/0/504,com.autocountsoft.payroll/0/0,unknown:-5/0/0,com.hihonor.mediamaterial/0/0,authenticator.two.factor.authentication.otp/0/0,com.hihonor.android.launcher/0/0,com.openai.chatgpt/0/0,com.cimb.cimbocto/0/0
+12-14 07:55:06.758  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register back home fence.
+12-14 07:55:06.759  2510  6210 I WifiEnhanceHomeFenceMonitor: processBackHomeFence, add back home fence , id : WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:06.759  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register leave home fence.
+12-14 07:55:06.759  2510  6210 I WifiEnhanceHomeFenceMonitor: processLeaveHomeFence, add leave home fence , id : WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:06.759  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=38a7a910-9dbc-48d9-88b8-e7f3efbb21ec,key=WifiEnhanceHomeFenceMonitor_backHomeFence,isNeedCache=true,sysApp=true
+12-14 07:55:06.760 23707  2954 I AWARENESS_E_D_P: regByListener rId=38a7a910-9dbc-48d9-88b8-e7f3efbb21ec,key=WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:06.761 23707 23928 I AWARENESS_MFenceFF: c:LocationFence
+12-14 07:55:06.761 23707 23928 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 07:55:06.761 23707 23928 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_backHomeFence', type='LocationFence}
+12-14 07:55:06.761  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=a774638b-2de2-492d-b493-e37b33c60ad9,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence,isNeedCache=true,sysApp=true
+12-14 07:55:06.762 23707  2954 I AWARENESS_E_D_P: regByListener rId=a774638b-2de2-492d-b493-e37b33c60ad9,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:06.762 23707 23923 I AWARENESS_MFenceFF: c:LocationFence
+12-14 07:55:06.762 23707 23923 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 07:55:06.762  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_backHomeFence , code = 0
+12-14 07:55:06.762 23707 23923 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_leaveHomeFence', type='LocationFence}
+12-14 07:55:06.762  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:06.762  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:06.762 23707 23928 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 07:55:06.762 23707 23928 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 07:55:06.763 23707 23928 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 1
+12-14 07:55:06.763 23707 23928 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 07:55:06.763  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_leaveHomeFence , code = 0
+12-14 07:55:06.763  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:06.763 23707 23923 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 07:55:06.763  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:06.763 23707 23923 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 07:55:06.763 23707 23923 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 07:55:06.763 23707 23923 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 07:55:07.114  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:07.118  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:07.119   983  6388 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:07.122   983  6389 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:07.217  2510  2784 I WifiEnhanceMonitor: notifyUidStateChanged
+12-14 07:55:07.219  2278 22475 D AudioPolicyService: getUidState(10046) cacheIter->second.first, return cacheIter->second.second(19)
+12-14 07:55:07.220  2278 22475 D AudioPolicyService: getUidState(10046) !cacheIter->second.first, return PROCESS_STATE_UNKNOWN
+12-14 07:55:07.451  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-14 07:55:07.453  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-14 07:55:07.453  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-14 07:55:07.453  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-14 07:55:07.453  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-14 07:55:07.462  2510  7086 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=258,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:55:07.463  2510  7086 I BatteryService: check conditions changed
+12-14 07:55:07.467  2510  7086 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=258,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:55:07.468  2510  7086 I BatteryService: check conditions changed
+12-14 07:55:07.613  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:07.615  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:07.615  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:08.117  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:08.120  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:08.123   983  6391 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:08.124   983  6396 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:08.592  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:55:08.592  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:55:08.628  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:08.629  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:08.630  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:08.661  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:08.666  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:08.667  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:08.667  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:08.670  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:09.038  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 07:55:09.120  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:09.123  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:09.126   983  6399 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:09.129   983  6400 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:09.551  2634  2634 E Thermal-daemon:hn_thermal: [shell_back] tempNew :24  tempOld :25
+12-14 07:55:09.643  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:09.645  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:09.645  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:10.122  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:10.126  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:10.129   983  6402 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:10.135   983  6403 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:10.656  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:10.658  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:10.660  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:10.665  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:10.671  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:10.671  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:10.671  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:10.673  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:11.125  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:11.129  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:11.129   983  6405 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:11.132   983  6406 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:11.491  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2257571753402797 ns; value = [-1.048354, 0.301801, 9.549592], status=3
+12-14 07:55:11.605  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:55:11.606  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:55:11.670  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:11.672  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:11.673  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:12.128  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:12.131  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:12.133   983  6408 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:12.135   983  6410 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:12.670  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:12.676  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:12.676  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:12.677  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:12.679  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:12.683  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:12.685  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:12.686  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:13.130  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:13.133  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:13.136   983  6412 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:13.138   983  6414 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:13.695  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:13.697  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:13.698  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:14.133  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:14.136  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:14.141   983  6416 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:14.141   983  6417 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:14.553  2634  2634 E Thermal-daemon:hn_thermal: [ambient_temp_v2] tempNew :29  tempOld :27
+12-14 07:55:14.553  2634  2634 E Thermal-daemon:hn_thermal: [pa_0] tempNew :25  tempOld :26
+12-14 07:55:14.619  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:55:14.619  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:55:14.674  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:14.680  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:14.681  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:14.681  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:14.683  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:14.708  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:14.709  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:14.710  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:15.038  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 07:55:15.062  6963 17677 I HSC_SEC_AI_PLUGIN_FreeVirusUtils: isChargingBattery status5
+12-14 07:55:15.065  6963 17677 I HSC_SEC_AI_PLUGIN_FreeTimeScanUtils: free time scan event report: {"WIFI_CONNECTED_STATUS":"1","SCREEN_STATUS":"1","TEMPERATURE_STATUS":"0","START_TIME":"1765638794969","LASTING_TIME":"522"}
+12-14 07:55:15.137  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:15.139  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:15.147   983  6419 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:15.150   983  6420 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:15.631  2510  4682 I HwBatteryService: power_ui state= 1 mQuickChargeStatus=1
+12-14 07:55:15.631  2510  4682 I HwBatteryService: handleWirelessTxStatus
+12-14 07:55:15.631  2510  4682 I HwBatteryService: switch not open, return, mWirelessTxFlag : 0
+12-14 07:55:15.631  2510  4682 W HwBatteryService: need return. Invalid value: -1
+12-14 07:55:15.631  2510  4682 D HwBatteryService: setHwChargeTimeRemaining, time = -1 String time: -1
+12-14 07:55:15.641  2510  7086 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=258,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:55:15.642  2510  7086 I BatteryService: check conditions changed
+12-14 07:55:15.646  2510  7086 I BatteryService: Processing new values: info={chargerAcOnline=false,chargerUsbOnline=true,chargerWirelessOnline=false,maxChargingCurrent=500000,maxChargingVoltage=5000000,batteryStatus=5=FULL,batteryHealth=2=GOOD,batteryPresent=true,batteryLevel=100,batteryVoltage=4484,batteryTemperature=258,batteryFullCharge=6588000,batteryChargeCounter=3500000,batteryTechnology=Unknown,batteryCapacityLevel=5=FULL,chargerDockOnline=false}, mBatteryLevelCritical=false, mPlugType=2, mLastPlugType=2
+12-14 07:55:15.647  2510  7086 I BatteryService: check conditions changed
+12-14 07:55:15.721  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:15.722  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:15.723  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:16.140  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:16.142  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:16.148   983  6423 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:16.148   983  6424 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:16.680  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:16.686  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:16.686  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:16.687  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:16.690  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:16.734  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:16.735  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:16.736  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:16.803  2510  6210 I WifiNetworkStatsMonitor: total/168/202,com.instagram.android/96/96,unknown:0/0/106,android.uid.system:1000/72/0,com.autocountsoft.payroll/0/0,unknown:-5/0/0,com.hihonor.mediamaterial/0/0,authenticator.two.factor.authentication.otp/0/0,com.hihonor.android.launcher/0/0,com.openai.chatgpt/0/0,com.cimb.cimbocto/0/0
+12-14 07:55:16.803  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register back home fence.
+12-14 07:55:16.804  2510  6210 I WifiEnhanceHomeFenceMonitor: processBackHomeFence, add back home fence , id : WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:16.804  2510  6210 D WifiEnhanceHomeFenceMonitor: registerHomeAwarenessFence, register leave home fence.
+12-14 07:55:16.804  2510  6210 I WifiEnhanceHomeFenceMonitor: processLeaveHomeFence, add leave home fence , id : WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:16.804  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=206b5e4b-5077-46e4-886f-433bf987cfcf,key=WifiEnhanceHomeFenceMonitor_backHomeFence,isNeedCache=true,sysApp=true
+12-14 07:55:16.805 23707  2954 I AWARENESS_E_D_P: regByListener rId=206b5e4b-5077-46e4-886f-433bf987cfcf,key=WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:16.806 23707 24188 I AWARENESS_MFenceFF: c:LocationFence
+12-14 07:55:16.806 23707 24188 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 07:55:16.806  2510  8336 I AwarenessClient: wait result,type=register_fence_by_listener,rId=c27cf609-dbf5-4e8e-91a9-6dc312817be6,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence,isNeedCache=true,sysApp=true
+12-14 07:55:16.806 23707 24188 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_backHomeFence', type='LocationFence}
+12-14 07:55:16.806 23707  2954 I AWARENESS_E_D_P: regByListener rId=c27cf609-dbf5-4e8e-91a9-6dc312817be6,key=WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:16.807 23707 23924 I AWARENESS_MFenceFF: c:LocationFence
+12-14 07:55:16.807  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_backHomeFence , code = 0
+12-14 07:55:16.807 23707 23924 I AWARENESS_MFenceFF: not support fence, LocationFence
+12-14 07:55:16.807  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:16.807 23707 23924 E AWARENESS_ManagedFenceList: createFence fail, AwarenessFence{key='WifiEnhanceHomeFenceMonitor_leaveHomeFence', type='LocationFence}
+12-14 07:55:16.807  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_backHomeFence
+12-14 07:55:16.807  2510  8336 I WifiEnhanceHomeFenceMonitor: mHomeFenceConnectListener, on result, key = WifiEnhanceHomeFenceMonitor_leaveHomeFence , code = 0
+12-14 07:55:16.807  2510  8336 I AwarenessClient: handle wait rm for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:16.808  2510  8336 I AwarenessClient: dispatch no cached for WifiEnhanceHomeFenceMonitor_leaveHomeFence
+12-14 07:55:16.808 23707 24188 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 07:55:16.808 23707 24188 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 07:55:16.808 23707 24188 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 0
+12-14 07:55:16.808 23707 23924 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke begin, calling pkg name: com.hihonor.awareness
+12-14 07:55:16.808 23707 24188 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 07:55:16.808 23707 23924 W AWARENESS_D_P_DataQueryComponentContainer: null supplier for: queryCityCode
+12-14 07:55:16.809 23707 23924 I AWARENESS_D_P_InquiryProviderCallExecMethod: invoke duration is 1
+12-14 07:55:16.809 23707 23924 W Intelli_Analytics_DpIQCacheHelper: inquiry value is null or invalid, refuse update cache
+12-14 07:55:16.947  2510  2571 I system_server: Background young concurrent mark compact GC freed 24MB AllocSpace bytes, 80(1440KB) LOS objects, 18% free, 101MB/124MB, paused 2.343ms,12.134ms total 158.096ms
+12-14 07:55:17.143  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:17.145  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:17.150   983  6426 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:17.151   983  6427 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:17.480  2152  5162 I sensors-hal: handle_sns_client_event:442, accel_sample(accelcal_available:0): ts=2257577742876599 ns; value = [-1.036146, 0.310305, 9.556982], status=3
+12-14 07:55:17.635  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:55:17.636  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:55:17.748  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:17.749  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:17.750  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:18.146  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:18.149  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:18.152   983  6429 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:18.153   983  6433 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:18.429 32186 32186 D UsbSettingsService: handleMessage, msg.what = 4
+12-14 07:55:18.438 32186 32186 D UsbSettingsService: receive message to check monkey running.
+12-14 07:55:18.685  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:18.691  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:18.692  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:18.692  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:18.693  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:18.762  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:18.763  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:18.764  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:19.149  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:19.152  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:19.155   983  6435 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:19.161   983  6436 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:19.355  2510  2795 W Watchdog: waitState=[0] waitedHalf=[false]
+12-14 07:55:19.355  2510  2795 W Watchdog: watchdogKick kickCounter=[150]
+12-14 07:55:19.356  2510  2795 I AES     : hangdetect userpet kick to kernel
+12-14 07:55:19.357  2510  2782 I InputReader: monitor lock
+12-14 07:55:19.357  2510  2782 I EventHub: wake() called
+12-14 07:55:19.358  2510  2782 I EventHub: monitor lock
+12-14 07:55:19.554  2634  2634 E Thermal-daemon:hn_thermal: [ambient_temp_v2] tempNew :28  tempOld :29
+12-14 07:55:19.774  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:19.775  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:19.776  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:20.093  2633  3642 I storaged: storaged_t::event: storage_info refreshed.
+12-14 07:55:20.152  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:20.155  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:20.159   983  6440 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:20.160   983  6441 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:20.379  6777  7481 I AppManager: dependence has been existed:4610 -> 31494
+12-14 07:55:20.651  2510  6210 E HwQoEJNI: sendQoeCmd. open monitor_fd error
+12-14 07:55:20.651  2510  6210 I HnDualBandManager: handle2gApStrongWifiRssiChange
+12-14 07:55:20.690  9043  9043 I wpa_supplicant: nl80211: vendor command vendor_id=4980, subcmd=13
+12-14 07:55:20.697  2710  2710 I cnss-daemon: nl80211 response handler invoked
+12-14 07:55:20.697  2710  2710 I cnss-daemon: nl80211_response_handler: cmd 103, vendorID 4980, subcmd 13  received
+12-14 07:55:20.697  8927  8995 I WifiHAL : event received NL80211_CMD_VENDOR, vendor_id = 0x1374, subcmd = 0xd
+12-14 07:55:20.700  9043  9043 I wpa_supplicant: nl80211: Ignore unsupported QCA vendor event 13
+12-14 07:55:20.788  2510  7086 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:20.789  2510  7086 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:20.791  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:21.040  2510  2793 I AppEyeFwkBlock: do monitor
+12-14 07:55:21.155  2143  4070 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 3. Are binder threads started and available?)
+12-14 07:55:21.157  2253  2377 W ServiceManagerCppClient: Waited one second for vendor.qti.qhcp.IQHDC/default (is service started? Number of threads started in the threadpool: 2. Are binder threads started and available?)
+12-14 07:55:21.163   983  6443 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:21.163   983  6447 W libc    : Unable to set property "ctl.interface_start" to "aidl/vendor.qti.qhcp.IQHDC/default": PROP_ERROR_HANDLE_CONTROL_MESSAGE (0x20)
+12-14 07:55:21.802  2510  7078 E AwareLog: HwMtmBroadcastResourceManager: iawareNeedSkipBroadcastSend param error!
+12-14 07:55:21.804  2510  7078 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background
+12-14 07:55:21.805  2510  2879 I ActivityManager: App 10263/com.instagram.android on idle whitelist; not restricted in background

@@ -21,11 +21,12 @@ import {
   StyleSheet,
   SafeAreaView,
   Linking,
+  Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { PricingCard } from '../business/PricingCard';
-import { useSubscription } from '../../hooks/useSubscription';
+import { useSubscriptionPlatform } from '../../hooks/useSubscriptionPlatform';
 import { IAP_CONFIG, SubscriptionPlan } from '../../config/iap-config';
 import { validatePromoCode, calculatePromoPrice, formatPrice } from '../../utils/subscription-utils';
 
@@ -49,19 +50,33 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
     restorePurchases,
     isPurchasing,
     isRestoring,
-  } = useSubscription();
+    error: subscriptionError,
+  } = useSubscriptionPlatform();
 
   const [selectedPlan, setSelectedPlan] = useState<SubscriptionPlan>('yearly');
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoError, setPromoError] = useState('');
 
+  // 🚫 Apple Guidelines: Promo codes disabled on iOS (Guideline 3.1.1)
+  // Apple requires all unlocking mechanisms to go through official IAP
+  // Android can still use promo codes
+  const isPromoCodeEnabled = Platform.OS === 'android';
+
+  // Debug: Log products when they change
+  React.useEffect(() => {
+    console.log('[PaywallScreen] 📦 Products updated:', products.length);
+    console.log('[PaywallScreen] 📦 Products:', JSON.stringify(products, null, 2));
+    console.log('[PaywallScreen] 📦 Products loading:', productsLoading);
+    console.log('[PaywallScreen] 📦 Subscription error:', subscriptionError);
+  }, [products, productsLoading, subscriptionError]);
+
   // Get pricing info
   const monthlyPrice = products.find(p => p.type === 'monthly')?.priceAmount || IAP_CONFIG.PRICING.monthly.usd;
   const yearlyPrice = products.find(p => p.type === 'yearly')?.priceAmount || IAP_CONFIG.PRICING.yearly.usd;
 
-  // Calculate promo price if applied
-  const finalYearlyPrice = promoApplied
+  // Calculate promo price if applied (Android only)
+  const finalYearlyPrice = (promoApplied && isPromoCodeEnabled)
     ? calculatePromoPrice(yearlyPrice, promoCode, 'yearly')
     : yearlyPrice;
 
@@ -88,26 +103,94 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
   const handlePurchase = async () => {
     console.log('[PaywallScreen] 💳 Initiating purchase:', selectedPlan);
 
-    const success = await purchaseSubscription(
-      selectedPlan,
-      promoApplied ? promoCode : undefined
-    );
-
-    if (success) {
+    // DEBUG: Show products info before purchase
+    if (products.length === 0) {
       Alert.alert(
-        '🎉 Success!',
-        'Your subscription is now active. Enjoy WhatsCard Premium!',
+        '⚠️ Debug Info',
+        `No products available!\n\nProducts count: ${products.length}\nProducts loading: ${productsLoading}\nError: ${subscriptionError || 'None'}\n\nThis means products weren't fetched from App Store. Check console logs.`,
         [
           {
-            text: 'Get Started',
-            onPress: () => onSuccess?.(),
+            text: 'Try Anyway',
+            onPress: () => {}, // Continue with purchase attempt
           },
+          {
+            text: 'Cancel',
+            style: 'cancel'
+          }
         ]
       );
-    } else {
+    }
+
+    try {
+      // Only pass promo code on Android (iOS doesn't allow custom promo codes)
+      const success = await purchaseSubscription(
+        selectedPlan,
+        (promoApplied && isPromoCodeEnabled) ? promoCode : undefined
+      );
+
+      if (success) {
+        Alert.alert(
+          '🎉 Success!',
+          'Your subscription is now active. Enjoy WhatsCard Premium!',
+          [
+            {
+              text: 'Get Started',
+              onPress: () => onSuccess?.(),
+            },
+          ]
+        );
+      } else {
+        // Show detailed error from the subscription hook
+        const errorMessage = subscriptionError || 'Unknown error - no details available';
+
+        // Log for debugging
+        console.error('[PaywallScreen] ❌ Purchase failed with error:', errorMessage);
+        console.error('[PaywallScreen] ❌ Subscription error state:', subscriptionError);
+
+        Alert.alert(
+          '❌ Purchase Failed',
+          `Error Details:\n\n${errorMessage}\n\n⚠️ Since console logs aren't accessible on iOS, please take a screenshot of this message.\n\nIf this persists, contact support with this screenshot.`,
+          [
+            {
+              text: 'Retry',
+              onPress: () => handlePurchase(),
+            },
+            {
+              text: 'Cancel',
+              style: 'cancel'
+            }
+          ]
+        );
+      }
+    } catch (error: any) {
+      console.error('[PaywallScreen] ❌ Purchase error:', error);
+      console.error('[PaywallScreen] ❌ Error details:', JSON.stringify(error, null, 2));
+
+      // Show detailed error in Alert since console isn't accessible on iOS
+      const errorDetails = [
+        `Message: ${error?.message || 'Unknown error'}`,
+        `Code: ${error?.code || 'N/A'}`,
+        error?.localizedDescription ? `Description: ${error.localizedDescription}` : null,
+        error?.userInfo ? `UserInfo: ${JSON.stringify(error.userInfo)}` : null,
+        error?.debugMessage ? `Debug: ${error.debugMessage}` : null,
+      ].filter(Boolean).join('\n\n');
+
       Alert.alert(
-        '❌ Purchase Failed',
-        'Something went wrong. Please try again or contact support.'
+        '❌ Purchase Error',
+        errorDetails,
+        [
+          {
+            text: 'Copy Error',
+            onPress: () => {
+              // Copy error to clipboard would require expo-clipboard
+              console.log('[PaywallScreen] Full error for debugging:', JSON.stringify(error, Object.getOwnPropertyNames(error), 2));
+            }
+          },
+          {
+            text: 'OK',
+            style: 'cancel'
+          }
+        ]
       );
     }
   };
@@ -240,8 +323,8 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
             )}
           </View>
 
-          {/* Promo Code Section */}
-          {selectedPlan === 'yearly' && !promoApplied && (
+          {/* Promo Code Section - Android Only (Apple Guideline 3.1.1) */}
+          {isPromoCodeEnabled && selectedPlan === 'yearly' && !promoApplied && (
             <View style={styles.promoSection}>
               <Text style={styles.promoLabel}>Have a promo code?</Text>
               <View style={styles.promoInputContainer}>
@@ -319,26 +402,35 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
             )}
           </TouchableOpacity>
 
-          {/* Terms & Privacy */}
+          {/* Terms & Privacy - REQUIRED by Apple Guideline 3.1.2 */}
           <View style={styles.legalSection}>
             <Text style={styles.legalText}>
               By subscribing, you agree to our{' '}
               <Text
                 style={styles.legalLink}
-                onPress={() => Linking.openURL('https://whatscard.app/terms')}
+                onPress={() => Linking.openURL('https://whatscard.netlify.app/terms-of-service')}
               >
-                Terms of Service
+                Terms of Use (EULA)
               </Text>{' '}
               and{' '}
               <Text
                 style={styles.legalLink}
-                onPress={() => Linking.openURL('https://whatscard.app/privacy')}
+                onPress={() => Linking.openURL('https://whatscard.netlify.app/privacy-policy')}
               >
                 Privacy Policy
               </Text>
             </Text>
+            <Text style={styles.subscriptionDetailsText}>
+              • {selectedPlan === 'yearly' ? 'Yearly' : 'Monthly'} subscription: {selectedPlan === 'yearly' ? formatPrice(finalYearlyPrice) + '/year' : formatPrice(monthlyPrice) + '/month'}
+            </Text>
             <Text style={styles.autoRenewText}>
-              Subscription automatically renews unless canceled 24 hours before the end of the current period.
+              • Subscription automatically renews unless canceled 24 hours before the end of the current period.
+            </Text>
+            <Text style={styles.autoRenewText}>
+              • Payment will be charged to your Apple ID/Google Play account at confirmation of purchase.
+            </Text>
+            <Text style={styles.autoRenewText}>
+              • Manage or cancel your subscription in your App Store/Play Store account settings.
             </Text>
           </View>
         </ScrollView>
@@ -592,6 +684,15 @@ const styles = StyleSheet.create({
     color: '#A7F3D0',
     textAlign: 'center',
     lineHeight: 16,
+  },
+  subscriptionDetailsText: {
+    fontSize: 12,
+    color: '#D1FAE5',
+    textAlign: 'center',
+    marginTop: 12,
+    marginBottom: 4,
+    fontWeight: '600',
+    lineHeight: 18,
   },
 });
 

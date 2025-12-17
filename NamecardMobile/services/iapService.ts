@@ -12,7 +12,7 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
+import { Platform, Alert } from 'react-native';
 
 import {
   IAP_CONFIG,
@@ -30,6 +30,9 @@ if (!IAP_CONFIG.MOCK_MODE) {
     RNIap = require('react-native-iap');
   } catch (error) {
     console.warn('[IAP Service] ⚠️ react-native-iap not available, using mock mode');
+    console.warn('[IAP Service] ℹ️ This is NORMAL in Expo Go - native modules not supported');
+    console.warn('[IAP Service] ℹ️ For real IAP testing, build with: eas build --platform ios');
+    console.warn('[IAP Service] ℹ️ App will use mock purchases for UI testing');
   }
 }
 
@@ -71,9 +74,14 @@ class IAPService {
     }
 
     console.log('[IAP Service] 🚀 Initializing...');
+    console.log('[IAP Service] 🔍 IAP_CONFIG.MOCK_MODE:', IAP_CONFIG.MOCK_MODE);
+    console.log('[IAP Service] 🔍 RNIap available:', !!RNIap);
+    console.log('[IAP Service] 🔍 __DEV__:', __DEV__);
+    console.log('[IAP Service] 🔍 Platform.OS:', Platform.OS);
 
     if (IAP_CONFIG.MOCK_MODE || !RNIap) {
       console.log('[IAP Service] 🎭 Running in MOCK MODE');
+      console.log('[IAP Service] 🎭 Reason: MOCK_MODE =', IAP_CONFIG.MOCK_MODE, ', RNIap =', !!RNIap);
       await this.delay(500);
       this.isInitialized = true;
       console.log('[IAP Service] ✅ Mock initialization complete');
@@ -130,23 +138,35 @@ class IAPService {
 
     // Listen for successful purchases
     this.purchaseUpdateSubscription = RNIap.purchaseUpdatedListener((purchase: any) => {
-      console.log('[IAP Service] ✅ Purchase updated event:', JSON.stringify(purchase, null, 2));
+      console.log('[IAP Service] 🎉 Purchase updated event received!');
+      console.log('[IAP Service] 🎉 Purchase data:', JSON.stringify(purchase, null, 2));
+      console.log('[IAP Service] 🎉 Pending resolve available:', !!this.pendingPurchaseResolve);
 
       if (this.pendingPurchaseResolve) {
+        console.log('[IAP Service] 🎉 Resolving purchase promise with data');
         this.pendingPurchaseResolve(purchase);
         this.pendingPurchaseResolve = null;
         this.pendingPurchaseReject = null;
+      } else {
+        console.warn('[IAP Service] ⚠️ Purchase event received but no pending resolve handler!');
       }
     });
 
     // Listen for purchase errors
     this.purchaseErrorSubscription = RNIap.purchaseErrorListener((error: any) => {
-      console.error('[IAP Service] ❌ Purchase error event:', JSON.stringify(error, null, 2));
+      console.error('[IAP Service] ❌ Purchase error event received!');
+      console.error('[IAP Service] ❌ Error data:', JSON.stringify(error, null, 2));
+      console.error('[IAP Service] ❌ Error code:', error?.code);
+      console.error('[IAP Service] ❌ Error message:', error?.message);
+      console.error('[IAP Service] ❌ Pending reject available:', !!this.pendingPurchaseReject);
 
       if (this.pendingPurchaseReject) {
+        console.error('[IAP Service] ❌ Rejecting purchase promise with error');
         this.pendingPurchaseReject(error);
         this.pendingPurchaseResolve = null;
         this.pendingPurchaseReject = null;
+      } else {
+        console.warn('[IAP Service] ⚠️ Error event received but no pending reject handler!');
       }
     });
 
@@ -220,18 +240,40 @@ class IAPService {
       console.log('[IAP Service] 📊 Results type:', typeof results);
       console.log('[IAP Service] 📊 Is array?:', Array.isArray(results));
 
-      // If empty, log diagnostic info
+      // If empty, log diagnostic info and show alert
       if (results.length === 0) {
-        console.log('[IAP Service] ⚠️ DIAGNOSTIC: Google Play returned 0 products');
-        console.log('[IAP Service] ⚠️ Product IDs requested:', productIdArray);
-        console.log('[IAP Service] ⚠️ This usually means:');
-        console.log('[IAP Service] ⚠️   1. Products not created in Google Play Console');
-        console.log('[IAP Service] ⚠️   2. Product IDs do not match exactly');
-        console.log('[IAP Service] ⚠️   3. App not published to Internal Testing track');
-        console.log('[IAP Service] ⚠️   4. Test account not added as Internal Tester');
-        console.log('[IAP Service] ⚠️   5. Base plans not activated');
-        console.log('[IAP Service] ⚠️   6. Package name mismatch');
-        console.log('[IAP Service] ⚠️ App package name:', 'com.resultmarketing.whatscard');
+        const storeName = Platform.OS === 'ios' ? 'App Store' : 'Google Play';
+        console.error('[IAP Service] ⚠️ DIAGNOSTIC:', storeName, 'returned 0 products');
+        console.error('[IAP Service] ⚠️ Product IDs requested:', productIdArray);
+        console.error('[IAP Service] ⚠️ Platform:', Platform.OS);
+        console.error('[IAP Service] ⚠️ This usually means:');
+
+        // Show visible alert for debugging
+        setTimeout(() => {
+          Alert.alert(
+            '⚠️ IAP Debug: 0 Products',
+            `${storeName} returned 0 products!\n\nRequested IDs:\n${productIdArray.join('\n')}\n\nPlatform: ${Platform.OS}\n\nThis means the subscriptions aren't available from Apple yet.`,
+            [{ text: 'OK' }]
+          );
+        }, 1000);
+
+        if (Platform.OS === 'ios') {
+          console.error('[IAP Service] ⚠️   1. Subscriptions not created in App Store Connect');
+          console.error('[IAP Service] ⚠️   2. Product IDs do not match exactly (check for hyphens vs underscores)');
+          console.error('[IAP Service] ⚠️   3. Subscriptions not submitted for review');
+          console.error('[IAP Service] ⚠️   4. App not published to TestFlight');
+          console.error('[IAP Service] ⚠️   5. Sandbox test account issues');
+          console.error('[IAP Service] ⚠️   6. Bundle ID mismatch');
+          console.error('[IAP Service] ⚠️ App bundle ID:', 'com.alittlebetter.alittlebetter');
+        } else {
+          console.error('[IAP Service] ⚠️   1. Products not created in Google Play Console');
+          console.error('[IAP Service] ⚠️   2. Product IDs do not match exactly');
+          console.error('[IAP Service] ⚠️   3. App not published to Internal Testing track');
+          console.error('[IAP Service] ⚠️   4. Test account not added as Internal Tester');
+          console.error('[IAP Service] ⚠️   5. Base plans not activated');
+          console.error('[IAP Service] ⚠️   6. Package name mismatch');
+          console.error('[IAP Service] ⚠️ App package name:', 'com.resultmarketing.whatscard');
+        }
       }
 
       if (!results || results.length === 0) {
@@ -241,9 +283,10 @@ class IAPService {
           console.warn('[IAP Service] ⚠️ [DEV ONLY] No products found, falling back to mock');
           return this.fetchMockProducts();
         } else {
-          console.error('[IAP Service] ❌ [PRODUCTION] Google Play returned 0 products - BLOCKING PURCHASE');
-          console.error('[IAP Service] ❌ Cannot proceed without valid product data from Play Store');
-          throw new Error('No products available from Google Play Store. Cannot purchase.');
+          const storeName = Platform.OS === 'ios' ? 'App Store' : 'Google Play';
+          console.error(`[IAP Service] ❌ [PRODUCTION] ${storeName} returned 0 products - BLOCKING PURCHASE`);
+          console.error(`[IAP Service] ❌ Cannot proceed without valid product data from ${storeName}`);
+          throw new Error(`No subscription products available from ${storeName}. Please ensure subscriptions are properly configured in ${storeName} Connect.`);
         }
       }
 
@@ -354,9 +397,12 @@ class IAPService {
       // Verify the product was fetched successfully
       const fetchedProduct = this.products.find((p) => p.productId === productId);
       if (!fetchedProduct && !__DEV__) {
+        const storeName = Platform.OS === 'ios' ? 'App Store' : 'Play Store';
         console.error('[IAP Service] ❌ Product not found in fetched products:', productId);
         console.error('[IAP Service] ❌ Available products:', this.products.map(p => p.productId));
-        throw new Error(`Product ${productId} not available from Play Store`);
+        console.error('[IAP Service] ❌ Total products fetched:', this.products.length);
+        console.error('[IAP Service] ❌ Platform:', Platform.OS);
+        throw new Error(`Product "${productId}" not available from ${storeName}. Please check that the subscription is configured in ${storeName} Connect with this exact Product ID.`);
       }
 
       console.log('[IAP Service] 🛒 Purchasing product ID:', productId);
@@ -507,12 +553,26 @@ class IAPService {
       // CRITICAL FIX: requestPurchase() is EVENT-BASED, not promise-based
       // We must use a Promise wrapper to wait for the purchase event
       console.log('[IAP Service] 🛒 Starting purchase flow...');
+      console.log('[IAP Service] 🛒 Purchase listeners active:', {
+        updateListener: !!this.purchaseUpdateSubscription,
+        errorListener: !!this.purchaseErrorSubscription,
+        pendingResolve: !!this.pendingPurchaseResolve,
+        pendingReject: !!this.pendingPurchaseReject,
+      });
 
       const purchase = await new Promise<any>((resolve, reject) => {
+        console.log('[IAP Service] 🛒 Creating purchase promise wrapper...');
+
         // Set a timeout in case no event fires
         const timeout = setTimeout(() => {
+          console.error('[IAP Service] ⏱️ Purchase timeout - 60 seconds elapsed with no response');
+          console.error('[IAP Service] ⏱️ This usually means:');
+          console.error('[IAP Service] ⏱️ 1. Apple/Google payment sheet was dismissed without action');
+          console.error('[IAP Service] ⏱️ 2. Network connectivity issue');
+          console.error('[IAP Service] ⏱️ 3. IAP service not responding');
+
           if (this.pendingPurchaseReject) {
-            const error = new Error('Purchase timeout - no response from Google Play');
+            const error = new Error('Purchase timeout after 60 seconds - No response from App Store. Please check your internet connection and try again.');
             this.pendingPurchaseReject(error);
           }
         }, 60000); // 60 second timeout
@@ -549,7 +609,14 @@ class IAPService {
 
           console.log('[IAP Service] 📦 iOS Purchase request:', JSON.stringify(iosRequest, null, 2));
 
-          RNIap.requestPurchase(iosRequest);
+          try {
+            console.log('[IAP Service] 🍎 Calling RNIap.requestPurchase()...');
+            RNIap.requestPurchase(iosRequest);
+            console.log('[IAP Service] 🍎 RNIap.requestPurchase() called (void return - waiting for events)');
+          } catch (requestError) {
+            console.error('[IAP Service] ❌ Error calling requestPurchase:', requestError);
+            reject(requestError);
+          }
         } else {
           console.log('[IAP Service] 🤖 Android: Calling requestPurchase with subscription offers...');
 
@@ -613,6 +680,12 @@ class IAPService {
       };
     } catch (error: any) {
       console.error('[IAP Service] ❌ Purchase error:', error);
+      console.error('[IAP Service] ❌ Error type:', typeof error);
+      console.error('[IAP Service] ❌ Error code:', error?.code);
+      console.error('[IAP Service] ❌ Error message:', error?.message);
+      console.error('[IAP Service] ❌ Error stack:', error?.stack);
+      console.error('[IAP Service] ❌ Error keys:', Object.keys(error || {}));
+      console.error('[IAP Service] ❌ Error stringified:', JSON.stringify(error, Object.getOwnPropertyNames(error), 2));
 
       // Check if user canceled
       if (error.code === 'E_USER_CANCELLED' || error.code === 'E_USER_CANCELED') {
@@ -622,17 +695,26 @@ class IAPService {
         };
       }
 
+      // Return detailed error message with all available information
+      const errorDetails = [
+        error.message,
+        error.code ? `Code: ${error.code}` : null,
+        error.localizedDescription ? `Description: ${error.localizedDescription}` : null,
+        error.debugMessage ? `Debug: ${error.debugMessage}` : null,
+      ].filter(Boolean).join(' | ');
+
       return {
         success: false,
-        error: error.message || 'Purchase failed',
+        error: errorDetails || 'Purchase failed - unknown error',
       };
     }
   }
 
   /**
    * FIX #2 & #4: Validate receipt with server and create subscription from REAL data
+   * PUBLIC for use in iOS hook
    */
-  private async validateReceiptAndCreateSubscription(
+  async validateReceiptAndCreateSubscription(
     purchase: any,
     plan: SubscriptionPlan,
     promoCode?: string
@@ -1010,7 +1092,7 @@ class IAPService {
     };
   }
 
-  private async saveSubscription(subscription: SubscriptionInfo): Promise<void> {
+  async saveSubscription(subscription: SubscriptionInfo): Promise<void> {
     await AsyncStorage.setItem(SUBSCRIPTION_STORAGE_KEY, JSON.stringify(subscription));
     console.log('[IAP Service] 💾 Subscription saved to storage');
   }

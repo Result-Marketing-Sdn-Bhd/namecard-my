@@ -4,7 +4,8 @@ import { SupabaseService } from './supabase';
 import { AuthManager } from './authManager';
 import { validateContact } from '../utils/validation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
+import { Paths } from 'expo-file-system';
 
 /**
  * Unified contact service that prioritizes local storage
@@ -307,7 +308,7 @@ export class ContactService {
       case 'create':
         // Upload front image to Supabase if it's local
         let remoteImageUrl = item.data.imageUrl;
-        if (remoteImageUrl && remoteImageUrl.includes(FileSystem.documentDirectory)) {
+        if (remoteImageUrl && remoteImageUrl.includes(Paths.document.uri)) {
           try {
             remoteImageUrl = await SupabaseService.uploadCardImage(
               remoteImageUrl,
@@ -320,7 +321,7 @@ export class ContactService {
 
         // Upload back image to Supabase if it's local
         let remoteBackImageUrl = item.data.backImageUrl;
-        if (remoteBackImageUrl && remoteBackImageUrl.includes(FileSystem.documentDirectory)) {
+        if (remoteBackImageUrl && remoteBackImageUrl.includes(Paths.document.uri)) {
           try {
             remoteBackImageUrl = await SupabaseService.uploadCardImage(
               remoteBackImageUrl,
@@ -350,7 +351,7 @@ export class ContactService {
 
           // Upload front image if local
           let updateImageUrl = item.data.imageUrl;
-          if (updateImageUrl && updateImageUrl.includes(FileSystem.documentDirectory)) {
+          if (updateImageUrl && updateImageUrl.includes(Paths.document.uri)) {
             try {
               updateImageUrl = await SupabaseService.uploadCardImage(
                 updateImageUrl,
@@ -363,7 +364,7 @@ export class ContactService {
 
           // Upload back image if local
           let updateBackImageUrl = item.data.backImageUrl;
-          if (updateBackImageUrl && updateBackImageUrl.includes(FileSystem.documentDirectory)) {
+          if (updateBackImageUrl && updateBackImageUrl.includes(Paths.document.uri)) {
             try {
               updateBackImageUrl = await SupabaseService.uploadCardImage(
                 updateBackImageUrl,

@@ -1,0 +1,25 @@
+# Android build artifacts
+android/.gradle/
+android/build/
+android/app/build/
+
+# iOS build artifacts
+ios/build/
+ios/Pods/
+
+# Node modules (already excluded by default but being explicit)
+node_modules/
+
+# Cache and temp files
+.expo/
+.expo-shared/
+dist/
+
+# Test coverage
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
