@@ -109,7 +109,8 @@
       "Bash(npm view:*)",
       "Bash(\"C:\\Users\\Siow\\Desktop\\namecard-my\\versioncode27_logs.txt\")",
       "Bash(\"C:\\Users\\Siow\\Desktop\\namecard-my\\versioncode27_fresh_logs.txt\")",
-      "Bash(\"C:\\Users\\Siow\\Desktop\\versioncode27_complete_logs_for_chatgpt.txt\")"
+      "Bash(\"C:\\Users\\Siow\\Desktop\\versioncode27_complete_logs_for_chatgpt.txt\")",
+      "Bash(/c/Users/Siow/AppData/Local/Android/Sdk/platform-tools/adb.exe logcat -d -t 500)"
     ]
   },
   "enableAllProjectMcpServers": true,
