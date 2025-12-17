@@ -99,7 +99,7 @@
       "expo-document-picker",
       "expo-font"
     ],
-    "description": "WhatsCard - Smart Business Card Scanner. Scan, save, and connect with anyone on WhatsApp instantly. Transform paper cards into digital connections with AI-powered OCR technology.",
+    "description": "WhatsCard - Smart Business Card Scanner. Scan, save, and connect with anyone on WhatsApp instantly. Transform paper cards into digital connections with AI-powered OCR technology.\n\nTerms of Use (EULA): https://whatscard.netlify.app/terms-of-service",
     "privacyPolicy": "https://whatscard.netlify.app/privacy-policy"
   }
 }
