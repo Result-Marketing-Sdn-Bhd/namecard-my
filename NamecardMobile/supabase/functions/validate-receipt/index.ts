@@ -218,22 +218,22 @@ async function validateAppleReceipt(
     // Traditional base64 receipt validation
     console.log('[validate-receipt] Using traditional receipt validation');
 
-    // Apple Receipt Validation Endpoint
-    // Use sandbox for testing, production for live app
-    const isDevelopment = Deno.env.get('DENO_DEPLOYMENT_ID') === undefined;
-    const appleUrl = isDevelopment
-      ? 'https://sandbox.itunes.apple.com/verifyReceipt'
-      : 'https://buy.itunes.apple.com/verifyReceipt';
-
     // Get shared secret from environment (from App Store Connect)
     const sharedSecret = Deno.env.get('APPLE_SHARED_SECRET');
     if (!sharedSecret) {
       console.warn('[validate-receipt] ⚠️ APPLE_SHARED_SECRET not set');
     }
 
-    console.log('[validate-receipt] Calling Apple API:', appleUrl);
+    // CRITICAL FIX: Apple's recommended approach for receipt validation
+    // ALWAYS validate against PRODUCTION first, then fallback to SANDBOX if needed
+    // This handles production apps testing in TestFlight/Sandbox correctly
+    // Reference: https://developer.apple.com/documentation/appstorereceipts/verifyreceipt
 
-    const response = await fetch(appleUrl, {
+    // Step 1: Try PRODUCTION endpoint first
+    console.log('[validate-receipt] Step 1: Validating with PRODUCTION endpoint...');
+    const productionUrl = 'https://buy.itunes.apple.com/verifyReceipt';
+
+    let result = await fetch(productionUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -243,19 +243,33 @@ async function validateAppleReceipt(
         'password': sharedSecret || '',
         'exclude-old-transactions': true,
       }),
-    });
+    }).then(res => res.json());
 
-    const result = await response.json();
-
-    console.log('[validate-receipt] Apple response status:', result.status);
+    console.log('[validate-receipt] Production response status:', result.status);
 
     // Status codes: https://developer.apple.com/documentation/appstorereceipts/status
+    // 21007 = "This receipt is from the test environment, but it was sent to the production environment for verification"
     if (result.status === 21007) {
-      // Receipt is from sandbox, retry with sandbox endpoint
-      console.log('[validate-receipt] Retrying with sandbox endpoint...');
-      return await validateAppleReceipt(receipt, productId);
+      // Receipt is from sandbox/TestFlight, retry with sandbox endpoint
+      console.log('[validate-receipt] Step 2: Sandbox receipt detected (status 21007), retrying with SANDBOX endpoint...');
+
+      const sandboxUrl = 'https://sandbox.itunes.apple.com/verifyReceipt';
+      result = await fetch(sandboxUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          'receipt-data': receipt,
+          'password': sharedSecret || '',
+          'exclude-old-transactions': true,
+        }),
+      }).then(res => res.json());
+
+      console.log('[validate-receipt] Sandbox response status:', result.status);
     }
 
+    // Check final validation status
     if (result.status !== 0) {
       return {
         success: false,
