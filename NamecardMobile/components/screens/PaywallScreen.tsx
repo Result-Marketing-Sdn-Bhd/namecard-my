@@ -142,16 +142,13 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
           ]
         );
       } else {
-        // Show detailed error from the subscription hook
-        const errorMessage = subscriptionError || 'Unknown error - no details available';
+        // Log detailed error for debugging (developers only)
+        console.error('[PaywallScreen] ❌ Purchase failed with error:', subscriptionError);
 
-        // Log for debugging
-        console.error('[PaywallScreen] ❌ Purchase failed with error:', errorMessage);
-        console.error('[PaywallScreen] ❌ Subscription error state:', subscriptionError);
-
+        // Show simple, user-friendly error message
         Alert.alert(
-          '❌ Purchase Failed',
-          `Error Details:\n\n${errorMessage}\n\n⚠️ Since console logs aren't accessible on iOS, please take a screenshot of this message.\n\nIf this persists, contact support with this screenshot.`,
+          'Purchase Failed',
+          'Unable to complete your purchase. Please try again or contact support if the issue persists.',
           [
             {
               text: 'Retry',
@@ -165,31 +162,21 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
         );
       }
     } catch (error: any) {
+      // Log detailed error for debugging (developers only)
       console.error('[PaywallScreen] ❌ Purchase error:', error);
       console.error('[PaywallScreen] ❌ Error details:', JSON.stringify(error, null, 2));
 
-      // Show detailed error in Alert since console isn't accessible on iOS
-      const errorDetails = [
-        `Message: ${error?.message || 'Unknown error'}`,
-        `Code: ${error?.code || 'N/A'}`,
-        error?.localizedDescription ? `Description: ${error.localizedDescription}` : null,
-        error?.userInfo ? `UserInfo: ${JSON.stringify(error.userInfo)}` : null,
-        error?.debugMessage ? `Debug: ${error.debugMessage}` : null,
-      ].filter(Boolean).join('\n\n');
-
+      // Show simple, user-friendly error message
       Alert.alert(
-        '❌ Purchase Error',
-        errorDetails,
+        'Purchase Error',
+        'An unexpected error occurred. Please try again or contact support if the issue persists.',
         [
           {
-            text: 'Copy Error',
-            onPress: () => {
-              // Copy error to clipboard would require expo-clipboard
-              console.log('[PaywallScreen] Full error for debugging:', JSON.stringify(error, Object.getOwnPropertyNames(error), 2));
-            }
+            text: 'Retry',
+            onPress: () => handlePurchase(),
           },
           {
-            text: 'OK',
+            text: 'Cancel',
             style: 'cancel'
           }
         ]
