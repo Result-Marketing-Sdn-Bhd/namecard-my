@@ -761,6 +761,18 @@ class IAPService {
 
       console.log('[IAP Service] 🔐 Receipt data length:', receiptData?.length);
 
+      // CRITICAL: Validate userId is available
+      if (!this.currentUserId) {
+        console.error('[IAP Service] ❌ No userId set! User must be logged in for receipt validation.');
+        console.error('[IAP Service] ❌ Call iapService.setUserId() after authentication.');
+        throw new Error('User must be logged in to validate receipts. Please sign in and try again.');
+      }
+
+      console.log('[IAP Service] 🔐 User ID:', this.currentUserId.substring(0, 8) + '...');
+      console.log('[IAP Service] 🔐 Product ID:', purchase.productId);
+      console.log('[IAP Service] 🔐 Platform:', Platform.OS);
+      console.log('[IAP Service] 🔐 Transaction ID:', purchase.transactionId);
+
       // Call Supabase Edge Function for validation
       console.log('[IAP Service] 🔐 Calling Edge Function...');
       const response = await fetch(RECEIPT_VALIDATION_URL, {
