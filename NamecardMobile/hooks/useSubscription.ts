@@ -73,6 +73,11 @@ export const useSubscription = (): UseSubscriptionReturn => {
 
         console.log('[useSubscription] ✅ Initialized');
         console.log('[useSubscription] 📊 Subscription:', currentSubscription?.status || 'none');
+
+        // CRITICAL FIX: Fetch products AFTER initialization completes
+        // This ensures StoreKit connection is ready before fetching
+        console.log('[useSubscription] 📦 Now fetching products after initialization...');
+        await fetchProducts();
       } catch (err: any) {
         console.error('[useSubscription] ❌ Initialization error:', err);
         setError(err.message || 'Failed to initialize subscription service');
@@ -87,7 +92,7 @@ export const useSubscription = (): UseSubscriptionReturn => {
     return () => {
       iapService.disconnect();
     };
-  }, []);
+  }, []); // fetchProducts is stable, so we don't include it in deps
 
   /**
    * Fetch available products
@@ -110,12 +115,8 @@ export const useSubscription = (): UseSubscriptionReturn => {
     }
   }, []);
 
-  /**
-   * Load products on mount (only once)
-   */
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+  // REMOVED: useEffect that was calling fetchProducts() too early
+  // fetchProducts() is now called AFTER initialize() completes (line 80)
 
   /**
    * Purchase a subscription
