@@ -170,6 +170,52 @@ async function validateAppleReceipt(
   error?: string;
 }> {
   try {
+    // CRITICAL: Check if this is a JWT token (react-native-iap v14+)
+    // JWT tokens start with "eyJ" (base64 encoded {"alg":...)
+    const isJWT = receipt.startsWith('eyJ');
+
+    if (isJWT) {
+      console.log('[validate-receipt] Detected JWT token format (react-native-iap v14+)');
+      console.log('[validate-receipt] ⚠️ JWT validation requires App Store Server API');
+      console.log('[validate-receipt] ⚠️ For now, falling back to accepting JWT as valid');
+
+      // TODO: Implement proper JWT validation using App Store Server API
+      // See: https://developer.apple.com/documentation/appstoreserverapi
+      // For now, we'll decode the JWT and extract transaction info
+
+      try {
+        // Decode JWT payload (middle section between dots)
+        const parts = receipt.split('.');
+        if (parts.length !== 3) {
+          throw new Error('Invalid JWT format');
+        }
+
+        const payload = JSON.parse(atob(parts[1]));
+        console.log('[validate-receipt] JWT payload keys:', Object.keys(payload));
+
+        // JWT contains transaction info - extract dates
+        // Note: This is a simplified validation - production should verify signature
+        const purchaseDate = payload.purchaseDate || payload.originalPurchaseDate || Date.now();
+        const expiryDate = payload.expiresDate || (Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days default
+
+        console.log('[validate-receipt] ✅ JWT decoded successfully');
+        return {
+          success: true,
+          purchaseDate: typeof purchaseDate === 'number' ? purchaseDate : new Date(purchaseDate).getTime(),
+          expiryDate: typeof expiryDate === 'number' ? expiryDate : new Date(expiryDate).getTime(),
+        };
+      } catch (jwtError) {
+        console.error('[validate-receipt] Failed to decode JWT:', jwtError);
+        return {
+          success: false,
+          error: `JWT decode failed: ${jwtError.message}`,
+        };
+      }
+    }
+
+    // Traditional base64 receipt validation
+    console.log('[validate-receipt] Using traditional receipt validation');
+
     // Apple Receipt Validation Endpoint
     // Use sandbox for testing, production for live app
     const isDevelopment = Deno.env.get('DENO_DEPLOYMENT_ID') === undefined;

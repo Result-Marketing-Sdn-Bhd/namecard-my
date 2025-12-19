@@ -729,7 +729,26 @@ class IAPService {
       // Get receipt data based on platform
       let receiptData;
       if (Platform.OS === 'ios') {
-        receiptData = await RNIap.getReceiptDataIOS();
+        // CRITICAL FIX: Use getTransactionJwsIOS() instead of deprecated getReceiptDataIOS()
+        // react-native-iap v14+ recommends JWT-based validation for individual transactions
+        // See: https://react-native-iap.hyo.dev/docs/guides/receipt-validation
+        console.log('[IAP Service] 🔐 Platform: ios');
+
+        try {
+          // Get the transaction-specific JWT for this purchase
+          const productId = purchase.productId;
+          console.log('[IAP Service] 🔐 Getting transaction JWT for product:', productId);
+
+          const transactionJWT = await RNIap.getTransactionJwsIOS(productId);
+          console.log('[IAP Service] 🔐 Transaction JWT obtained, length:', transactionJWT?.length);
+
+          receiptData = transactionJWT;
+        } catch (jwtError) {
+          console.error('[IAP Service] ❌ Failed to get transaction JWT:', jwtError);
+          // Fallback: try to get the full app receipt (contains ALL transactions)
+          console.warn('[IAP Service] ⚠️ Falling back to full app receipt...');
+          receiptData = await RNIap.getReceiptDataIOS();
+        }
       } else {
         // Android uses the purchase token
         receiptData = purchase.transactionReceipt || purchase.purchaseToken;

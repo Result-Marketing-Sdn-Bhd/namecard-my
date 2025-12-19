@@ -112,7 +112,10 @@
       "Bash(\"C:\\Users\\Siow\\Desktop\\versioncode27_complete_logs_for_chatgpt.txt\")",
       "Bash(/c/Users/Siow/AppData/Local/Android/Sdk/platform-tools/adb.exe logcat -d -t 500)",
       "Bash(npx eas-cli:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(npx supabase functions list)",
+      "Bash(npx supabase link:*)",
+      "mcp__supabase__apply_migration"
     ]
   },
   "enableAllProjectMcpServers": true,
