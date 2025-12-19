@@ -596,15 +596,10 @@ class IAPService {
         if (Platform.OS === 'ios') {
           console.log('[IAP Service] 🍎 iOS: Calling requestPurchase...');
 
-          // iOS uses simpler format (no offer tokens required)
+          // CRITICAL FIX: iOS uses "sku" (singular string), not "skus" (array)
           // https://github.com/dooboolab-community/react-native-iap
           const iosRequest = {
-            request: {
-              ios: {
-                skus: [productId],  // iOS also uses array format
-              },
-            },
-            type: 'subs',
+            sku: productId,  // iOS requires singular "sku" as string, not array
           };
 
           console.log('[IAP Service] 📦 iOS Purchase request:', JSON.stringify(iosRequest, null, 2));
