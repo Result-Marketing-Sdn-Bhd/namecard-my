@@ -696,17 +696,10 @@ class IAPService {
         };
       }
 
-      // Return detailed error message with all available information
-      const errorDetails = [
-        error.message,
-        error.code ? `Code: ${error.code}` : null,
-        error.localizedDescription ? `Description: ${error.localizedDescription}` : null,
-        error.debugMessage ? `Debug: ${error.debugMessage}` : null,
-      ].filter(Boolean).join(' | ');
-
+      // Return user-friendly error message
       return {
         success: false,
-        error: errorDetails || 'Purchase failed - unknown error',
+        error: 'Purchase failed. Please try again or contact support.',
       };
     }
   }

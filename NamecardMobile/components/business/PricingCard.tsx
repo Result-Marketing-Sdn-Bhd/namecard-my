@@ -27,6 +27,7 @@ interface PricingCardProps {
   onSelect: () => void;
   badge?: string | null;
   disabled?: boolean;
+  isCurrent?: boolean; // Whether this is the user's current active plan
   style?: ViewStyle;
 }
 
@@ -41,10 +42,11 @@ export const PricingCard: React.FC<PricingCardProps> = ({
   onSelect,
   badge,
   disabled = false,
+  isCurrent = false,
   style,
 }) => {
   const hasPromo = originalPrice && originalPrice > price;
-  const badgeText = badge || getBestValueBadge(plan);
+  const badgeText = isCurrent ? 'CURRENT PLAN' : (badge || getBestValueBadge(plan));
 
   return (
     <TouchableOpacity
@@ -52,15 +54,17 @@ export const PricingCard: React.FC<PricingCardProps> = ({
         styles.card,
         isSelected && styles.cardSelected,
         disabled && styles.cardDisabled,
+        isCurrent && styles.cardCurrent,
         style,
       ]}
       onPress={onSelect}
       disabled={disabled}
       activeOpacity={0.7}
     >
-      {/* Badge (e.g., "BEST VALUE") */}
+      {/* Badge (e.g., "BEST VALUE" or "CURRENT PLAN") */}
       {badgeText && (
-        <View style={styles.badge}>
+        <View style={[styles.badge, isCurrent && styles.badgeCurrent]}>
+          <Ionicons name={isCurrent ? "checkmark-circle" : "star"} size={14} color="#FFFFFF" style={styles.badgeIcon} />
           <Text style={styles.badgeText}>{badgeText}</Text>
         </View>
       )}
@@ -161,6 +165,11 @@ const styles = StyleSheet.create({
   cardDisabled: {
     opacity: 0.5,
   },
+  cardCurrent: {
+    borderColor: '#10B981',
+    backgroundColor: '#ECFDF5',
+    opacity: 0.7,
+  },
   badge: {
     position: 'absolute',
     top: -10,
@@ -170,6 +179,15 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 12,
     zIndex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  badgeCurrent: {
+    backgroundColor: '#10B981',
+  },
+  badgeIcon: {
+    marginRight: 4,
   },
   badgeText: {
     color: '#FFFFFF',

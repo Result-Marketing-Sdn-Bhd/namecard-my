@@ -51,6 +51,8 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
     isPurchasing,
     isRestoring,
     error: subscriptionError,
+    subscription,
+    isActive,
   } = useSubscriptionPlatform();
 
   const [selectedPlan, setSelectedPlan] = useState<SubscriptionPlan>('yearly');
@@ -267,6 +269,20 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
+          {/* Active Subscription Banner */}
+          {isActive && subscription && (
+            <View style={styles.activeSubscriptionBanner}>
+              <Ionicons name="checkmark-circle" size={24} color="#10B981" />
+              <View style={styles.activeBannerText}>
+                <Text style={styles.activeBannerTitle}>Active Subscription</Text>
+                <Text style={styles.activeBannerSubtitle}>
+                  {subscription.plan === 'monthly' ? 'Monthly Premium' : 'Yearly Premium'} •
+                  Expires {new Date(subscription.expiryDate).toLocaleDateString()}
+                </Text>
+              </View>
+            </View>
+          )}
+
           {/* Value Proposition */}
           <View style={styles.heroSection}>
             <Text style={styles.heroTitle}>Unlock Premium Features</Text>
@@ -307,7 +323,8 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
                   description="Best value - Save 20%"
                   isSelected={selectedPlan === 'yearly'}
                   onSelect={() => handlePlanChange('yearly')}
-                  disabled={isPurchasing || isRestoring}
+                  disabled={isPurchasing || isRestoring || (isActive && subscription?.plan === 'yearly')}
+                  isCurrent={isActive && subscription?.plan === 'yearly'}
                 />
 
                 <PricingCard
@@ -317,7 +334,8 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
                   description="Perfect for trying out"
                   isSelected={selectedPlan === 'monthly'}
                   onSelect={() => handlePlanChange('monthly')}
-                  disabled={isPurchasing || isRestoring}
+                  disabled={isPurchasing || isRestoring || (isActive && subscription?.plan === 'monthly')}
+                  isCurrent={isActive && subscription?.plan === 'monthly'}
                 />
               </>
             )}
@@ -489,6 +507,30 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 20,
     paddingBottom: 40,
+  },
+  activeSubscriptionBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#ECFDF5',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#10B981',
+  },
+  activeBannerText: {
+    marginLeft: 12,
+    flex: 1,
+  },
+  activeBannerTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#065F46',
+    marginBottom: 2,
+  },
+  activeBannerSubtitle: {
+    fontSize: 13,
+    color: '#047857',
   },
   heroSection: {
     alignItems: 'center',
