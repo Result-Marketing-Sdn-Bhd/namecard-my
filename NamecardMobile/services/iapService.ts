@@ -1166,6 +1166,12 @@ class IAPService {
     }
 
     try {
+      // CRITICAL FIX: Ensure IAP is initialized before calling deepLinkToSubscriptions
+      if (!this.isInitialized) {
+        console.log('[IAP Service] 🔄 IAP not initialized, initializing now...');
+        await this.initialize();
+      }
+
       if (Platform.OS === 'ios') {
         // iOS: Opens Settings → Apple ID → Subscriptions
         await RNIap.deepLinkToSubscriptions();
