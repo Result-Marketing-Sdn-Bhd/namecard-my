@@ -1,6 +1,7 @@
 import * as SecureStore from 'expo-secure-store';
 import { SupabaseService } from './supabase';
 import { getSupabaseClient } from './supabaseClient';
+import { iapService } from './iapService';
 
 /**
  * SECURITY FIX: Replaced AsyncStorage with SecureStore for JWT tokens
@@ -50,6 +51,8 @@ export class AuthManager {
 
           if (!error && data.session) {
             await this.storeSession(data.session);
+            // CRITICAL: Set userId in IAP service for receipt validation
+            iapService.setUserId(data.user?.id ?? null);
             return { user: data.user, error: null };
           }
         }
@@ -68,6 +71,8 @@ export class AuthManager {
           const { data, error } = await client.auth.refreshSession();
           if (!error && data.session) {
             await this.storeSession(data.session);
+            // CRITICAL: Set userId in IAP service for receipt validation
+            iapService.setUserId(data.user?.id ?? null);
             console.log('✅ Session refreshed successfully');
             return { user: data.user, error: null };
           } else {
@@ -89,6 +94,8 @@ export class AuthManager {
 
       // Session is valid
       await this.storeSession(session);
+      // CRITICAL: Set userId in IAP service for receipt validation
+      iapService.setUserId(session.user?.id ?? null);
       return { user: session.user, error: null };
 
     } catch (error) {
@@ -317,6 +324,8 @@ export class AuthManager {
       if (event === 'SIGNED_IN') {
         if (session) {
           await this.storeSession(session);
+          // CRITICAL: Set userId in IAP service for receipt validation
+          iapService.setUserId(session.user?.id ?? null);
           onAuthChange(session.user);
           console.log('✅ User signed in');
         }
@@ -330,6 +339,8 @@ export class AuthManager {
       } else if (event === 'SIGNED_OUT') {
         // User explicitly signed out
         await this.clearSession();
+        // CRITICAL: Clear userId in IAP service
+        iapService.setUserId(null);
         onAuthChange(null);
         console.log('📤 User signed out');
       }
