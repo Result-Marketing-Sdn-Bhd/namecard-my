@@ -39,7 +39,7 @@ if (!IAP_CONFIG.MOCK_MODE) {
 const SUBSCRIPTION_STORAGE_KEY = '@whatscard_subscription';
 const MOCK_PURCHASE_HISTORY_KEY = '@whatscard_mock_purchases';
 
-// TODO: Replace with your actual Supabase Edge Function URL
+// Receipt validation endpoint - Supabase Edge Function
 const RECEIPT_VALIDATION_URL = process.env.EXPO_PUBLIC_SUPABASE_URL
   ? `${process.env.EXPO_PUBLIC_SUPABASE_URL}/functions/v1/validate-receipt`
   : '';
