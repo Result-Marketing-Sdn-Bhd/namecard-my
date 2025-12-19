@@ -88,9 +88,11 @@ serve(async (req) => {
     }
 
     // Save subscription to database
+    // CRITICAL: Use SERVICE_ROLE_KEY for admin access (bypasses RLS)
+    // Edge Functions need admin access to insert into subscriptions table
     const supabaseClient = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_ANON_KEY') ?? ''
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
 
     const { data, error } = await supabaseClient
