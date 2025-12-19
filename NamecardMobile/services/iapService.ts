@@ -594,20 +594,28 @@ class IAPService {
 
         // Trigger the purchase (NO await - returns void)
         if (Platform.OS === 'ios') {
-          console.log('[IAP Service] 🍎 iOS: Calling requestSubscription...');
+          console.log('[IAP Service] 🍎 iOS: Calling requestPurchase...');
 
-          // CRITICAL FIX: For iOS subscriptions, use requestSubscription() not requestPurchase()
-          // requestSubscription is specifically for subscriptions in react-native-iap v14
+          // CRITICAL FIX: Use same requestPurchase() API for both iOS and Android
+          // iOS format uses platform-specific wrapper just like Android
           // https://github.com/dooboolab-community/react-native-iap
-          console.log('[IAP Service] 📦 iOS Subscription request for:', productId);
+          const iosPurchaseRequest = {
+            request: {
+              ios: {
+                sku: productId,  // iOS uses singular "sku" (not "skus" array)
+              },
+            },
+            type: 'subs',  // Explicit subscription type
+          };
+
+          console.log('[IAP Service] 📦 iOS Purchase request:', JSON.stringify(iosPurchaseRequest, null, 2));
 
           try {
-            console.log('[IAP Service] 🍎 Calling RNIap.requestSubscription()...');
-            // requestSubscription takes the SKU directly as a string
-            RNIap.requestSubscription({ sku: productId });
-            console.log('[IAP Service] 🍎 RNIap.requestSubscription() called (void return - waiting for events)');
+            console.log('[IAP Service] 🍎 Calling RNIap.requestPurchase()...');
+            RNIap.requestPurchase(iosPurchaseRequest);
+            console.log('[IAP Service] 🍎 RNIap.requestPurchase() called (void return - waiting for events)');
           } catch (requestError) {
-            console.error('[IAP Service] ❌ Error calling requestSubscription:', requestError);
+            console.error('[IAP Service] ❌ Error calling requestPurchase:', requestError);
             reject(requestError);
           }
         } else {
