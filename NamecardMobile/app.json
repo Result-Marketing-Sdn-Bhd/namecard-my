@@ -90,9 +90,7 @@
         "expo-media-library",
         {
           "photosPermission": "Allow $(PRODUCT_NAME) to save scanned business cards.",
-          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save scanned business cards.",
-          "isAccessMediaLocationEnabled": false,
-          "androidPermissions": []
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save scanned business cards."
         }
       ],
       "expo-av",
