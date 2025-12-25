@@ -25,8 +25,7 @@ export default {
         "react-native-iap",
         {
           // Explicitly set to boolean true (not string)
-          // This prevents "expected dynamic type 'boolean', but had type 'string'" error
-          useStoreKit2IfAvailable: Boolean(true)
+          useStoreKit2IfAvailable: true
         }
       ]
     ],

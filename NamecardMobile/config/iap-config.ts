@@ -12,14 +12,18 @@
  * - Real product IDs come from App Store Connect and Google Play Console
  */
 
+import { Platform } from 'react-native';
+
 export const IAP_CONFIG = {
   /**
    * MOCK MODE TOGGLE
    *
-   * true  = Use mock data (perfect for Expo Go testing)
-   * false = Use real IAP (requires production build)
+   * true  = Use mock data (perfect for Expo Go testing and web)
+   * false = Use real IAP (requires production build on native platforms)
+   *
+   * IMPORTANT: Auto-enabled on web platform (IAP doesn't work on web)
    */
-  MOCK_MODE: false,
+  MOCK_MODE: Platform.OS === 'web' ? true : false,
 
   /**
    * MOCK PRODUCT IDs
