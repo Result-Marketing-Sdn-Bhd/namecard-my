@@ -49,7 +49,7 @@ export default {
       SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || "",
       OPENAI_API_KEY: process.env.OPENAI_API_KEY || "",
       APP_ENV: process.env.APP_ENV || "development",
-      DEBUG_MODE: process.env.DEBUG_MODE || "true"
+      DEBUG_MODE: process.env.DEBUG_MODE === "true" || process.env.DEBUG_MODE === true
     }
   }
 };

@@ -586,16 +586,23 @@ export default function App() {
 
   // Handle successful authentication
   const handleAuthSuccess = async (user: any) => {
-    setCurrentUser(user);
-    setIsAuthenticated(true);
+    try {
+      setCurrentUser(user);
+      setIsAuthenticated(true);
 
-    // Initialize app after authentication
-    await SupabaseService.initializeStorage();
-    await loadContacts();
+      // Initialize app after authentication
+      await SupabaseService.initializeStorage();
+      await loadContacts();
 
-    // Check subscription status and potentially show paywall
-    if (user?.id) {
-      await checkSubscriptionStatus(user.id);
+      // Check subscription status and potentially show paywall
+      if (user?.id) {
+        await checkSubscriptionStatus(user.id);
+      }
+    } catch (error) {
+      console.error('⚠️ Error in handleAuthSuccess:', error);
+    } finally {
+      // Ensure loading is set to false after auth completes
+      setIsLoading(false);
     }
   };
 

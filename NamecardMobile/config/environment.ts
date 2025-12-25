@@ -41,7 +41,7 @@ const getEnvVars = (): Config => {
   // Base configuration
   const baseConfig: Config = {
     APP_ENV: environment,
-    DEBUG_MODE: extra.DEBUG_MODE === 'true' || environment === 'development',
+    DEBUG_MODE: extra.DEBUG_MODE === true || extra.DEBUG_MODE === 'true' || environment === 'development',
 
     // API Configuration
     API_BASE_URL: extra.API_BASE_URL || '',
@@ -54,8 +54,8 @@ const getEnvVars = (): Config => {
     OPENAI_API_KEY: extra.OPENAI_API_KEY || '',
 
     // Analytics
-    ANALYTICS_ENABLED: extra.ANALYTICS_ENABLED === 'true',
-    ERROR_REPORTING_ENABLED: extra.ERROR_REPORTING_ENABLED === 'true',
+    ANALYTICS_ENABLED: extra.ANALYTICS_ENABLED === true || extra.ANALYTICS_ENABLED === 'true',
+    ERROR_REPORTING_ENABLED: extra.ERROR_REPORTING_ENABLED === true || extra.ERROR_REPORTING_ENABLED === 'true',
     SENTRY_DSN: extra.SENTRY_DSN,
     MIXPANEL_TOKEN: extra.MIXPANEL_TOKEN,
 
