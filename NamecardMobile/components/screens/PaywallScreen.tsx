@@ -60,10 +60,14 @@ export const PaywallScreen: React.FC<PaywallScreenProps> = ({
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoError, setPromoError] = useState('');
 
-  // 🚫 Apple Guidelines: Promo codes disabled on iOS (Guideline 3.1.1)
-  // Apple requires all unlocking mechanisms to go through official IAP
-  // Android can still use promo codes
-  const isPromoCodeEnabled = Platform.OS === 'android';
+  // 🚫 Promo codes disabled for both iOS and Android
+  // iOS: Apple Guideline 3.1.1 requires all unlocking mechanisms to go through official IAP
+  // Android: Disabled to maintain consistent user experience across platforms
+  const isPromoCodeEnabled = false;
+
+  // Debug log to verify update applied (v2)
+  console.log('[PaywallScreen] 🔍 isPromoCodeEnabled:', isPromoCodeEnabled, 'Platform:', Platform.OS);
+  console.log('[PaywallScreen] 🔍 Promo code UI should be HIDDEN for all platforms');
 
   // Debug: Log products when they change
   React.useEffect(() => {

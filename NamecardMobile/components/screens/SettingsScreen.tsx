@@ -13,6 +13,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Updates from 'expo-updates';
 import { iapService } from '../../services/iapService';
+import { SupabaseService } from '../../services/supabase';
+import { LocalStorage } from '../../services/localStorage';
 
 interface SettingsScreenProps {
   onBack: () => void;
@@ -21,6 +23,7 @@ interface SettingsScreenProps {
 export function SettingsScreen({ onBack }: SettingsScreenProps) {
   const [isCheckingUpdates, setIsCheckingUpdates] = useState(false);
   const [isRestoringPurchases, setIsRestoringPurchases] = useState(false);
+  const [isSyncingCloud, setIsSyncingCloud] = useState(false);
   const [subscription, setSubscription] = useState<any>(null);
   const [isLoadingSubscription, setIsLoadingSubscription] = useState(true);
 
@@ -141,6 +144,52 @@ export function SettingsScreen({ onBack }: SettingsScreenProps) {
     }
   };
 
+  // Force sync contacts from cloud
+  const forceCloudSync = async () => {
+    try {
+      setIsSyncingCloud(true);
+      console.log('[Settings] 📥 Force syncing contacts from cloud...');
+
+      // Get contacts from cloud
+      const cloudContacts = await SupabaseService.getContacts();
+      console.log(`[Settings] 📥 Found ${cloudContacts.length} contacts in cloud`);
+
+      if (cloudContacts.length === 0) {
+        Alert.alert('No Contacts', 'No contacts found in cloud storage.');
+        return;
+      }
+
+      // Save each contact to local storage
+      for (const contact of cloudContacts) {
+        await LocalStorage.saveContact(contact);
+      }
+
+      Alert.alert(
+        '✅ Sync Complete',
+        `Successfully synced ${cloudContacts.length} contacts from cloud!\n\nPlease restart the app to see your contacts.`,
+        [
+          {
+            text: 'Restart Now',
+            onPress: async () => {
+              await Updates.reloadAsync();
+            },
+          },
+          { text: 'Later', style: 'cancel' },
+        ]
+      );
+
+      console.log('[Settings] ✅ Cloud sync complete');
+    } catch (error) {
+      console.error('[Settings] Cloud sync error:', error);
+      Alert.alert(
+        'Sync Failed',
+        'Failed to sync contacts from cloud. Please check your internet connection and try again.'
+      );
+    } finally {
+      setIsSyncingCloud(false);
+    }
+  };
+
   // Settings removed - using standard manual workflow only
 
   return (
@@ -173,6 +222,25 @@ export function SettingsScreen({ onBack }: SettingsScreenProps) {
           </TouchableOpacity>
           <Text style={styles.updateDescription}>
             Tap to manually check for the latest app updates
+          </Text>
+
+          {/* Cloud Sync Button */}
+          <TouchableOpacity
+            style={styles.syncButton}
+            onPress={forceCloudSync}
+            disabled={isSyncingCloud}
+          >
+            {isSyncingCloud ? (
+              <ActivityIndicator size="small" color="#FFFFFF" />
+            ) : (
+              <Ionicons name="cloud-upload-outline" size={24} color="#FFFFFF" />
+            )}
+            <Text style={styles.updateButtonText}>
+              {isSyncingCloud ? 'Syncing...' : 'Cloud Sync'}
+            </Text>
+          </TouchableOpacity>
+          <Text style={styles.updateDescription}>
+            Manually download all contacts from cloud storage
           </Text>
         </View>
 
@@ -377,6 +445,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 8,
     gap: 8,
+  },
+  syncButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#10B981',
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    gap: 8,
+    marginTop: 12,
   },
   updateButtonText: {
     fontSize: 16,

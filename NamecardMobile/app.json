@@ -3,7 +3,7 @@
     "name": "WhatsCard",
     "slug": "namecard-my",
     "owner": "jacobai",
-    "version": "2.0.9",
+    "version": "2.1.0",
     "sdkVersion": "54.0.0",
     "scheme": "whatscard",
     "orientation": "portrait",
@@ -37,12 +37,13 @@
       "usesAppleSignIn": false
     },
     "android": {
-      "versionCode": 34,
+      "versionCode": 35,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#4A7A5C"
       },
       "package": "com.resultmarketing.whatscard",
+      "enableEdgeToEdge": true,
       "permissions": [
         "CAMERA",
         "RECORD_AUDIO",

@@ -26,7 +26,13 @@
       "Bash(powershell -Command \"Get-Process -Name node -ErrorAction SilentlyContinue | Stop-Process -Force\")",
       "Bash(npm run start:clear:*)",
       "Bash(eas update:*)",
-      "Bash(eas build:list:*)"
+      "Bash(eas build:list:*)",
+      "Bash(adb devices:*)",
+      "Bash(adb logcat:*)",
+      "Bash(adb:*)",
+      "Bash(curl:*)",
+      "mcp__supabase__execute_sql",
+      "Bash(timeout /t 10 /nobreak)"
     ]
   },
   "enabledMcpjsonServers": [

@@ -139,6 +139,14 @@ export function ProfileScreen({ user, onLogout, onNavigate, isPremium = false }:
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Profile</Text>
+          {onNavigate && (
+            <TouchableOpacity
+              onPress={() => onNavigate('settings')}
+              style={styles.settingsButton}
+            >
+              <Ionicons name="settings-outline" size={24} color="#374151" />
+            </TouchableOpacity>
+          )}
         </View>
 
         {/* Profile Section */}
@@ -280,6 +288,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9FAFB',
   },
   header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 16,
     backgroundColor: '#FFFFFF',
@@ -290,6 +301,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     color: '#374151',
+  },
+  settingsButton: {
+    padding: 4,
   },
   section: {
     marginTop: 16,

@@ -336,7 +336,7 @@ export class SupabaseService {
         day: 'numeric',
       }),
       lastContact: dbContact.last_contact
-        ? this.formatRelativeTime(new Date(dbContact.last_contact))
+        ? SupabaseService.formatRelativeTime(new Date(dbContact.last_contact))
         : undefined,
     };
   }

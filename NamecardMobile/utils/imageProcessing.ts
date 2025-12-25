@@ -17,58 +17,42 @@ export async function autoCropBusinessCard(imageUri: string): Promise<CropResult
   try {
     console.log('🔄 Starting auto-crop process...');
 
-    // First, normalize image orientation based on EXIF data
-    // This ensures the image is always displayed correctly regardless of device orientation
-    const normalizedImage = await ImageManipulator.manipulateAsync(
+    // Get the full captured image
+    const capturedImage = await ImageManipulator.manipulateAsync(
       imageUri,
-      [
-        // Apply EXIF orientation normalization
-        // This automatically rotates the image based on its EXIF orientation tag
-        { resize: { width: 2000 } } // Resize to max width while preserving aspect ratio
-      ],
+      [{ resize: { width: 2000 } }], // Normalize size first
       {
         format: ImageManipulator.SaveFormat.JPEG,
         compress: 0.9
       }
     );
 
-    const image = normalizedImage;
-
-    console.log(`📐 Original image dimensions: ${image.width}x${image.height}`);
+    console.log(`📐 Captured image dimensions: ${capturedImage.width}x${capturedImage.height}`);
 
     // Frame dimensions on screen (matching CameraScreen.tsx)
-    // The frame is 80% of screen width and 60% of that width for height (increased by 20%)
+    // The frame is 80% of screen width and 60% of that width for height
     const FRAME_WIDTH_RATIO = 0.8;
     const FRAME_HEIGHT_RATIO = 0.6;
 
-    // Calculate crop dimensions based on the normalized image
-    // The frame is centered and takes up 80% of width
+    // Calculate crop dimensions to extract ONLY the rectangle frame area
     const horizontalMargin = (1 - FRAME_WIDTH_RATIO) / 2;
-
-    // Calculate crop area
-    const cropWidth = image.width * FRAME_WIDTH_RATIO;
+    const cropWidth = capturedImage.width * FRAME_WIDTH_RATIO;
     const cropHeight = cropWidth * FRAME_HEIGHT_RATIO;
-    const cropX = image.width * horizontalMargin;
-    const cropY = (image.height - cropHeight) / 2; // Center vertically
+    const cropX = capturedImage.width * horizontalMargin;
+    const cropY = (capturedImage.height - cropHeight) / 2; // Center vertically
 
-    console.log(`✂️ Cropping normalized image: x=${Math.round(cropX)}, y=${Math.round(cropY)}, w=${Math.round(cropWidth)}, h=${Math.round(cropHeight)}`);
+    console.log(`✂️ Cropping to frame area: x=${Math.round(cropX)}, y=${Math.round(cropY)}, w=${Math.round(cropWidth)}, h=${Math.round(cropHeight)}`);
 
-    // Apply crop to the normalized image
-    const croppedResult = await ImageManipulator.manipulateAsync(
-      image.uri,
+    // STEP 1: Crop to exactly the rectangle frame area
+    const croppedToFrame = await ImageManipulator.manipulateAsync(
+      capturedImage.uri,
       [
         {
           crop: {
             originX: Math.max(0, Math.round(cropX)),
             originY: Math.max(0, Math.round(cropY)),
-            width: Math.min(Math.round(cropWidth), image.width),
-            height: Math.min(Math.round(cropHeight), image.height),
-          },
-        },
-        // Resize for optimal OCR
-        {
-          resize: {
-            width: 1200,
+            width: Math.min(Math.round(cropWidth), capturedImage.width),
+            height: Math.min(Math.round(cropHeight), capturedImage.height),
           },
         },
       ],
@@ -78,12 +62,43 @@ export async function autoCropBusinessCard(imageUri: string): Promise<CropResult
       }
     );
 
-    console.log(`✅ Auto-crop completed: ${croppedResult.width}x${croppedResult.height}`);
+    console.log(`✂️ Cropped to frame: ${croppedToFrame.width}x${croppedToFrame.height}`);
+
+    // STEP 2: If the cropped business card is portrait (taller than wide), rotate to landscape
+    let finalImage = croppedToFrame;
+    if (croppedToFrame.height > croppedToFrame.width) {
+      console.log('🔄 Business card is portrait, rotating to landscape...');
+      finalImage = await ImageManipulator.manipulateAsync(
+        croppedToFrame.uri,
+        [
+          { rotate: 90 }, // Rotate 90 degrees clockwise to landscape
+          { resize: { width: 1200 } }, // Resize for optimal OCR
+        ],
+        {
+          format: ImageManipulator.SaveFormat.JPEG,
+          compress: 0.9
+        }
+      );
+      console.log(`✅ Rotated to landscape: ${finalImage.width}x${finalImage.height}`);
+    } else {
+      console.log('✅ Business card already in landscape orientation');
+      // Just resize for OCR
+      finalImage = await ImageManipulator.manipulateAsync(
+        croppedToFrame.uri,
+        [{ resize: { width: 1200 } }],
+        {
+          format: ImageManipulator.SaveFormat.JPEG,
+          compress: 0.9
+        }
+      );
+    }
+
+    console.log(`✅ Auto-crop completed: ${finalImage.width}x${finalImage.height}`);
 
     return {
-      uri: croppedResult.uri,
-      width: croppedResult.width,
-      height: croppedResult.height,
+      uri: finalImage.uri,
+      width: finalImage.width,
+      height: finalImage.height,
     };
   } catch (error) {
     console.error('❌ Auto-crop failed:', error);

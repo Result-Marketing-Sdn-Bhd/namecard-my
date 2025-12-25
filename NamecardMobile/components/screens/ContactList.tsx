@@ -592,15 +592,16 @@ export function ContactList({
           >
             <Ionicons
               name="people"
-              size={16}
+              size={12}
               color={!selectedGroupFilter ? '#2563EB' : '#6B7280'}
             />
             <Text
               style={{
-                fontSize: 14,
+                fontSize: 12,
                 color: !selectedGroupFilter ? '#2563EB' : '#1F2937',
                 fontWeight: !selectedGroupFilter ? '700' : '600',
                 marginLeft: 6,
+                lineHeight: 14,
               }}
             >
               All ({contacts.length})
@@ -625,15 +626,16 @@ export function ContactList({
               >
                 <Ionicons
                   name={group.icon as any || 'people'}
-                  size={16}
+                  size={12}
                   color={selectedGroupFilter === group.id ? group.color : '#6B7280'}
                 />
                 <Text
                   style={{
-                    fontSize: 14,
+                    fontSize: 12,
                     color: selectedGroupFilter === group.id ? group.color : '#1F2937',
                     fontWeight: selectedGroupFilter === group.id ? '700' : '600',
                     marginLeft: 6,
+                    lineHeight: 14,
                   }}
                 >
                   {group.name} ({group.contactCount})
@@ -647,12 +649,13 @@ export function ContactList({
             style={styles.newGroupButton}
             onPress={() => setShowNewGroupModal(true)}
           >
-            <Ionicons name="add-circle" size={16} color="#2563EB" />
+            <Ionicons name="add-circle" size={12} color="#2563EB" />
             <Text style={{
-              fontSize: 14,
+              fontSize: 12,
               color: '#2563EB',
               fontWeight: '600',
               marginLeft: 6,
+              lineHeight: 14,
             }}>
               New Group
             </Text>
@@ -1011,13 +1014,12 @@ const styles = StyleSheet.create({
   groupFilterPill: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
     backgroundColor: '#FFFFFF',
-    borderRadius: 22,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: '#E5E7EB',
-    minHeight: 44,
   },
   groupFilterPillActive: {
     backgroundColor: '#EFF6FF',
@@ -1036,13 +1038,12 @@ const styles = StyleSheet.create({
   newGroupButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 14,
-    paddingVertical: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
     backgroundColor: '#EFF6FF',
-    borderRadius: 20,
-    borderWidth: 2,
+    borderRadius: 16,
+    borderWidth: 1.5,
     borderColor: '#2563EB',
-    minHeight: 40,
   },
   newGroupButtonText: {
     fontSize: 14,

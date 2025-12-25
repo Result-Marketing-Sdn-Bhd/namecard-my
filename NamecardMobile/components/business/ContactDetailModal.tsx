@@ -14,9 +14,10 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Contact } from '../../types';
+import { Contact, Group } from '../../types';
 import { ContactService } from '../../services/contactService';
 import { useIntroMessage } from '../../hooks/useIntroMessage';
+import { GroupSelectionModal } from './GroupSelectionModal';
 
 const { width, height } = Dimensions.get('window');
 
@@ -26,6 +27,9 @@ interface ContactDetailModalProps {
   onClose: () => void;
   onDelete: (contactId: string) => void;
   onEdit: (contact: Contact) => void;
+  groups?: Group[];
+  onAddContactsToGroups?: (contactIds: string[], groupIds: string[]) => void;
+  onCreateGroup?: (groupData: Omit<Group, 'id' | 'createdAt' | 'updatedAt' | 'contactCount'>) => Promise<Group> | Group | void;
 }
 
 export function ContactDetailModal({
@@ -34,9 +38,13 @@ export function ContactDetailModal({
   onClose,
   onDelete,
   onEdit,
+  groups = [],
+  onAddContactsToGroups,
+  onCreateGroup,
 }: ContactDetailModalProps) {
   const { getFormattedMessage } = useIntroMessage();
   const [showFullscreenImage, setShowFullscreenImage] = useState(false);
+  const [showGroupModal, setShowGroupModal] = useState(false);
   const [isLoading, setIsLoading] = useState({ phone: false, email: false, whatsapp: false });
 
   if (!contact) return null;
@@ -118,6 +126,19 @@ export function ContactDetailModal({
         },
       ]
     );
+  };
+
+  const handleGroupSelection = (selectedGroupIds: string[]) => {
+    if (onAddContactsToGroups && contact) {
+      onAddContactsToGroups([contact.id], selectedGroupIds);
+      setShowGroupModal(false);
+    }
+  };
+
+  const handleCreateGroup = async (groupData: Omit<Group, 'id' | 'createdAt' | 'updatedAt' | 'contactCount'>) => {
+    if (onCreateGroup) {
+      await onCreateGroup(groupData);
+    }
   };
 
   return (
@@ -317,6 +338,57 @@ export function ContactDetailModal({
             </View>
           )}
 
+          {/* Groups */}
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>Groups</Text>
+              {onAddContactsToGroups && (
+                <TouchableOpacity
+                  onPress={() => setShowGroupModal(true)}
+                  style={styles.manageButton}
+                  accessibilityLabel="Manage groups"
+                  accessibilityHint="Add or remove this contact from groups"
+                  accessibilityRole="button"
+                >
+                  <Ionicons name="add-circle-outline" size={20} color="#2563EB" />
+                  <Text style={styles.manageButtonText}>Manage</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+
+            {contact.groupIds && contact.groupIds.length > 0 ? (
+              <View style={styles.groupsList}>
+                {contact.groupIds.map((groupId) => {
+                  const group = groups.find((g) => g.id === groupId);
+                  if (!group) return null;
+
+                  return (
+                    <View key={groupId} style={styles.groupBadge}>
+                      <View style={[styles.groupColorDot, { backgroundColor: group.color }]} />
+                      {group.icon && (
+                        <Ionicons name={group.icon as any} size={14} color="#6B7280" style={{ marginRight: 4 }} />
+                      )}
+                      <Text style={styles.groupBadgeText}>{group.name}</Text>
+                    </View>
+                  );
+                })}
+              </View>
+            ) : (
+              <View style={styles.noGroupsContainer}>
+                <Text style={styles.noInfo}>Not in any groups</Text>
+                {onAddContactsToGroups && (
+                  <TouchableOpacity
+                    onPress={() => setShowGroupModal(true)}
+                    style={styles.addToGroupButton}
+                  >
+                    <Ionicons name="add-outline" size={18} color="#2563EB" />
+                    <Text style={styles.addToGroupText}>Add to group</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            )}
+          </View>
+
           {/* Metadata */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Details</Text>
@@ -364,6 +436,16 @@ export function ContactDetailModal({
           </TouchableOpacity>
         </View>
       </Modal>
+
+      {/* Group Selection Modal */}
+      <GroupSelectionModal
+        visible={showGroupModal}
+        groups={groups}
+        selectedContactCount={1}
+        onClose={() => setShowGroupModal(false)}
+        onSelectGroups={handleGroupSelection}
+        onCreateGroup={handleCreateGroup}
+      />
     </Modal>
   );
 }
@@ -542,5 +624,70 @@ const styles = StyleSheet.create({
   metaValue: {
     fontSize: 14,
     color: '#111827',
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  manageButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#EFF6FF',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+  },
+  manageButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#2563EB',
+    marginLeft: 4,
+  },
+  groupsList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  groupBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F9FAFB',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  groupColorDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginRight: 6,
+  },
+  groupBadgeText: {
+    fontSize: 14,
+    color: '#374151',
+    fontWeight: '500',
+  },
+  noGroupsContainer: {
+    alignItems: 'center',
+    paddingVertical: 8,
+  },
+  addToGroupButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: '#EFF6FF',
+    borderRadius: 20,
+  },
+  addToGroupText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#2563EB',
+    marginLeft: 6,
   },
 });

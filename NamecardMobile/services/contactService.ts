@@ -112,15 +112,63 @@ export class ContactService {
    * Get all contacts (offline-first)
    */
   static async getContacts(): Promise<Contact[]> {
-    // Always return local contacts immediately
-    const contacts = await LocalStorage.getContacts();
+    // Get local contacts only - sync is triggered separately after auth
+    const localContacts = await LocalStorage.getContacts();
+    return localContacts;
+  }
 
-    // Trigger background sync if authenticated (non-blocking)
-    if (this.hasAuth) {
-      this.syncInBackground();
+  /**
+   * PUBLIC: Sync contacts from cloud to local storage
+   * Called explicitly after authentication is confirmed
+   */
+  static async syncContactsFromCloud(): Promise<void> {
+    return this.syncFromCloud();
+  }
+
+  /**
+   * PRIVATE: Sync contacts from cloud to local storage (background operation)
+   */
+  private static async syncFromCloud(): Promise<void> {
+    try {
+      console.log('📥 Auto-syncing contacts from cloud...');
+      const cloudContacts = await SupabaseService.getContacts();
+      console.log(`📥 Found ${cloudContacts.length} contacts in cloud`);
+
+      if (cloudContacts.length > 0) {
+        // Get existing local contacts to check for duplicates
+        const localContacts = await LocalStorage.getContacts();
+        const localIds = new Set(localContacts.map(c => c.id));
+
+        let newCount = 0;
+        let updatedCount = 0;
+
+        // Only save contacts that don't exist locally OR have newer updates
+        for (const contact of cloudContacts) {
+          if (!localIds.has(contact.id)) {
+            // New contact - add it
+            await LocalStorage.saveContact(contact);
+            newCount++;
+          } else {
+            // Existing contact - check if cloud version is newer
+            const localContact = localContacts.find(c => c.id === contact.id);
+            if (localContact && contact.updatedAt && localContact.updatedAt) {
+              const cloudDate = new Date(contact.updatedAt).getTime();
+              const localDate = new Date(localContact.updatedAt).getTime();
+              if (cloudDate > localDate) {
+                // Cloud version is newer - update it
+                await LocalStorage.saveContact(contact);
+                updatedCount++;
+              }
+            }
+          }
+        }
+
+        console.log(`✅ Cloud sync complete: ${newCount} new, ${updatedCount} updated`);
+      }
+    } catch (error) {
+      console.warn('⚠️ Failed to sync from cloud:', error);
+      throw error;
     }
-
-    return contacts;
   }
 
   /**

@@ -9,11 +9,12 @@ import {
   ActivityIndicator,
   AppState,
   AppStateStatus,
+  Platform,
 } from 'react-native';
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Contact } from '../../types';
 import { GeminiOCRService } from '../../services/geminiOCR';
 import { autoCropBusinessCard } from '../../utils/imageProcessing';
@@ -47,6 +48,7 @@ export function CameraScreen({
   const [cameraKey, setCameraKey] = useState(0); // Force remount key
   const cameraRef = useRef<CameraView>(null);
   const appState = useRef(AppState.currentState);
+  const insets = useSafeAreaInsets(); // Get safe area insets for proper positioning
 
   // Reinitialize camera when screen comes into focus (React Navigation)
   useFocusEffect(
@@ -277,8 +279,8 @@ export function CameraScreen({
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+    <SafeAreaView style={styles.container} edges={['bottom']}>
+      <View style={[styles.header, { paddingTop: insets.top + 12 }]}>
         <View style={styles.headerLeft}>
           <View style={styles.logo}>
             <Ionicons name="camera" size={20} color="#FFFFFF" />
@@ -397,7 +399,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingBottom: 12,
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     position: 'absolute',
     top: 0,

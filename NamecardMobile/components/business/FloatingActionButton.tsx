@@ -94,10 +94,14 @@ export function FloatingActionButton({
           style={styles.fab}
           onPress={toggleMenu}
           activeOpacity={0.9}
+          accessible={true}
+          accessibilityLabel="Manage contacts menu"
+          accessibilityHint="Opens menu to manage selected contacts"
+          accessibilityRole="button"
         >
           <View style={styles.fabContent}>
-            <Ionicons name="download-outline" size={24} color="#FFFFFF" />
-            <Text style={styles.fabLabel}>Export</Text>
+            <Ionicons name="options-outline" size={24} color="#FFFFFF" />
+            <Text style={styles.fabLabel}>Manage</Text>
             <Animated.View style={animatedStyle}>
               <Ionicons
                 name="chevron-up-outline"
@@ -112,16 +116,20 @@ export function FloatingActionButton({
         {isExpanded && (
           <Modal
             transparent={true}
-            animationType="none"
+            animationType="fade"
             visible={isExpanded}
             onRequestClose={() => setIsExpanded(false)}
+            supportedOrientations={['portrait', 'landscape']}
           >
             <TouchableOpacity
               style={styles.modalOverlay}
               activeOpacity={1}
               onPress={() => setIsExpanded(false)}
+              accessible={true}
+              accessibilityLabel="Close menu"
+              accessibilityHint="Tap anywhere to close the menu"
             >
-              <BlurView intensity={10} style={styles.blurView}>
+              <BlurView intensity={10} style={styles.blurView} pointerEvents="none">
                 <View style={styles.menuContainer}>
                   <Animated.View
                     style={[
@@ -239,16 +247,20 @@ export function FloatingActionButton({
       {isExpanded && (
         <Modal
           transparent={true}
-          animationType="none"
+          animationType="fade"
           visible={isExpanded}
           onRequestClose={() => setIsExpanded(false)}
+          supportedOrientations={['portrait', 'landscape']}
         >
           <TouchableOpacity
             style={styles.modalOverlay}
             activeOpacity={1}
             onPress={() => setIsExpanded(false)}
+            accessible={true}
+            accessibilityLabel="Close menu"
+            accessibilityHint="Tap anywhere to close the menu"
           >
-            <BlurView intensity={10} style={styles.blurView}>
+            <BlurView intensity={10} style={styles.blurView} pointerEvents="none">
               <View style={styles.menuContainer}>
                 <Animated.View
                   style={[
@@ -360,9 +372,11 @@ const styles = StyleSheet.create({
     bottom: 180,
     alignSelf: 'center',
     alignItems: 'center',
+    pointerEvents: 'box-none',
   },
   menuItem: {
     marginBottom: 12,
+    pointerEvents: 'box-none',
   },
   menuButton: {
     flexDirection: 'row',
@@ -379,6 +393,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 4,
     elevation: 4,
+    pointerEvents: 'auto',
+    minHeight: 56,
   },
   deleteButton: {
     borderWidth: 1,

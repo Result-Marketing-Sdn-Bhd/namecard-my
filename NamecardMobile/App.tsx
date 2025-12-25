@@ -24,6 +24,7 @@ import { ContactDetailModal } from './components/business/ContactDetailModal';
 import { useGroups } from './hooks/useGroups';
 import { subscriptionCheckService } from './services/subscriptionCheckService';
 import { scanLimitService } from './services/scanLimitService';
+import { AutoUpdateService } from './services/autoUpdateService';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -146,6 +147,9 @@ export default function App() {
 
   const initializeApp = async () => {
     try {
+      // Initialize auto-update service (checks for updates silently in background)
+      AutoUpdateService.initialize();
+
       // Validate environment variables (optional for offline mode)
       const { isValid, missingKeys } = validateConfig();
       if (!isValid) {
@@ -167,6 +171,9 @@ export default function App() {
           setIsAuthenticated(true);
           setCurrentUser(user);
           console.log('✅ User authenticated, sync enabled');
+
+          // AUTO-SYNC: Sync contacts from cloud now that auth is confirmed
+          await ContactService.syncContactsFromCloud();
         } else {
           console.log('📱 Running in guest mode');
         }
@@ -537,10 +544,12 @@ export default function App() {
             <ProfileScreen
               {...props}
               user={currentUser}
-              isPremium={false} // TODO: Connect to subscription state
+              isPremium={isPremiumUser}
               onNavigate={(screen) => {
                 if (screen === 'paywall') {
                   props.navigation.navigate('Paywall');
+                } else if (screen === 'settings') {
+                  props.navigation.navigate('Settings');
                 }
               }}
               onLogout={async () => {
@@ -562,6 +571,13 @@ export default function App() {
             presentation: 'modal',
           }}
         />
+        <ProfileStackNavigator.Screen name="Settings">
+          {({ navigation }) => (
+            <SettingsScreen
+              onBack={() => navigation.goBack()}
+            />
+          )}
+        </ProfileStackNavigator.Screen>
       </ProfileStackNavigator.Navigator>
     );
   }
@@ -731,6 +747,9 @@ export default function App() {
         }}
         onDelete={handleContactDelete}
         onEdit={handleContactEdit}
+        groups={groups}
+        onAddContactsToGroups={handleAddContactsToGroups}
+        onCreateGroup={handleCreateGroup}
       />
 
       {/* Paywall Modal */}
