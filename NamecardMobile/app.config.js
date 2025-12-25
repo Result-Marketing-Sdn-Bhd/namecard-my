@@ -24,8 +24,9 @@ export default {
       [
         "react-native-iap",
         {
-          // Enable StoreKit2 for iOS (recommended for iOS 15+)
-          useStoreKit2IfAvailable: true
+          // Explicitly set to boolean true (not string)
+          // This prevents "expected dynamic type 'boolean', but had type 'string'" error
+          useStoreKit2IfAvailable: Boolean(true)
         }
       ]
     ],

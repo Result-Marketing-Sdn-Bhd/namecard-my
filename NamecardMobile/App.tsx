@@ -4,7 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import { Alert, ActivityIndicator, View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { Alert, ActivityIndicator, View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { CameraScreen } from './components/screens/CameraScreen';
 import { ContactForm } from './components/business/ContactForm';
 import { ContactList } from './components/screens/ContactList';
@@ -663,8 +664,9 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <NavigationContainer ref={navigationRef}>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.safeArea}>
+        <NavigationContainer ref={navigationRef}>
         <StatusBar style="auto" />
         <Tab.Navigator
         screenOptions={({ route, navigation }) => ({
@@ -773,7 +775,8 @@ export default function App() {
           />
         </View>
       )}
-      </NavigationContainer>
-    </SafeAreaView>
+        </NavigationContainer>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }

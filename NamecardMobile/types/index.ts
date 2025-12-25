@@ -17,6 +17,7 @@ export interface Contact {
   addedDate: string;
   lastContact?: string;
   groupIds?: string[]; // Array of group IDs this contact belongs to
+  updatedAt?: string; // For cloud sync conflict resolution
 }
 
 export interface Group {
